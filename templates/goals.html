@@ -1,0 +1,22 @@
+
+{{ competition }}
+{{ season }}
+
+<table>
+  <tr>
+    <th>date</th>
+    <th>team</th>
+    <th>player</th>
+    <th>minute</th>
+  </tr>
+
+  {% for goal in goals %}
+  <tr>
+    <td>{{ goal.date }}</td>
+    <td>{{ goal.team }}</td>
+    <td>{{ goal.player }}</td>
+    <td>{{ goal.minute }}</td>
+  </tr>
+  {% endfor %}
+
+</table>

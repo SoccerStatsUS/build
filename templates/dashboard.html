@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<table id="single-sources">
+
+  <tr>
+      <th>coll</th>
+      <th>#</th>
+  </tr>
+
+  {% for coll, datum in small_data %}
+  <tr>
+    <td>{{ coll }}</td>
+    <td><a href="/d?c={{ coll }}">{{ datum }}</a></td>
+  </tr>
+  {% endfor %}
+
+
+</table>
+
+{% macro scraper_table(header, data) %}
+<tr>
+  <td>{{ header }}</td>
+  {% for coll, datum in data %}
+  <td><a href="/d?c={{ coll }}">{{ datum }}</a></td>
+  {% endfor %}
+</tr>
+{%- endmacro %}
+
+<table>
+  <tr>
+    <th></th>
+    {% for table in stat_tables %}
+    <th>{{ table }}</th>
+    {% endfor %}
+  </tr>
+  
+{% for name, data in data %}
+  {{ scraper_table(name, data) }}
+{% endfor %}
+
+</table>
+
+
+{% endblock %}

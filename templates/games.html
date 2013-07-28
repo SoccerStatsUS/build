@@ -1,0 +1,24 @@
+
+{{ competition }}
+{{ season }}
+
+<table>
+  <tr>
+    <th>date</th>
+    <th>home</th>
+    <th>score</th>
+    <th>away</th>
+    <th>location</th>
+  </tr>
+
+  {% for game in games %}
+  <tr>
+    <td>{{ game.date }}</td>
+    <td>{{ game.home_team }}</td>
+    <td>{{ game.home_score }}-{{ game.away_score }}</td>
+    <td>{{ game.away_team }}</td>
+    <td>{{ game }}</td>
+  </tr>
+  {% endfor %}
+
+</table>

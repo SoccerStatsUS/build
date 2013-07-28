@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<ul>
+{% for row in rows %}
+<li>
+  {{ row.date }}: {{ row.home_team }} {{ row.home_score }} - {{ row.away_score }} {{ row.away_team }}
+</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

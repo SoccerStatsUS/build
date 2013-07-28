@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{{ competition }}
+
+<table>
+  <tr>
+    <th></th>
+    {% for season in seasons %}
+    <th>{{ season }}</th>
+    {% endfor %}
+  </tr>
+
+  <tr>
+    <td>Games</td>
+    {% for season, count in game_seasons %}
+    <td><a href="/games?competition={{ competition }}&season={{ season }}">{{ count }}</a></td>
+    {% endfor %}
+  </tr>
+  <tr>
+    <td>Goals</td>
+    {% for season, count in goal_seasons %}
+    <td><a href="/goals?competition={{ competition }}&season={{ season }}">{{ count }}</a></td>
+    {% endfor %}
+  </tr>  
+  <tr>
+    <td>Stats</td>
+    {% for season, count in stat_seasons %}
+    <td><a href="/stats?competition={{ competition }}&season={{ season }}">{{ count }}</a></td>
+    {% endfor %}
+  </tr>  
+  <tr>
+    <td>Lineups</td>
+    {% for season, count in lineup_seasons %}
+    <td><a href="/lineups?competition={{ competition }}&season={{ season }}">{{ count }}</a></td>
+    {% endfor %}
+  </tr>
+  <tr>
+    <td>Standings</td>
+    {% for season, count in standing_seasons %}
+    <td><a href="/standings?competition={{ competition }}&season={{ season }}">{{ count }}</a></td>
+    {% endfor %}
+  </tr>
+
+    
+</table>
+
+
+{% endblock %}

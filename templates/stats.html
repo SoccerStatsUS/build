@@ -1,0 +1,29 @@
+<table>
+  <tr>
+    <th>team</th>
+    <th>year</th>
+    <th>name</th>
+    <th>gs</th>
+    <th>gp</th>
+    <th>m</th>
+    <th>g</th>
+    <th>a</th>
+    <th>s</th>
+    <th>sog</th>
+  </tr>
+
+  {% for stat in stats %}
+  <tr>
+    <td>{{ stat.team }}</td>
+    <td>{{ stat.year }}</td>
+    <td>{{ stat.name }}</td>
+    <td>{{ stat.games_started }}</td>
+    <td>{{ stat.games_played }}</td>
+    <td>{{ stat.minutes }}</td>
+    <td>{{ stat.goals }}</td>
+    <td>{{ stat.assists }}</td>
+    <td>{{ stat.shots }}</td>
+    <td>{{ stat.shots_on_goal }}</td>
+  </tr>
+  {% endfor %}
+</table>

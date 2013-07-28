@@ -1,0 +1,22 @@
+
+
+<table>
+  <tr>
+    {% for key in keys %}
+    {% if key != "gid" %}
+    <th>{{ key }}</th>
+    {% endif %}
+    {% endfor %}
+  </tr>
+
+  {% for datum in data %}
+  <tr>
+    {% for key in keys %}
+    {% if key != "gid" %}
+    <td>{{ datum[key] }}</td>
+    {% endif %}
+    {% endfor %}
+  </tr>
+  {% endfor %}
+
+</table>
