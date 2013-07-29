@@ -7,5 +7,5 @@ sys.path.append("/home/chris/www")
 
 
 bind = "127.0.0.1:29111"
-logfile = "/home/chris/www/soccerdata/logs/gunicorn.log"
+logfile = "/home/chris/www/smid/logs/gunicorn.log"
 workers = 3

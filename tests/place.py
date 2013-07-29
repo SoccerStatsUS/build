@@ -3,7 +3,7 @@
 
 from nose.tools import *
 
-from soccerdata.build.normalize import make_stadium_getter
+from smid.build.normalize import make_stadium_getter
 
 sg = make_stadium_getter()
 

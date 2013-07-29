@@ -1,4 +1,4 @@
-from sosccerdata.data.alias import get_team
+from smid.alias import get_team
 
 magic_names = {
 

@@ -1,7 +1,7 @@
 import datetime
 from settings import SOURCES
 
-from smid.data.alias import get_team, get_name, get_competition, get_place, get_stadium, get_city, get_round
+from smid.alias import get_team, get_name, get_competition, get_place, get_stadium, get_city, get_round
 from smid.mongo import generic_load, soccer_db, insert_rows, insert_row, soccer_db
 
 from magic import get_magic_team, get_magic_name
@@ -230,6 +230,17 @@ def normalize_pick(e):
 
 def normalize_salary(e):
     e['name'] = get_name(e['name'])
+    return e
+
+
+def normalize_position(e):
+    e['person'] = get_name(e['person'])
+    e['team'] = get_team(e['team'])
+    return e
+
+def normalize_stadiummap(e):
+    e['stadium'] = get_stadium(e['stadium'])
+    e['team'] = get_team(e['team'])
     return e
 
 
@@ -464,6 +475,8 @@ def normalize():
             
 
     normalize_single_coll(soccer_db.seasons, normalize_season)
+    normalize_single_coll(soccer_db.positions, normalize_position)
+    normalize_single_coll(soccer_db.stadium_maps, normalize_stadiummap)
 
     normalize_single_coll(soccer_db.picks, normalize_pick)
     normalize_single_coll(soccer_db.salaries, normalize_salary)
