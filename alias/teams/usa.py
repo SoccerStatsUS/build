@@ -1,5 +1,6 @@
 
 usa = {
+    'Phoenix FC Wolves': 'Phoenix FC',
     'Minnesota United': 'Minnesota United FC',
     'UIC Flames': 'University of Illinois at Chicago',
     'Memphis University': 'University of Memphis',
