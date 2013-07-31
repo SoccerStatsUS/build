@@ -130,6 +130,17 @@ def normalize_season(e):
     e['competition'] = get_competition(e['competition'])
     return e
 
+def normalize_game_stat(e):
+    e['team'] = get_team(e['team'])
+    e['player'] = get_name(e['player'])
+    e['competition'] = get_competition(e['competition'])
+    
+    #if 'Noone' in e['player']:
+    #    import pdb; pdb.set_trace()
+
+    return e
+
+
 # Change all of these to use only a single game.
 
 def normalize_game(e):
@@ -492,6 +503,7 @@ def normalize():
     normalize_multiple_colls('goals', normalize_goal)
     normalize_multiple_colls('lineups', normalize_lineup)
     normalize_multiple_colls('stats', normalize_stat)
+    normalize_multiple_colls('gstats', normalize_game_stat)
     normalize_multiple_colls('standings', normalize_standing)
     normalize_multiple_colls('rosters', normalize_roster)
     normalize_multiple_colls('awards', normalize_award)

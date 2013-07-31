@@ -26,6 +26,8 @@ def generate_game_stats():
     """
     # Start scraping actual game stats from mlssoccer.com, uslsoccer.com, etc.
 
+    make_key = lambda d: tuple([d[key] for key in ['player', 'team', 'date', 'competition', 'season']])
+
     stats = defaultdict(lambda: defaultdict(int))
 
     for g in soccer_db.goals.find():
@@ -61,15 +63,25 @@ def generate_game_stats():
         l.append(v)
         
 
+    extant = set([make_key(e) for e in soccer_db.gstats.find()])
+    lx = [e for e in l if make_key(e) not in extant]
+
     #soccer_db.gstats.drop()
-    generic_load(soccer_db.gstats, lambda: l)
+    generic_load(soccer_db.gstats, lambda: lx)
 
 
 def generate_competition_stats():
 
+    # Should use game_stats here instead.
+
     def competition_generate(competition):
         x = generate_stats(soccer_db.goals.find({'competition': competition}), soccer_db.lineups.find({"competition": competition}))
         generic_load(soccer_db.stats, lambda: x.values())
+
+    def season_generate(competition, season):
+        x = generate_stats(soccer_db.goals.find({'competition': competition, 'season': season}), soccer_db.lineups.find({"competition": competition, 'season': season}))
+        generic_load(soccer_db.stats, lambda: x.values())
+
 
     l = [
         'FIFA Club World Cup',
@@ -115,7 +127,10 @@ def generate_competition_stats():
         'American League of Professional Football',
         'Eastern Soccer League (1928-1929)',
         'International Soccer League',
+
         'USSF Division 2 Professional League',
+
+
 
         'Liga MX',
         'Argentine Primera División',
@@ -138,6 +153,9 @@ def generate_competition_stats():
         'Primera División de Costa Rica',
         'Salvadoran Primera División',
         #'North American Soccer League',
+
+        # Overlap?
+        #'USL Second Division',
         ]
 
     for e in l:

@@ -185,13 +185,14 @@ def load_drafts():
 
 def load_games():
     load_usl()
-
+    load_mls() 
     return
+    load_ltrack()
     load_world_international()
     load_nasl() 
-    load_ltrack()
 
-    load_mls() 
+
+
 
 
     load_asl()  
@@ -629,12 +630,15 @@ def load_mlssoccer_season(url, competition):
 def load_mls():
     from soccerdata.text import awards, stats
 
-    load_excel_standings('mls', '/home/chris/www/ussfd1/data/standings/mls')
-    load_games_standard('mls', 'domestic/country/usa/playoffs/mls')
-
     print("Loading MLS reserves data.")
     for e in [2005, 2006, 2007, 2008, 2011, 2012, 2013]:
         load_games_standard('mls', 'domestic/country/usa/leagues/reserve/mls/%s' % e)
+
+    return
+
+    load_excel_standings('mls', '/home/chris/www/ussfd1/data/standings/mls')
+    load_games_standard('mls', 'domestic/country/usa/playoffs/mls')
+
 
     print("Loading mls bio stats.")
     # Not loading 1996-2011 stats?
@@ -929,16 +933,22 @@ def load_usl():
     Load usl stats and nasl stats.
     """
 
-    from foulds.sites import nasl
+    from foulds.sites import nasl, uslsoccer
+    from soccerdata.text import awards, stats
+    from soccerdata.text.cmp import nasl2
 
-    generic_load(soccer_db['us_d2_games'], nasl.scrape_all_games)
-    generic_load(soccer_db['us_d2_goals'], nasl.scrape_all_goals)
-    generic_load(soccer_db['us_d2_gstats'], nasl.scrape_all_game_stats)
+
+    generic_load(soccer_db['us_lower_games'], uslsoccer.scrape_2013_games)
+    #generic_load(soccer_db['us_lower_goals'], uslsoccer.scrape_2013_goals)
+    generic_load(soccer_db['us_lower_gstats'], uslsoccer.scrape_2013_game_stats)
 
     return
 
-    from soccerdata.text import awards, stats
-    from soccerdata.text.cmp import nasl2
+    generic_load(soccer_db['us_lower_games'], nasl.scrape_all_games)
+    generic_load(soccer_db['us_lower_goals'], nasl.scrape_all_goals)
+    generic_load(soccer_db['us_lower_gstats'], nasl.scrape_all_game_stats)
+
+    generic_load(soccer_db.us_d2_stats, nasl2.process_stats)
 
     # Division 2
     generic_load(soccer_db.us_d2_awards, awards.process_usl_awards) #split 2 and 3
@@ -947,7 +957,7 @@ def load_usl():
 
     generic_load(soccer_db.us_d2_stats, stats.process_usl1_stats)
     generic_load(soccer_db.us_d2_stats, stats.process_usl2_stats)
-    generic_load(soccer_db.us_d2_stats, nasl2.process_stats)
+
 
     load_sd_excel_standings('us_d2', 'domestic/country/usa/usl/usl0')
     load_sd_excel_standings('us_d2', 'domestic/country/usa/usl/12') # split
@@ -973,9 +983,6 @@ def load_usl():
     for e in range(2003, 2014):
         load_games_standard('us_d3', 'domestic/country/usa/leagues/d3/%s' % e)
     load_games_standard('us_d3', 'domestic/country/usa/playoffs/usl2')
-
-
-
 
 
 

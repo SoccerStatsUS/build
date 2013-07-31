@@ -98,9 +98,11 @@ magic_teams = {
 
     'Olimpia': [
         (from_competition('Liga Nacional de Honduras'), 'CD Olimpia'),
+        (from_competition('CONCACAF Champions League'), 'CD Olimpia'),
         (from_competition('Copa Interclubes UNCAF'), 'CD Olimpia'),
         (from_competition('Copa Mercosur'), 'Club Olimpia'),
-        (from_competition('Copa Libertadoers'), 'Club Olimpia'),
+        (from_competition('Copa Libertadores'), 'Club Olimpia'),
+        (from_competition('Uruguayan Primera División'), 'Olimpia (Uruguay)'),
         ],
 
     'Real Espana': [

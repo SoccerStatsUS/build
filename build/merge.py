@@ -18,6 +18,7 @@ def merge():
 
     merge_goals()
     merge_lineups()
+    merge_game_stats()
     merge_fouls()
 
     merge_bios()
@@ -78,7 +79,10 @@ def merge_goals():
         # Add a source key here.
 
         if d['minute']:
-            key = (d['date'], d['goal'], d['minute'])
+            try:
+                key = (d['date'], d['goal'], d['minute'])
+            except:
+                import pdb; pdb.set_trace()
         else: 
             # For the case where a player has scored multiple goals, but we don't have a minute for any of them.
             # random.random() -> None.
@@ -106,6 +110,40 @@ def merge_goals():
             
     soccer_db.goals.drop()
     insert_rows(soccer_db.goals, dd.values())
+
+
+
+
+
+def merge_game_stats():
+
+    dd = {}
+
+    def update_game_stat(d):
+        if '_id' in d:
+            d.pop("_id")
+        
+        key = tuple([d[k] for k in ['player', 'team', 'date', 'competition', 'season']])
+
+        if key in dd:
+            orig = dd[key]
+
+            for k, v in d.items():
+                if not orig.get(k) and v:
+                    orig[k] = v
+
+        else:
+            dd[key] = d
+
+        
+    for e in SOURCES:
+        c = '%s_gstats' % e
+        coll = soccer_db[c]
+        for e in coll.find():
+            update_game_stat(e)
+            
+    soccer_db.gstats.drop()
+    insert_rows(soccer_db.gstats, dd.values())
 
 
 
@@ -170,6 +208,7 @@ def merge_lineups():
     insert_rows(soccer_db.lineups, dd.values())
 
 
+
 def merge_all_games():            
     games_coll_names = ['%s_games' % coll for coll in SOURCES]
     games_lists = [soccer_db[k].find() for k in games_coll_names]
@@ -225,6 +264,7 @@ def merge_games(games_lists):
 
         if '_id' in d:
             d.pop("_id")
+
         
 
         teams = tuple(sorted([d['team1'], d['team2']]))
@@ -232,6 +272,9 @@ def merge_games(games_lists):
         # add source_id here to handle no date overlaps.
         key = (teams, d['date'], d['season'])
 
+
+        #if sorted([d['team1'], d['team2']]) == ['Los Angeles Blues', 'Phoenix FC']:
+        #    import pdb; pdb.set_trace()
 
         # Add the game if we don't have a match.
         if key not in game_dict:
