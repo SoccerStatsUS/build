@@ -184,12 +184,16 @@ def load_drafts():
     generic_load(soccer_db.picks, drafts.load_picks)
 
 def load_games():
+    load_usl()
 
+    return
+    load_world_international()
+    load_nasl() 
     load_ltrack()
 
     load_mls() 
 
-    load_nasl() 
+
     load_asl()  
 
     load_oceania_international()
@@ -207,7 +211,7 @@ def load_games():
 
     load_mixed_confederation()
 
-    load_world_international()
+
     load_concacaf_international()
     load_argentina()
 
@@ -215,7 +219,7 @@ def load_games():
 
     load_apsl()
 
-    load_usl()
+
 
     load_usmnt()
 
@@ -788,7 +792,6 @@ def load_asl():
     load_games_standard('asl', os.path.join(DIR, 'games/league/simple/asl'))
     load_games_standard('asl', os.path.join(DIR, 'games/league/simple/esl'))
 
-    return
     from soccerdata.text import awards
     generic_load(soccer_db.asl_awards, awards.process_asl_awards, delete=False)
     generic_load(soccer_db.asl_awards, awards.process_esl_awards, delete=False)
@@ -829,10 +832,9 @@ def load_nasl():
     generic_load(soccer_db.nasl_goals, nasl.process_nasl_goals)
     generic_load(soccer_db.nasl_lineups, nasl.process_nasl_lineups)
 
-    return
 
     from soccerdata.text import awards, rosters, stats
-    generic_load(soccer_db.nasl_rosters, lambda: rosters.process_rosters2('domestic/nasl'))
+    generic_load(soccer_db.nasl_rosters, lambda: rosters.process_rosters2('/home/chris/www/ussfd1/data/rosters/nasl'))
     generic_load(soccer_db.nasl_stats, stats.process_nasl_stats)
     generic_load(soccer_db.nasl_awards, awards.process_nasl_awards)
     generic_load(soccer_db.nasl_awards, awards.process_usa_awards)
@@ -927,6 +929,14 @@ def load_usl():
     Load usl stats and nasl stats.
     """
 
+    from foulds.sites import nasl
+
+    generic_load(soccer_db['us_d2_games'], nasl.scrape_all_games)
+    generic_load(soccer_db['us_d2_goals'], nasl.scrape_all_goals)
+    generic_load(soccer_db['us_d2_gstats'], nasl.scrape_all_game_stats)
+
+    return
+
     from soccerdata.text import awards, stats
     from soccerdata.text.cmp import nasl2
 
@@ -963,6 +973,9 @@ def load_usl():
     for e in range(2003, 2014):
         load_games_standard('us_d3', 'domestic/country/usa/leagues/d3/%s' % e)
     load_games_standard('us_d3', 'domestic/country/usa/playoffs/usl2')
+
+
+
 
 
 
@@ -1201,7 +1214,7 @@ def load_world_international():
     from soccerdata.text import awards, rosters
 
     generic_load(soccer_db.world_i_rosters, lambda: rosters.process_rosters('international/olympics'))
-    generic_load(soccer_db.world_i_rosters, lambda: rosters.process_rosters2('international/confederations'))
+    generic_load(soccer_db.world_i_rosters, lambda: rosters.process_rosters2('/home/chris/www/soccerdata/data/rosters/international/confederations'))
 
     confed = [1992, 1995, 1997, 1999, 2001, 2003, 2005, 2009, 2013]
 
@@ -1221,8 +1234,7 @@ def load_world_international():
     load_games_standard('world_i', 'international/world/interallied')
     load_games_standard('world_i', 'international/world/mundialito')
 
-    olympics = [1900, 1904, 1908, 1912, 1920, 1924, 1928, 1936, 
-                1948, 1952, 1956, 1960, 1964, 1968, 1972, 2008, 2012]
+    olympics = [1900, 1904, 1908, 1912, 1920, 1924, 1928, 1936] + range(1948, 2013, 4)
 
     # Merge olympic data.
     for e in olympics:
@@ -1248,9 +1260,9 @@ def load_world():
 
     generic_load(soccer_db.world_awards, awards.process_isl_awards)
 
-    generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2('domestic/club_world_cup'))
-    generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2('domestic/isl'))
-    generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2('domestic/copita'))
+    generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2('/home/chris/www/soccerdata/data/rosters/domestic/club_world_cup'))
+    generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2('/home/chris/www/soccerdata/data/rosters/domestic/isl'))
+    generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2('/home/chris/www/soccerdata/data/rosters/domestic/copita'))
 
     load_sd_excel_standings('world', 'domestic/country/usa/isl')
     load_games_standard('world', 'domestic/country/usa/leagues/isl2')

@@ -24,7 +24,7 @@ def generate_game_stats():
     Generate player statistics for individual games.
     Like the stuff you see on uslsoccer.com.
     """
-    # Consider scraping actual game stats from mlssoccer.com, uslsoccer.com, etc.
+    # Start scraping actual game stats from mlssoccer.com, uslsoccer.com, etc.
 
     stats = defaultdict(lambda: defaultdict(int))
 
@@ -61,7 +61,7 @@ def generate_game_stats():
         l.append(v)
         
 
-    soccer_db.gstats.drop()
+    #soccer_db.gstats.drop()
     generic_load(soccer_db.gstats, lambda: l)
 
 

@@ -1,5 +1,6 @@
 
 usa = {
+    'Minnesota United': 'Minnesota United FC',
     'UIC Flames': 'University of Illinois at Chicago',
     'Memphis University': 'University of Memphis',
 
@@ -18,7 +19,10 @@ usa = {
     
     'IUPUI': 'Indiana University-Purdue University Indianapolis',
     'University of Colorado Colorado Springs': 'University of Colorado at Colorado Springs',
+
     'UC Riverside': 'University of California, Riverside',
+    'University of California-Riverside': 'University of California, Riverside',
+
     'UC Irvine': 'University of California, Irvine',
     'Roberts Wesleyan': 'Roberts Wesleyan College',
     'Foothill Community College': 'Foothill College',
