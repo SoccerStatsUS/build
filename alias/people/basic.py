@@ -1,5 +1,6 @@
 
 basic = {
+    'Dave Clarke': 'David Clarke',
     'Nogués': 'Nogues',
     'Benitez Cáceres': 'Benítez Cáceres',
     'Saldaña': 'Saldana',

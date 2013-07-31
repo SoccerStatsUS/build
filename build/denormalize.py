@@ -125,7 +125,7 @@ def make_stadium_getter():
     Given a team name, eg FC Dallas and a date, return the appropriate stadium.
     """
     
-    from text import stadiummap
+    from soccerdata.text import stadiummap
 
     d = defaultdict(list)
     for x in stadiummap.load():
@@ -163,7 +163,7 @@ def make_team_name_ungetter():
     """
     Given a canonical name, eg FC Dallas, return the time-specific name, e.g. Dallas Burn.
     """
-    from text import namemap
+    from soccerdata.text import namemap
 
     d = defaultdict(list)
     for x in namemap.load():
@@ -205,7 +205,7 @@ def make_competition_name_ungetter():
     """
     Given a canonical name, eg US Open Cup, return the time-specific name, e.g. National Challenge Cup
     """
-    from text import competitionnamemap
+    from soccerdata.text import competitionnamemap
 
     d = defaultdict(list)
     for x in namemap.load():
