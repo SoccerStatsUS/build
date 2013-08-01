@@ -1,5 +1,6 @@
 
 usa = {
+    'Vancouver Whitecaps FC Reserves': 'Vancouver Whitecaps Reserves',
     'Phoenix FC Wolves': 'Phoenix FC',
     'Minnesota United': 'Minnesota United FC',
     'UIC Flames': 'University of Illinois at Chicago',
@@ -42,12 +43,15 @@ usa = {
 
     # ASL
     'Todd Shipyards F.C.': 'Todd Shipyards',
+
     'New York National Giants': 'New York Giants',
+    'NY Giants': 'New York Giants',
+
     'Hakoah All Stars': 'Hakoah All-Stars',
     'J&P Coats': 'J & P Coats',
     'J & P Coats': 'Pawtucket Rangers',
     'Pawtucket Rngers': 'Pawtucket Rangers',
-    'NY Giants': 'New York Giants',
+
     'New york Field Club': 'New York Field Club',
     'Fall River County Street Rovers': 'Fall River Rovers',
     'Fall River United': 'Fall River Rovers',

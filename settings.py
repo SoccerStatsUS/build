@@ -38,6 +38,7 @@ SOURCES = [
     'mls',
     'mls2',
 
+    'alpf',
     'nafbl',
     'asl2',
 

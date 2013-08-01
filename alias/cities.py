@@ -368,7 +368,9 @@ cities = {
     'Kearny NJ': 'Kearny, New Jersey',
     'Kearny, N.J.': 'Kearny, New Jersey',
 
+    'Manhattan, NY': 'New York, NY',
     'New York, N.Y.': 'New York, New York',
+
     'San José, California': 'San Jose, California',
     'San José, CA': 'San Jose, CA',
 

@@ -55,6 +55,18 @@ def denormalize():
                     e['city'] = city
                     e['location_inferred'] = True
 
+        elif home_team is None:
+            # Fix location/city inconsistencies.
+            team1_city = team_city_map.get(e['team1'])
+            team2_city = team_city_map.get(e['team2'])
+            if team1_city and team2_city:
+                if team1_city != team2_city:
+                    if team1_city == e['location']:
+                        e['home_team'] = e['team1']
+
+                    if team2_city == e['location']:
+                        e['home_team'] = e['team2']
+
         l.append(e)
 
     soccer_db.games.drop()
@@ -116,10 +128,6 @@ def denormalize():
     #insert_rows(soccer_db.standings, standings)
 
 
-
-
-
-
 def make_stadium_getter():
     """
     Given a team name, eg FC Dallas and a date, return the appropriate stadium.
@@ -156,6 +164,49 @@ def make_stadium_getter():
         return team
 
     return getter
+
+
+
+def make_reverse_stadium_getter():
+    """
+    Given a stadium name, eg FC Dallas Stadium and a date, return the appropriate team.
+    """
+    # Unfinished since this seems ill-conceived.
+    # Should return a list? This can be a little ambiguous.
+    
+    from soccerdata.text import stadiummap
+
+    d = defaultdict(list)
+    for x in stadiummap.load():
+        key = x['stadium']
+        value = (x['team'], x['start'], x['end'])
+        d[key].append(value)
+
+
+    def getter(stadium, team_date):
+        
+        if team_date is None:
+            return stadium
+        
+        if team not in d:
+            return team
+        else:
+            times_list = d[team]
+
+            for u in times_list:
+                try:
+                    t, start, end = u
+                except:
+                    import pdb; pdb.set_trace()
+                if start <= team_date <= end:
+                    return t
+
+        # fallback.
+        return team
+
+    return getter
+
+
 
 
 

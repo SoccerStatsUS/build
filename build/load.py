@@ -29,7 +29,7 @@ def make_team_to_competition_dict():
 
     SDIR = "/home/chris/www/soccerdata/data/standings/domestic/country/usa/"
 
-    l = process_excel_standings('/home/chris/www/ussfd1/data/standings/mls')
+    l = process_excel_standings('/home/chris/www/usd1/data/standings/mls')
 
     for e in 'apsl', 'ussf2', 'nasl2':
         l.extend(process_excel_standings(os.path.join(SDIR, e)))
@@ -94,6 +94,7 @@ def load_games_standard(coll, fn, games_only=False, root="/home/chris/www/soccer
     from aldo.parse import games
 
     print(fn)
+
 
     p = os.path.join(root, fn)
     games, goals, fouls, lineups, rosters = games.process_games_file(p)
@@ -168,8 +169,9 @@ def load():
 
     load_bios()
     load_salaries()
-    load_positions()
-    load_drafts()
+
+    #load_positions()
+    #load_drafts()
 
     load_games()
 
@@ -184,9 +186,14 @@ def load_drafts():
     generic_load(soccer_db.picks, drafts.load_picks)
 
 def load_games():
+    load_alpf()
+    return
+
+    load_women()
+    load_usmnt()
+
     load_usl()
     load_mls() 
-    return
     load_ltrack()
     load_world_international()
     load_nasl() 
@@ -202,7 +209,7 @@ def load_games():
 
     load_conmebol()
 
-    load_women()
+
     
 
     load_uncaf()
@@ -222,7 +229,7 @@ def load_games():
 
 
 
-    load_usmnt()
+
 
     load_fifa()
 
@@ -239,6 +246,7 @@ def load_games():
     load_indoor()
 
     load_nafbl()
+
 
     load_oceania()
 
@@ -369,11 +377,15 @@ def load_places():
 def load_usmnt():
     from soccerdata.text import awards
 
-    for e in [1880, 1910, 1980, 1990, 2000, 2010]:
-        load_games_standard('usa', 'international/country/usa/%s' % e)
+    root = "/home/chris/www/usmnt"
 
-    load_games_standard('usa', 'international/country/usa/world_cup')
-    load_games_standard('usa', 'international/country/usa/us_cup')
+    for e in range(1910, 2020, 10):
+        load_games_standard('usa', 'games/years/%s' % e, root=root)
+
+    load_games_standard('usa', 'games/fifa/world_cup', root=root)
+    load_games_standard('usa', 'games/friendly/us_cup', root=root)
+    load_games_standard('usa', 'games/friendly/friendly', root=root)
+
     generic_load(soccer_db.usa_awards, awards.load_hall_of_fame)
 
 
@@ -636,7 +648,7 @@ def load_mls():
 
     return
 
-    load_excel_standings('mls', '/home/chris/www/ussfd1/data/standings/mls')
+    load_excel_standings('mls', '/home/chris/www/usd1/data/standings/mls')
     load_games_standard('mls', 'domestic/country/usa/playoffs/mls')
 
 
@@ -664,6 +676,7 @@ def load_mls():
 
 
 
+
 def load_nafbl():
     from soccerdata.text import awards
 
@@ -673,7 +686,7 @@ def load_nafbl():
 
     load_sd_excel_standings('nafbl', 'domestic/country/usa/early')
 
-    load_games_standard('nafbl', 'domestic/country/usa/leagues/d1/alpf')
+
 
     load_games_standard('nafbl', 'domestic/country/usa/leagues/regional/nafbl1')
     load_games_standard('nafbl', 'domestic/country/usa/leagues/regional/nafbl2')
@@ -710,9 +723,10 @@ def load_early_friendlies():
 
 
 def load_modern_friendlies():
+    load_games_standard('us_friendly', 'international/misc/bicentennial')
+
     load_games_standard('us_friendly', 'domestic/country/usa/friendly/carolina')
     load_games_standard('us_friendly', 'domestic/country/usa/friendly/dynamo')
-    load_games_standard('us_friendly', 'international/country/usa/bicentennial')
     load_games_standard('us_friendly', 'domestic/country/usa/friendly/mls_all_star')
     load_games_standard('us_friendly', 'domestic/country/usa/friendly/1960')
     load_games_standard('us_friendly', 'domestic/country/usa/friendly/1967')
@@ -782,9 +796,9 @@ def load_copa_america():
     
 def load_asl():
 
-    from ussfd1.parse import asl
+    from usd1.parse import asl
 
-    DIR = '/home/chris/www/ussfd1/data/'
+    DIR = '/home/chris/www/usd1/data/'
 
     load_excel_standings('asl', os.path.join(DIR, 'standings/asl'))
 
@@ -801,6 +815,11 @@ def load_asl():
     generic_load(soccer_db.asl_awards, awards.process_esl_awards, delete=False)
 
 
+def load_alpf():
+    load_games_standard('alpf', '/home/chris/www/usd1/data/games/league/simple/alpf')
+    load_standings_standard('alpf', 'alpf', root='/home/chris/www/usd1/data/standings')
+
+
 
 def load_asl2():
     from soccerdata.text import awards, partial
@@ -811,14 +830,15 @@ def load_asl2():
     load_games_standard('asl2', 'domestic/country/usa/leagues/d2/asl2')
 
 
+
 def load_nasl():
     """
     Load stats from the old nasl and misl.
     """
 
-    from ussfd1.parse import nasl
+    from usd1.parse import nasl
 
-    DIR = "/home/chris/www/ussfd1/data/"
+    DIR = "/home/chris/www/usd1/data/"
     GDIR = os.path.join(DIR, 'games')
 
     print("Loading NASL data.")
@@ -838,7 +858,7 @@ def load_nasl():
 
 
     from soccerdata.text import awards, rosters, stats
-    generic_load(soccer_db.nasl_rosters, lambda: rosters.process_rosters2('/home/chris/www/ussfd1/data/rosters/nasl'))
+    generic_load(soccer_db.nasl_rosters, lambda: rosters.process_rosters2('/home/chris/www/usd1/data/rosters/nasl'))
     generic_load(soccer_db.nasl_stats, stats.process_nasl_stats)
     generic_load(soccer_db.nasl_awards, awards.process_nasl_awards)
     generic_load(soccer_db.nasl_awards, awards.process_usa_awards)
