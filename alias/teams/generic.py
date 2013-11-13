@@ -2,6 +2,8 @@
 
 generic = {
 
+    'Acádemica': 'Academica',
+    'Académica': 'Academica',
 
     'Santa Bárbara': 'Santa Barbara',
 
@@ -18,6 +20,8 @@ generic = {
     'San José': 'San Jose',
     'Unión': 'Union',
     'Vitória': 'Vitoria',
+
+    'Huaracan': 'Huracan',
 
 
 

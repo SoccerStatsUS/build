@@ -1,5 +1,6 @@
 
 international = {
+    'Bosnia-Herzegovina': 'Bosnia and Herzegovina',
     'Bosnia-Hercegov.': 'Bosnia and Herzegovina',
     'St Croix': 'St. Croix',
     'United States Maccabiah': 'United States Maccabi',

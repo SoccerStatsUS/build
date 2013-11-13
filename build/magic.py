@@ -7,6 +7,10 @@ magic_names = {
         ('Jorge Villafaña', {'team': 'Chivas USA Reserves' }),
         ],
 
+    'Juninho': [
+        ('Juninho Paulista', {'team': 'Middlesbrough' }),
+        ],
+
 
     #'Chris Brown': [
     #    'Chris Brown 1971': {'team': 'FC Dallas' }
@@ -18,6 +22,11 @@ def from_competition(competition):
     return lambda d: d['competition'] == competition
 
 magic_teams = {
+
+    'Academica': [
+        (from_competition('Primeira Liga'), 'Académica de Coimbra'),
+        ],
+
 
     'Aguila': [
         (from_competition('Salvadoran Primera División'), 'CD Aguila'),
@@ -48,12 +57,33 @@ magic_teams = {
         (from_competition('Liga Panameña de Fútbol'), 'Atlético Nacional (Panama)'),
         ],
 
+    'Athletic': [
+        (from_competition('La Liga'), 'Atletico Madrid'),
+        ],
+
+    'Atletico': [
+        (from_competition('La Liga'), 'Atletico Madrid'),
+        ],
+
     'Cartagena': [
         (from_competition('Categoría Primera A'), 'Real Cartagena'),
         ],
 
     'Central': [
         (from_competition('Uruguayan Primera División'), 'Central Español'),
+        ],
+
+    'Chicago Fire Reserves': [
+        ],
+
+
+    'Deportivo': [
+        (from_competition('La Liga'), 'Deportivo La Coruna'),
+        ],
+
+
+    'España': [
+        (from_competition('Liga Nacional de Honduras'), 'Real C.D. España'),
         ],
 
     'Estudiantes': [
@@ -65,6 +95,10 @@ magic_teams = {
     'Heredia': [
         (from_competition('Liga Nacional de Guatemala'), 'Heredia Jaguares de Peten'),
         (from_competition('Primera División de Costa Rica'), 'CS Herediano'),
+        ],
+
+    'Huelva': [
+        (from_competition('La Liga'), 'Recreativo Huelva'),
         ],
 
     'Junior': [
@@ -113,6 +147,7 @@ magic_teams = {
         (from_competition('Liguilla Pre-Libertadores de América (Uruguay)'), 'Racing Club de Montevideo'),
         (from_competition('Uruguayan Primera División'), 'Racing Club de Montevideo'),
         (from_competition('Argentine Primera División'), 'Racing Club de Avellaneda'),
+        (from_competition('La Liga'), 'Racing de Santander'),
         ],
 
     'Racing Club': [
@@ -121,9 +156,23 @@ magic_teams = {
         (from_competition('Argentine Primera División'), 'Racing Club de Avellaneda'),
         ],
 
+    'Rapid': [
+        (from_competition('Austrian Bundesliga'), 'Rapid Vienna'),
+        ],
+
+    'Recreativo': [
+        (from_competition('La Liga'), 'Recreativo Huelva'),
+        ],
+
+
     'River Plate': [
         (from_competition('Uruguayan Primera División'), 'River Plate (Montevideo)'),
         ],
+
+    'River': [
+        (from_competition('Uruguayan Primera División'), 'River Plate (Montevideo)'),
+        ],
+
 
     'Sacachispas': [
         (from_competition('Liga Nacional de Guatemala'), 'CSD Sacachispas')
@@ -147,12 +196,33 @@ magic_teams = {
         (from_competition('Primera División de Costa Rica'), 'Santos de Guápiles'),
         ],
 
+
+    'Sociedad': [
+        (from_competition('La Liga'), 'Real Sociedad'),
+        ],
+
+
+    'Sparta': [
+        (from_competition('Eredivisie'), 'Sparta Rotterdam'),
+        ],
+
     'Sport': [
         (from_competition('Copa Libertadores'), 'SC Recife'),
         ],
 
     'Sporting': [
         (from_competition('Liga Panameña de Fútbol'), 'Sporting San Miguelito'),
+        (from_competition('Primeira Liga'), 'Sporting CP'),
+        (from_competition('La Liga'), 'Sporting de Gijon'),
+        ],
+
+
+    'Standard': [
+        (from_competition('Belgian Pro League'), 'Standard Liège'),
+        ],
+
+    'Sturm': [
+        (from_competition('Austrian Bundesliga'), 'Sturm Graz'),
         ],
 
     'Universidad': [
@@ -171,8 +241,14 @@ magic_teams = {
         (from_competition('Liga Nacional de Honduras'), 'CD Victoria'),
         ],
 
+
+    'Viking': [
+        (from_competition('Tippeligaen'), 'Viking FK'),
+        ],
+
     'Wanderers': [
         (from_competition('Uruguayan Primera División'), 'Montevideo Wanderers'),
+        (from_competition('Chilean Primera División'), 'Santiago Wanderers'),
         ],
     }
 

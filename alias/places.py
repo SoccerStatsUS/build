@@ -15,6 +15,20 @@ def get_place(s):
 
 
 places = {
+    'Cricket Ground, Sydney': 'Sydney Cricket Ground',
+    'Sports Ground, Sydney': 'Sydney Sports Ground',
+    'Estadio Municipal, Concepcion': 'Estadio Municipal de Concepción',
+    'Estadio Regional, Antofagasta': 'Estadio Regional de Antofagasta',
+    'National Soccer Stadium, Toronto': 'BMO Field',
+    'Olympic Stadium, Montreal': 'Montreal Olympic Stadium',
+    'Ataturk Stadium, Bursa': 'Bursa Ataturk Stadium',
+    'Stedelijk Olympisch, Antwerp': 'Stedelijk Olympisch Stadion',
+    'Idrottsplats, Råsunda': 'Råsunda Idrottsplats',
+    'Idrottsplats Traneberg': 'Traneberg Idrottsplats',
+    'Sportplats, Traneberg': 'Traneberg Sportplats',
+    'Olympic, Stockholm': 'Olympic Stadion, Stockholm',
+    'Bosuil, Antwerp': 'Bosuilstadion',
+    'De Bosuil, Antwerp': 'Bosuilstadion',
 
     # Generic
     'Away': 'away',
@@ -130,6 +144,7 @@ places = {
 
     'Independiente Stadium, Avellaneda, Argentina': 'Estadio de Independiente',
     'Estadio Centenario, Armenia, Colombia': 'Estadio Centenario de Armenia',
+    'Estadio Centenario, Armenia': 'Estadio Centenario de Armenia',
     'Estadio Monumental, Buenos Aires, Argentina': 'Estadio Monumental Antonio Vespucio Liberti',
     'Estadio Nacional, Santiago, Chile': 'Estadio Nacional Julio Martínez Prádanos',
     'Estadio Nacional, Lima, Peru': 'Estadio Nacional de Peru',

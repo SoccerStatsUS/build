@@ -1,5 +1,10 @@
-
 usa = {
+
+    'Greenville Lions Premier': 'Greenville Lions',
+
+    'Southern California Seahorse': 'Southern California Seahorses',
+
+    'F.C. New York': 'FC New York',
     'Vancouver Whitecaps FC Reserves': 'Vancouver Whitecaps Reserves',
     'Phoenix FC Wolves': 'Phoenix FC',
     'Minnesota United': 'Minnesota United FC',
@@ -164,6 +169,7 @@ usa = {
     'Louisiana Outlaws': 'Lafayette Swamp Cats',
     'Lafayette SwampCats': 'Lafayette Swamp Cats',
     'Mid-Michigan Bucks': 'Michigan Bucks',
+    'Mid Michigan Bucks': 'Michigan Bucks',
     'Albany Blackwatch Highlanders': 'Albany Admirals',
     'Albany Black Watch Highlanders': 'Albany Blackwatch Highlanders',
     'South Jersey Barons': 'Ocean City Barons',
@@ -187,8 +193,13 @@ usa = {
     'Hampton Roads Piranhas': 'Virginia Beach Piranhas',
     'Boulder Rapids Reserves': 'Colorado Rapids U-23',
     'Boulder Rapids Reserve': 'Colorado Rapids U-23',
-    'Abbotsford Rangers': 'Abbotsford Mariners',
-    'Abbotsford Mariners': 'Fraser Valley Mariners',
+
+    'Abbotsford Rangers': 'Abbotsford Mariners', # alias until 2007
+    'Abbotsford Athletes in Action': 'Abbotsford Mariners', # alias 1998
+    'Abbotsford 86ers': 'Fraser Valley Mariners', # 1999
+    'Abbotsford 86ers Select': 'Fraser Valley Mariners', # 2000
+    'Abbotsford Mariners': 'Fraser Valley Mariners', 
+
     'Fraser Valley Mariners FC': 'Fraser Valley Mariners',
     'Los Angeles Storm': 'Los Angeles Legends',
     'Austin Stampede': 'Austin Aztex U23s',
@@ -811,6 +822,7 @@ usa = {
     'Jershey Shore Boca': 'Jersey Shore Boca',
 
     'NY/NJ Stallions': 'New Jersey Stallions',
+    'New York/New Jersey Stallions': 'New Jersey Stallions',
 
     'Celtics of New Jersey': 'Celtics FC (New Jersey)',
     'Newark SC': 'Newark S.C.',
@@ -884,7 +896,6 @@ usa = {
     #Lions SC (IL)
     #Italian American Maroons (IL)
     #Gillespie SC (Illinois)
-    #Hansa (IL)
     #Scottish American FC (IL)
 
 
@@ -1169,7 +1180,7 @@ usa = {
 
     # Pretty sure this is correct.
     'Coca Cola (St. L)': 'Kavanaugh',
-    'Coca Cola': 'Kavanaugh',
+    #'Coca Cola': 'Kavanaugh', # Too broad. There is a Salvadorean team.
 
     'Tablers': 'Tablers FC',
 

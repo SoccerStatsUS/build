@@ -29,7 +29,20 @@ misc = {
 }
 
 world = {
+    'Asim Ferhatovic Hase Stadium': 'Asim Ferhatović Hase Stadium',
+    'Estadio D. Afonso Henriques': 'Estádio D. Afonso Henriques',
+    'Estadio das Antas': 'Estádio das Antas',
+    'Khalifa Olympic Stadium': 'Khalifa International Stadium',
+    'Utama Stadium': 'Utama Negeri Stadium',
+    'Estadio Newell\'s Old Boys': 'Estadio Marcelo Bielsa',
 
+    'Estadio Nemesio Camacho': 'Estadio El Campin',
+    'Estadio Jaime Moron Leon': 'Estadio Jaime Morón León',
+    'Bursa Ataturk Stadium': 'Bursa Atatürk Stadium',
+    'Huseyin Avni Aker Stadium': 'Hüseyin Avni Aker Stadium',
+    'Ali Sami Yen Arena': 'Ali Sami Yen Stadium',
+    'Shepherds Bush Stadium': 'Shepherds Bush Green',
+    'Cleveland Browns Stadium': 'FirstEnergy Stadium',
     'Home Depot Center': 'StubHub Center',
 
     'Estadio Bella Vista': 'Estadio Bellavista',
@@ -136,7 +149,14 @@ world = {
 
     'Vijverberg Stadium': 'De Vijverberg',
     'The Parkstad Limburg Stadium': 'Parkstad Limburg Stadion',
+
+    'Unive Stadion': 'Univé Stadion',
+
+    'Arke Stadion': 'De Grolsch Veste',
+
     'The Galgenwaard Stadium': 'Stadion Galgenwaard',
+    'Galgenwaard Stadion': 'Stadion Galgenwaard',
+    
     'Rashid Al-Maktoum Stadium': 'Maktoum Bin Rashid Al Maktoum Stadium',
     'Zayed Sports City': 'Sheikh Zayed Stadium',
     'Mohammad Bin Zayed Stadium': 'Mohammed Bin Zayed Stadium',
@@ -355,6 +375,7 @@ world = {
     'Stade Chapou': 'Stade Municipal de Toulouse',
     'Stade de Toulouse': 'Stade Municipal de Toulouse',
     'Stade Olympique de Colombes': 'Stade Olympique Yves-du-Manoir',
+    'Stade Olympique Colombes': 'Stade Olympique Yves-du-Manoir',
     'Velodrome Municipal': 'Stade Vélodrome',
     'Stade Velodrome': 'Stade Vélodrome',
     'Pershing Park': 'Stade Pershing',

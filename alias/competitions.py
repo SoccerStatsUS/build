@@ -8,6 +8,7 @@ full_alias = {
     'Rio Branco Cup': 'Copa Rio Branco',
 
     'Interliga': 'InterLiga',
+    'La Ligue': 'Ligue 1',
 
     'K-League': 'K League',
 
@@ -17,6 +18,9 @@ full_alias = {
     'Costa Rican Primera División': 'Primera División de Costa Rica',
     
     'Club World Cup': 'FIFA Club World Cup',
+
+    'Super Lig': 'Süper Lig',
+    'Superlig': 'Süper Lig',
 
     # Once competition mapping is implemented.
     'CONCACAF Champions\' Cup': 'CONCACAF Champions League',
@@ -112,8 +116,12 @@ aliases.update(full_alias)
 
 # Don't want to completely delete these.
 partial_alias = {
+
     'Domestic Tour': 'Friendly',
     'International Tour': 'Friendly',
+
+    'Parmalat Cup': 'Friendly',
+
     'Desert Diamond Cup': 'Friendly',
     'Chicago Sister Cities International Cup': 'Friendly',
 

@@ -255,4 +255,6 @@ rounds = {
     'Round of 32': 'round of 32',
     'Round of 64': 'round of 64',
 
+    'Losers\' Round': 'lr',
+
 }
