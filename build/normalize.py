@@ -8,6 +8,16 @@ from magic import get_magic_team, get_magic_name
 
 
 def make_location_normalizer():
+    # What is the proper way to handle locations?
+    # Locations are primarily used by game and bio data.
+    # Apply place alias.
+    # Check if the location is a team (games only, team alias)
+    # Check if the location is a stadium (stadium alias)
+    # Check if the location is a city (city alias)
+    # Check if the location is a state
+    # Check if the location is a country
+    # Throw an error.
+    # Return a dict with appropriate values.
     """
     Detect stadium and split off from place name
     Split off a stadium from a place name, if possible.
@@ -127,7 +137,7 @@ def calculate_game_results(d):
 
 
 def normalize_season(e):
-    e['competition'] = get_competition(e['competition'])
+    #e['competition'] = get_competition(e['competition'])
     return e
 
 def normalize_game_stat(e):
@@ -158,9 +168,9 @@ def normalize_game(e):
     e['team1'] = get_magic_team(e['team1'], e)
     e['team2'] = get_magic_team(e['team2'], e)
 
-
     if e.get('home_team'):
         e['home_team'] = get_team(e['home_team'])
+        e['home_team'] = get_magic_team(e['home_team'], e)
 
 
     # This is the wrong behavior...huh?
@@ -299,11 +309,12 @@ def normalize_goal(e):
     if e['goal'] == 'Own Goal':
         e['own_goal'] = True
         e['goal'] = None
-        if e['assists']:
+        if e.get('assists'):
             e['own_goal_player'] = get_name(e['assists'][0])
             e['assists'] = []
+            
 
-    e['assists'] = [get_name(n) for n in e['assists']]
+    e['assists'] = [get_name(n) for n in e.get('assists', [])]
 
     if e['assists']:
         if e['assists'][0] == 'penalty kick':
@@ -330,7 +341,11 @@ def normalize_foul(e):
 def normalize_stat(e):
     e['competition'] = get_competition(e['competition'])
     e['team'] = get_team(e['team'])
-    e['name'] = get_name(e['name'])
+
+    try:
+        e['name'] = get_name(e['name'])
+    except:
+        import pdb; pdb.set_trace()
 
     e['team'] = get_magic_team(e['team'], e)
     e['name'] = get_magic_name(e['name'], e)
@@ -368,15 +383,8 @@ def normalize_stat(e):
 
 
 def normalize_lineup(e):
+    # Should handle 'end' code in lineup?
 
-    #if e.get('goals_for') is None:
-    #    e['goals_for'] = None
-
-    #if e.get('goals_against') is None:
-    #    e['goals_against'] = None
-
-    #e['result'] = calculate_lineup_result(e)
-    
     e['competition'] = get_competition(e['competition'])
     e['team'] = get_team(e['team'])
     e['name'] = get_name(e['name'])
@@ -384,38 +392,21 @@ def normalize_lineup(e):
     e['team'] = get_magic_team(e['team'], e)
     e['name'] = get_magic_name(e['name'], e)
 
-
-    """
-    if type(e['on']) in (str, unicode) and e['on'].endswith('\''):
-        e['on'] = e['on'][:-1]
-
-    if type(e['off']) in (str, unicode) and e['off'].endswith('\''):
-        e['off'] = e['off'][:-1]
-        """
-
     if type(e['on']) == str and e['on'].endswith('\''):
         e['on'] = e['on'][:-1]
 
     if type(e['off']) == str and e['off'].endswith('\''):
         e['off'] = e['off'][:-1]
 
-
     return e
 
 
 def normalize_standing(e):
+    # What is the format for a standing?
+
     e['competition'] = get_competition(e['competition'])
-
+    e['team'] = get_team(e['team'])
     e['team'] = get_magic_team(e['team'], e)
-
-    try:
-        e['team'] = get_team(e['team'])
-    except:
-        import pdb; pdb.set_trace()
-
-    if e['team'] == None:
-        import pdb; pdb.set_trace()
-
 
     if 'games' not in e:
         import pdb; pdb.set_trace()
@@ -428,6 +419,7 @@ def normalize_standing(e):
 
 
 def normalize_roster(e):
+    # Need to expand this.
     e['competition'] = get_competition(e['competition'])
     e['name'] = get_name(e['name'])
     e['team'] = get_team(e['team'])
@@ -448,7 +440,7 @@ def normalize_award(e):
 def normalize_bio(e):
     e['name'] = get_name(e['name'])
 
-    if type(e['birthdate']) == int:
+    if e.get('birthdate') and type(e['birthdate']) == int:
         e['birthdate'] = None
 
     if e.get('deathdate') and type(e['deathdate']) == int:
@@ -457,7 +449,7 @@ def normalize_bio(e):
     if e.get('birthplace'):
         e['birthplace'] = get_city(get_place(e['birthplace']))
 
-    if e.get('eathplace'):
+    if e.get('deathplace'):
         e['deathplace'] = get_city(get_place(e['deathplace']))
 
 

@@ -5,10 +5,9 @@ from collections import defaultdict
 import datetime
 import random
 
-
-
-
-# Merge should be used for avoiding duplicate elements.
+# Merge is responsible for removing duplicated elements.
+# All data must be normalized before entering merge.
+# Data is better generated after merge (but either should be ok)
 
 def merge():
     merge_standings()

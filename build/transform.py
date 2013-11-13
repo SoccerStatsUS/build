@@ -22,51 +22,24 @@ def transform():
     transform_team_names_for_competition('fifa', 'FIFA U-20 World Cup', '%s U-20')
     transform_team_names_for_competition('fifa', 'Olympic Games', '%s Olympic')
 
+
+
     transform_team_names_for_competition('world_i', 'FIFA U-17 World Cup', '%s U-17')
     transform_team_names_for_competition('world_i', 'FIFA U-20 World Cup', '%s U-20')
     transform_team_names_for_competition('world_i', 'Olympic Games', '%s Olympic')
 
     transform_team_names_for_competition('concacaf_i', 'CONCACAF U-17 Championship', '%s U-17')
     transform_team_names_for_competition('concacaf_i', 'CONCACAF U-20 Championship', '%s U-20')
-    transform_team_names_for_competition('concacaf_i', 'CONCACAF Men\'s Olympic Qualifying Tournament', '%s Olympic')
-
-    # Lots of complicated player name transformations that really don't work.
+    transform_team_names_for_competition('concacaf_i', 'Olympic Games qualification (CONCACAF)', '%s Olympic')
+    transform_team_names_for_competition('concacaf_i', 'Olympic Games qualification', '%s Olympic')
 
 
     print("Transforming names.")
     # Comment this out if worried about over-assigning full names.
-    #generate_prerosters()
     #transform_player_names() 
 
     transform_names_from_rosters()
 
-    # For whatever reason this isn't working at all currently.
-    #generate_rosters_from_stats('asl')
-    #generate_rosters_from_stats('apsl')
-    #generate_rosters_from_stats('nasl')
-
-
-
-def generate_rosters_from_stats(source):
-    rosters = []
-    rdb = soccer_db['%s_rosters' % source]    
-    if rdb.count():
-        return
-
-    sdb = soccer_db['%s_stats' % source]    
-    for e in sdb.find():
-        rosters.append({
-                'name': e['name'],
-                'team': get_team(e['team']),
-                'competition': e['competition'],
-                'season': e['season'],
-                })
-        #key = (e['name'], e['team'], e['competition'], e['season'])
-        #roster_set.add(key)
-
-    tdb = soccer_db['%s_gen_rosters' % source]
-
-    generic_load(tdb, rosters, delete=True)
 
 
 def get_name_from_fragment(fragment, candidates):
@@ -115,6 +88,7 @@ def get_name_from_fragment(fragment, candidates):
 
     return fragment
 
+
 def make_roster_guesser(db):
     d = defaultdict(set)
     for e in db.find():
@@ -131,18 +105,12 @@ def make_roster_guesser(db):
 
 def transform_names_from_rosters():
     """
+    Transform lineup and goal player names based on roster data.
     """
-    # transform_rosters are rosters that have been generated from stats.
 
     for source in SOURCES:
-        #printsource
 
-        # Try to use independently defined rosters.
-        # If that doesn't work, use rosters generated from stats
         rdb = soccer_db['%s_rosters' % source]
-
-        if rdb.count() == 0:
-            rdb = soccer_db['%s_gen_rosters' % source]
 
         if rdb.count():
 
@@ -151,10 +119,6 @@ def transform_names_from_rosters():
             l = []
             coll = soccer_db["%s_lineups" % source]
             for e in coll.find():
-
-                #if e['competition'] == 'FIFA Confederations Cup':
-                #    import pdb; pdb.set_trace()
-
                 e['name'] = rg(e['name'], e['team'], e['competition'], e['season'])
                 l.append(e)
 
@@ -227,44 +191,6 @@ def transform_team_names_for_competition(coll_group, competition, string_format)
 
 
 
-
-# NOT IN USE.
-# Generate prerosters stuff seems to have been eclipsed by generate_rosters_from_stats.
-
-# Rosters
-def generate_prerosters():
-    print("Generating all rosters")
-    # This is a preliminary roster since player names haven't been normalized and not all stats have been generated.
-    # Not using this - it's too blunt of a tool.
-    generic_load(soccer_db.prerosters, generate_all_time_rosters)
-
-
-def generate_all_time_rosters():
-    """
-    Generate all-time rosters based on stats and lineups.
-    """
-    team_players = defaultdict(set)
-    
-    for source in SOURCES:
-        for e in soccer_db['%s_stats' % source].find():
-            team_players[e['team']].add(e['name'])
-
-
-    for e in soccer_db['%s_lineups' % source].find():
-        team_players[e['team']].add(e['name'])
-        
-    l = []
-
-    for team, names in sorted(team_players.items()):
-        for name in sorted(names):
-            l.append({
-                    'name': name,
-                    'team': team,
-                    'start': None,
-                    'end': None,
-                    })
-
-    return l
 
 
 

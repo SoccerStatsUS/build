@@ -26,6 +26,8 @@ SOURCES = [
     'oceania_i',
     'usa',
 
+    'england',
+
     'world',
     'concacaf',
     'conmebol',
@@ -70,6 +72,8 @@ SOURCES = [
     'china',
     'japan',
     'korea',
+
+    'uefa',
 
     'australia',
 

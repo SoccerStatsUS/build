@@ -3,7 +3,6 @@ from collections import defaultdict
 from smid.mongo import soccer_db, insert_rows, generic_load
 from standings import get_standings
 
-
 # I think I should just generate standings directly from soccer_db.games.
 # And then check those against downloaded standings.
 
@@ -12,10 +11,101 @@ make_stat_tuple = lambda name, d: (name, d['team'], d['season'], d['competition'
 
 
 
+def make_stadium_getter():
+    """
+    Given a team name, eg FC Dallas and a date, return the appropriate stadium.
+    """
+    # This is also done in sdev...
+    
+    from soccerdata.text import stadiummap
+
+    d = defaultdict(list)
+    for x in stadiummap.load():
+        key = x['team']
+        value = (x['stadium'], x['start'], x['end'])
+        d[key].append(value)
+
+
+    def getter(team, team_date):
+        
+        if team_date is None:
+            return team
+        
+        if team not in d:
+            return team
+        else:
+            times_list = d[team]
+
+            for u in times_list:
+                try:
+                    t, start, end = u
+                except:
+                    import pdb; pdb.set_trace()
+                if start <= team_date <= end:
+                    return t
+
+        # fallback.
+        return team
+
+    return getter
+
+
 def generate():
+    generate_game_data()
     generate_competition_standings()
     generate_game_stats()
     generate_competition_stats() # Use game stats to make competition stats.
+
+
+
+def generate_game_data():
+    """
+    Infer 
+    - home team using location
+    - location using home team
+    """
+    # By this point, location should be gone, replaced by stadium/city/state/country
+
+    stadium_getter = make_stadium_getter()
+    team_city_map = dict([(e['name'], e.get('city')) for e in soccer_db.teams.find()])
+
+    l = []
+
+    for e in soccer_db.games.find():
+
+        home_team = e.get('home_team')
+        if home_team and not e.get('stadium'):
+            stadium = stadium_getter(home_team, e['date'])
+
+            # stadium_getter returns home_team as a fallback; don't set that.
+            if stadium and stadium != home_team:
+                e['stadium'] = stadium
+                e['location_inferred'] = True
+
+            else:
+                city = team_city_map.get(home_team)
+                if city:
+                    e['city'] = city
+                    e['location_inferred'] = True
+
+        elif home_team is None:
+            # Get home team based on team info.
+            # Fix location/city inconsistencies.
+            team1_city = team_city_map.get(e['team1'])
+            team2_city = team_city_map.get(e['team2'])
+            if team1_city and team2_city:
+                if team1_city != team2_city and e.get('location'):
+                    if team1_city == e['location']:
+                        e['home_team'] = e['team1']
+
+                    if team2_city == e['location']:
+                        e['home_team'] = e['team2']
+
+        l.append(e)
+
+    soccer_db.games.drop()
+    insert_rows(soccer_db.games, l)
+
 
 
 
@@ -130,7 +220,7 @@ def generate_competition_stats():
 
         'USSF Division 2 Professional League',
 
-
+        #'Premier League',
 
         'Liga MX',
         'Argentine Primera División',
@@ -206,6 +296,7 @@ def generate_competition_standings():
         'Hyundai A-League',
         'Canadian Championship',
         'Liga MX',
+        'Premier League',
         ]
 
     for e in l:

@@ -23,8 +23,6 @@ def denormalize():
 
     
     team_name_ungetter = make_team_name_ungetter()
-    stadium_getter = make_stadium_getter()
-    team_city_map = dict([(get_team(e['name']), e.get('city')) for e in soccer_db.teams.find()])
 
     print("Generating cities.")
     generate_cities()
@@ -34,39 +32,6 @@ def denormalize():
     for e in soccer_db.games.find():
         e['team1_original_name'] = team_name_ungetter(e['team1'], e['date'])
         e['team2_original_name'] = team_name_ungetter(e['team2'], e['date'])
-
-        # I suspect that this is happening far too late in the process.
-        # When do stadium / city pairs get generated?
-        home_team = e.get('home_team')
-        if home_team and not e.get('stadium'):
-            stadium = stadium_getter(home_team, e['date'])
-
-            #if e['team1'] == 'Chicago Croatian SC':
-            #    import pdb; pdb.set_trace()
-
-            # stadium_getter returns home_team as a fallback; don't set that.
-            if stadium and stadium != home_team:
-                e['stadium'] = stadium
-                e['location_inferred'] = True
-
-            else:
-                city = team_city_map.get(home_team)
-                if city:
-                    e['city'] = city
-                    e['location_inferred'] = True
-
-        elif home_team is None:
-            # Fix location/city inconsistencies.
-            team1_city = team_city_map.get(e['team1'])
-            team2_city = team_city_map.get(e['team2'])
-            if team1_city and team2_city:
-                if team1_city != team2_city:
-                    if team1_city == e['location']:
-                        e['home_team'] = e['team1']
-
-                    if team2_city == e['location']:
-                        e['home_team'] = e['team2']
-
         l.append(e)
 
     soccer_db.games.drop()
@@ -126,45 +91,6 @@ def denormalize():
 
     #soccer_db.standings.drop()
     #insert_rows(soccer_db.standings, standings)
-
-
-def make_stadium_getter():
-    """
-    Given a team name, eg FC Dallas and a date, return the appropriate stadium.
-    """
-    
-    from soccerdata.text import stadiummap
-
-    d = defaultdict(list)
-    for x in stadiummap.load():
-        key = x['team']
-        value = (x['stadium'], x['start'], x['end'])
-        d[key].append(value)
-
-
-    def getter(team, team_date):
-        
-        if team_date is None:
-            return team
-        
-        if team not in d:
-            return team
-        else:
-            times_list = d[team]
-
-            for u in times_list:
-                try:
-                    t, start, end = u
-                except:
-                    import pdb; pdb.set_trace()
-                if start <= team_date <= end:
-                    return t
-
-        # fallback.
-        return team
-
-    return getter
-
 
 
 def make_reverse_stadium_getter():
