@@ -1,5 +1,18 @@
 
 basic = {
+    'Ricardo "Kakà" Izecson': 'Kaka',
+    'Sergio Claudio Dos Santos "Serginho"': 'Serginho',
+    'Anderson Miguel Da Silva "Nenè"': 'Nene',
+    'Alexandre "Pato" Rodrigues da Silva': 'Pato',
+    'Nuno Ricardo de Olivera Ribeiro "Maniche"': 'Maniche',
+    'Alessandro "Mancini" Faiolie': 'Faiolie',
+    'Jedaias Capucho Neves "Jeda"': 'Jeda',
+    'Ronaldo de Assís Moreira "Ronaldinho"': 'Ronaldinho',
+    'Robson de Souza "Robinho"': 'Robinho',
+    'Maximiliano "Maxi" Lopez': 'Maxi Lopez',
+    'Paulo Sergio Betanin "Paulinho"': 'Paulinho',
+    'De Morais Marcos Evangelista "Cafu"': 'Cafu',
+    'Lucimar Ferreira da Silva "Lucio"': 'Lucio',
 
     'Hong Myeong-Bo': 'Hong Myung-Bo',
     'Demetrius "Jimmy" Plessas': 'Jimmy Plessas',

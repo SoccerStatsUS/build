@@ -1103,6 +1103,20 @@ world = {
 
     # Spain
 
+    'Compostela': 'SD Compostela',
+
+    'Rayo': 'Rayo Vallecano',
+    'Malaga': 'Málaga',
+
+    'Alaves': 'Deportivo Alavés',
+    'Alavés': 'Deportivo Alavés',
+
+
+    'Gimnástic': 'Gimnàstic',
+    'Murcia': 'Real Murcia',
+    'Salamanca': 'UD Salamanca',
+    'Oviedo': 'Real Oviedo', # Too broad?
+    'Celta': 'Celta Vigo',
 
     'Sporting de Gijon': 'Sporting de Gijón',
 
@@ -1300,25 +1314,27 @@ world = {
     'Young Boys': 'BSC Young Boys',
 
     # Italy
-    'US Citta di Palermo': 'Palermo',
-    'Torine (Italy)': 'Torino FC',
+
 
     'Arezzo - Italy': 'Arezzo',
 
-    'Bari': 'A.S. Bari',
+    'A.S. Bari': 'Bari',
 
-    'Bologna': 'Bologna F.C. 1909',
-    'Bologna FC': 'Bologna F.C. 1909',
+    'Bologna F.C. 1909': 'Bologna',
+    'Bologna FC': 'Bologna',
+
+    'Brescia': 'Brescia Calcio',
 
     'Fiorentina - Italy': 'Fiorentina',
     'Fiorentina': 'AFC Fiorentina',
 
     'Genoa - Italy': 'Genoa',
-    'Genoa': 'Genoa CFC',
-    'Genoa 1893': 'Genoa CFC',
+    'Genoa CFC': 'Genoa',
+    'Genoa 1893': 'Genoa',
 
     'Internazionale': 'Inter Milan',
     'F.C. Internazionale Milano': 'Inter Milan',
+    'Inter': 'Inter Milan',
 
     
     'Mantova F.C.': 'Mantova',
@@ -1326,30 +1342,38 @@ world = {
     'AC Milan - Italy': 'AC Milan',
     'A.C. Milan': 'AC Milan',
     'A. C. Milan': 'AC Milan',
+    'Milan': 'AC Milan',
 
     'Modena (Italy)': 'Modena F.C.',
     'Modena': 'Modena F.C.',
     'Modena - Italy': 'Modena',
 
-    'Napoli': 'S.S.C. Napoli',
+    'S.S.C. Napoli': 'Napoli',
+
+    'US Citta di Palermo': 'Palermo',
 
     'Reggina': 'Reggina Calcio',
 
     'Reggiana - Italy': 'Reggiana',
     'Reggiana': 'AC Reggiana 1919',
 
-    'A.S. Roma': 'AS Roma',
-    'Roma': 'A.S. Roma',
+    'A.S. Roma': 'Roma',
+    'AS Roma': 'Roma',
 
     'Sampdoria - Italy': 'Sampdoria',
-    'Sampdoria': 'U.C. Sampdoria',
+    'U.C. Sampdoria': 'Sampdoria',
+
+    'Torine (Italy)': 'Torino FC',
 
     'Venezia - Italy': 'Venezia',
+    
+
 
     'lanerossi': 'Lanerossi',
     'Lanerossi': 'Vicenza Calcio',
     'Lanerossi Vicenza': 'Vicenza Calcio',
     'AC Lanerossi-Vicenza': 'Vicenza Calcio',
+    'Vicenza': 'Vicenza Calcio',
 
     # Hungary
     'Ferencvaros': 'Ferencvárosi TC',
@@ -1654,8 +1678,13 @@ world = {
 
     # Germany
 
+    'St Pauli': 'FC St. Pauli',
+
     '1 FC Kaiserslautern': '1. FC Kaiserslautern',
     'Kaiserslautern': '1. FC Kaiserslautern',
+    'K\'lautern': '1. FC Kaiserslautern',
+    'K’lautern': '1. FC Kaiserslautern',
+
     '1 FC Koln': '1. FC Köln',
     
 
@@ -1665,10 +1694,26 @@ world = {
 
     'Arminia B': 'Arminia Bielefeld',
     'Arminia': 'Arminia Bielefeld',
+    'Bielefeld': 'Arminia Bielefeld',
+
+    'Unterhaching': 'SpVgg Unterhaching',
+
+    'Extremadura': 'CF Extremadura',
+
     'Stuttgart': 'VfB Stuttgart',
+
+    'Rostock': 'Hansa Rostock',
     'Hansa': 'Hansa Rostock',
+
+    'Ulm': 'SSV Ulm 1846',
+
+
     'Hannover': 'Hannover 96',
+
+    'HSV': 'Hamburger SV',
     'Hamburg': 'Hamburger SV',
+
+    'MSV': 'MSV Duisburg',
     'Duisburg': 'MSV Duisburg',
     'Köln': '1. FC Köln',
     'Nürnberg': '1. FC Nürnberg',
@@ -1687,6 +1732,7 @@ world = {
     'Dortmund': 'Borussia Dortmund',
     'Mönchengladbach': 'Borussia Mönchengladbach',
     'Borussia M': 'Borussia Mönchengladbach',
+    'Borussia MG': 'Borussia Mönchengladbach',
     'Borussia M\'gladbach': 'Borussia Mönchengladbach',
 
     'Wolfsburg': 'VfL Wolfsburg',
@@ -1700,6 +1746,7 @@ world = {
 
     'Freiburger': 'SC Freiburg',
 
+    '1860': '1860 Munchen',
     'TSV Munich 1860': '1860 Munchen',
     'Munchen 1860': '1860 Munchen',
     '1860 Munchen -- Germany': '1860 Munchen',
@@ -1711,6 +1758,7 @@ world = {
     'Leverkusen': 'Bayer Leverkusen',
 
     'Energie': 'Energie Cottbus',
+    'Cottbus': 'Energie Cottbus',
 
     '1. FSV Mainz 05': 'Mainz 05',
 
@@ -1718,8 +1766,13 @@ world = {
 
 
     'Eintracht F': 'Eintracht Frankfurt',
-    'Bayern': 'Bayern Munich',
+
     'Borussia D': 'Borussia Dortmund',
+
+
+    'Bayern': 'Bayern Munich',
+    'Munchen': 'Bayern Munich',
+    'München': 'Bayern Munich',
 
     'Bayern Munich - Germany': 'Bayern Munich',
     'Bayern Munchen': 'FC Bayern Munich',

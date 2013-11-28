@@ -173,6 +173,7 @@ def generate_competition_stats():
         generic_load(soccer_db.stats, lambda: x.values())
 
 
+    # Move this out into a global variable.
     l = [
         'FIFA Club World Cup',
         'FIFA World Cup',
@@ -224,6 +225,9 @@ def generate_competition_stats():
 
         'Liga MX',
         'Argentine Primera División',
+
+        'Serie A',
+        'La Liga',
 
         'Hyundai A-League',
 

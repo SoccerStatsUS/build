@@ -1,3 +1,8 @@
+
+
+ROOT_DIR = '/home/chris'
+
+
 # What items are shown on the dashboard
 STAT_TABLES = [
     'games', 

@@ -5,6 +5,9 @@
 aliases = {}
 
 full_alias = {
+
+    '1.Bundesliga': '1. Bundesliga',
+
     'Rio Branco Cup': 'Copa Rio Branco',
 
     'Interliga': 'InterLiga',

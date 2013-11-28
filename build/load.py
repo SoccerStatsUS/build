@@ -1,4 +1,3 @@
-
 # Move this all over to Amazon. Taking too long to load here.
 # Consider trimming down dramatically.
 # Data quality is too low.
@@ -9,6 +8,11 @@ import os
 from smid.alias.people import check_for_name_loops
 from smid.alias.teams import check_for_team_loops, get_team
 from smid.mongo import generic_load, soccer_db
+
+from smid.settings import ROOT_DIR
+
+GAMES_DIR = os.path.join(ROOT_DIR, "/home/chris/www/soccerdata/data/games")
+STANDINGS_DIR = os.path.join(ROOT_DIR, "/home/chris/www/soccerdata/data/standings")
 
 
 def clear_all():
@@ -32,9 +36,11 @@ def make_team_to_competition_dict():
 
     # Create a dict mapping a team name and season to a competition.
 
-    SDIR = "/home/chris/www/soccerdata/data/standings/domestic/country/usa/"
+    
+    SDIR = os.path.join(ROOT_DIR, 'www/soccerdata/data/standings/domestic/country/usa/')
+    MLS_STANDINGS = os.path.join(ROOT_DIR, 'www/usd1/data/standings/mls')
 
-    l = process_excel_standings('/home/chris/www/usd1/data/standings/mls')
+    l = process_excel_standings(MLS_STANDINGS)
 
     l.extend(process_excel_standings(os.path.join(SDIR, 'apsl')))
 
@@ -94,7 +100,7 @@ def determine_competition(comp, team, season, competition_map):
     return comp
 
 
-def load_games_standard(coll, fn, games_only=False, root="/home/chris/www/soccerdata/data/games"):
+def load_games_standard(coll, fn, games_only=False, root=GAMES_DIR):
     """
     Load standard data from a standard games file.
     """
@@ -115,7 +121,7 @@ def load_games_standard(coll, fn, games_only=False, root="/home/chris/www/soccer
         generic_load(soccer_db['%s_rosters' % coll], lambda: rosters, delete=False)
 
 
-def load_standings_standard(coll, filename, delimiter=';', root="/home/chris/www/soccerdata/data/standings"):
+def load_standings_standard(coll, filename, delimiter=';', root=STANDINGS_DIR):
     """
     Load standard standings.
     """
@@ -216,6 +222,8 @@ def load_international():
 
 
 def load_domestic():
+    load_uefa_leagues()
+    return
 
     load_conmebol_leagues()
     return
@@ -238,7 +246,7 @@ def load_domestic():
 
     load_cfu()
 
-    load_uefa_leagues()
+
 
     load_east_asia()
 
@@ -442,6 +450,32 @@ def load_uncaf():
     load_games_standard('uncaf', 'domestic/confederation/concacaf/uncaf/fraternidad')
     load_games_standard('uncaf', 'domestic/confederation/concacaf/uncaf/torneograndes')
     load_games_standard('uncaf', 'domestic/confederation/concacaf/uncaf/interclube')
+
+
+
+def load_uefa_leagues():
+
+    for year in range(1996, 2011):
+        load_games_standard('conmebol', 'domestic/country/italy/%s' % year)
+
+    return
+
+
+    for year in range(1997, 2011):
+        load_games_standard('conmebol', 'domestic/country/spain/%s' % year)
+
+    return
+
+
+    for year in range(1999, 2003):
+        load_games_standard('conmebol', 'domestic/country/germany/men/%s' % year)
+
+
+    for year in range(2004, 2011):
+        load_games_standard('conmebol', 'domestic/country/germany/men/%s' % year)
+
+
+
 
 
 
