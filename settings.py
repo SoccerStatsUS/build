@@ -1,6 +1,15 @@
 
 
-ROOT_DIR = '/home/chris'
+import socket
+
+host = socket.gethostname()
+
+roots = {
+    'agni.local': '/Users/chris/soccer',
+    'bert': '/home/chris/www',
+    }
+
+ROOT_DIR = roots[host]
 
 
 # What items are shown on the dashboard

@@ -11,8 +11,8 @@ from smid.mongo import generic_load, soccer_db
 
 from smid.settings import ROOT_DIR
 
-GAMES_DIR = os.path.join(ROOT_DIR, "/home/chris/www/soccerdata/data/games")
-STANDINGS_DIR = os.path.join(ROOT_DIR, "/home/chris/www/soccerdata/data/standings")
+GAMES_DIR = os.path.join(ROOT_DIR, "soccerdata/data/games")
+STANDINGS_DIR = os.path.join(ROOT_DIR, "soccerdata/data/standings")
 
 
 def clear_all():
@@ -37,8 +37,8 @@ def make_team_to_competition_dict():
     # Create a dict mapping a team name and season to a competition.
 
     
-    SDIR = os.path.join(ROOT_DIR, 'www/soccerdata/data/standings/domestic/country/usa/')
-    MLS_STANDINGS = os.path.join(ROOT_DIR, 'www/usd1/data/standings/mls')
+    SDIR = os.path.join(ROOT_DIR, 'soccerdata/data/standings/domestic/country/usa/')
+    MLS_STANDINGS = os.path.join(ROOT_DIR, 'usd1/data/standings/mls')
 
     l = process_excel_standings(MLS_STANDINGS)
 
@@ -222,20 +222,22 @@ def load_international():
 
 
 def load_domestic():
+    load_asl2()           
+    load_usa_cups()
+
     load_uefa_leagues()
-    return
+
 
     load_conmebol_leagues()
-    return
 
-    load_mls() 
-    load_usl()
-    return
+
+    #load_mls() 
+    #load_usl()
+
 
     load_uncaf()
 
 
-    return
     load_conmebol()
     load_world()
 
@@ -255,17 +257,17 @@ def load_domestic():
     load_nasl() 
 
 
-    load_usa_cups()
+
 
     load_nafbl()
-    load_asl2()           
+
     load_apsl()
 
     load_pdl()
 
     load_canada()
     load_mexico()
-    load_australia()    
+    #load_australia()    
 
 
 def load_other():
@@ -291,7 +293,7 @@ def load_excel_standings(coll, fn):
 
 def load_sd_excel_standings(coll, fn):
     from donelli.parse import standings
-    p = os.path.join('/home/chris/www/soccerdata/data/standings/', fn)
+    p = os.path.join(ROOT_DIR, 'soccerdata/data/standings/', fn)
     generic_load(soccer_db['%s_standings' % coll], lambda: standings.process_excel_standings(p))
 
 
@@ -322,6 +324,8 @@ def load_news():
 
 
 def load_bios():
+
+
 
     from soccerdata.text import bios
     from foulds.sites import mlsnet, mlssoccer
@@ -377,7 +381,7 @@ def load_usa_cups():
 
     load_games_standard('us_cups', 'domestic/country/usa/cups/afa')
     load_games_standard('us_cups', 'domestic/country/usa/cups/afa2')
-    load_games_standard('us_cups', 'domestic/country/usa/cups/lewis')
+    #load_games_standard('us_cups', 'domestic/country/usa/cups/lewis')
     load_games_standard('us_cups', 'domestic/country/usa/cups/duffy')
     load_games_standard('us_cups', 'domestic/country/usa/cups/aafa')
 
@@ -455,16 +459,11 @@ def load_uncaf():
 
 def load_uefa_leagues():
 
-    for year in range(1996, 2011):
-        load_games_standard('conmebol', 'domestic/country/italy/%s' % year)
-
-    return
-
+    #for year in range(1996, 2011):
+    #    load_games_standard('conmebol', 'domestic/country/italy/%s' % year)
 
     for year in range(1997, 2011):
         load_games_standard('conmebol', 'domestic/country/spain/%s' % year)
-
-    return
 
 
     for year in range(1999, 2003):
@@ -578,7 +577,7 @@ def load_women():
 
     generic_load(soccer_db.women_awards, awards.process_women_awards)
 
-    root = '/home/chris/www/nwsl-data/data/games'
+    root = os.path.join(ROOT_DIR, 'nwsl-data/data/games')
 
     load_games_standard('women', 'wusa', root=root)
     load_games_standard('women', 'nwsl', root=root)
@@ -587,7 +586,8 @@ def load_women():
 
     
     for e in ['wusa', 'wps', 'wpsl_elite']:
-        load_standings_standard('women', e, root='/home/chris/www/nwsl-data/data/standings')
+        r = os.path.join(ROOT_DIR, 'nwsl-data/data/standings')
+        load_standings_standard('women', e, root=r)
 
     #for e in range(2007, 2013):
     #    load_games_standard('women', 'domestic/country/usa/leagues/women/wpsl/%s' % e)
@@ -621,7 +621,8 @@ def load_mls():
 
 
     for e in ['1996.2010', '2011', '2012', '2013']:
-        load_games_standard('mls', str(e), root='/home/chris/www/usd1/data/games/league/simple/mls')
+        r = os.path.join(ROOT_DIR, 'usd1/data/games/league/simple/mls')
+        load_games_standard('mls', str(e), root=r)
 
 
 
@@ -739,8 +740,11 @@ def load_jobs():
     from soccerdata.text import positions, p2
     print("Loading positions.")
 
-    f1 = lambda: p2.process_file("/home/chris/www/soccerdata/data/jobs/world/england", 'Head Coach')
-    f2 = lambda: p2.process_file("/home/chris/www/soccerdata/data/jobs/usa/d1/mls/head", 'Head Coach', delimiter=';')
+    jobs = os.path.join(ROOT_DIR, 'soccerdata/data/jobs/')
+    
+
+    f1 = lambda: p2.process_file(os.path.join(jobs, 'world/england', 'Head Coach'))
+    f2 = lambda: p2.process_file(os.path.join(jobs, 'usa/d1/mls/head', 'Head Coach', delimiter=';'))
 
     #generic_load(soccer_db.positions, positions.process_positions)
     generic_load(soccer_db.positions, f1)
@@ -770,7 +774,7 @@ def load_asl():
     generic_load(soccer_db.asl_awards, awards.process_asl_awards, delete=False)
     generic_load(soccer_db.asl_awards, awards.process_esl_awards, delete=False)
 
-    DIR = "/home/chris/www/usd1/data"
+    DIR = os.path.join(ROOT_DIR, 'usd1/data')
 
     load_excel_standings('asl', os.path.join(DIR, 'standings/asl'))
 
@@ -786,8 +790,8 @@ def load_asl():
 
 
 def load_alpf():
-    load_games_standard('alpf', '/home/chris/www/usd1/data/games/league/simple/alpf')
-    load_standings_standard('alpf', 'alpf', root='/home/chris/www/usd1/data/standings')
+    load_games_standard('alpf', os.path.join(ROOT_DIR, 'usd1/data/games/league/simple/alpf'))
+    load_standings_standard('alpf', 'alpf', root=os.path.join(ROOT_DIR, 'usd1/data/standings'))
 
 
 def load_asl2():
@@ -809,13 +813,13 @@ def load_nasl():
     generic_load(soccer_db.nasl_awards, awards.process_nasl_awards)
     generic_load(soccer_db.nasl_awards, awards.process_usa_awards)
     generic_load(soccer_db.nasl_awards, awards.process_npsl_awards)
-    generic_load(soccer_db.nasl_rosters, lambda: rosters.process_rosters2('/home/chris/www/usd1/data/rosters/nasl'))
+    generic_load(soccer_db.nasl_rosters, lambda: rosters.process_rosters2(os.path.join(ROOT_DIR, 'usd1/data/rosters/nasl')))
     generic_load(soccer_db.nasl_stats, stats.process_nasl_stats)
 
 
     from usd1.parse import nasl
 
-    DIR = "/home/chris/www/usd1/data/"
+    DIR = os.path.join(ROOT_DIR, 'usd1/data/')
     GDIR = os.path.join(DIR, 'games')
 
     print("Loading NASL data.")
@@ -881,7 +885,7 @@ def load_ltrack():
 
     import ltrack.parse
 
-    p = '/home/chris/www/ltrack/data'
+    p = os.path.join('ltrack/data')
     func = functools.partial(determine_competition, 
                              competition_map=make_team_to_competition_dict())
 
@@ -1190,8 +1194,8 @@ def load_world_international():
     generic_load(soccer_db.world_i_awards, awards.process_world_cup_awards)
     generic_load(soccer_db.world_i_awards, awards.process_olympics_awards)
 
-    generic_load(soccer_db.world_i_rosters, lambda: rosters.process_rosters('international/olympics'))
-    generic_load(soccer_db.world_i_rosters, lambda: rosters.process_rosters2('/home/chris/www/soccerdata/data/rosters/international/confederations'))
+    #generic_load(soccer_db.world_i_rosters, lambda: rosters.process_rosters('international/olympics'))
+    #generic_load(soccer_db.world_i_rosters, lambda: rosters.process_rosters2(os.path.join('soccerdata/data/rosters/international/confederations')))
 
     confed = [1992, 1995, 1997, 1999, 2001, 2003, 2005, 2009, 2013]
 
@@ -1225,14 +1229,16 @@ def load_world():
     generic_load(soccer_db.world_awards, awards.process_isl_awards) # ISL et al.
 
     # Club World Cup
-    for e in [2000, 2001] + range(2005, 2013):
+    for e in [2000, 2001] + list(range(2005, 2013)):
         load_games_standard('world', 'domestic/world/club_world_cup/%s' % e)
+
+                      
 
     # International friendly club tournaments - ISL, Parmalat Cup, Copa Rio, etc.
     # Also existed in Brazil / Argentina / Colombia?
-    generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2('/home/chris/www/soccerdata/data/rosters/domestic/club_world_cup'))
-    generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2('/home/chris/www/soccerdata/data/rosters/domestic/isl'))
-    generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2('/home/chris/www/soccerdata/data/rosters/domestic/copita'))
+    generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(ROOT_DIR, 'soccerdata/data/rosters/domestic/club_world_cup')))
+    generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(ROOT_DIR, 'soccerdata/data/rosters/domestic/isl')))
+    generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(ROOT_DIR, 'soccerdata/data/rosters/domestic/copita')))
 
     #load_sd_excel_standings('world', 'domestic/country/usa/isl')
     load_games_standard('world', 'domestic/country/usa/leagues/isl2')
@@ -1296,7 +1302,8 @@ def load_usmnt():
 
     generic_load(soccer_db.usa_awards, awards.load_hall_of_fame)
 
-    root = "/home/chris/www/usmnt-data"
+                      
+    root = os.path.join(ROOT_DIR, 'usmnt-data')
 
     for e in range(1910, 2020, 10):
         load_games_standard('usa', 'games/years/%s' % e, root=root)
