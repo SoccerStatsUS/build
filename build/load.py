@@ -222,13 +222,15 @@ def load_international():
 
 
 def load_domestic():
-    load_uefa_leagues()
-    return
+    load_nasl() 
+    load_mls() 
 
+    return
+    load_uefa_leagues()
     load_conmebol_leagues()
     return
 
-    load_mls() 
+
     load_usl()
     return
 
@@ -252,7 +254,7 @@ def load_domestic():
 
     load_alpf()
     load_asl()  
-    load_nasl() 
+
 
 
     load_usa_cups()
