@@ -1,5 +1,288 @@
 
 basic = {
+
+
+    'Ronaldinho Gaucho': 'Ronaldinho Gaúcho',
+    'Ronaldinho': 'Ronaldinho Gaúcho',
+    
+    'Zlatan Ibrahimovic': 'Zlatan Ibrahimović',
+
+    'Rudolf Kucera': 'Rudolf Kučera',
+    'Rudolf Kućera': 'Rudolf Kučera',
+
+    'TULIO': 'Túlio',
+
+    '"Romario" de Souza Faria': 'Romário',
+    '"Romário" de Souza Faria': 'Romário',
+
+    'Adoilson': 'Adoílson',
+
+    'Alexandre Gaucho': 'Alexandre Gaúcho',
+    'Amilton Rocha': 'Amílton Rocha',
+
+    'António Carlos': 'Antônio Carlos',
+    'Antônio Carlos Zago': 'Antônio Carlos',
+
+    'Aristizábal': 'Aristizabal',
+
+    'Chico Explosao': 'Chico Explosão',
+
+    'Claudio Pitbull': 'Cládio Pitbull',
+
+    'Cristóvao': 'Cristóvão',
+    'Cristovao': 'Cristóvão',
+
+    'Edenílson': 'Edenilson',
+
+    'Edvaldo Araujo': 'Edvaldo Araújo',
+
+    'Carlos Alberto Tévez': 'Carlos Tévez',
+    'Samuel Ochoa': 'Sammy Ochoa',
+    'Marouane Chamackh': 'Marouane Chamakh',
+    'Patrick Viera': 'Patrick Vieira',
+    'Arthur Sheppell': 'Art Sheppell',
+    'Paddy Rochford': 'Pat Rochford',
+
+    'Pete Villanon': 'Pito Villanon',
+    'Pita Villanon': 'Pito Villanon',
+    'Pito Vilanon': 'Pito Villanon',
+    'Frankie De Vivo': 'Frank DeVivo', 
+
+    'André Luís Nascimento': 'André Luiz Nascimento',
+    'Filipe Souto': 'Fillipe Soutto',
+    'Giberto Costa': 'Gilberto Costa',
+
+    'Márcio Mexirica': 'Márcio Mixirica',
+    'Márcio Mexerica': 'Márcio Mixirica',
+
+    'Ramón Menezes': 'Ramon Menezes',
+
+    'Jorge Mendonca': 'Jorge Mendonça',
+    'Dario Pereyra': 'Darío Pereyra',
+    'Richarlysson': 'Richarlyson',
+
+    'Rogério Cêni': 'Rogério Ceni',
+
+    'Douglas Onca': 'Douglas Onça',
+
+    'Silvio Ceara': 'Sílvio Ceará',
+    'Edu Salles': 'Edu Sales',
+
+    'Luis Carlos Capixaba': 'Luís Carlos Capixaba',
+    'Márcio Richard': 'Márcio Richardes',
+    'Márcio Richards': 'Márcio Richardes',
+
+    'Sandro Gaucho': 'Sandro Gaúcho',
+
+    'Danilo Laranjeira': 'Danilo Larangeira',
+
+    'Evandro Goebbel': 'Evandro Goebel',
+
+    'Nene Ramos': 'Nenê Ramos',
+
+    'Rogério Correia': 'Rogério Corrêa',
+    'Zeze Gomes': 'Zezé Gomes',
+
+    'Caio Junior': 'Caio Júnior',
+
+    'Diego Barcellos': 'Diego Barcelos',
+
+    'Jéfferson Feijão': 'Jefferson Feijão',
+
+    'Nilton Batata': 'Nílton Batata',
+    
+    'Renato Florencio': 'Renato Florêncio',
+
+    'Roberto Bionico': 'Roberto Biônico',
+
+    'Rubens Feijao': 'Rubens Feijão',
+    'Darci Meneses': 'Darci Menezes',
+
+    'Geraldão': 'Geraldao',
+
+    'Roberto Cesar': 'Roberto César',
+
+    'Buiao': 'Buião',
+
+
+    'T.P. Fitchie': 'Thomas Fitchie',
+    'G.H. Hoare': 'Gordon Hoare',
+    'Alex Archibald': 'Sandy Archibald',
+    'Boki Bandovic': 'Božidar Bandović',
+    'Kevin Oneykachi Amuneke': 'Kevin Amuneke',
+    'Paulinho Guara': 'Paulinho Guára',
+
+
+    '"Fabiano" Medina da Silva': 'Fabiano Medina da Silva',
+    'Alves Da Silva Fabio Bilica': 'Fábio Bilica',
+    'Anderson Rodney De Oliveira "Babù"': 'Anderson Rodney De Oliveira',
+    'Andres Roberto Yllana': 'Andres Yllana',
+    'Andriy Schevchenko': 'Andriy Shevchenko',
+    'Angelo di Livio': 'Angelo Di Livio',
+    'Antonio Busce': 'Antonio Buscè',
+    'Antonio Buscé': 'Antonio Buscè',
+    'Aparecido Rodriguez Caesar': 'Aparecido Rodriguez Cesar',
+    'Arturo di Napoli': 'Arturo Di Napoli',
+    'Belozoglu Emre': 'Emre Belözoğlu',
+    'Christian Rigano': 'Christian Riganò',
+    
+
+
+
+
+    'Ansotegui': 'Ansotegi',
+
+    'Charlie Bechtold': 'Charles Bechtold',
+    'Joe Hennessey': 'Joe Hennessy', # reverse?
+    
+    '"Cristiano Ronaldo" dos Santos': 'Cristiano Ronaldo',
+    '"Cristiano Ronaldo" dos Santos Aveiro': 'Cristiano Ronaldo',
+    
+    '"Kaka" Ricardo Izecson Dos Santos Leite': 'Kaka',
+    '"Kaká" Ricardo Izecson Dos Santos': 'Kaka',
+    '"Kaká" Ricardo Izecson Dos Santos Leite': 'Kaka',
+    '"Marcelo" Vieira da Silva': 'Marcelo Vieira',
+    '"Marcelo" Vieira da Silva Júnior': 'Marcelo Vieira',
+    '"Zé Castro" José Eduardo Rosa Vale Castro': 'Ze Castro',
+    'Dmitri Khoklov': 'Dmitri Khokhlov',
+    '"Apoño" Antonio Galdeano': 'Apoño',
+    'Antonio Galdeano "Apoño"': 'Apoño',
+
+    '"Cani" Rubén Gracia': 'Rubén Gracia',
+    '"Cani" Rubén Gracia Calmache': 'Rubén Gracia',
+
+    '"Corona" Miguel Ángel García': 'Miguel Ángel Corona',
+    '"Corona" Miguel Ángel García Pérez-Roldán': 'Miguel Ángel Corona',
+    
+    '"Dani Alves" Daniel Alves da Silva': 'Dani Alves',
+    'Daniel Alves da Silva "Dani Alves"': 'Dani Alves',
+    'Daniel Alves': 'Dani Alves',
+
+    'David Trezeguet': 'David Trézéguet',
+
+    'Diego Ifran': 'Diego Ifrán',
+
+    'Enrique "Kike" Sola': 'Enrique Sola',
+
+    'Eto’o': 'Eto\'o',
+    'Etxeberria': 'Etxeberría',
+    'F. De Boer': 'F. de Boer',
+
+    'Felipe Salvador "Caicedo" Corozo': 'Felipe Salvador Caicedo Corozo',
+
+    'Fernando Magellanes': 'Fernando Magallanes',
+    'Fernando Nino': 'Fernando Niño',
+
+    'Francisco De Pedro': 'Francisco de Pedro',
+
+    'Francisco Farinos': 'Francisco Javier Farinós',
+
+    'Frederic Kanoute': 'Frederic Kanouté',
+
+    'Gabriel "Gabi" Fernandez': 'Gabriel Fernández',
+    'Gabriel "Gabi" Fernández': 'Gabriel Fernández',
+
+    'Gaizka Toquero Pinedo': 'Gaizka Toquero',
+    'Garcia Calvo': 'García Calvo',
+
+    'Gerard Lopez': 'Gerard López',
+
+    'Giovani Dos Dantos': 'Giovani dos Santos',
+
+    'Ignacio "Nacho" Cases': 'Ignacio Cases',
+    'Ignacio "Nacho" Novo': 'Ignacio Novo',
+
+    'Ivan Ramis': 'Iván Ramis',
+    'Ivan Rosado': 'Iván Rosado',
+
+    'Jaime Gavilan': 'Jaime Gavilán',
+    'Javi Gonzalez': 'Javi González',
+
+    'Javi Gracia': 'Javier Gracia',
+    'Javier De Pedro': 'Javier de Pedro',
+
+    'Javi Martinez': 'Javi Martínez',
+
+    'Jesus Navas': 'Jesús Navas',
+    'Jesus Perera': 'Jesús Perera',
+
+    'Joaquin Sanchez': 'Joaquín Sanchez',
+
+    'Jonathan De Guzmán': 'Jonathan de Guzman',
+
+    'Jose Luis "Joselu" Sanmartín': 'Jose Luis Sanmartín',
+    'Jose Rondon': 'Jose Rondón',
+
+    'Joseba Etxebarria': 'Joseba Etxeberria',
+
+    'Josè Andrès Guardado': 'Andrés Guardado',
+    'José Andrés Guardado': 'Andrés Guardado',
+
+    'Juan Francisco "Juanfran" Torres': 'Juan Francisco Torres',
+    'Juan Manuel "Juanma" Ortiz': 'Juan Manuel Ortiz',
+
+    'Juan Miguel Jimenez "Juanmi"': 'Juan Miguel Jimenez',
+
+    'Juan Sanchez': 'Juan Sánchez',
+    'Jurico Vucko': 'Jurica Vucko',
+    'Kale Uche': 'Kalu Uche',
+    'Krisztian Vadòcz': 'Krisztián Vadócz',
+    'Krisztian Vadócz': 'Krisztián Vadócz',
+
+    '"Duda" Sergio Paulo Barbosa Valente': 'Duda',
+    
+    '"Juanfran" Juan Francisco Torres': 'Juan Francisco Torres',
+    
+    '"Juanlu" Juan Luis Gomez': 'Juanlu',
+    '"Juanmi" Juan Miguel Jimenez': 'Juanmi',
+
+    '"Koke" Jorge Resurreción': 'Koke',
+
+    '"Luis Fabiano" Clemente': 'Luis Fabiano',
+
+    'Manuel Ortiz "Lolo"': 'Manuel Ortiz',
+
+    'Marcos Antonio "Senna" da Silva': 'Marcos Senna',
+
+    'Maxi Rodriguez': 'Maxi Rodríguez',
+
+    'Manuel del Moral Fernández "Manu"': 'Manuel del Moral',
+    'Manuel del Moral Fernandez': 'Manuel del Moral',
+    'Manuel "Manu" del Moral': 'Manuel del Moral',
+    '"Manu" Manuel del Moral': 'Manuel del Moral',
+    '"Manu" Manuel del Moral Fernández': 'Manuel del Moral',
+
+    '"Miku" Nicolas Ladislao Fedor': 'Miku',
+    '"Miku" Nicolas Ladislao Fedor Flores': 'Miku',
+    
+    '"Nilmar" Honorato da Silva': 'Nilmar',
+    '"Nilmar" Nilmar Honorato da Silva': 'Nilmar',
+
+    '"Simao" Pedro Fonseca': 'Simao',
+
+    '"Xisco Muñoz" Francisco Javier Muñoz Llompart': 'Xisco',
+    '"Xisco" Francisco Jiménez': 'Xisco',
+    
+    '"Xavi” Xavier Hernández': 'Xavi',
+    
+    'Akihiro "Aki" Ienaga': 'Akihiro Ienaga',
+
+    'Benny McCarthy': 'Benni McCarthy',
+
+    'Claudio Arzano': 'Claudio Arzeno',
+    
+    'Daniel "Cata" Díaz': 'Daniel Diaz',
+    'Daniel "Dani" Aranzubia': 'Daniel Aranzubia',
+    
+
+    'Luis Nazario de Sousa Ronaldo': 'Ronaldo',
+    'Ricardo "Kaká" Izecson': 'Kaka',
+    'De Morais Marcos Evangelista "Cafù"': 'Cafu',
+    'Sergio Claudio dos Santos Serginho': 'Serginho',
+    'Cicero Joao de Cezare "Cicinho"': 'Cicinho',
+    'Rubens Fernando Moedim "Rubinho"': 'Rubinho',
+    'De Oliveira Carvalho Amauri': 'Amauri',
+
     'Ricardo "Kakà" Izecson': 'Kaka',
     'Sergio Claudio Dos Santos "Serginho"': 'Serginho',
     'Anderson Miguel Da Silva "Nenè"': 'Nene',

@@ -6,6 +6,10 @@ aliases = {}
 
 full_alias = {
 
+    'European Champions Cup': 'UEFA Champions League',
+
+    'NCAA Division I Men\'s Soccer Championship': 'NCAA Division I',
+
     '1.Bundesliga': '1. Bundesliga',
 
     'Rio Branco Cup': 'Copa Rio Branco',
@@ -36,8 +40,9 @@ full_alias = {
 
     'Liga Argentina de Football': 'Argentine Primera División',
 
-    'Brasileirao': 'Campeonato Brasileiro Série A',
-    'Brasileirão': 'Campeonato Brasileiro Série A',
+    'Brasileirao': 'Brasileirão',
+    'Campeonato Brasileiro Série A': 'Brasileirão',
+    
 
     'Chilean Primera Division': 'Chilean Primera División', 
     'Uruguayan Primera Division': 'Uruguayan Primera División',

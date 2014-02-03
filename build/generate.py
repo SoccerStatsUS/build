@@ -221,33 +221,77 @@ def generate_competition_stats():
 
         'USSF Division 2 Professional League',
 
-        #'Premier League',
-
+        # CONCACAF
         'Liga MX',
-        'Argentine Primera División',
-
-        'Serie A',
-        'La Liga',
-
-        'Hyundai A-League',
-
-        'Liga MX Liguilla',
-        'Campeón de Campeones',
-        'Campeonato Brasileiro Série A',
-        'Categoría Primera A',
-        'Ecuadorian Serie A',
-        'Chinese Super League',
-        'American Soccer League (1934-1983)',
-        'Mundialito',
-        'Women\'s Professional Soccer',
-        'Women\'s United Soccer Association',
         'Liga Nacional de Guatemala',
         'Liga Nacional de Honduras',
         'Liga Panameña de Fútbol',
         'Primera División de Costa Rica',
         'Salvadoran Primera División',
-        #'North American Soccer League',
 
+        # CONMEBOL
+        'Argentine Primera División',
+        'Brasileirão',
+
+        'Ecuadorian Serie A',
+        'Categoría Primera A',
+        'Uruguayan Primera Division',
+        'Paraguayan Primera División',
+        'Peruvian Primera División',
+        'Chilean Primera Division',
+        'Liga de Fútbol Profesional Boliviano',
+
+        'Campeonato Metropolitano (Argentina)',
+
+        # UEFA 
+        'Serie A',
+        'La Liga',
+        'Premier League',
+        '1. Bundesliga',
+        'Ligue 1',
+
+        'Superligaen',
+        'Tippeligaen',
+        'Allsvenskan',
+
+        'Super Lig',
+        'Belgian Pro League',
+        'Eredivisie',
+        'Primeira Liga',
+
+        'Scottish Premier League',
+        'Ekstraklasa',
+        'Austrian Bundesliga',
+        'Swiss Super League',
+
+        'Russian Premier League',
+        'Ukrainian Premier League',
+        'Gambrinus Liga',
+        'Nemzeti Bajnokság I',
+
+        # Poland, Czech, Scotland, Switzerland, Austria, ...
+        # Hungary, Ukraine, Serbia, Romania, Greece, Russia
+
+        # ASIA
+        'Hyundai A-League',
+        'Chinese Super League',
+        'K League',
+        'J. League',
+
+        # Women
+        'Women\'s Professional Soccer',
+        'Women\'s United Soccer Association',
+
+        # other
+
+        'Liga MX Liguilla',
+        'Campeón de Campeones',
+
+        'American Soccer League (1934-1983)',
+        'Mundialito',
+
+
+        #'North American Soccer League',
         # Overlap?
         #'USL Second Division',
         ]

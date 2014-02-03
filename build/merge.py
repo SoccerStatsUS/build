@@ -378,7 +378,11 @@ def merge_stats(stats_lists):
     def update_stat(d):
         if 'team' not in d:
             import pdb; pdb.set_trace()
-        t = (d['name'], d['team'], d['competition'], d['season'])
+        try:
+            t = (d['name'], d['team'], d['competition'], d['season'])
+        except:
+            import pdb; pdb.set_trace()
+
         if t in stat_dict:
             orig = stat_dict[t]
             for k, v in d.items():

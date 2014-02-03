@@ -15,7 +15,7 @@ from merge import merge
 from normalize import normalize
 from denormalize import denormalize
 from transform import transform
-
+from lift import lift
 
 # Load all possible games into various collections.
 # Try to merge all of those into a single games database.
@@ -63,7 +63,9 @@ def build():
 
     for func in [
         load, 
+
         normalize, 
+        lift,
         transform, 
         merge, 
         generate, 

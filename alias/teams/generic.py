@@ -2,6 +2,8 @@
 
 generic = {
 
+    'Unknown Team': 'Unknown',
+
     'Acádemica': 'Academica',
     'Académica': 'Academica',
 

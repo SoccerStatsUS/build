@@ -15,6 +15,9 @@ def get_place(s):
 
 
 places = {
+
+    'Benedetti–Wehrli Stadium': 'Cardinal Stadium, Naperville, IL',
+
     'Cricket Ground, Sydney': 'Sydney Cricket Ground',
     'Sports Ground, Sydney': 'Sydney Sports Ground',
     'Estadio Municipal, Concepcion': 'Estadio Municipal de Concepción',

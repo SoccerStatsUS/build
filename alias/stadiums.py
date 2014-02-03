@@ -26,9 +26,13 @@ sd = {}
 
 
 misc = {
+    'Regions Park': 'Hoover Metropolitan Stadium',
+    'UK Soccer Complex': 'University of Kentucky Soccer Complex',
 }
 
 world = {
+    
+    'Estadio Monumental Isidro Romero': 'Estadio Monumental Isidro Romero Carbo',
     'Asim Ferhatovic Hase Stadium': 'Asim Ferhatović Hase Stadium',
     'Estadio D. Afonso Henriques': 'Estádio D. Afonso Henriques',
     'Estadio das Antas': 'Estádio das Antas',
@@ -717,6 +721,10 @@ world = {
 }
 
 united_states = {
+
+    'Cardinal Park Stadium': 'Cardinal Stadium (Louisville)',
+    'Cardinal Park Soccer and Track Stadium': 'Cardinal Stadium (Louisville)',
+    'ODU Soccer Complex': 'Old Dominion Soccer Complex',
 
     # United States
     'Bank One Ballpark': 'Chase Field',
