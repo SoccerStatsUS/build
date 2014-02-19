@@ -264,8 +264,6 @@ def merge_games(games_lists):
         if '_id' in d:
             d.pop("_id")
 
-        
-
         teams = tuple(sorted([d['team1'], d['team2']]))
 
         # add source_id here to handle no date overlaps.
@@ -275,17 +273,24 @@ def merge_games(games_lists):
         #if sorted([d['team1'], d['team2']]) == ['Los Angeles Blues', 'Phoenix FC']:
         #    import pdb; pdb.set_trace()
 
-        # Add the game if we don't have a match.
         if key not in game_dict:
             game_dict[key] = d
 
-        # If there is already a game, update empty fields.
         else:
             orig = game_dict[key]
 
             # Overreaction to a bug that was seriously mangling scores when multiple games records were present.
             # (Was replacing scores of 0 with the larger score for both games.)
             t1, t2, t1s, t2s, t1r, t2r = [d.pop(e) for e in ('team1', 'team2', 'team1_score', 'team2_score', 'team1_result', 'team2_result')]
+
+            try:
+                if t1 == orig['team1'] and t2 == orig['team2']:
+                    pass
+            except:
+                import pdb; pdb.set_trace()
+
+
+            
             if t1 == orig['team1'] and t2 == orig['team2']:
                 pass
             elif t1 == orig['team2'] and t2 == orig['team1'] and d['date'] is not None: # make allowances for multiple unknown dates...
