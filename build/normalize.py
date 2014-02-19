@@ -156,6 +156,10 @@ def normalize_game_stat(e):
 def normalize_game(e):
 
     e['competition'] = get_competition(e['competition'])
+
+    if e['season'] is None:
+        e['season'] = 'Unknown'
+
     e['round'] = get_round(e.get('round', ''))
     if e.get('group'):
         if e['group'].startswith('Group'):
@@ -438,7 +442,10 @@ def normalize_award(e):
 
 
 def normalize_bio(e):
-    e['name'] = get_name(e['name'])
+    try:
+        e['name'] = get_name(e['name'])
+    except:
+        import pdb; pdb.set_trace()
 
     if e.get('birthdate') and type(e['birthdate']) == int:
         e['birthdate'] = None
