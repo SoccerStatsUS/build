@@ -145,6 +145,8 @@ def generate_game_stats():
         if type(l['on']) == int and type(l['off']) == int:
             stats[key]['minutes'] += l['off'] - l['on']
 
+        stats[key]['order'] = l.get('order')
+
     l = []
     for key, v in stats.items():
         d = dict(zip(['player', 'team', 'date', 'competition', 'season'], key))
@@ -219,7 +221,10 @@ def generate_competition_stats():
         'Eastern Soccer League (1928-1929)',
         'International Soccer League',
 
+        # US Minor
+
         'USSF Division 2 Professional League',
+        'American Professional Soccer League', 
 
         # CONCACAF
         'Liga MX',
@@ -242,6 +247,10 @@ def generate_competition_stats():
         'Liga de Fútbol Profesional Boliviano',
 
         'Campeonato Metropolitano (Argentina)',
+
+        'Campeonato Paulista',
+        'Rio de Janeiro Championship ',
+        'Campeonato Mineiro',
 
         # UEFA 
         'Serie A',
@@ -369,7 +378,7 @@ class Standing(object):
             self.wins = self.ties = self.losses = self.goals_for = self.goals_against = 0
 
         # Not really handling these anywhere yet.
-        self.shootout_wins = self.shootout_losses = 0
+        self.shootout_wins = self.shootout_losses = None
 
         ht, at, h, a = [game[k] for k in ['team1', 'team2', 'team1_score', 'team2_score']]
 
@@ -420,9 +429,6 @@ def generate_standings(competition):
 
     standing_dict = defaultdict(list)
 
-    # This exists so we can find standings with arbitrary datetimes.
-    # Seems like this whole thing might be better structured as a dict of lists?
-
     def generate_team_standing(game, team):
 
         key = (team, competition, game['season'])
@@ -435,22 +441,15 @@ def generate_standings(competition):
 
         standing_dict[key].append(new_standing)
 
-
     for game in soccer_db.games.find({'competition': competition}).sort('date', 1):
-
         generate_team_standing(game, game['team1'])
         generate_team_standing(game, game['team2'])
-
 
     standings = []
     for lst in standing_dict.values():
         standings.extend([e.to_dict() for e in lst])
 
-
-
-
     return standings
-
 
 
 def generate_stats(goals=[], lineups=[]):
