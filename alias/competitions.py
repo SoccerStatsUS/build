@@ -6,6 +6,72 @@ aliases = {}
 
 full_alias = {
 
+    'Supercopa': 'Supercopa de España',
+
+    'Carling Cup': 'Football League Cup',
+    'Dutch Cup': 'KNVB Cup',
+
+
+    'Juegos Olímpicos Femenil': 'Olympic Games Women',
+
+    'DFB Pokal': 'DFB-Pokal',
+
+    'Bundesliga': '1. Bundesliga',
+
+    'Liga de Ascenso': 'Ascenso MX',
+
+    'Europa League': 'UEFA Europa League',
+
+    'US Open Cup': 'U.S. Open Cup',
+
+    'Copa Mundial': 'FIFA World Cup',
+
+    'Copa Mundial Femenil': 'FIFA Women\'s World Cup',
+    'Copa Mundial Sub-20 Femenil': 'FIFA U-20 Women\'s World Cup',
+    'Copa Mundial Sub-17 Femenil': 'FIFA U-17 Women\'s World Cup',
+
+    'MLS': 'Major League Soccer',
+
+    #'Amistosos': 'Friendly',
+    'Amistosos': 'International Friendly',
+
+
+
+    'Copa Mundial Sub-20': 'FIFA U-20 World Cup',
+    'Copa Mundial Sub-17': 'FIFA U-17 World Cup',
+
+    'Juegos Panamericanos': 'Pan American Games',
+
+    'Eurocopa': 'UEFA European Championship',
+
+    'Eliminatorias CONCACAF': 'FIFA World Cup Qualification (CONCACAF)',
+    'Eliminatorias CONMEBOL': 'FIFA World Cup Qualification (CONMEBOL)',
+    'Eliminatorias UEFA': 'FIFA World Cup Qualification (UEFA)',
+    'Eliminatorias OFC': 'FIFA World Cup Qualification (OFC)',
+    'Eliminatorias CAF': 'FIFA World Cup Qualification (CAF)',
+    'Eliminatorias AFC': 'FIFA World Cup Qualification (AFC)',
+
+    'Copa Confederaciones': 'FIFA Confederations Cup',
+    'Zon Sagres': 'Primeira Liga',
+
+
+    'Copa de Oro': 'Gold Cup',
+
+    'Primera División Mexicana': 'Liga MX',
+
+
+    'Superliga': 'North American SuperLiga',
+
+    'Champions League': 'UEFA Champions League',
+
+    'La Liga Española': 'La Liga',
+
+    'Russian Football Premier League': 'Russian Premier League',
+
+    'Rio de Janeiro Championship': 'Campeonato Carioca',
+    'Campeonato da Cidade de Belo Horizonte': 'Belo Horizonte City Championship',
+    'Belo Horizonte City Championship': 'Campeonato Mineiro',
+
     'European Champions Cup': 'UEFA Champions League',
 
     'NCAA Division I Men\'s Soccer Championship': 'NCAA Division I',
@@ -24,13 +90,18 @@ full_alias = {
 
     'Costa Rican Primera División': 'Primera División de Costa Rica',
     
+    'Mundial de Clubes': 'FIFA Club World Cup',
     'Club World Cup': 'FIFA Club World Cup',
 
     'Super Lig': 'Süper Lig',
     'Superlig': 'Süper Lig',
 
     # Once competition mapping is implemented.
+
+    'Liga de Campeones CONCACAF': 'CONCACAF Champions League',
+    'Copa de Campeones CONCACAF': 'CONCACAF Champions League',
     'CONCACAF Champions\' Cup': 'CONCACAF Champions League',
+
     'Copa Fraternidad Centroamericana': 'Copa Interclubes UNCAF',
     'Torneo Grandes de Centroamerica': 'Copa Interclubes UNCAF',
     'UNCAF Club Championship': 'Copa Interclubes UNCAF',
@@ -39,6 +110,7 @@ full_alias = {
     'Copa Intercontinental': 'Intercontinental Cup',
 
     'Liga Argentina de Football': 'Argentine Primera División',
+    'Primera División Argentina': 'Argentine Primera División',
 
     'Brasileirao': 'Brasileirão',
     'Campeonato Brasileiro Série A': 'Brasileirão',
@@ -64,7 +136,10 @@ full_alias = {
 
     'Panamerican Games': 'Pan American Games',
     'Panamerican Games Qualifying': 'Pan American Games Qualifying',
+
     'South American Championship': 'Copa America',
+    'Copa América': 'Copa America',
+    #'Copa America': 'Copa América',
 
     'Copa Caribe': 'Caribbean Cup',
     'Copa Caribe Qualifying': 'Caribbean Cup Qualifying',
@@ -72,7 +147,7 @@ full_alias = {
     'UNCAF Cup': 'Copa Centroamericana',
     'UNCAF Nations Cup': 'Copa Centroamericana',
 
-    #'Copa America': 'Copa América',
+
 
     'United Soccer League': 'United Soccer League (1984-1985)',
 
@@ -134,6 +209,9 @@ partial_alias = {
     'Chicago Sister Cities International Cup': 'Friendly',
 
     'U.S. Cup': 'International Friendly',
+
+    'Le Championnat': 'Ligue 1',
+    'Calcio': 'Serie A',
 
     'Bicentennial Cup': 'Friendly',
     'Carlsberg Cup': 'Friendly',

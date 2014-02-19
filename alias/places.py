@@ -16,6 +16,93 @@ def get_place(s):
 
 places = {
 
+    # Mediotiempo
+    'Azul': 'Estadio Azul',
+    'Hidalgo': 'Estadio Hidalgo',
+    'Morelos': 'Estadio Morelos',
+    'Nemesio Díez Riega': 'Estadio Nemesio Díez',
+    'Corona': 'Estadio TSM Corona',
+    'TSM Corona': 'Estadio TSM Corona',
+    'Tres de Marzo': 'Estadio Tres de Marzo',
+    'Olímpico de CU': 'Estadio Olímpico Universitario',
+    'Cuauhtémoc': 'Estadio Cuauhtémoc',
+    'Alfonso Lastras Ramírez': 'Estadio Alfonso Lastras',
+    #'Olímpico Benito Juárez': 
+    'Victor Manuel Reyna': 'Estadio Víctor Manuel Reyna',
+    'Neza 86': 'Estadio Neza 86',
+    'Venustiano Carranza': 'Estadio Venustiano Carranza',
+    'Agustín Coruco Díaz': 'Estadio Coruco Díaz',
+    #'Azulgrana UTN': 
+    #'Tamaulipas': 
+    'Ciudad Universitaria': 'Estadio Olímpico Universitario',
+    'Unidad Deportiva Celaya Miguel Alemán Valdez': 'Estadio Miguel Alemán Valdés',
+    'Luis \'Pirata\' Fuente': 'Estadio Luis de la Fuente',
+    'Corregidora': 'Estadio Corregidora',
+    'Sergio León Chávez': 'Estadio Sergio León Chávez',
+    'Mariano Matamoros': 'Estadio Mariano Matamoros',
+    'Juan N. López': 'Estadio Juan N. López',
+    #'Municipal de Aguascalientes': 
+    '10 de Diciembre': 'Estadio 10 de Diciembre',
+    'Olímpico Benito Juárez': 'Estadio Olímpico Benito Juárez',
+    'Benito Juárez': 'Estadio Olímpico Benito Juárez',
+    'Marte R Gómez': 'Estadio Marte R. Gómez',
+    'Plan de San Luis': 'Estadio Plan de San Luis Potosí',
+    'Unidad Deportiva del IMSS': 'Estadio Unidad Deportiva del IMSS',
+    'J.C. Zerrillo el Bosque': 'Estadio Juan Carmelo Zerillo',
+    'La Martinica': 'Estadio La Martinica',
+    'Estadio Moctezuma': 'Estadio Corona (1970)',
+
+
+    # Argentina
+
+    'Brigadier General Estanislao López': 'Estadio Brigadier General Estanislao López',
+    'Florencio Sola': 'Estadio Florencio Sola',
+    'Presidente Perón': 'Estadio Presidente Juan Domingo Perón',
+    'Diego Armando Maradona': 'Estadio Diego Armando Maradona',
+    'Alberto J. Armando': 'Estadio Alberto J. Armando',
+    'José Amalfitani': 'Estadio Jose Amalfitani',
+    '23 de agosto': 'Estadio 23 de Agosto',
+    'Gigante de Arroyito': 'Estadio Gigante de Arroyito',
+    'Tomás A. Ducó': 'Estadio Tomás Adolfo Ducó',
+
+    # CONCACAF
+
+    'Manny Ramjohn': 'Manny Ramjohn Stadium',
+    'Tiburcio Carías Andino': 'Estadio Tiburcio Carías Andino',
+    'Ricardo Saprissa': 'Estadio Ricardo Saprissa', 
+    'RFK Memorial': 'RFK Stadium',
+    'Reliant': 'Reliant Stadium',
+    'Universidad de Phoenix': 'University of Phoenix Stadium',
+
+    # CONMEBOL
+
+    'Hernando Siles': 'Estadio Hernando Siles',
+    'Urbano Caldeira': 'Estádio Urbano Caldeira',
+    'Mario Filho': 'Maracana',
+    'Estadio Unico de La Plata': 'Estadio Ciudad de La Plata',
+    'Coloso del Parque': 'Estadio Marcelo Bielsa',
+    'Roberto Natalio Carminatti': 'Estadio Roberto Natalio Carminatti',
+    'La Fortaleza': 'Estadio Ciudad de Lanús',
+    'Luis Jorge Hirschi': 'Estadio Jorge Luis Hirschi',
+    'Pedro Bidegain': 'Estadio Pedro Bidegain',
+
+    # UEFA
+    
+    'Arena Aufschalke': 'Veltins-Arena',
+    'Arena AusfSchalke': 'Veltins-Arena',
+
+    'Sükrü Saraçoglu': 'Şükrü Saracoğlu Stadium',
+    'Steua Stadium': 'Stadionul Steaua',
+    'Vicente Calderón': 'Estadio Vicente Calderón',
+    'Olímpic de Montjuic Luís Companys': 'Estadi Olímpic Lluís Companys',
+    'El Sardienro': 'Estadio El Sardinero',
+    'Mestalla': 'Mestalla Stadium',
+    'Municipal de Riazor': 'Estadio Riazor',
+
+
+
+    # other
+
     'Benedetti–Wehrli Stadium': 'Cardinal Stadium, Naperville, IL',
 
     'Cricket Ground, Sydney': 'Sydney Cricket Ground',
@@ -61,8 +148,12 @@ places = {
 
     'Agawam HS': 'Agawam High School',
     'Agawam H.S.': 'Agawam High School',
+
+    'Randall\'s Island, NYC': 'Downing Stadium',
     'Randalls Island': 'Randall\'s Island, New York',
+    'Randalls Island, NYC': 'Randall\'s Island, New York',
     'Randall\'s Island': 'Randall\'s Island, New York',
+    'Randall\'s Island, New York': 'Triborough Stadium',
 
 
     'David\'s Stadium, Newark, NJ': 'Ruppert Stadium, Newark, NJ',
@@ -162,7 +253,7 @@ places = {
 
     'Olympic Park, Melbourne, Australia': 'Olympic Park Stadium',
 
-    'Randall\'s Island, NYC': 'Downing Stadium',
+
     'Stade Olympique, Colombes, Paris': 'Stade Olympique Colombes',
     'Republican Stadium, Kiev': 'Kiev Olympic Stadium',
     'Lenin Stadium, Moscow': 'Luzhniki Stadium',

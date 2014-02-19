@@ -1,5 +1,20 @@
 usa = {
     
+    'So. WV King\'s Warriors': 'Southern West Virginia King\'s Warriors',
+    'North Sound Sea Wolves': 'North Sound SeaWolves',
+
+    'OC Blues Strikers': 'OC Blues Strikers FC', # Pali Blues
+    
+    'West Texas United Sockers': 'Midland/Odessa Sockers',
+
+    'El Paso Indios USA - USASA': 'El Paso Indios',
+    'Danbury United - USASA': 'Danbury United',
+    'Lynch\'s Irish Pub - USASA': 'Lynch\'s Irish Pub',
+
+    'VSI Tampa Flames': 'VSI Tampa Bay',
+    'VSI Tampa Bay FC': 'VSI Tampa Bay',
+    'F.A. Euro - New York Magic': 'FA Euro – New York Magic',
+    
     'FC Golden Pride': 'FC Gold Pride',
 
     'Sky Blue F. C.': 'Sky Blue FC',
@@ -128,6 +143,8 @@ usa = {
     'Hartford Bicentennials': 'Connecticut Bicentennials',
     'Atlanta Apollos': 'Atlanta Chiefs',
     'Cosmos': 'New York Cosmos',
+
+    'San José Earthquakes': 'San Jose Earthquakes',
     'Golden Bay Earthquakes': 'San Jose Earthquakes',
     'Toronto Metros': 'Toronto Blizzard',
     'Toronto Metros-Croatia': 'Toronto Blizzard',
@@ -135,21 +152,40 @@ usa = {
 
     # MLS
     'Chicago Fire S.C.': 'Chicago Fire',
+    'Chicago Fire - MLS': 'Chicago Fire',
+
+    'CD Chivas USA - MLS': 'Chivas USA',
     'CD Chivas USA': 'Chivas USA',
     'C.D. Chivas USA': 'Chivas USA',
+    'Chivas Usa': 'Chivas USA',
+
+    'Colorado Rapids - MLS': 'Colorado Rapids',
+
     'D. C. United': 'D.C. United',
     'DC United': 'D.C. United',
+    'DC United - MLS': 'D.C. United',
+
+    'FC Dallas - MLS': 'FC Dallas',
+    'Fc Dallas': 'FC Dallas',
     'F.C. Dallas': 'FC Dallas',
     'F. C. Dallas': 'FC Dallas',
-
     'Dallas Burn': 'FC Dallas',
     'Dallas Burn/FC Dallas 96': 'FC Dallas',
     'FC Dallas 96': 'FC Dallas',
+
     'Houston 1836': 'Houston Dynamo',
+    'Houston Dynamo - MLS': 'Houston Dynamo',
+
     'Kansas City Wiz': 'Kansas City Wizards',
     'Kansas City Wizards': 'Sporting Kansas City',
     'Sporting KC': 'Sporting Kansas City',
+
+    'Los Angeles Galaxy - MLS': 'Los Angeles Galaxy',
     'LA Galaxy': 'Los Angeles Galaxy',
+    'La Galaxy': 'Los Angeles Galaxy',
+
+    'New England Revolution - MLS': 'New England Revolution',
+    'Ne Revolution': 'New England Revolution',
     'NE Revolution': 'New England Revolution',
     'NY/NJ Metrostars': 'New York Red Bulls',
     'Metrostars': 'New York Red Bulls',
@@ -167,6 +203,8 @@ usa = {
     'Seattle Sounders FC': 'Seattle Sounders',
     'Sounders FC': 'Seattle Sounders',
     'Toronto F.C.': 'Toronto FC',
+    
+    'Vancouver Whitecaps Fc': 'Vancouver Whitecaps',
     'Vancouver 86ers': 'Vancouver Whitecaps',
     'Vancouver Whitecaps FC': 'Vancouver Whitecaps',
 
@@ -478,6 +516,7 @@ usa = {
     #Uprising SC (DC/VA)
 
     'Aegean Hawks': 'Aegean Hawks FC',
+    'Aegean Hawks - USASA': 'Aegean Hawks FC',
 
     'Club Espana (DC/VA)': 'Club Espana',
     'Richhmond Kickers': 'Richmond Kickers',
@@ -870,6 +909,7 @@ usa = {
     'Newark Scots Americans': 'Kearny Scots',
     'Kearny Scots-Americans': 'Kearny Scots',
 
+
     'Kearny Celtics': 'Kearny Celtic',
     'Kearney Celtics': 'Kearny Celtic',
     'Kearny Irish': 'Kearny Celtic',
@@ -1046,6 +1086,7 @@ usa = {
     'Bricklayers FC (Chicago)': 'Chicago Bricklayers',
 
     'RWB Adria (IL)': 'RWB Adria',
+    'RWB Adria - USASA': 'RWB Adria',
 
     'Slovak AA': 'Chicago Slovak SC',
     'Slovak SC': 'Chicago Slovak SC',

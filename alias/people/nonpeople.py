@@ -16,9 +16,17 @@ nonpeople = {
     'Sent Off': 'sent off',
     'Red Card': 'sent off',
     'red card': 'sent off',
+    'ejection': 'sent off',
 
     'og': 'Own Goal',
     'o.g.': 'Own Goal',
     'Own goal': 'Own Goal',
     'own goal': 'Own Goal',
+    'own-goal': 'Own Goal',
+
+    'OG': 'Own Goal',
+    'og.': 'Own Goal',
+    'Og': 'Own Goal',
+
+    'c': 'C', # remove all.
 }

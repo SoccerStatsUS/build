@@ -31,6 +31,83 @@ misc = {
 }
 
 world = {
+
+    'Peter Mokaba': 'Peter Mokaba Stadium',
+
+    'Ramón Aguilera': 'Estadío Ramón Aguilera', 
+    'Alejandro Serrano Aguilar': 'Estadio Alejandro Serrano Aguilar',
+
+    'Monumental de Lima': 'Estadio Monumental "U"',
+    
+
+    'Atanasio Girardot': 'Estadio Atanasio Girardot',
+
+
+    'Dinamo de Minsk': 'Dynama Stadium (Minsk)',
+    
+    'San Petersburgo Petrovsky': 'Petrovsky Stadium',
+
+    'Georgios Karaiskakis': 'Georgios Karaiskakis Stadium',
+
+    'Toyota': 'Toyota Stadium',
+    'Calcio': 'Serie A',
+
+    'San Jakob': 'St. Jakob-Park',
+
+    'Buck Shaw': 'Buck Shaw Stadium',
+    'Olímpico Atahualpa': 'Estadio Olímpico Atahualpa',
+
+    'Olímpico de Turín': 'Stadio Olimpico di Torino',
+
+    'Estadio Olímpico de Roma': 'Stadio Olimpico',
+
+    'Real Bafokeng': 'Royal Bafokeng Stadium',
+
+    'New Dallas Cowboys': 'Cowboys Stadium',
+    'Cowboys Stadium': 'AT&T Stadium',
+
+    'Eladio Rosabal Cordero': 'Estadio Eladio Rosabal Cordero',
+
+    'Feliciano Cáceres': 'Estadio Feliciano Cáceres',
+
+    'Ernst Happel': 'Ernst-Happel-Stadion',
+
+    'Benito Villamarín': 'Estadio Benito Villamarín',
+    'Estadio Sergio Leon Chavez': 'Estadio Sergio León Chávez',
+    'Vfl Wolfsburg Arena': 'Volkswagen Arena',
+
+    'George Capwell': 'Estadio George Capwell',
+    'San Carlos de Apoquindo': 'Estadio San Carlos de Apoquindo',
+
+    'Omnilife': 'Estadio Omnilife',
+
+    'Artemio Franchi': 'Stadio Artemio Franchi',
+
+    'San Paolo': 'Stadio San Paolo',
+
+    'BANORTE': 'Estadio Banorte',
+    
+    'Amsterdam Arena': 'Amsterdam ArenA',
+    'Mestalla Stadium': 'Estadio de Mestalla',
+
+    'Alejandro Villanueva': 'Estadio Alejandro Villanueva',
+    'Elías Aguirre': 'Estadio Elías Aguirre',
+    'Marcelo Bielsa': 'Estadio Marcelo Bielsa',
+
+    'VfB Arena': 'Mercedes-Benz Arena',
+
+
+    'El Madrigal': 'Estadio El Madrigal',
+    'Miguel Grau': 'Estadio Miguel Grau (Piura)', # hmm.
+    #'Monumental de Lima': 
+    'Estadio Nacional de Lima': 'Estadio Nacional de Peru',
+    
+    'Libertadores de América': 'Estadio Libertadores de América',
+    'Padre Ernesto Martearena': 'Estadio Padre Ernesto Martearena',
+    'San Juan del Bicentenario': 'Estadio San Juan del Bicentenario',
+
+    'Ono Estadi': 'Iberostar Stadium',
+    'Ciutat de Valencia': 'Estadi Ciutat de València',
     
     'Estadio Monumental Isidro Romero': 'Estadio Monumental Isidro Romero Carbo',
     'Asim Ferhatovic Hase Stadium': 'Asim Ferhatović Hase Stadium',
@@ -40,6 +117,13 @@ world = {
     'Utama Stadium': 'Utama Negeri Stadium',
     'Estadio Newell\'s Old Boys': 'Estadio Marcelo Bielsa',
 
+    'Ramón Sánchez Pizjuán': 'Estadio Ramón Sánchez Pizjuán',
+
+    'Stade Jacques Chaban-Delmas': 'Stade Chaban-Delmas',
+
+
+
+    'El Campín': 'Estadio El Campin',
     'Estadio Nemesio Camacho': 'Estadio El Campin',
     'Estadio Jaime Moron Leon': 'Estadio Jaime Morón León',
     'Bursa Ataturk Stadium': 'Bursa Atatürk Stadium',
@@ -69,7 +153,7 @@ world = {
     'Estadío Independencia': 'Estádio Independência',
     'Estadio Independencia': 'Estádio Independência',
 
-
+    'Monumental David Arellano': 'Estadio Monumental David Arellano',
     'Estádio Monumental David Arellano': 'Estadio Monumental David Arellano',
 
     'Estadio Municipal de Concepcion': 'Estadio Municipal de Concepción',
@@ -247,6 +331,8 @@ world = {
     'Estadio Leon': 'Estadio León',
     'Estadio Ciudad de Cumana': 'Estadio Ciudad de Cumaná',
     'Estadio Parque El Teniente': 'Estadio El Teniente',
+
+    'Nicolás Leoz': 'Estadio Dr. Nicolás Leoz',
     'Estadio Dr. Nicolas Leoz': 'Estadio Dr. Nicolás Leoz',
     'Estadio Jose Antonio Anzoategui': 'Estadio José Antonio Anzoátegui',
     'Estadio Jose Dellagiovanna': 'Estadio José Dellagiovanna',
@@ -264,6 +350,7 @@ world = {
 
     # Greece
     'Karaiskaki': 'Karaiskakis Stadium',
+    'Oaca Spyro Louis': 'Olympic Stadium (Athens)',
 
     # Suriname
     'Andre Kamperveen Stadion': 'André Kamperveen Stadion',
@@ -300,10 +387,13 @@ world = {
     'Estadio Palestra Italia': 'Estádio Palestra Itália',
     'Estadio Raimundo Sampaio': 'Estádio Independência',
     'Centro Esportivo Miecimo da Silva': 'Centro Esportivo Miécimo da Silva',
+
+    'Pacaembu': 'Estádio do Pacaembu',
     'Estadio Municipal Paulo Machado de Carvalho': 'Estádio do Pacaembu',
     'Estadio do Pacaembu': 'Estádio do Pacaembu',
     'Estadio Pacaembu': 'Estádio do Pacaembu',
     'Pacaembu Stadium': 'Estádio do Pacaembu',
+
     'Maracana': 'Estádio do Maracanã',
     'Maracana Stadium': 'Estádio do Maracanã',
     'Estadio do Maracana': 'Estádio do Maracanã',
@@ -314,6 +404,10 @@ world = {
     'Stadío das Laranjeiras': 'Estádio das Laranjeiras',
     'Estadio das Laranjeiras': 'Estádio das Laranjeiras',
 
+    'Atilio Paiva Olivera': 'Estadio Atilio Paiva Olivera',
+
+    #'Morumbí (Cícero Pompeu de Toledo)': 'Estádio do Morumbi',
+    'Morumbí (Cícero Pompeu de Toledo)': 'Estádio do Morumbi',
     'Estadio Morumbi': 'Estádio do Morumbi',
     'Estadio Parque do Sabia': 'Estádio Parque do Sabiá',
 
@@ -326,14 +420,19 @@ world = {
 
     'Estadio Cicero Pompeu de Toledo': 'Estádio do Morumbi',
     'Engenhao': 'Estádio Olímpico João Havelange',
+
+    'José Pinheiro Borda': 'Estádio Beira-Rio',
     'Estadio Jose Pinheiro Borda': 'Estádio Beira-Rio',
+    'Estadio Beira Rio': 'Estádio Beira-Rio',
+    'Estadio Beira-Rio': 'Estádio Beira-Rio',
+
     'Arena do Gremio': 'Arena do Grêmio',
     'Estadio do Morumbi': 'Estádio do Morumbi',
     'Estadio Mane Garrincha': 'Estádio Nacional de Brasília',
     'Estádio Nacional de Brasília': 'Estadio Nacional de Brasilia',
     'Estadio Mane Garrincha': 'Estádio Nacional de Brasília',
     'Estadio Durival de Britto': 'Estádio Vila Capanema',
-    'Estadio Beira Rio': 'Estádio Beira-Rio',
+
     'Estadio Manoel Barradas': 'Estádio Manoel Barradas',
     'Estadio Ressacada': 'Estádio da Ressacada',
     'Estadio Aderbal Ramos da Silva': 'Estádio da Ressacada',
@@ -357,7 +456,7 @@ world = {
     'Estadio Morumbi': 'Estádio do Morumbi',
     'Estádio Vivaldo Lima': 'Vivaldão',
     'Vivaldao': 'Vivaldão',
-    'Estadio Beira-Rio': 'Estádio Beira-Rio',
+
     'Estadio Governador Joao Castelo': 'Estádio Governador João Castelo',
     'Estadio Couto Pereira': 'Estádio Couto Pereira',
     'Estadio Olimpico Joao Havelange': 'Estádio Olímpico João Havelange',
@@ -430,15 +529,19 @@ world = {
     'Vicente Calderon Stadium': 'Estadio Vicente Calderón',
     'Vicente Calderon': 'Estadio Vicente Calderón',
     'Estadio Vicente Calderon': 'Estadio Vicente Calderón',
+
     'Santiago Bernabeu': 'Estadio Santiago Bernabéu',
+    'Santiago Bernabéu': 'Estadio Santiago Bernabéu',
     'Bernabeu Stadium': 'Estadio Santiago Bernabéu',
     'Estadio Santiago Bernabeu': 'Estadio Santiago Bernabéu',
 
     # Netherlands
     'Olympisch Stadion': 'Amsterdam Olympic Stadium',
+    'PSV Stadium': 'Philips Stadion',
 
     # Portugal
     'Estadio da Luz': 'Estádio da Luz',
+    'Estadio Do Dragao': 'Estádio do Dragão',
 
     # Venezuela
     'Estadio Pueblo Nuevo': 'Estadio Polideportivo de Pueblo Nuevo',
@@ -506,9 +609,12 @@ world = {
 
     # Japan
     'Yokohama International Stadium': 'International Stadium Yokohama',
+    
+    'Tokio National Stadium': 'Tokyo National Olympic Stadium',
     'Tokyo National Stadium': 'Tokyo National Olympic Stadium',
     'Tokyo Olympic Stadium': 'Tokyo National Olympic Stadium',
     'National Stadium (Tokyo)': 'Tokyo National Olympic Stadium',
+
     'Kashima Stadium': 'Kashima Soccer Stadium',
     'Niigata Stadium Big Swan': 'Tohoku Electric Power Big Swan Stadium',
     'Saitama Stadium': 'Saitama Stadium 2002',
@@ -531,6 +637,10 @@ world = {
     'Supachalasai Stadium': 'Thailand National Stadium',
 
     # Austria
+    'EM Stadiom Wals-Seizenheim': 'Red Bull Arena (Salzburg)',
+
+    'Tivoli Neu': 'Tivoli-Neu',
+
     'Arnold Schwarzenegger Stadion': 'UPC-Arena',
     'Ernst-Happel Stadion': 'Ernst-Happel-Stadion',
     'Ernst Happel Stadium': 'Ernst-Happel-Stadion',
@@ -611,6 +721,7 @@ world = {
 
     # Scotland
     'Easter Road Stadium': 'Easter Road',
+    'Ibrox': 'Ibrox Stadium',
 
     # Libya
     'Libya National Stadium': 'June 11 Stadium',
@@ -654,6 +765,8 @@ world = {
 
     # Argentina
     'Estadio Brigadier Estanislao Lopez': 'Estadio Brigadier General Estanislao López',
+    
+    'Dr. José Luis Meiszner': 'Estadio Centenario Dr. José Luis Meiszner',
     'Estadio Jose Luis Meiszner': 'Estadio Centenario Dr. José Luis Meiszner',
     'Estadio Centenario (Quilmes)': 'Estadio Centenario Dr. José Luis Meiszner',
     'La Doble Visera': 'Estadio Libertadores de América',
@@ -662,6 +775,7 @@ world = {
     'Estadio Juan Domingo Peron': 'Estadio Presidente Juan Domingo Perón',
     'Estadio Presidente Juan Domingo Peron': 'Estadio Presidente Juan Domingo Perón',
 
+    'Antonio Vespucio Liberti': 'Estadio Monumental Antonio Vespucio Liberti',
     'Estadio Monumental Nunez': 'Estadio Monumental Antonio Vespucio Liberti',
     'El Monumental': 'Estadio Monumental Antonio Vespucio Liberti',
     'Estadio Monumental Antonio Vespuci Liberti': 'Estadio Monumental Antonio Vespucio Liberti',
@@ -673,7 +787,11 @@ world = {
     'Palacio Duco': 'Estadio Tomás Adolfo Ducó',
     'La Bombonera': 'Estadio Alberto J. Armando',
     'Estadio La Bombonera': 'Estadio Alberto J. Armando',
+    
+    'Néstor Díaz Pérez': 'Estadio Ciudad de Lanús',
     'Estadio Ciudad de Lanus': 'Estadio Ciudad de Lanús',
+
+
 
     # Bolivia
     'Estadio Victor Agustin Ugarte': 'Estadio Víctor Agustín Ugarte',
@@ -955,10 +1073,8 @@ united_states = {
     'Frelinghuysen Avenue Ground': 'Frelinghuysen Grounds',
     'Clark\'s Athletic Field': 'Clark\'s Field',
 
-}
-
-
-soccernet_errors = {
+    'Colombus Crew Staduim': 'Columbus Crew Staduim',
+    'Río Tinto Stadium':        'Rio Tinto Stadium',
     'Rio Tinto Satadium': 'Rio Tinto Stadium',
     'AT&T; Park': 'AT&T Park',
     'LIVESTRONG Sporting Park': 'Livestrong Sporting Park',
@@ -980,6 +1096,5 @@ soccernet_errors = {
 sd.update(misc)
 sd.update(world)
 sd.update(united_states)
-sd.update(soccernet_errors)
 
     

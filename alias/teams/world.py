@@ -1,8 +1,71 @@
 world = {
 
+    'Guerreros De Tabasco': 'Guerreros de Tabasco',
+
+    'Valencia Football Club': 'Valencia',
+
+    'Al Wahda': 'Al-Wahda',
+    'Al-Sadd Club': 'Al-Sadd',
+
+    'Morelia Sub-17': 'Morelia U-17',
+    'Chivas Sub-17': 'Chivas U-17',
+    'Atlas Sub-17': 'Atlas U-17',
+    'San Luis Sub-17': 'San Luis U-17', #?
+    'Cruz Azul Sub-17': 'Cruz Azul U-17',
+    'Necaxa Sub-17': 'Necaxa U-17',
+    'Club Tijuana Sub-17': 'Club Tijuana U-17',
+    'Santos Sub-17': 'Santos Laguna U-17',
+    'Monterrey Sub-17': 'Monterrey U-17',
+
+    'Pachuca Sub-20': 'Pachuca U-20',
+    'Indios Sub-20': 'Indios U-20',
+    'Cruz Azul Sub-20': 'Cruz Azul U-20',
+    'Necaxa Sub-20': 'Necaxa U-20',
+    'Tigres Sub-20': 'Tigres U-20',
+    'Monterrey Sub-20': 'Monterrey U-20',
+    'Atlante Sub-20': 'Atlante U-20',
+    'América Sub-20': 'Club America U-20',
+    'Atlas Sub-20': 'Atlas U-20',
+
+    'Estudiantes Sub-17': 'Estudiantes U-17',
+    'Toluca Sub-17': 'Toluca U-17',
+
+    'Estudiantes Sub-20': 'Estudiantes U-20',
+    'Toluca Sub-20': 'Toluca U-20',
+    'Club Tijuana Sub-20': 'Club Tijuana U-20',
+    'Morelia Sub-20': 'Morelia U-20',
+
+    'Atlante Sub-17': 'Atlante U-17',
+
+    'Puebla Sub-20': 'Puebla U-20',
+
+    'Tigres Sub-17': 'Tigres U-17',
+    'Pumas Sub-17': 'UNAM U-17',
+
+    'Pumas Sub-20': 'UNAM U-20',
+
+    'Jaguares Sub-17': 'Jaguares U-17',
+    'Puebla Sub-17': 'Puebla U-17',
+
+    'San Luis Sub-20': 'San Luis U-20', # specific
+
+
+    'Tp Mazembe': 'TP Mazembe',
+
+    'Almere City - Netherlands': 'Almere City',
+
+    'Bodden Town FC - Cayman Island': 'Bodden Town',
+
+    'Pr Islanders': 'Puerto Rico Islanders',
+
+    'Racing Santander': 'Racing de Santander',
+    
+
     'América Cochahuayco': 'U América FC', # name map.
 
     'Un. Magdalena': 'Unión Magdalena',
+
+    'Mogi-Mirim': 'Mogi Mirim',
 
     'AbooMoslem': 'Aboumoslem',
     'Aboo-Moslem': 'Aboumoslem',
@@ -18,6 +81,7 @@ world = {
     'Aalesund FK': 'Aalesund',
     'Aalesunds FK': 'Aalesund',
 
+    'Shakhtar D.': 'Shakhtar Donetsk',
     'Shakhtar Donets\'k': 'Shakhtar Donetsk',
     'Dynamo Kyiv': 'Dynamo Kiev',
     'Dnipro Dnipropetrovs\'k': 'Dnipro Dnipropetrovsk',
@@ -28,6 +92,7 @@ world = {
     'Metalurh Donets\'k': 'Metalurh Donetsk',
 
     'PAOK Thessaloniki': 'PAOK',
+    'Paok Fc': 'PAOK',
 
     'Zorja Luhans\'k': 'Zorya Luhansk',
     'Zaria Voroshilovgrad': 'Zorya Luhansk',
@@ -242,6 +307,8 @@ world = {
     'Start Kristiansand': 'IK Stard',
     'Start': 'IK Start',
 
+
+
     'Ararat Yerevan (URS)': 'Ararat Yerevan',
 
     'Universitatea Craiova (Rom)': 'Universitatea Craiova',
@@ -283,6 +350,7 @@ world = {
 
     'Keflavik (Isl)': 'Keflavik',
 
+    'Fc Lausanne-Sport': 'Lausanne Sports',
     'Lausanne Sports (Sui)': 'Lausanne Sports',
     'Lausanne Sports': 'Lausanne-Sport',
 
@@ -319,6 +387,7 @@ world = {
 
 
 
+    'Cska Moskva': 'CSKA Moscow',
     'CSKA Moscow (URS)': 'CSKA Moscow',
 
     'Hibernians (Mlt)': 'Hibernians (Malta)',
@@ -340,6 +409,7 @@ world = {
 
     'Spartak Plovdiv (Bul)': 'Spartak Plovdiv',
 
+
     'Botev Plovdiv (Bul)': 'Botev Plovdiv',
 
     'Skeid Oslo (Nor)': 'Skeid Oslo',
@@ -349,7 +419,7 @@ world = {
 
     'Distillery Belfast': 'Lisburn Distillery',
 
-
+    'Spartak Moskva': 'Spartak Moscow',
     'Spartak Moscow (URS)': 'Spartak Moscow',
 
     'Kuusysi Lahti (Fin)': 'Kuusysi Lahti',
@@ -363,6 +433,7 @@ world = {
     'RWD Molenbeek (Bel)': 'RWD Molenbeek',
 
     'Club Brugge (Bel)': 'Club Brugge',
+    'Brugge': 'Club Brugge',
 
     'Fram Reykjavik (Isl)': 'Fram Reykjavik',
 
@@ -433,6 +504,7 @@ world = {
     'Vitosha Sofia (Bul)': 'Vitosha Sofia',
 
 
+    'Nk Dinamo Zagreb': 'Dinamo Zagreb',
     'NK Dinamo Zagreb (Yug)': 'Dinamo Zagreb',
     'NK Dinamo (Zagreb-Yug)': 'Dinamo Zagreb',
     'Dinamo Zagreb (YUG)': 'Dinamo Zagreb',
@@ -444,8 +516,8 @@ world = {
     'CDNA (Bul)': 'CDNA Sofia',
     'CDNA (Sofia-Bul)': 'CDNA Sofia',
     'CDNA Sofia (Bul)': 'CDNA Sofia',
-
     'CDNA Sofia': 'CSKA Sofia',
+    'Cska Sofia': 'CSKA Sofia',
     'CSKA Sofia (Bul)': 'CSKA Sofia',
 
     'Sredets Sofia (Bul)': 'Sredets Sofia',
@@ -473,23 +545,29 @@ world = {
 
     # France
 
+    'Gfcoa': 'GFC Ajaccio',
+
     'Olympique Lyonnais': 'Lyon',
 
     'AS Cannes': 'Cannes',
 
     'Stade Brestois': 'Brest',
+    'Stade Brestois 29': 'Brest',
 
     'Nantes FC': 'Nantes',
     'FC Nantes (Fra)': 'Nantes',
 
+    'Ac Arles Avignon': 'Arles-Avignon',
     'AC Arles-Avignon': 'Arles-Avignon',
 
     'AC Ajaccio': 'Ajaccio',
     'AJ Auxerre': 'Auxerre',
 
+    'As Nancy Lorraine': 'AS Nancy',
     'AS Nancy Lorraine': 'AS Nancy',
     'AS Nancy-Lorraine': 'AS Nancy',
 
+    'Saint Etienne': 'Saint-Étienne',
     'AS Saint-Etienne': 'Saint-Étienne',
     'AS Saint-Étienne (Fra)': 'Saint-Étienne',
 
@@ -515,20 +593,24 @@ world = {
     'Le Mans UC 72': 'Le Mans',
     'Le Mans UC72': 'Le Mans',
 
+    'Montpellier Hsc': 'Montpellier Herault SC',
     'Montpellier HSC': 'Montpellier Herault SC',
     'Montpellier-Herault': 'Montpellier Herault SC',
     'Montpellier-Hérault': 'Montpellier Herault SC',
-
+    
+    'Marsella': 'Marseille',
     'Olympique de Marseille': 'Marseille',
     'Olympique Marseille (Fra)': 'Marseille',
     'Olympique Marseille': 'Marseille',
 
+    'Paris Saint-Germain - France': 'Paris Saint-Germain',
     'Paris Saint-Germain FC': 'Paris Saint-Germain',
     'Paris-Saint-Germain FC': 'Paris Saint-Germain',
 
     'RC Lens': 'Lens',
 
     'SC Bastia': 'Bastia',
+    'Sc Bastia': 'Bastia',
 
     'SM Caen': 'Caen',
     'Stade Malherbe Caen': 'Caen',
@@ -536,6 +618,7 @@ world = {
     'Stade Rennais': 'Rennes',
     'Stade Rennais FC': 'Rennes',
 
+    'Stade De Reims': 'Reims',
     'Stade de Reims': 'Reims',
     'Stade de Reims (Fra)': 'Reims',
 
@@ -545,6 +628,7 @@ world = {
     'CS Sedan-Ardennes': 'Sedan',
 
     'US Boulogne-sur-mer CO': 'Boulogne',
+    'U.S. Boulogne': 'Boulogne',
 
 
 
@@ -552,10 +636,12 @@ world = {
     # Spain
 
     'Granada': 'Granada CF',
+    'Granada Cf': 'Granada CF',
 
     'Merida': 'Mérida',
     'Mérida CP': 'Mérida',
 
+    'Gimnástic De Tarragona': 'Gimnàstic de Tarragona',
     'Club Gimnàstic de Tarragona': 'Gimnàstic de Tarragona',
 
     'Xerez CD': 'Xerez',
@@ -574,6 +660,7 @@ world = {
     'Numancia (Soria)': 'Numancia',
 
     'RC Recreativo de Huelva': 'Recreativo Huelva',
+    'Recreativo De Huelva': 'Recreativo Huelva',
 
     'CD Tenerife': 'Tenerife',
 
@@ -636,6 +723,7 @@ world = {
     # Turkey
 
     'Trabzonspor (Tur)': 'Trabzonspor',
+    'Trabzonspor As': 'Trabzonspor',
 
     'Diyarbakirspor': 'Diyarbakırspor',
 
@@ -649,20 +737,28 @@ world = {
     # Netherlands
 
     'DOS': 'FC Utrecht',
+    'Fc Utrecht': 'FC Utrecht',
     'DOS (Utrecht) (Ned)': 'FC Utrecht',
 
     'Graafschap': 'De Graafschap',
     'Go Ahead': 'Go Ahead Eagles',
     'Den Haag': 'ADO Den Haag',
 
+    'Pec Zwolle': 'PEC Zwolle',
     'Zwolle': 'PEC Zwolle',
     'FC Zwolle': 'PEC Zwolle',
 
     'Eindhoven': 'PSV Eindhoven',
     'MVV': 'MVV Maastricht',
+
     'Volendam': 'FC Volendam',
+    'FC Volendam - Netherlands': 'FC Volendam',
+
     'Cambuur': 'SC Cambuur',
+
+    'Sc Heerenveen': 'Heerenveen',
     'SC Heerenveen': 'Heerenveen',
+
     'RBC': 'RBC Roosendaal',
     'Helmond': 'Helmond Sport',
     'Dordrecht': 'FC Dordrecht',
@@ -677,6 +773,7 @@ world = {
     'Dundee United (Sco)': 'Dundee United',
     'Dundee U': 'Dundee United',
     'Dundee Utd': 'Dundee United',
+    'Dundee United Fc': 'Dundee United',
 
     'Dundee': 'Dundee FC', # Careful here.
     'Dundee FC (Sco)': 'Dundee FC',
@@ -716,6 +813,8 @@ world = {
 
 
     'Sporting de Braga': 'Braga',
+    'Sc Braga': 'Braga',
+
     'SC Beira-Mar': 'Beira-Mar',
     'Rio Ave FC': 'Rio Ave',
     'Sporting Campomaiorense': 'Campomaiorense',
@@ -771,6 +870,7 @@ world = {
     'Györ': 'Győr',
     'Gyor': 'Győr',
     'Gyori ETO': 'Győr',
+    'Gyori Eto Fc': 'Győr',
     'ETO Györ (Hun)': 'Győr',
     'ETO Győr (Hun)': 'Győr',
 
@@ -839,6 +939,7 @@ world = {
     'Spartak Hradec Králové (Tch)': 'Hradec Králové',
     'Spartak Hradec Králová (Tch)': 'Hradec Králové',
     'Spartak Hradec Králové': 'Hradec Králové',
+
     'Hradec Kralove': 'Hradec Králové',
     'Hr.Králové': 'Hradec Králové',
     'Hr. Kralove': 'Hradec Králové',
@@ -1057,7 +1158,9 @@ world = {
     'Moctezuma': 'Moctezuma de Orizaba',
     
     'Oaxtepec': 'CF Oaxtepec',
+
     'U.de Curtidores': 'Unión de Curtidores',
+    'Curtidores': 'Unión de Curtidores', # check.
 
     'C.F. La Piedad': 'La Piedad',
 
@@ -1109,6 +1212,7 @@ world = {
 
 
     # Belarus
+    'Fc Dinamo Minsk': 'Dinamo Minsk',
     'Dynamo Minsk': 'Dinamo Minsk',
     'Dinamo Minsk (URS)': 'Dinamo Minsk',
 
@@ -1142,11 +1246,12 @@ world = {
     'Sangju Sangmu FC': 'Sangju Sangmu',
     'Gwangju Sangmu': 'Sangju Sangmu',
 
-
     'Puchon SK': 'Bucheon SK',
     'Puchon Yukong': 'Bucheon SK',
+
     'Ilhwa Chunma': 'Seongnam Ilhwa Chunma',
     'Songnam Ilhwa Chunma': 'Seongnam Ilhwa Chunma',
+    'Seongnam Ilhwa': 'Seongnam Ilhwa Chunma',
 
     'Hyundai Horang-i': 'Ulsan Hyundai FC',
     'Ulsan Hyundai Horang-i': 'Ulsan Hyundai FC',
@@ -1207,7 +1312,7 @@ world = {
     'Scorpion FC': 'Scorpión FC',
     'Chelsea FC (St Vincent)': 'Camdonia Chelsea SC',
     'Atletico Morazan': 'Atlético Morazán',
-    'Alajuela': 'Alajuelense',
+
     'Paradise FC': 'Paradise SC',
     'Elite FC': 'Elite SC',
     'Northern United': 'Northern United All Stars',
@@ -1242,7 +1347,10 @@ world = {
 
     # Puerto Rico
     'River Plate PR': 'River Plate Puerto Rico',
+
     'Sevilla Bayamon FC': 'Bayamón FC',
+    'Bayamon FC - Puerto Rico': 'Bayamón FC',
+
     'Hoppers': 'Hoppers FC',
     'Cavaly': 'AS Cavaly',
 
@@ -1258,6 +1366,8 @@ world = {
     'Atletico Chiriqui': 'Atlético Chiriquí',
     'Atletico Veraguense': 'Atlético Veragüense',
 
+    'Cd Arabe Unido': 'Arabe Unido',
+    'Arabe Unido - Panama': 'Arabe Unido',
     'CD Arabe Unido': 'Arabe Unido',
     'Deportivo Árabe Unido': 'Árabe Unido',
     'Àrabe Unido': 'Arabe Unido',
@@ -1288,16 +1398,19 @@ world = {
     'Sporting \'89': 'Sporting San Miguelito',
     'Sporting 89': 'Sporting San Miguelito', # name map.
     'Sporting (Panama)': 'Sporting San Miguelito',
-
     'Sporting SM': 'Sporting San Miguelito',
+
     'River Plate (Panama)': 'Colón River FC',
 
+    'Chorrillo': 'Chorrillo F.C.',
+    'Chorrillo Fc': 'Chorrillo FC',
     'El Chorrillo FC': 'Chorrillo F.C.',
     'Municipal Chorrillo': 'Chorrillo F.C.',
-    'Chorrillo FC': 'Chorrillo F.C.',
+
     'El Chorrillo': 'Chorrillo F.C.',
     'Mun. Chorrillo': 'Chorrillo F.C.',
     'Mpal. Chorrillo': 'Chorrillo F.C.',
+    'Chorrillo F.C.': 'Chorrillo FC',
 
     'Atletico Nacional (Panama)': 'Atlético Nacional (Panama)',
 
@@ -1325,6 +1438,7 @@ world = {
     'CS Uruguay (Coronado)': 'Uruguay de Coronado',
     'Uruguay (Coronado)': 'Uruguay de Coronado',
 
+    'Nacional De Uruguay': 'Nacional',
     'CA Nacional': 'Nacional',
 
     'C.U.R.C.C.': 'CURCC',
@@ -1348,6 +1462,7 @@ world = {
     'Brujas Escazú': 'Brujas FC',
     'Brujas FC Escazú': 'Brujas FC',
 
+    'Club Sport Cartaginés': 'Cartaginés',
     'CS Cartaginés': 'Cartaginés',
     'CD Cartagines': 'Cartaginés',
     'CS Cartagines': 'Cartaginés',
@@ -1492,7 +1607,12 @@ world = {
 
 
     'UDA Dukla Praha': 'Dukla Prague',
+
+    
+    'Club Atlético River Plate': 'River Plate',
     'CA River Plate': 'River Plate',
+
+    'Atlante FC - Mexico': 'Atlante',
     'Atlante CF': 'Atlante',
     'Club Atlante': 'Atlante',
 
@@ -1528,6 +1648,8 @@ world = {
     'Prudente': 'Grêmio Barueri',
 
     'Union Atletico Maracaibo': 'UA Maracaibo',
+    'U.A. Maracaibo': 'UA Maracaibo',
+
     'Coritiba': 'Coritiba FC',
     'Alianza Atletico': 'Alianza Atlético',
 
@@ -1547,6 +1669,7 @@ world = {
     'Atlético Junior': 'Junior de Barranquilla',
     'Atl. Junior': 'Junior de Barranquilla',
 
+    'Ind. De Santa Fe': 'Independiente Santa Fe',
     'Ind. Santa Fe': 'Independiente Santa Fe',
 
     'Deportivo Canarias': 'Deportiva Canarias',
@@ -1608,6 +1731,7 @@ world = {
     'Burma': 'Myanmar',
     'Pegasus AFC': 'Pegasus A.F.C.',
     
+    'Crystal Palace - England': 'Crystal Palace',
     'Crystal Palace FC': 'Crystal Palace',
     'Crystal Palace F.C.': 'Crystal Palace',
 
@@ -1642,9 +1766,12 @@ world = {
     #'CCA Bucureşti (Rom)': 'CCA Bucureşti',
     'CCA Bucuresti': 'FC Steaua București',
 
+    'Steaua Bucharest': 'FC Steaua București',
+    'Steaua Bucurest': 'FC Steaua București',
     'Steaua Bucuresti (Rom)': 'FC Steaua București',
     'Steaua Bucuresti': 'FC Steaua București',
 
+    'Rapid Bucarest': 'Rapid Bucuresti',
     'Rapid Bucuresti (Rom)': 'Rapid Bucuresti',
     'Rapid Bucuresti': 'Rapid București',
 
@@ -1662,6 +1789,8 @@ world = {
     'Seba United': 'Montego Bay United', # name map.
     'Santiagueno': 'C.D. Santiagueño',
     'Border Bandits (South TX)': 'Border Bandits',
+
+    'Banat Arsenal - USASA': 'Banat Arsenal',
     'Banat Arsenal': 'Phoenix Banat Storm', #name map
     'Phoenix Pride': 'Phonenix Inferno', #name map
     'Lubbock Tornado': 'Lubbock Lazers', #name map
@@ -1761,6 +1890,7 @@ world = {
     'Schwechater': 'SV Schwechat',
     'Groningen': 'FC Groningen',
 
+    'Zenit St. Petersburg': 'FC Zenit Saint Petersburg',
     'Zenit Leningrad': 'FC Zenit Saint Petersburg',
     'Zenit Leningrad (URS)': 'FC Zenit Saint Petersburg',
 
@@ -1772,13 +1902,18 @@ world = {
     'RSD Alcala': 'RSD Alcalá',
     'VfL Bad Oldesloe': 'VfL Oldesloe',
     'SV Kaufbeuren': 'SpVgg Kaufbeuren',
+
     'Southampton F.C.': 'Southampton',
+    'Southampton Fc': 'Southampton',
 
 
     'VFC Setubal': 'Vitória de Setúbal',
     'Vitoria Setubal': 'Vitória de Setúbal',
+
+    'Hibernian Fc': 'Hibernian F.C.',
     'Hibernians': 'Hibernian F.C.',
     'Hibernian': 'Hibernian F.C.',
+
     'ASV Bergsdorf': 'ASV Bergedorf',
     'VfL Osnabruck': 'VfL Osnabrück',
     'SV Muenster': 'SV Munster',
@@ -1815,6 +1950,7 @@ world = {
     'Upton Park FC': 'Upton Park F.C.',
     'Nautico': 'Náutico',
     
+    'Atlético De Madrid': 'Atlético de Madrid',
     'Atletico de Madrid': 'Atlético de Madrid',
     'Atlético de Madrid': 'Atlético Madrid',
     'Atletico Madrid': 'Atlético Madrid',
@@ -1822,6 +1958,8 @@ world = {
     
     #Dominican Rep>, <Team: Dominican Rep.>]
     'Galt FC': 'Galt F.C.',
+
+    'Lduq': 'LDU Quito',
     'L.D.U. Quito': 'LDU Quito',
     'LDU de Quito': 'LDU Quito',
 
@@ -1922,6 +2060,8 @@ world = {
 
     # Canada
 
+    'Impact De Montreal': 'Montreal Impact',
+
     'Hamilton Steloos': 'Hamilton Stelcos',
 
     #Canadian Explosives (Beloeil)
@@ -1989,6 +2129,8 @@ world = {
     'Team Seiko': 'Seiko SA',
 
     # Egypt
+
+    'Al Ahli Fc': 'Al Ahly SC',
     'Al-Ahly': 'Al Ahly SC',
     'Al-Ahly S.C.': 'Al Ahly SC',
     'Al Ahly': 'Al Ahly SC',
@@ -2002,6 +2144,8 @@ world = {
     'Brisbane Roar FC': 'Brisbane Roar',
     'Central Coast Mariners FC': 'Central Coast Mariners',
     'Gold Coast United FC': 'Gold Coast United',
+
+    'Melbourne Victory - Australia': 'Melbourne Victory',
     'Melbourne Victory FC': 'Melbourne Victory',
     'Melbourne Heart FC': 'Melbourne Heart',
 
@@ -2037,7 +2181,9 @@ world = {
 
     'Hapoel Haifa': 'Hapoel Haifa F.C.',
 
+
     'Maccabi Tel Aviv F.C.': 'Maccabi Tel Aviv',
+    'Maccabi Tel-Aviv Fc': 'Maccabi Tel Aviv',
 
 
     # Portugal
@@ -2060,6 +2206,7 @@ world = {
     'E. Amadora': 'Estrela da Amadora',
     'CF Estrela de Amadora': 'Estrela da Amadora',
 
+    'Pacos De Ferreira': 'Paços de Ferreira',
     'Pacos Ferreira': 'Paços de Ferreira',
     'Paços Ferreira': 'Paços de Ferreira',
     'Paços de F': 'Paços de Ferreira',
@@ -2068,6 +2215,7 @@ world = {
 
     'Beira Mar': 'Beira-Mar',
 
+    'Académica De Coimbra': 'Académica de Coimbra',
     'Academica Coimbra': 'Académica de Coimbra',
     'Académica Coimbra': 'Académica de Coimbra',
 
@@ -2078,8 +2226,11 @@ world = {
     'Porto': 'FC Porto',
     'FC Porto (Por)': 'FC Porto',
 
+    'Belenenses - Portugal': 'C.F. Os Belenenses',
     'Belenenses': 'C.F. Os Belenenses',
 
+
+    'Sporting (Portugal)': 'Sporting Lisbon',
     'Sporting Club Lisbon': 'Sporting Lisbon',
     'Sporting C. Lisboa': 'Sporting Lisbon',
     'Sporting CP': 'Sporting Lisbon',
@@ -2099,6 +2250,7 @@ world = {
 
     'Marinhense': 'A.C. Marinhense',
 
+    'Cs Marítimo':  'C.S. Maritimo',
     'Mariitimo': 'C.S. Maritimo',
     'Maritimo': 'C.S. Maritimo',
     'C.S. Maritimo': 'Marítimo',
@@ -2113,6 +2265,7 @@ world = {
 
     'FC do Porto': 'FC Porto',
 
+    'Vitória De Guimaraes': 'Vitória de Guimarães',
     'Vitoria SC (Guimaraes)': 'Vitória de Guimarães',
     'Vitoria SC (Guimarães)': 'Vitória de Guimarães',
     'Vitoria G': 'Vitória de Guimarães',
@@ -2135,6 +2288,7 @@ world = {
 
     # Spain
 
+    'Deportivo Lc': 'Deportivo La Coruña',
     'Deportivo la Coruna': 'Deportivo La Coruña',
     'RC Deportivo (La Coruña)': 'Deportivo La Coruña',
     'RC Deportivo': 'Deportivo La Coruña',
@@ -2155,14 +2309,17 @@ world = {
     'Salamanca': 'UD Salamanca',
     'Oviedo': 'Real Oviedo', # Too broad?
 
+    'Celta De Vigo': 'Celta Vigo',
     'Celta': 'Celta Vigo',
     'RC Celta (Vigo)': 'Celta Vigo',
     'RC Celta': 'Celta Vigo',
 
+    'Sporting De Gijón': 'Sporting de Gijón',
     'Sporting de Gijon': 'Sporting de Gijón',
 
     'Madrid': 'Real Madrid', # Uhhhhh...
     'Real Madrid CF': 'Real Madrid',
+    'Real Madrid - Spain': 'Real Madrid',
     'Real Madrid (Esp)': 'Real Madrid',
 
 
@@ -2173,6 +2330,7 @@ world = {
 
     'Zaragoza': 'Real Zaragoza',
 
+    'Athletic De Bilbao': 'Athletic Bilbao',
     'Athletic Bilbao (Esp)': 'Athletic Bilbao',
     'Athletic Club de Bilbao': 'Athletic Bilbao',
     'Athletic de Bilbao': 'Athletic Bilbao',
@@ -2184,7 +2342,7 @@ world = {
     'UD Almería': 'Almería',
 
     'FC Barcelona (Esp)': 'FC Barcelona',
-    'Barcelona': 'FC Barcelona',
+    #'Barcelona': 'FC Barcelona',
     'Barcelona (Spain)': 'FC Barcelona',
     'Barcelona B': 'FC Barcelona B',
 
@@ -2199,7 +2357,7 @@ world = {
     'Sevilla': 'Sevilla FC',
     'Sevilla CF': 'Sevilla FC',
 
-    'Valencia': 'Valencia CF',
+    #'Valencia': 'Valencia CF',
     'Valencia (Esp)': 'Valencia CF',
 
     'Vitoria Setúbal': 'Vitória de Setúbal',
@@ -2215,7 +2373,10 @@ world = {
     
 
     'SC Charleroi': 'Charleroi SC',
+
     'AA Gent': 'Gent',
+    'Kaa Gent': 'Gent',
+
     'G. Beerschot': 'Beerschot AC',
     'Charleroi': 'Charleroi SC',
 
@@ -2224,12 +2385,16 @@ world = {
 
     'Kortrijk': 'KV Kortrijk',
     'Sint Truiden': 'Sint-Truiden',
+
     'KRC Genk': 'Racing Genk',
+    'Krc Genk': 'Racing Genk',
     'Genk': 'Racing Genk',
 
+    'Evian Tg': 'Evian TG',
     'Evian-Thonon': 'Evian TG',
     'Evian-Thonon Gaillard FC': 'Evian TG',
 
+    'Standard Lieja': 'Standard Liège',
     'Liege': 'Standard Liège',
     'St Liege': 'Standard Liège',
     'Standard Liege': 'Standard Liège',
@@ -2252,19 +2417,29 @@ world = {
     'Hadjuk Split': 'Hajduk Split',
     'Hajduk Split (YUG)': 'Hajduk Split',
 
+    'Rnk Split': 'RNK Split',
+
     # Netherlands
 
+    'Az Alkmaar': 'AZ',
     'AZ Alkmaar (Ned)': 'AZ Alkmaar',
     'AZ Alkmaar': 'AZ',
 
+    'Rkc Waalwijk': 'RKC Waalwijk',
     'RKC Waalwĳk': 'RKC Waalwijk',
     'RKC': 'RKC Waalwijk',
 
+    'Vvv-Venlo': 'VVV-Venlo',
     'VVV': 'VVV-Venlo',
     'VVV Venlo': 'VVV-Venlo',
     'PEC': 'PEC Zwolle',
 
     'NAC': 'NAC Breda',
+    'Nac Breda': 'NAC Breda',
+
+    'Nec': 'NEC',
+
+    'Fc Twente': 'FC Twente',
     'Twente': 'FC Twente',
 
     'Utrecht': 'FC Utrecht',
@@ -2272,6 +2447,7 @@ world = {
     'ADO': 'Ado Den Haag',
     'A.D.O.': 'ADO Den Haag',
 
+    'AFC Ajax - Netherlands': 'Ajax',
     'Ajax (Ned)': 'Ajax',
     'Ajax - Netherlands': 'Ajax',
     'Ajax': 'AFC Ajax',
@@ -2279,6 +2455,7 @@ world = {
 
     'Ajax Reserves': 'AFC Ajax Reserves',
 
+    'Psv': 'PSV Eindhoven',
     'PSV Eindhoven -- Netherlands': 'PSV Eindhoven',
     'PSV': 'PSV Eindhoven',
     'PSV Eindhoven (Ned)': 'PSV Eindhoven',
@@ -2294,6 +2471,7 @@ world = {
     'Heracles': 'Heracles Almelo',
 
     'Roda': 'Roda JC',
+    'Roda Jc Kerkrade': 'Roda JC',
 
     # France
 
@@ -2331,6 +2509,7 @@ world = {
     'Paris SG': 'Paris Saint-Germain F.C.',
     'Paris-SG': 'Paris Saint-Germain F.C.',
     'PSG': 'Paris Saint-Germain F.C.',
+    'Psg': 'Paris Saint-Germain F.C.',
     'Paris Saint-Germain (Fra)': 'Paris Saint-Germain',
     'Paris St. Germain': 'Paris Saint-Germain',
     'Paris Saint-Germain F.C.': 'Paris Saint-Germain',
@@ -2349,6 +2528,7 @@ world = {
 
 
     # Partizan Belgrad, Beograd, ...FK Partizan
+    'Fk Partizan': 'Partizan Belgrade',
     'FK Partizan (Yug)': 'Partizan Belgrade',
     'FK Partizan': 'Partizan Belgrade',
     'Partizan': 'Partizan Belgrade',
@@ -2358,6 +2538,8 @@ world = {
     'Partizan Belgrade (YUG)': 'Partizan Belgrade',
 
     # Greece
+
+    'Ofi Crete Fc': 'OFI',
 
     'Aigaleo': 'Egaleo',
     'Xanthi': 'Skoda Xanthi',
@@ -2371,12 +2553,15 @@ world = {
     'apollon': 'Apollon',
     'Apollon': 'Apollon Limassol',
     'Apollon Limassol (Cyp)': 'Apollon Limassol',
+
+    'Ael': 'AEL Limassol',
     'Limassol': 'AEL Limassol',
     'AEL Limassol': 'Apollon Limassol',
     'AEL Limassol (Cyp)': 'Apollon Limassol',
 
     'A.O. Krete': 'AO Krete',
 
+    'Aek': 'AEK Athens F.C.',
     'AEK': 'AEK Athens F.C.',
     'AEK Athens': 'AEK Athens F.C.',
     'AEK Athens (Gre)': 'AEK Athens F.C.',
@@ -2390,6 +2575,7 @@ world = {
 
     # Austria
 
+    'Fk Austria Wien': 'Austria Wien',
     'Austria W': 'Austria Wien',
     'Austria Wien (Aut)': 'Austria Wien',
 
@@ -2401,10 +2587,15 @@ world = {
 
 
     'F. C. Salzburg': 'FC Red Bull Salzburg',
+    'Fc Salzburg': 'FC Red Bull Salzburg',
+
     'Salzburg': 'FC Red Bull Salzburg',
 
     #Wacker (Austria)
 
+
+    'Rapid De Viena': 'Rapid Vienna',
+    'Sk Rapid Wien': 'Rapid Vienna',
     'SK Rapid Wien (Aut)': 'Rapid Vienna',
     'Rapid Wien (Aut)': 'Rapid Vienna',
     'SK Rapid Wien': 'Rapid Vienna',
@@ -2439,6 +2630,7 @@ world = {
     'Sankt Gallen': 'St. Gallen',
     'FC Sankt Gallen': 'St. Gallen',
 
+    'Fc Zürich': 'FC Zurich',
     'Zurich': 'FC Zurich',
     'FC Zurich': 'FC Zürich',
     'FC Zürich (Sui)': 'FC Zürich',
@@ -2448,6 +2640,8 @@ world = {
 
 
 
+    'Bsc Young Boys': 'BSC Young Boys',
+    'Willem Ii Tilburg': 'BSC Young Boys',
     'Young Boys\' Club': 'BSC Young Boys',
     'Young Boys (Sui)': 'BSC Young Boys',
     'Young Boys Club': 'BSC Young Boys',
@@ -2491,6 +2685,7 @@ world = {
 
     'SS Lazio': 'Lazio',
 
+    'Milán': 'AC Milan', # mediotiempo
     'Milan AC': 'AC Milan',
     'AC Milan (Ita)': 'AC Milan',
 
@@ -2529,6 +2724,7 @@ world = {
     'Genoa CFC': 'Genoa',
     'Genoa 1893': 'Genoa',
 
+    'Inter De Milán': 'Inter Milan',
     'FC Internazionale': 'Inter Milan',
     'Internazionale': 'Inter Milan',
     'F.C. Internazionale Milano': 'Inter Milan',
@@ -2607,7 +2803,9 @@ world = {
     # Czech
 
     'FC Viktoria Plzeň': 'Viktoria Plzeň',
+    'Viktoria Plzen': 'Viktoria Plzeň',
 
+    'Sparta De Praga': 'Sparta Prague',
     'Sparta Praha (TCH)': 'Sparta Prague',
     'AC Sparta Praha': 'Sparta Prague',
     'AC Sparta Prague': 'Sparta Prague',
@@ -2623,6 +2821,7 @@ world = {
     # Slovakia
     'SK Bratislava': 'ŠK Slovan Bratislava',
     'Slovan Bratislava': 'ŠK Slovan Bratislava',
+    'Sk Slovan Bratislava': 'ŠK Slovan Bratislava',
 
 
     # Poland
@@ -2662,6 +2861,7 @@ world = {
 
     'Lechia': 'Lechia Gdańsk',
 
+    'Kks Lech Poznán': 'Lech Poznań',
     'Lech': 'Lech Poznań',
     'Lech Poznan': 'Lech Poznań',
     'Lech Poznan (Pol)': 'Lech Poznań',
@@ -2715,6 +2915,7 @@ world = {
     'Widzew Lódz (Pol)': 'Widzew Łódź',
     'Widzew Lodz': 'Widzew Łódź',
 
+    'Wisla Kraków': 'Wisla Krakow',
     'Wisla Krakow - Poland': 'Wisla Krakow',
     'Wisla Krakov': 'Wisła Kraków',
     'Wisla Krakow': 'Wisła Kraków',
@@ -2745,6 +2946,7 @@ world = {
 
     'Diyarbakır': 'Diyarbakırspor',
 
+    'Besiktas Jk': 'Beşiktaş',
     'Beşiktaş (Tur)': 'Beşiktaş',
     'Besiktas (Tur)': 'Beşiktaş',
     'Besiktas': 'Beşiktaş',
@@ -2754,6 +2956,7 @@ world = {
     'Galatasaray (Tur)': 'Galatasaray',
     'Galatasary': 'Galatasaray',
 
+    'Fenerbahçe Sk': 'Fenerbahçe',
     'Fenerbahce': 'Fenerbahçe',
     'Fenerbahçe S.K.': 'Fenerbahçe',
     'Fenerbahçe (Tur)': 'Fenerbahçe',
@@ -2784,6 +2987,7 @@ world = {
     'Moscow Dynamo': 'FC Dynamo Moscow',
 
     'Rubin Kazan -- Russia': 'Rubin Kazan',
+    'Fc Rubin Kazan': 'Rubin Kazan',
 
     
     'FC Zenit Saint Petersburg': 'Zenit Saint Petersburg',
@@ -2799,6 +3003,7 @@ world = {
 
     'Brřndby IF (Den)': 'Brøndby',
     'Brondby IF (Den)': 'Brøndby',
+    'Brondby If': 'Brøndby',
 
     'Herfølge': 'Herfølge BK',
 
@@ -2806,6 +3011,7 @@ world = {
     'Køge BK': 'HB Køge',
     'Křge BK (Den)': 'HB Køge',
 
+    'Nordsjaelland': 'Nordsjælland',
     'Farum BK': 'Nordsjælland',
     'Farum': 'Nordsjælland',
     'Nordjælland': 'Nordsjælland',
@@ -2830,6 +3036,7 @@ world = {
     'Norresundby Boldklub - Denmark': 'Norresundby Boldklub',
     'Norresundby Boldklub': 'Nørresundby Boldklub',
 
+    'Odense Bk': 'OB',
     'OB Odense (Den)': 'OB',
     'B1913 Odense (Den)': 'OB',
     'B1909 Odense (Den)': 'OB',
@@ -2893,6 +3100,7 @@ world = {
     'Enköpings': 'Enköpings SK',
 
     'IFK Malmö (Swe)': 'Malmö FF',
+    'Malmö Ff': 'Malmö FF',
     'Malmo FF (Swe)': 'Malmö FF',
     'Malmo FF': 'Malmö FF',
     'Malmö FF (Swe)': 'Malmö FF',
@@ -2915,6 +3123,7 @@ world = {
     'Hammarby': 'Hammarby IF',
     'Hammarby IF FF': 'Hammarby IF',
 
+    'Losc Lille': 'Lille OSC',
     'Lille': 'Lille OSC',
 
 
@@ -2927,7 +3136,9 @@ world = {
     'Orebro': 'Örebro SK',
     'Örebro SK FK': 'Örebro SK',
 
+    'If Elfsborg': 'IF Elfsborg',
     'Elfsborg': 'IF Elfsborg',
+
     'Gif Sundsvall -- Sweden': 'Gif Sundsvall',
 
     'IFK Gothenburg - Sweden': 'IFK Göteborg',
@@ -2947,8 +3158,10 @@ world = {
 
     'Örgryte': 'Örgryte IS',
 
+    'Aik': 'AIK Fotboll',
     'A.I.K.': 'AIK Fotboll',
     'AIK': 'AIK Fotboll',
+
     'G.A.I.S.': 'GAIS',    
     'Jonkopping': 'Jönköpings Södra IF',
     'Sundsvall': 'GIF Sundsvall',
@@ -2982,6 +3195,7 @@ world = {
     'Odd Grenl': 'Odds BK',
     'Odd': 'Odds BK',
 
+    'Rosenborg Bk': 'Rosenborg BK',
     'Rosenborg Trondheim -- Norway': 'Rosenborg Trondheim',
     'Rosenborg Trondheim': 'Rosenborg BK',
     'Rosenborg BK (Nor)': 'Rosenborg BK',
@@ -3026,6 +3240,7 @@ world = {
     'TSV Alemannia Aachen': 'Alemannia Aachen',
     'Alemannia': 'Alemannia Aachen',
 
+    'Sc Freiburg': 'SC Freiburg',
     'FC Freiburg': 'SC Freiburg',
 
     'Tennis Borussia (Germany)': 'Tennis Borussia Berlin',
@@ -3038,10 +3253,12 @@ world = {
     'M\'gladbach': 'Borussia Mönchengladbach',
     'M’gladbach': 'Borussia Mönchengladbach',
 
+    'Fc St. Pauli': 'FC St. Pauli',
     'St Pauli': 'FC St. Pauli',
     'St. Pauli': 'FC St. Pauli',
     'FC Sankt Pauli': 'FC St. Pauli',
 
+    'Fc Kaiserslautern': '1. FC Kaiserslautern',
     '1. FC Kaiserslautern (Ger)': '1. FC Kaiserslautern',
     '1.FC Kaiserslautern (Ger)': '1. FC Kaiserslautern',
     '1.FC Kaiserslautern': '1. FC Kaiserslautern',
@@ -3050,6 +3267,7 @@ world = {
     'K\'lautern': '1. FC Kaiserslautern',
     'K’lautern': '1. FC Kaiserslautern',
 
+    'Fc Köln': '1. FC Köln',
     '1.FC Köln': '1. FC Köln',
     '1 FC Koln': '1. FC Köln',
     'FC Koln': '1. FC Köln',
@@ -3087,6 +3305,7 @@ world = {
     'HSV': 'Hamburger SV',
     'Hamburg': 'Hamburger SV',
 
+    'Msv Duisburg': 'MSV Duisburg',
     'MSV': 'MSV Duisburg',
     'Duisburg': 'MSV Duisburg',
     'Köln': '1. FC Köln',
@@ -3095,11 +3314,14 @@ world = {
     'Hoffenheim': '1899 Hoffenheim',
     'TSG 1899 Hoffenheim': '1899 Hoffenheim',
 
+    'Eintracht Frankfurt - Germany': 'Eintracht Frankfurt',
     'Eintracht Frankfurt (FRG)': 'Eintracht Frankfurt',
     'Eintracht Frankfurt/Main': 'Eintracht Frankfurt',
     'Frankfurt': 'Eintracht Frankfurt',
     'SG Eintracht Frankfurt': 'Eintracht Frankfurt',
     'Eintracht F': 'Eintracht Frankfurt',
+
+    'Fsv Frankfurt': 'FSV Frankfurt',
 
     'Freiburg': 'SC Freiburg',
     'Freiburger': 'SC Freiburg',
@@ -3123,6 +3345,7 @@ world = {
 
     'Fortuna Dusseldorf': 'Fortuna Düsseldorf',
 
+    'Braunschweig': 'Eintracht Braunschweig',
     'Eintracht Braunschwieg': 'Eintracht Braunschweig',
     'Eintracht Braunschweig (Ger)': 'Eintracht Braunschweig',
 
@@ -3162,6 +3385,7 @@ world = {
     'Bayern Munich': 'FC Bayern Munich',
     'Bayern München': 'FC Bayern Munich',
 
+    'VFL Bochum - Germany': 'VfL Bochum',
     'VFL Bochum': 'VfL Bochum',
     'Bochum': 'VfL Bochum',
 
@@ -3184,7 +3408,7 @@ world = {
     'BFC Dynamo Berlin (GDR)': 'Dynamo Berlin',
 
 
-
+    'Karlsruher': 'Karlsruher SC',
     'Karlsruhe': 'Karlsruher SC',
     'Karlsruhe FV': 'Karlsruher FV',
 
@@ -3193,6 +3417,7 @@ world = {
     '1.FC Koln': '1. FC Köln',
 
 
+    'Nurnberg': 'FC Nurnberg',
     'FC Nürnberg (Ger)': 'FC Nurnberg',
     'FC Nurnberg - Germany': 'FC Nurnberg',
     '1.FC Nürnberg (FRG)': '1. FC Nuremberg',
@@ -3254,6 +3479,11 @@ world = {
     #Coleraine (Northern Ireland)
 
     # Scotland
+
+    'Falkirk Fc': 'Falkirk',
+
+    'Motherwell Fc': 'Motherwell',
+
     'Dumfermline': 'Dunfermline',
     'Dunfermline': 'Dunfermline Athletic F.C.',
 
@@ -3294,6 +3524,9 @@ world = {
     'Kilmarnock FC': 'Kilmarnock F.C.',
 
     # England
+
+    'Barnsley Fc': 'Barnsley',
+
     'Wimbledon': 'Wimbledon FC',
     'Walsall F.C.': 'Walsall',
 
@@ -3301,6 +3534,7 @@ world = {
     'Millwall': 'Millwall F.C.',
     'Millwall FC': 'Millwall F.C.',
 
+    'Arsenal - England': 'Arsenal',
     'Royal Arsenal': 'Arsenal',
     'Arsenal (Eng)': 'Arsenal',
 
@@ -3331,6 +3565,7 @@ world = {
     'Coventry City FC': 'Coventry City',
     'Coventry': 'Coventry City',
 
+    'Derby Country': 'Derby County',
     'Derby': 'Derby County',
     'Derby County (Eng)': 'Derby County',
     'Derby County - England': 'Derby County',
@@ -3356,17 +3591,20 @@ world = {
     'Leicester': 'Leicester City',
     'Leicester City - England': 'Leicester City',
 
+    'Liverpool Fc': 'Liverpool',
     'Liverpool F.C.': 'Liverpool',
     'Liverpool FC': 'Liverpool',
     'Liverpool (Eng)': 'Liverpool',
 
     'Swindon': 'Swindon Town',
 
+    'Manchester City FC - England': 'Manchester City',
     'Manchester C': 'Manchester City',
     'Man City': 'Manchester City',
     'Manchester City F.C.': 'Manchester City',
     'Manchester City (Eng)': 'Manchester City',
 
+    'Manchester Utd.': 'Manchester United',
     'Newton Heath': 'Manchester United',
     'Man Utd': 'Manchester United',
     'Manchester U': 'Manchester United',
@@ -3379,6 +3617,7 @@ world = {
     'Middleborough FC': 'Middlesbrough F.C.',
     'Middlesbrough F.C.': 'Middlesbrough',
 
+    'Qpr': 'Queens Park Rangers',
     'QPR': 'Queens Park Rangers',
     'Queen\'s Park Rangers': 'Queens Park Rangers',
     'Queens\' Park Rangers': 'Queens Park Rangers',
@@ -3387,6 +3626,7 @@ world = {
 
     'Blackburn': 'Blackburn Rovers',
 
+    'Newcastle - England': 'Newcastle United',     
     'Newcastle U': 'Newcastle United',     
     'Newcastle': 'Newcastle United',    
     'Newcastle United - England': 'Newcastle United',
@@ -3420,12 +3660,12 @@ world = {
     'Sheffield United - England': 'Sheffield United',
     'Sheffield Utd': 'Sheffield United',
 
-    
     'Stockport County F.C.': 'Stockport County',
 
-
     'Hull': 'Hull City',
+
     'Bolton': 'Bolton Wanderers',
+    'Bolton Wanderers - England': 'Bolton Wanderers',
 
     'Stoke': 'Stoke City',
     'Stoke (England)': 'Stoke City',
@@ -3436,11 +3676,13 @@ world = {
 
     'Swansea': 'Swansea City',
 
+    'Spurs': 'Tottenham Hotspur',
     'Tottenham Hotspur (Eng)': 'Tottenham Hotspur',
     'Tottenham': 'Tottenham Hotspur',
     'Tottenham Hotspur - England': 'Tottenham Hotspur',
     'Tottenham Hotspurs': 'Tottenham Hotspur',
 
+    'West Bromwich Albion - England': 'West Bromwich Albion',
     'West Brom': 'West Bromwich Albion',
     'WBA': 'West Bromwich Albion',
     'West Brom Albion': 'West Bromwich Albion',
@@ -3465,6 +3707,8 @@ world = {
 
     # Venezuela
 
+    'Aragua Fc': 'Aragua FC',
+
     'Estudiantes (Venezuela)': 'Estudiantes de Mérida',
 
     'Minerven': 'Minervén',
@@ -3474,7 +3718,9 @@ world = {
     'Táchira': 'Deportivo Táchira FC',
     'Deportivo Táchira': 'Deportivo Táchira FC',
     'Maritimo (Venezuela)': 'Marítimo (Venezuela)',
+
     'Caracas F.C.': 'Caracas FC',
+    'Caracas Fc': 'Caracas FC',
 
     'Italchacao -- Venezuela': 'Italchacao',
     'Italchacao': 'Deportivo Petare',
@@ -3486,12 +3732,15 @@ world = {
 
     # Colombia
 
+    'Deportivo Cúcuta': 'Cúcuta Deportivo',
     'Cucuta Deportivo': 'Cúcuta Deportivo',
     'Cúcuta': 'Cúcuta Deportivo',
 
+    'Boyacá Chicó Fc': 'Boyacá Chicó',
     'Boyaca Chico': 'Boyacá Chicó',
     'Chicó': 'Boyacá Chicó',
 
+    'Independiente De Medellín': 'Independiente Medellín',
     'DI Medellin': 'Independiente Medellín',
     'DI Medellín': 'Independiente Medellín',
     'Medellin': 'Medellín',
@@ -3509,6 +3758,7 @@ world = {
     'Atlético Junior': 'Junior de Barranquilla',
 
 
+    'América De Cali': 'América de Cali',
     'Cali': 'América de Cali',
     'América Cali': 'América de Cali',
     'América (Cali)': 'América de Cali',
@@ -3574,6 +3824,7 @@ world = {
 
     'Union Huaral': 'Unión Huaral',
 
+    'León De Huánuco': 'León de Huánuco',
     'Leon de Huanuco': 'León de Huánuco',
     'León de Huanuco': 'León de Huánuco',
 
@@ -3606,7 +3857,9 @@ world = {
     'San Jose (Bolivia)': 'San José (Bolivia)',
     'San Jose (Bolivia': 'CD San José',
     'San José (Bolivia)': 'CD San José',
+
     'Universitario (Sucre)': 'CD Universitario San Francisco Xavier',
+    'U. De Sucre': 'CD Universitario San Francisco Xavier',
 
     # Paraguay
     'Atl. Colegiales': 'Atlético Colegiales',
@@ -3624,6 +3877,8 @@ world = {
     'Olimpia (Paraguay)': 'Club Olimpia',
     'Olimpia Paraguay': 'Club Olimpia',
 
+    'Club Atlético Cerro': 'CA Cerro',
+
     'Cerro Cora': 'Cerro Corá',
     'Cerro C': 'Cerro Corá',
     'C Cora': 'Cerro Corá',
@@ -3635,6 +3890,7 @@ world = {
     'Cerro Porteno': 'Cerro Porteño',
 
     'Nacional (Paraguay)': 'Club Nacional',
+    'Nacional De Paraguay': 'Club Nacional',
     'Nacional (Asunción)': 'Club Nacional',
     'Nacional (Asuncion)': 'Club Nacional',
 
@@ -3714,6 +3970,7 @@ world = {
     'Deportes Concepcion': 'Deportes Concepción',
     'Dep. Concepcion': 'Deportes Concepción',
 
+    'Everton Chile': 'Everton de Viña del Mar',
     'Everton (Chile)': 'Everton de Viña del Mar',
 
     'Magallanes - Chile': 'Magallanes',
@@ -3739,6 +3996,7 @@ world = {
     'Union Española': 'Unión Española',
 
 
+    'U. De Chile': 'Universidad de Chile',
     'U. de Chile': 'Universidad de Chile',
     'Universidad de Chile - Chile': 'Universidad de Chile',
     'Club Universidad de Chile': 'Universidad de Chile',
@@ -3818,6 +4076,8 @@ world = {
 
     # Argentina
 
+    'Atlético Tigre': 'Tigre',
+
     'Los Andes de Lomas de Zamora': 'Los Andes',
 
     'Platense (VL)': 'CA Platense',
@@ -3872,6 +4132,7 @@ world = {
     'Estudiantes LPG': 'Estudiantes de La Plata',
     'Estudiantes (LP)': 'Estudiantes de La Plata',
     'Estudiantes(La Plata)': 'Estudiantes de La Plata',
+    'Estudiantes Lp': 'Estudiantes de La Plata',
 
     'Estudiantes (C)': 'Estudiantes de Caseros',
     'Atlético Estudiantes': 'Estudiantes de Caseros',
@@ -3898,14 +4159,17 @@ world = {
 
     'Atl. Tucumán': 'Atlético Tucumán',
 
+    'Argentinos Jrs.': 'Argentinos Juniors',
     'Argentinos Js': 'Argentinos Juniors',
     'Arg Juniors': 'Argentinos Juniors',
     'Argentinos Jrs': 'Argentinos Juniors',
     'Argentinos J': 'Argentinos Juniors',
 
+    'Olimpo De Bahía Blanca': 'Olimpo',
     'Olimpo (BB)': 'Olimpo',
     'Olimpo (Bahía Blanca)': 'Olimpo',
 
+    'Unión De Santa Fe': 'Unión de Santa Fe',
     'Unión (Sta.Fe)': 'Unión de Santa Fe',
     'Union (SF)': 'Unión de Santa Fe',
     'Unión (SF)': 'Unión de Santa Fe',
@@ -3937,11 +4201,12 @@ world = {
     'San Martín (Mdz)': 'San Martín de Mendoza',
 
     'San Martín (SJ)': 'San Martín de San Juan',
-
+    'San Martín De San Juán': 'San Martín de San Juan',
 
 
     'San Martín (T)': 'San Martín de Tucumán',
     'San Martin (T)': 'San Martín de Tucumán',
+    'San Martín (Tuc)': 'San Martín de Tucumán',
     'San Martín (Tuc.)': 'San Martín de Tucumán',
     'San Martin (Tuc)': 'San Martín de Tucumán',
     'San Martín (TUC)': 'San Martín de Tucumán',
@@ -3977,6 +4242,7 @@ world = {
 
     'Gimnasia (ER)': 'Gimnasia y Esgrima (Entre Ríos)',
 
+    'Gimnasia Jujuy': 'Gimnasia y Esgrima de Jujuy',
     'Gimnasia y Esgrima (Jujuy)': 'Gimnasia y Esgrima de Jujuy',
     'Gimnasia y Esgrima J': 'Gimnasia y Esgrima de Jujuy',
     'Gimnasia y Esgrima (JUJ)': 'Gimnasia y Esgrima de Jujuy',
@@ -3995,6 +4261,8 @@ world = {
     'Gimnasia y Esgrima (LP)': 'Gimnasia y Esgrima La Plata',
     'Gimnasia y Esgrima LPG': 'Gimnasia y Esgrima La Plata',
     'Gimnasia (LP)': 'Gimnasia y Esgrima La Plata',
+    'Gimnasia Lp': 'Gimnasia y Esgrima La Plata',
+
     'Gimnasia y Esgrima LP': 'Gimnasia y Esgrima La Plata',
     'Gimansia y Esgrima LP': 'Gimnasia y Esgrima La Plata', # correct?
     'Grimnasia y Esgrima LP': 'Gimnasia y Esgrima La Plata', # correct?
@@ -4003,6 +4271,7 @@ world = {
     'Gimnasia S': 'Gimnasia y Tiro (Salta)',
     'Gimnasia y Tiro (Salta)': 'Gimnasia y Tiro',
 
+    'Independiente - Argentina': 'CA Independiente',
     'Independiente (Argentina)': 'CA Independiente',
     'Independiente (A)': 'CA Independiente',
     'Independiente (Avellaneda)': 'CA Independiente',
@@ -4014,10 +4283,12 @@ world = {
 
     'Arsenal (Argentina)': 'Arsenal de Sarandí',
     'Arsenal de Sarandi': 'Arsenal de Sarandí',
+    'Arsenal De Sarandí': 'Arsenal de Sarandí', 
 
 
     'Colon (Argentina)': 'CA Colon',
 
+    'Colón De Santa Fe': 'CA Colon', 
     'Colón (Sta. Fe)': 'CA Colon', 
     'Colón (Sta.Fe)': 'CA Colon',
     'Colón (SF)': 'CA Colon',
@@ -4087,6 +4358,7 @@ world = {
     'Racing(Cba.)': 'Racing de Córdoba',
     'Racing (COR)': 'Racing de Córdoba',
 
+    'Instituto De Córdoba': 'Instituto',
     'Instituto(Cba.)': 'Instituto',
     'Instituto Cba': 'Instituto',
     'Instituto (Córdoba)': 'Instituto',
@@ -4095,6 +4367,7 @@ world = {
     'Instituto (Cba)': 'Instituto',
     'Instituto (Cba.)': 'Instituto',
 
+    'Newell\'S Old Boys': 'Newell\'s Old Boys', 
     'Newell´s OB': 'Newell\'s Old Boys', 
     'Newell´s O.B.': 'Newell\'s Old Boys', 
     'Newell\'s O.B.': 'Newell\'s Old Boys', 
@@ -4105,6 +4378,7 @@ world = {
     'Newells Old Boys': 'Newell\'s Old Boys', 
     'Newell’s Old Boys': 'Newell\'s Old Boys', 
 
+    'Racing De Avellaneda': 'Racing Club (Argentina)',
     'Racing Avellaneda': 'Racing Club (Argentina)',
     'Racing Club (Avellaneda)': 'Racing Club (Argentina)',
     'Racing Club Avellaneda': 'Racing Club (Argentina)',
@@ -4157,9 +4431,36 @@ world = {
 
     # Brazil
 
+    'Portuguesa S': 'Portuguesa Santista',
+    'O Port. Santista': 'Portuguesa Santista',
+    'Portuguesa Sant': 'Portuguesa Santista',
+    'Portuguesa Sa': 'Portuguesa Santista',
+    'Portuguesa San': 'Portuguesa Santista',
+    'Portuguesa/San': 'Portuguesa Santista',
+
+    'América-TO': 'América (Teófilo Otoni)',
+    'América/TO': 'América (Teófilo Otoni)',
+
+    'América/BH': 'América (Belo Horizonte)',
+
+    'Democrata/SL': 'Democrata de Sete Lagoas',
+    'Democrata/SL': 'Democrata de Sete Lagoas',
+
+    'Democrata/GV': 'Democrata de Governador Valadares',
+
+    'Mackenzie': 'Mackenzie College',
+
+    'C. Colombo': 'Christovam Colombo',
+    'Cristóvão Colombo': 'Christovam Colombo',
+
+    'América (TR)': 'América de Três Rios',
+    'América-TR': 'América de Três Rios',
+
 
     'Fluminense FC': 'Fluminense',
     'Fluminense-RJ': 'Fluminense',
+
+    'T. do Brasil': 'Tigres do Brasil',
 
     'Fluminense-BA': 'Fluminense BA',
 
@@ -4195,6 +4496,7 @@ world = {
 
     'Atlético-GO': 'Atlético Goianiense',
 
+    'Athletico Mineiro': 'Atlético Mineiro',
     'Atletico Mineiro': 'Atlético Mineiro',
     'Atlético-MG': 'Atlético Mineiro',
     'Atletico-MG': 'Atlético Mineiro',
@@ -4202,7 +4504,7 @@ world = {
     'Atletico MG': 'Atlético Mineiro',
     'Atletico/MG': 'Atlético Mineiro',
 
-
+    'Atl. Paranaense': 'Atlético Paranaense',
     'Atlético Parananense': 'Atlético Paranaense',
     'Atletico Paranaense': 'Atlético Paranaense',
     'Atletico-PR': 'Atlético Paranaense',
@@ -4279,8 +4581,9 @@ world = {
 
 
 
+    'Santos De Brasil': 'Santos FC',
     'Santos (Brazil)': 'Santos FC',
-    'Santos': 'Santos FC',
+    #'Santos': 'Santos FC',
 
     'Sao Caetano': 'São Caetano',
 
@@ -4332,6 +4635,8 @@ world = {
     'Robin Hood': 'S.V. Robinhood',
     'SV Robin Hood': 'S.V. Robinhood',
     'SV Robinhood': 'S.V. Robinhood',
+
+    'SV Transvaal - Suriname': 'SV Transvaal',
     'Transvaal': 'SV Transvaal',
     'SV Transvaal -- Suriname': 'SV Transvaal',
     'Voorwaarts': 'SV Voorwaarts',
@@ -4341,6 +4646,8 @@ world = {
 
     # Guyana
     'Topp XX': 'Bakewell Topp XX',
+
+    'Alpha United - Guyana': 'Alpha United',
 
     # Bermuda
     #Vasco da Gama (Bermuda)
@@ -4391,6 +4698,7 @@ world = {
     # Antigua
     'Hoppers FC - Antigua': 'Hoppers FC',
     'HitachiCentre SAP FC - Antigua': 'Hitachi Centre SAP FC',
+    'Hitachi Centre SAP FC -Antigua': 'Hitachi Centre SAP FC',
 
     'Antigua Barricudas FC': 'Antigua Barracuda',
     'Antigua Barracuda': 'Antigua Barracuda FC',
@@ -4411,16 +4719,20 @@ world = {
     'Tivoli Gardens FC': 'Tivoli Gardens',
     'Savannah FC': 'Savannah SC',
     'Saint George\'s SC': 'St. George\'s SC',
+
+    'Portmore': 'Portmore United',
     'Portmore United FC': 'Portmore United',
+
     'Boys\' Town FC': 'Boys\' Town',
     'Boys\' Town F.C.': 'Boys\' Town',
     'August Town FC': 'August Town',
     'Arnett Gardens FC': 'Arnett Gardens',
 
     'Arnett Gardens-- Jamaica': 'Arnett Gardens',
-    'Arnett Gardens': 'Arnett Gardens F.C.',
-    'Harbour View FC -- Jamaica': 'Harbour View FC',
-    'Harbour View': 'Harbour View FC',
+    'Arnett Gardens F.C.': 'Arnett Gardens',
+    'Harbour View FC -- Jamaica': 'Harbour View',
+    'Harbour View FC - Jamaica': 'Harbour View',
+    'Harbour View FC': 'Harbour View',
 
     # Haiti
     #Victory Club (Haiti)
@@ -4428,6 +4740,7 @@ world = {
 
     # Haiti
 
+    'Tempete - Haiti': 'Tempête FC',
     'Tempete FC': 'Tempête FC',
     'Tempete (Haiti)': 'Tempête FC',
     'Tempête': 'Tempête Football Club',
@@ -4452,18 +4765,26 @@ world = {
     'Violette': 'Violette AC',
     
     # Trinidad
+
+    'Jabloteh - Trinidad': 'San Juan Jabloteh',
     'CL Financial San Juan Jabloteh': 'San Juan Jabloteh',
     'CL Financial San Juan Jabloteh R.C.': 'San Juan Jabloteh',
     'CLICO San Juan Jabloteh': 'San Juan Jabloteh',
+
     'Caledonia AIA/Fire': 'Caledonia AIA',
+    'Caledonia Aia': 'Caledonia AIA',
     'Caledonia F.C.': 'Caledonia AIA',
+
     'Defence Force (Mucurapo)': 'Defence Force',
     'Defence Force F.C.': 'Defence Force',
+
     'Arima Fire F.C.': 'Arima Fire',
     'Regiment (TRI)': 'Regiment (Trinidad)',
     #ASL (Trinidad)
     #Regiment (Trinidad)
 
+    'Joe Public - T & T': 'Joe Public',
+    'Joe Public - Trinidad': 'Joe Public',
     'Joe Public -- T & T': 'Joe Public',
     'Joe Public': 'Joe Public F.C.',
     'Joe Public FC': 'Joe Public F.C.',
@@ -4472,6 +4793,8 @@ world = {
     'Trintoc': 'United Petrotrin',
     'Trintoc FC': 'United Petrotrin',
     'W Connection FC': 'W Connection',
+
+    'W. Connection - Jamaica': 'W Connection',
     'W. Connection -- Jamaica': 'W Connection',
     'W. Connection FC - Trinidad': 'W Connection',
 
@@ -4531,6 +4854,8 @@ world = {
     'CD Aguila': 'C.D. Águila',
     'CD Aguila (El Salvador)': 'C.D. Águila',
 
+    'Alianza Fc': 'Alianza F.C.',
+    'Alianza FC - El Salvador': 'Alianza F.C.',
     'Alianza (El Salvador)': 'Alianza F.C.',
     'Alianza - El Salvador': 'Alianza F.C.',
 
@@ -4538,6 +4863,7 @@ world = {
     'Atletico Balboa': 'Atlético Balboa',
     'Balboa': 'Atlético Balboa',
 
+    'Fas': 'FAS',
     'FAS - El Salvador': 'FAS',
     'C.D. FAS': 'FAS',
     'C.D. Fas': 'FAS',
@@ -4548,6 +4874,9 @@ world = {
     'Indep. Nacional 1906': 'Independiente Nacional 1906',
     'Nacional 1906': 'Independiente Nacional 1906',
 
+    'A. D. Isidro Metapán': 'Isidro Metapan',
+    'Metapan - El Salvador': 'Isidro Metapan',
+    'Isidro Metapan - El Salvador': 'Isidro Metapan',
     'Isidro': 'Isidro Metapan',
     'Isidro Metapán': 'CD Isidro Metapán',
     'CD Isidro-Metapan': 'CD Isidro Metapán',
@@ -4578,9 +4907,6 @@ world = {
 
     'Club Deportivo Marte': 'C.D. Atlético Marte',
 
-
-
-
     'Atletico Marte': 'C.D. Atlético Marte',
     'C.D. Atletico Marte': 'C.D. Atlético Marte',
 
@@ -4600,6 +4926,7 @@ world = {
 
     'Parmalat FC (Managua)': 'Parmalat (Nicaragua)',
 
+    'Real Esteli FC - Nicaragua': 'Real Estelí F.C.',
     'Real Estelí': 'Real Estelí F.C.',
     'Real Estelí': 'Real Estelí F.C.',
     'Esteli': 'Real Estelí F.C.',
@@ -4611,10 +4938,14 @@ world = {
 
     'Colón River': 'Colón River FC',
 
-    'Chorrillo': 'Chorrillo F.C.',
+
 
     #'San Francisco': 'San Francisco FC', # ambiguous.
+    'San Francisco FC - Panama': 'San Francisco FC',
+    'San Francisco F.C.': 'San Francisco FC',
 
+    'Tauro FC - Panama': 'Tauro FC',
+    'Tauro F.C.': 'Tauro FC',
     'Tauro': 'Tauro FC',
 
     'Chepo': 'Chepo FC',
@@ -4668,7 +4999,8 @@ world = {
     'Coban': 'Cobán Imperial',
     'Cobán': 'Cobán Imperial',
     'Coban Imperial': 'Cobán Imperial',
-
+    
+    'CSD Comunicaciones - Guatemala': 'CSD Comunicaciones',
     'Comunicaciones': 'C.S.D. Comunicaciones',
     'Comunciaciones': 'C.S.D. Comunicaciones',
     'Communicaciones': 'C.S.D. Comunicaciones',
@@ -4684,6 +5016,7 @@ world = {
 
     'Galcasa': 'CSD Galcasa',
 
+    'Municipal - Guatemala': 'CSD Municipal',
     'Municipal': 'CSD Municipal',
     'CSD Municipal -- Guatemala': 'CSD Municipal',
 
@@ -4708,13 +5041,18 @@ world = {
     'Olanchano': 'Atlético Olanchano',
 
     #Atletico Indio (Honduras)
+
+    'Marathon - Honduras': 'CD Marathón',
+    'C. D. Marathón': 'CD Marathón',
     'Marathon': 'CD Marathón',
     'Marathón': 'CD Marathón',
     'CD Marathon': 'CD Marathón',
 
+    'Motagua - Honduras': 'CD Motagua',
     'Motagua': 'CD Motagua',
     'Motagua -- Honduras': 'Motagua',
 
+    'Olimpia - Honduras': 'CD Olimpia',
     'Olimpia (Honduras)': 'CD Olimpia',
     'Olympia - Honduras': 'CD Olimpia',
     'CD Olympia-- Honduras': 'CD Olimpia',
@@ -4728,6 +5066,7 @@ world = {
     'CD Platense': 'Platense FC',
     'Platense F.C.': 'Platense FC',
 
+    'Real Espana - Honduras': 'Real CD Espana',
     'Real Espana-- Honduras': 'Real CD Espana',
     'Real CD Espana': 'Real C.D. España',
     'Real Espana': 'Real C.D. España',
@@ -4748,7 +5087,8 @@ world = {
     'Peréz Zeledón': 'Perez Zeledon',
 
     #Uruguay (Coronado)
-
+    'Alajuelense - Costa Rica': 'Alajuelense',
+    'Alajuela': 'Alajuelense',
     'LD Alajuelense-- Costa Rica': 'Alajuelense',
     'Alajuela -- Costa Rica': 'Alajuelense',
     'L.D. Alajuelense': 'Alajuelense',
@@ -4756,10 +5096,12 @@ world = {
 
     'Brujas': 'Brujas FC',
 
+    'Herediano - Costa Rico': 'CS Herediano',
     'C.S. Herediano': 'CS Herediano',
     'Herediano': 'C.S. Herediano',
     'Herediano - Costa Rica': 'Herediano',
 
+    'Punarenas FC - Costa Rica': 'Puntarenas FC',
     'Puntarenas FC - Costa Rica': 'Puntarenas FC',
     'Municipal Puntarenas': 'Puntarenas FC',
     'Puntarenas - Costa Rica': 'Puntarenas',
@@ -4768,6 +5110,7 @@ world = {
     'San Lorenzo - Costa Rica': 'San Lorenzo Costa Rica',
     'Santa Teresita FC -Costa Rica': 'Santa Teresita FC',
 
+    'Saprissa - Costa Rica': 'Saprissa',
     'Deportivo Saprissa -Costa Rica': 'Saprissa',
     'CD Saprissa-- Costa Rica': 'Saprissa',
     'Deportivo Saprissa S.A.D.': 'Saprissa',
@@ -4775,6 +5118,7 @@ world = {
 
     # Mexico
 
+    'Lobos Buap': 'Lobos de la BUAP',
     'Lobos BUAP': 'Lobos de la BUAP',
 
     'Club San Luis': 'San Luis FC',
@@ -4784,15 +5128,19 @@ world = {
 
     'TM Gallos Blancos': 'Querétaro FC',
 
+    'Club Tecos U.A.G':  'Tecos',
     'Estudiantes Tecos': 'Tecos',
     'Estudiantes UAG': 'Estudiantes Tecos',
 
+
+    'Chiapas Fc': 'Chiapas FC',
 
     'Jaguares Chiapas': 'Jaguares de Chiapas',
     'Chiapas': 'Jaguares de Chiapas',
     'Jaguares - Mexico': 'Jaguares de Chiapas',
     'Jaguares': 'Jaguares de Chiapas',
 
+    'Cobras Cd. Juárez': 'Cobras de Ciudad Juárez',
     'Cobras': 'Cobras de Ciudad Juárez',
     'Cobras Ciudad Juarez': 'Cobras de Ciudad Juárez',
     'Cobras Queretaro': 'Cobras de Ciudad Juárez',
@@ -4808,6 +5156,7 @@ world = {
 
     'América-Méx': 'Club América',
     'Club America': 'Club América',
+    'Club America - Mexico': 'Club América',
     'Club America -- Mexico': 'Club América',
 
     'Asturias': 'CF Asturias',
@@ -4830,6 +5179,8 @@ world = {
 
     'Atletico Espanol': 'Atlético Español',
 
+    'A. Potosinas': 'Atlético Potosino',
+    'Potosino': 'Atlético Potosino',
     'Atletico Potosino': 'Atlético Potosino',
     'A.Potosino': 'Atlético Potosino',
     'A. Potosino': 'Atlético Potosino',
@@ -4855,10 +5206,12 @@ world = {
     'Indios': 'Indios de Ciudad Juárez',
     'Indios de Ciudad Juarez': 'Indios de Ciudad Juárez',
 
+    'Club Irapuato': 'CD Irapuato',
     'C.D. Irapuato': 'CD Irapuato',
     'Deportivo Irapuato': 'CD Irapuato',
     'CD Irapuato': 'Irapuato',
 
+    'CD Guadalajara - Mexico': 'CD Guadalajara',
     'CD Guadalajara -- Mexico': 'CD Guadalajara',
     'CD Guadalajara Chivas - Mexico': 'CD Guadalajara',
     'Chivas -- Mexico': 'Chivas',
@@ -4911,15 +5264,20 @@ world = {
     'Oro': 'C.D. Oro',
     'C.D. Oro': 'CD Oro',
     
+    'Club Querétaro': 'Querétaro FC', # right?
     'Queretaro': 'Querétaro FC',
     'Querétaro': 'Querétaro FC',
     'Queretaro FC': 'Querétaro FC',
 
     # Actually separate teams?
+
     'Atletas Campesinos': 'Querétaro FC',
+    'Campesinos': 'Querétaro FC',
     'Gallos Blancos': 'Querétaro FC',
+
     #'Cobras de Queretaro': 'Querétaro FC',
 
+    'Pachuca - Mexico': 'Pachuca',
     'A.Pachuca': 'Pachuca',
     'Club Pachuca': 'Pachuca',
     'Pachuca FC': 'Pachuca',
@@ -4928,6 +5286,7 @@ world = {
     'Pachuca AC': 'C.F. Pachuca',
     'C.F. Pachuca': 'Pachuca',
 
+    'Puebla FC - Mexico': 'Puebla',
     'Puebla - Mexico': 'Puebla',
     'Puebla F.C.': 'Puebla',
     'Puebla FC': 'Puebla',
@@ -4990,6 +5349,7 @@ world = {
     'U de G': 'Universidad de Guadalajara',
     'U Guadalajara': 'Universidad de Guadalajara',
 
+    'Tigres UANL - Mexico': 'UANL',
     'Club Tigres - Mexico': 'UANL',
     'Tigres': 'UANL',
     'U.A.N.L': 'UANL',
@@ -4998,6 +5358,8 @@ world = {
     'UANL Tigres': 'UANL',
     'Tigres de la UANL': 'UANL',
 
+    'Pumas Unam': 'UNAM',
+    'UNAM Pumas - Mexico': 'UNAM',
     'UNAM - Mexico': 'UNAM',
     'UNAM -- Mexico': 'UNAM',
     'Unam Pumas': 'UNAM',
@@ -5016,6 +5378,7 @@ world = {
     'Verarcuz': 'Veracruz',
     'Tiburones Rojos de Veracruz': 'Veracruz',
 
+    'Correcaminos': 'Correcaminos UAT',
     'UAT': 'Correcaminos UAT',
     'U.A.T.': 'Correcaminos UAT',
 

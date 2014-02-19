@@ -7,6 +7,8 @@ def get_round(s):
     Recursive. 
     """
 
+    s = str(s)
+
     s = s.strip()
     if s in rounds:
         return get_round(rounds[s])
