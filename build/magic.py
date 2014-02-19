@@ -109,6 +109,7 @@ magic_teams = {
 
     'Aguila': [
         (from_competition('Salvadoran Primera División'), 'CD Aguila'),
+        (from_competition('CONCACAF Champions League'), 'CD Aguila'),
         (from_competition('Copa Interclubes UNCAF'), 'CD Aguila'),
         ],
 
@@ -119,6 +120,9 @@ magic_teams = {
 
     'America': [
         (from_competition('Liga MX'), 'Club America'),
+        (from_competition('Copa MX'), 'Club America'),
+        (from_competition('North American SuperLiga'), 'Club America'),
+        (from_competition('Interliga'), 'Club America'),
         (from_competition('Liga MX Liguilla'), 'Club America'),
         (from_competition('Categoría Primera A'), 'America de Cali'),
         (from_competition('Brasileirão'), 'América Futebol Clube'),
@@ -150,14 +154,22 @@ magic_teams = {
         (from_competition('Brasileirão'), 'Atlético Paranaense'),
         ],
 
-    'Bohemians': [
-        (from_competition('Gambrinus Liga'), 'Bohemians 1905'),
+    'Barcelona': [
+        (from_competition('La Liga'), 'FC Barcelona'),
+        (from_competition('UEFA Super Cup'), 'FC Barcelona'),
+        (from_competition('FIFA Club World Cup'), 'FC Barcelona'),
+        (from_competition('UEFA Champions League'), 'FC Barcelona'),
+        (from_competition('Ecuadorian Serie A'), 'Barcelona Sporting Club'),
+        (from_competition('Copa Libertadores'), 'Barcelona Sporting Club'),
         ],
 
     'Berlin': [
         (from_competition('1. Bundesliga'), 'Hertha BSC Berlin'),
         ],
 
+    'Bohemians': [
+        (from_competition('Gambrinus Liga'), 'Bohemians 1905'),
+        ],
 
     'Cartagena': [
         (from_competition('Categoría Primera A'), 'Real Cartagena'),
@@ -183,12 +195,21 @@ magic_teams = {
         ],
 
 
+    'Dynamo': [
+        (from_competition('North American SuperLiga'), 'Houston Dynamo'),
+        (from_competition('Major League Soccer'), 'Houston Dynamo'),
+        (from_competition('CONCACAF Champions League'), 'Houston Dynamo'),
+        ],
+
+
     'España': [
         (from_competition('Liga Nacional de Honduras'), 'Real C.D. España'),
         ],
 
     'Estudiantes': [
         (from_competition('Liga MX'), 'Tecos'),
+        (from_competition('Copa MX'), 'Tecos'),
+        (from_competition('InterLiga'), 'Tecos'),
         (from_competition('Ascenso MX'), 'Tecos'),
         (from_competition('Copa Libertadores'), 'Estudiantes de La Plata'),
         (from_competition('Argentine Primera División'), 'Estudiantes de La Plata'),
@@ -258,7 +279,10 @@ magic_teams = {
         (from_competition('Copa Libertadores'), 'Club Olimpia'),
 
         (from_competition('Liga Nacional de Honduras'), 'CD Olimpia'),
+
         (from_competition('Paraguayan Primera División'), 'Club Olimpia'),
+        (from_competition('Copa Libertadores'), 'Club Olimpia'), # right?
+
         (from_competition('Uruguayan Primera División'), 'Olimpia (Uruguay)'),
 
         ],
@@ -290,6 +314,8 @@ magic_teams = {
         (from_competition('Chilean Primera División'), 'Rangers de Talca'),
         (from_competition('Scottish Premier League'), 'Glasgow Rangers'),
         (from_competition('UEFA Champions League'), 'Glasgow Rangers'),
+        (from_competition('UEFA Europa League'), 'Glasgow Rangers'),
+        (from_competition('Scottish League Cup'), 'Glasgow Rangers'),
         ],
 
     'Rapid': [
@@ -328,13 +354,19 @@ magic_teams = {
 
     'Santos': [
         (from_competition('Liga MX'), 'Santos Laguna'),
+        (from_competition('CONCACAF Champions League'), 'Santos Laguna'),
+        (from_competition('Copa MX'), 'Santos Laguna'),
         (from_competition('Liga MX Liguilla'), 'Santos Laguna'),
+        (from_competition('Interliga'), 'Santos Laguna'),
+        (from_competition('North American SuperLiga'), 'Santos Laguna'),
         (from_competition('Primera División de Costa Rica'), 'Santos de Guápiles'),
+        (from_competition('Brasileirão'), 'Santos FC'),
         ],
 
 
     'Slavia': [
         (from_competition('Gambrinus Liga'), 'Slavia Prague'),
+        (from_competition('UEFA Champions League'), 'Slavia Prague'),
         ],
 
     'Sociedad': [
@@ -354,6 +386,8 @@ magic_teams = {
     'Sporting': [
         (from_competition('Liga Panameña de Fútbol'), 'Sporting San Miguelito'),
         (from_competition('Primeira Liga'), 'Sporting CP'),
+        (from_competition('UEFA Champions League'), 'Sporting CP'),
+        (from_competition('UEFA Europa League'), 'Sporting CP'),
         (from_competition('La Liga'), 'Sporting de Gijon'),
         ],
 
