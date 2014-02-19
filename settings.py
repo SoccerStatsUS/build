@@ -55,6 +55,7 @@ SOURCES = [
     'nasl',
     'mls',
     'mls2',
+    'mls3',
 
     'alpf',
     'nafbl',
@@ -90,9 +91,11 @@ SOURCES = [
     'korea',
 
     'uefa',
+    'epl',
 
     'australia',
 
+    'mediotiempo',
 
     'indoor',
         ]
