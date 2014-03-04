@@ -4,5 +4,8 @@ logs/*
 run/gunicorn.log
 run/gunicorn.pid
 #*#
-py3env/
+
 run/
+
+py3env/
+.venv/

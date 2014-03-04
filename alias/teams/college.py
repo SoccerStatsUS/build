@@ -1,5 +1,11 @@
 
 college = {
+
+    'Rancho Santiago Junior College': 'Rancho Santiago Community College',
+
+    'UMBC': 'University of Maryland Baltimore County',
+    'Coastal Carolina': 'Coastal Carolina University',
+
     'CSU Dominguez-Hills': 'Cal State Dominguez Hills',
 
     'Cal State University-Hayward': 'California State University, East Bay',
@@ -74,6 +80,8 @@ college = {
     'Harvard': 'Harvard University',
 
     'Generation Adidas': 'Generation adidas',
+    'Generation Adidas - USA': 'Generation adidas',
+
     'North Carolina State': 'North Carolina State University',
     'NC State': 'North Carolina State University',
     'St Johns University': 'St. John\'s University',
@@ -114,6 +122,8 @@ college = {
 
     # Colleges
     'Cal-Poly Pomona': 'Cal Poly Pomona',
+
+    'Cal Berkeley': 'University of California, Berkeley',
     'UC Berkeley': 'University of California, Berkeley',
     'Cleveland State': 'Cleveland State University',
     'Evansville College': 'University of Evansville',

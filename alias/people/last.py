@@ -1,41 +1,41 @@
 
 last_names = {
-'Agüero': 'Aguero',
-'Gracián': 'Gracian',
-'Cámpora': 'Campora',
-
-'?.Luna': 'Luna',
-'Winter?': 'Winter',
-'Baéz': 'Baez',
-'?.Herrera': 'Herrera',
-'?.Soto': 'Soto',
-'Thomson.': 'Thomson',
-'?.Vera': 'Vera',
-'? Dixon': 'Dixon',
-'?.Jiménez': 'Jimenez',
-'Jiménez': 'Jimenez',
-'Brennan?': 'Brennan',
-
-'nelson': 'Nelson',
-'. Brown': 'Brown',
-'?.Cornejo': 'Cornejo',
-'martin': 'Martin',
-'?. Solomon': 'Solomon',
-'Muñoz': 'Munoz',
-'Jones?': 'Jones',
-'Lauder?': 'Lauder',
-'?.Solorzano': 'Solorzano',
-'GERMANY': 'Germany', # huh?
-'Forrester.': 'Forrester',
-'?. Howell': 'Howell',
-'?. Estrada': 'Estrada',
-'?.Pérez': 'Perez',
-'Pérez': 'Perez',
-
+    'Agüero': 'Aguero',
+    'Gracián': 'Gracian',
+    'Cámpora': 'Campora',
+    
+    '?.Luna': 'Luna',
+    'Winter?': 'Winter',
+    'Baéz': 'Baez',
+    '?.Herrera': 'Herrera',
+    '?.Soto': 'Soto',
+    'Thomson.': 'Thomson',
+    '?.Vera': 'Vera',
+    '? Dixon': 'Dixon',
+    '?.Jiménez': 'Jimenez',
+    'Jiménez': 'Jimenez',
+    'Brennan?': 'Brennan',
+    
+    'nelson': 'Nelson',
+    '. Brown': 'Brown',
+    '?.Cornejo': 'Cornejo',
+    'martin': 'Martin',
+    '?. Solomon': 'Solomon',
+    'Muñoz': 'Munoz',
+    'Jones?': 'Jones',
+    'Lauder?': 'Lauder',
+    '?.Solorzano': 'Solorzano',
+    'GERMANY': 'Germany', # huh?
+    'Forrester.': 'Forrester',
+    '?. Howell': 'Howell',
+    '?. Estrada': 'Estrada',
+    '?.Pérez': 'Perez',
+    'Pérez': 'Perez',
+    
     'Mcnamara': 'McNamara',
     'Mckee': 'McKee',
-
-
+    
+    
     'Avilés': 'Aviles',
     'Álvarez': 'Alvarez',
     'Aguilá': 'Aguila',
@@ -54,7 +54,7 @@ last_names = {
     'Ademílson': 'Ademilson',
     'Acuña': 'Acuna',
     'Acourt': 'A\'Court',
-
+    
     'Benítez': 'Benitez',
     'Bergará': 'Bergara',
     'Bermúdez': 'Bermudez',
@@ -198,7 +198,8 @@ last_names = {
     'Jóbson': 'Jobson',
     'Joílson': 'Joilson',
     'Jaílton': 'Jailton',
-    'Jo': 'Jô',
+    'Jó': 'Jo',    
+    'Jô': 'Jo',
     'João': 'Joao',
     'Jéci': 'Jeci',
     'Jonílson': 'Jonilson',

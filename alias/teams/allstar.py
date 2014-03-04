@@ -2,6 +2,9 @@
 
 allstar = {
 
+    'Equipo De Messi': 'Team Messi',
+    'Amigos De Messi': 'Friends of Messi',
+
     'Serie  C U-21 - Italy': 'Serie C U-21',
 
     'Japanese League All-Stars': 'Japanese All-Stars',

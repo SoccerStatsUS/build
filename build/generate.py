@@ -58,6 +58,7 @@ def generate():
 
 
 
+
 def generate_game_data():
     """
     Infer 
@@ -122,12 +123,23 @@ def generate_game_stats():
 
     for g in soccer_db.goals.find():
         if g['goal']:
-            key = tuple([g[k] for k in ['goal', 'team', 'date', 'competition', 'season']])
-            stats[key]['goals'] += 1
-            stats[key]['games_played'] = 1
-            for assist in g['assists']:
-                k = tuple([assist] + [g[k] for k in ['team', 'date', 'competition', 'season']])
-                stats[k]['assists'] += 1
+            if 'Own Goal' in g['assists']:
+                # need to add opponent in normalize.
+                if 'opponent' in g: 
+                    key = tuple([g[k] for k in ['goal', 'opponent', 'date', 'competition', 'season']])
+                    stats[key]['own_goals'] += 1
+                    stats[key]['games_played'] = 1
+
+                    k2 = tuple(['Own Goal'] + [g[k] for k in ['opponent', 'date', 'competition', 'season']])
+                    stats[k2]['goals'] += 1
+
+            else:
+                key = tuple([g[k] for k in ['goal', 'team', 'date', 'competition', 'season']])
+                stats[key]['goals'] += 1
+                stats[key]['games_played'] = 1
+                for assist in g['assists']:
+                    k = tuple([assist] + [g[k] for k in ['team', 'date', 'competition', 'season']])
+                    stats[k]['assists'] += 1
 
     #for f in soccer_db.fouls.find():
     #    key = tuple([f[k] for k in ['name', 'team', 'date', 'competition', 'season']])
@@ -145,6 +157,11 @@ def generate_game_stats():
         if type(l['on']) == int and type(l['off']) == int:
             stats[key]['minutes'] += l['off'] - l['on']
 
+            stats[key]['on'] = l['on']
+            stats[key]['off'] = l['off']
+
+        stats[key]['order'] = l.get('order')
+
     l = []
     for key, v in stats.items():
         d = dict(zip(['player', 'team', 'date', 'competition', 'season'], key))
@@ -160,21 +177,25 @@ def generate_game_stats():
     generic_load(soccer_db.gstats, lambda: lx)
 
 
+
 def generate_competition_stats():
 
-    # Should use game_stats here instead.
-
     def competition_generate(competition):
-        x = generate_stats(soccer_db.goals.find({'competition': competition}), soccer_db.lineups.find({"competition": competition}))
+        x = generate_stats(soccer_db.gstats.find({'competition': competition}))
+        #import pdb; pdb.set_trace()
         generic_load(soccer_db.stats, lambda: x.values())
-
-    def season_generate(competition, season):
-        x = generate_stats(soccer_db.goals.find({'competition': competition, 'season': season}), soccer_db.lineups.find({"competition": competition, 'season': season}))
-        generic_load(soccer_db.stats, lambda: x.values())
-
+        #import pdb; pdb.set_trace()
+        y = 5
 
     # Move this out into a global variable.
     l = [
+
+        # Women
+        'Women\'s Professional Soccer',
+        'Women\'s United Soccer Association',
+
+        # Misc
+
         'FIFA Club World Cup',
         'FIFA World Cup',
         'FIFA U-20 World Cup',
@@ -219,42 +240,89 @@ def generate_competition_stats():
         'Eastern Soccer League (1928-1929)',
         'International Soccer League',
 
+        # US Minor
+
         'USSF Division 2 Professional League',
+        'American Professional Soccer League', 
 
-        #'Premier League',
-
+        # CONCACAF
         'Liga MX',
-        'Argentine Primera División',
-
-        'Serie A',
-        'La Liga',
-
-        'Hyundai A-League',
-
-        'Liga MX Liguilla',
-        'Campeón de Campeones',
-        'Campeonato Brasileiro Série A',
-        'Categoría Primera A',
-        'Ecuadorian Serie A',
-        'Chinese Super League',
-        'American Soccer League (1934-1983)',
-        'Mundialito',
-        'Women\'s Professional Soccer',
-        'Women\'s United Soccer Association',
         'Liga Nacional de Guatemala',
         'Liga Nacional de Honduras',
         'Liga Panameña de Fútbol',
         'Primera División de Costa Rica',
         'Salvadoran Primera División',
-        #'North American Soccer League',
 
+        # CONMEBOL
+        'Argentine Primera División',
+        'Brasileirão',
+
+        'Ecuadorian Serie A',
+        'Categoría Primera A',
+        'Uruguayan Primera División',
+        'Paraguayan Primera División',
+        'Peruvian Primera División',
+        'Chilean Primera División',
+        'Liga de Fútbol Profesional Boliviano',
+
+        'Campeonato Metropolitano (Argentina)',
+
+        'Campeonato Paulista',
+        'Rio de Janeiro Championship ',
+        'Campeonato Mineiro',
+
+        # UEFA 
+        'Serie A',
+        'La Liga',
+        'Premier League',
+        '1. Bundesliga',
+        'Ligue 1',
+
+        'Superligaen',
+        'Tippeligaen',
+        'Allsvenskan',
+
+        'Super Lig',
+        'Belgian Pro League',
+        'Eredivisie',
+        'Primeira Liga',
+
+        'Scottish Premier League',
+        'Ekstraklasa',
+        'Austrian Bundesliga',
+        'Swiss Super League',
+
+        'Russian Premier League',
+        'Ukrainian Premier League',
+        'Gambrinus Liga',
+        'Nemzeti Bajnokság I',
+
+        # Poland, Czech, Scotland, Switzerland, Austria, ...
+        # Hungary, Ukraine, Serbia, Romania, Greece, Russia
+
+        # ASIA
+        'Hyundai A-League',
+        'Chinese Super League',
+        'K League',
+        'J. League',
+
+
+        # other
+
+        'Liga MX Liguilla',
+        'Campeón de Campeones',
+
+        'American Soccer League (1934-1983)',
+        'Mundialito',
+
+
+        #'North American Soccer League',
         # Overlap?
         #'USL Second Division',
         ]
 
     for e in l:
         competition_generate(e)
-
 
 
 
@@ -325,7 +393,7 @@ class Standing(object):
             self.wins = self.ties = self.losses = self.goals_for = self.goals_against = 0
 
         # Not really handling these anywhere yet.
-        self.shootout_wins = self.shootout_losses = 0
+        self.shootout_wins = self.shootout_losses = None
 
         ht, at, h, a = [game[k] for k in ['team1', 'team2', 'team1_score', 'team2_score']]
 
@@ -376,9 +444,6 @@ def generate_standings(competition):
 
     standing_dict = defaultdict(list)
 
-    # This exists so we can find standings with arbitrary datetimes.
-    # Seems like this whole thing might be better structured as a dict of lists?
-
     def generate_team_standing(game, team):
 
         key = (team, competition, game['season'])
@@ -391,25 +456,52 @@ def generate_standings(competition):
 
         standing_dict[key].append(new_standing)
 
-
     for game in soccer_db.games.find({'competition': competition}).sort('date', 1):
-
         generate_team_standing(game, game['team1'])
         generate_team_standing(game, game['team2'])
-
 
     standings = []
     for lst in standing_dict.values():
         standings.extend([e.to_dict() for e in lst])
 
-
-
-
     return standings
 
 
 
-def generate_stats(goals=[], lineups=[]):
+def generate_stats(gstats=[]):
+    sd = {}
+
+    for gstat in gstats:
+        try:
+            t = make_stat_tuple(gstat['player'], gstat)
+        except:
+            import pdb; pdb.set_trace()
+        
+        if t not in sd:
+            sd[t] = {
+                'name': gstat['player'],
+                'team': gstat['team'],
+                'competition': gstat['competition'],
+                'season': gstat['season'],
+                'goals': gstat.get('goals'),
+                'own_goals': gstat.get('own_goals'),
+                'assists': gstat.get('assists'),
+                'games_played': gstat.get('games_played'),
+                'games_started': gstat.get('games_started'),
+                'minutes': gstat.get('minutes'),
+                }
+
+        else:
+            d = sd[t]
+            for key in 'goals', 'own_goals', 'assists', 'games_played', 'games_started', 'minutes':
+                if gstat.get(key) is not None:
+                    d[key] = (d.get(key) or 0) + gstat[key]
+
+    return sd
+
+
+
+def generate_stats_old(goals=[], lineups=[]):
     """
     Generate a stat dict from goals, lineups
     """
@@ -428,8 +520,7 @@ def generate_stats(goals=[], lineups=[]):
         if t not in sd:
             name, team, season, competition = t
             if not name:
-                #"Name not in tuple %s" % str(t)
-                return
+                return # No name on stat.
 
             sd[t] = {
                 'name': name,
@@ -437,18 +528,14 @@ def generate_stats(goals=[], lineups=[]):
                 'season': season,
                 'competition': competition,
                 'goals': 0,
-                'assists': 0,
-                'games_played': 0,
-                'games_started': 0,
-                'minutes': 0,
+                'assists': None,
+                'games_played': None,
+                'games_started': None,
+                'minutes': None,
                 }
 
-        #if t[0] == 'Omar Bravo' and t[1] == 'UANL':
-        #    print(sd[t])
-
-
         # Increment the appropriate key.
-        sd[t][key] += amount
+        sd[t][key] = (sd[t].get(key) or 0) + amount
 
 
     for goal in goals:

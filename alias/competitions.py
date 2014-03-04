@@ -6,6 +6,92 @@ aliases = {}
 
 full_alias = {
 
+    'Austrian Football Bundesliga': 'Austrian Bundesliga',
+
+    'Juegos Panamericanos Femenil': 'Women\'s Panamerican Games',
+    'Preolímpico CONCACAF': 'Olympic Games qualification (CONCACAF)',
+    'Preolímpico Femenil CONCACAF': 'Women\'s Olympic Games qualification (CONCACAF)',
+
+    'CONCACAF Championship Qualifying': 'CONCACAF Championship qualification',
+
+    'Supercopa': 'Supercopa de España',
+
+    'Carling Cup': 'Football League Cup',
+    'Dutch Cup': 'KNVB Cup',
+
+    'Copa Mustang': 'Categoría Primera A',
+
+
+    'Juegos Olímpicos Femenil': 'Olympic Games Women',
+
+    'DFB Pokal': 'DFB-Pokal',
+
+    'Bundesliga': '1. Bundesliga',
+    '1. Bundesliga': '1. Bundesliga',
+
+    'Liga de Ascenso': 'Ascenso MX',
+
+    'Europa League': 'UEFA Europa League',
+
+    'US Open Cup': 'U.S. Open Cup',
+
+    'Copa Mundial': 'FIFA World Cup',
+
+    'Copa Mundial Femenil': 'FIFA Women\'s World Cup',
+    'Copa Mundial Sub-20 Femenil': 'FIFA U-20 Women\'s World Cup',
+    'Copa Mundial Sub-17 Femenil': 'FIFA U-17 Women\'s World Cup',
+
+    'MLS': 'Major League Soccer',
+
+    #'Amistosos': 'Friendly',
+    'Amistosos': 'International Friendly',
+
+
+
+    'Copa Mundial Sub-20': 'FIFA U-20 World Cup',
+    'Copa Mundial Sub-17': 'FIFA U-17 World Cup',
+
+    'Juegos Panamericanos': 'Pan American Games',
+
+    'Eurocopa': 'UEFA European Championship',
+
+    'Eliminatorias CONCACAF': 'FIFA World Cup qualification (CONCACAF)',
+    'Eliminatorias CONMEBOL': 'FIFA World Cup qualification (CONMEBOL)',
+    'Eliminatorias UEFA': 'FIFA World Cup qualification (UEFA)',
+    'Eliminatorias OFC': 'FIFA World Cup qualification (OFC)',
+    'Eliminatorias CAF': 'FIFA World Cup qualification (CAF)',
+    'Eliminatorias AFC': 'FIFA World Cup qualification (AFC)',
+
+    'FIFA World Cup Qualifying (CONCACAF)': 'FIFA World Cup qualification (CONCACAF)',
+    'CONCACAF Men\'s Olympic Qualifying Tournament': 'Olympic Games qualification (CONCACAF)',
+    'FIFA World Cup Qualification': 'FIFA World Cup qualification',
+
+
+    'Copa Confederaciones': 'FIFA Confederations Cup',
+    'Zon Sagres': 'Primeira Liga',
+
+
+    'Copa de Oro': 'Gold Cup',
+
+    'Primera División Mexicana': 'Liga MX',
+
+
+    'Superliga': 'North American SuperLiga',
+
+    'Champions League': 'UEFA Champions League',
+
+    'La Liga Española': 'La Liga',
+
+    'Russian Football Premier League': 'Russian Premier League',
+
+    'Rio de Janeiro Championship': 'Campeonato Carioca',
+    'Campeonato da Cidade de Belo Horizonte': 'Belo Horizonte City Championship',
+    'Belo Horizonte City Championship': 'Campeonato Mineiro',
+
+    'European Champions Cup': 'UEFA Champions League',
+
+    'NCAA Division I Men\'s Soccer Championship': 'NCAA Division I',
+
     '1.Bundesliga': '1. Bundesliga',
 
     'Rio Branco Cup': 'Copa Rio Branco',
@@ -20,13 +106,18 @@ full_alias = {
 
     'Costa Rican Primera División': 'Primera División de Costa Rica',
     
+    'Mundial de Clubes': 'FIFA Club World Cup',
     'Club World Cup': 'FIFA Club World Cup',
 
     'Super Lig': 'Süper Lig',
     'Superlig': 'Süper Lig',
 
     # Once competition mapping is implemented.
+
+    'Liga de Campeones CONCACAF': 'CONCACAF Champions League',
+    'Copa de Campeones CONCACAF': 'CONCACAF Champions League',
     'CONCACAF Champions\' Cup': 'CONCACAF Champions League',
+
     'Copa Fraternidad Centroamericana': 'Copa Interclubes UNCAF',
     'Torneo Grandes de Centroamerica': 'Copa Interclubes UNCAF',
     'UNCAF Club Championship': 'Copa Interclubes UNCAF',
@@ -35,9 +126,11 @@ full_alias = {
     'Copa Intercontinental': 'Intercontinental Cup',
 
     'Liga Argentina de Football': 'Argentine Primera División',
+    'Primera División Argentina': 'Argentine Primera División',
 
-    'Brasileirao': 'Campeonato Brasileiro Série A',
-    'Brasileirão': 'Campeonato Brasileiro Série A',
+    'Brasileirao': 'Brasileirão',
+    'Campeonato Brasileiro Série A': 'Brasileirão',
+    
 
     'Chilean Primera Division': 'Chilean Primera División', 
     'Uruguayan Primera Division': 'Uruguayan Primera División',
@@ -59,7 +152,10 @@ full_alias = {
 
     'Panamerican Games': 'Pan American Games',
     'Panamerican Games Qualifying': 'Pan American Games Qualifying',
+
     'South American Championship': 'Copa America',
+    'Copa América': 'Copa America',
+    #'Copa America': 'Copa América',
 
     'Copa Caribe': 'Caribbean Cup',
     'Copa Caribe Qualifying': 'Caribbean Cup Qualifying',
@@ -67,7 +163,7 @@ full_alias = {
     'UNCAF Cup': 'Copa Centroamericana',
     'UNCAF Nations Cup': 'Copa Centroamericana',
 
-    #'Copa America': 'Copa América',
+
 
     'United Soccer League': 'United Soccer League (1984-1985)',
 
@@ -99,10 +195,8 @@ full_alias = {
 
     'World Cup': 'FIFA World Cup',
 
-    'FIFA World Cup Qualifying (CONCACAF)': 'FIFA World Cup qualification (CONCACAF)',
-    'FIFA World Cup Qualification': 'FIFA World Cup qualification',
 
-    'CONCACAF Men\'s Olympic Qualifying Tournament': 'Olympic Games qualification (CONCACAF)',
+
     'Olympic Games Qualifying': 'Olympic Games qualification',
 
 
@@ -130,6 +224,9 @@ partial_alias = {
 
     'U.S. Cup': 'International Friendly',
 
+    'Le Championnat': 'Ligue 1',
+    'Calcio': 'Serie A',
+
     'Bicentennial Cup': 'Friendly',
     'Carlsberg Cup': 'Friendly',
     'Carolina Challenge Cup': 'Friendly',
@@ -152,7 +249,13 @@ partial_alias = {
     'North American Nations Cup': 'International Friendly',
     'Presidents Cup': 'International Friendly',
     'Trinidad Tournament': 'International Friendly',
+    'Orange Bowl Cup': 'International Friendly',
+    'Mexico City Cup': 'International Friendly',
+    'Marlboro Cup': 'International Friendly',
+    'Los Angeles Friendship Cup': 'International Friendly',
+
     }
+
 aliases.update(partial_alias)
 
 

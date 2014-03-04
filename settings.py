@@ -1,6 +1,17 @@
 
 
-ROOT_DIR = '/home/chris'
+import socket
+
+host = socket.gethostname()
+
+roots = {
+    'agni.local': '/Users/chris/soccer',
+    'agni': '/Users/chris/soccer',
+    'bert': '/home/chris/www',
+    }
+
+ROOT_DIR = roots[host]
+
 
 
 # What items are shown on the dashboard
@@ -44,6 +55,7 @@ SOURCES = [
     'nasl',
     'mls',
     'mls2',
+    'mls3',
 
     'alpf',
     'nafbl',
@@ -79,9 +91,11 @@ SOURCES = [
     'korea',
 
     'uefa',
+    'epl',
 
     'australia',
 
+    'mediotiempo',
 
     'indoor',
         ]

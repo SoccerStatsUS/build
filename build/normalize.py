@@ -1,7 +1,7 @@
 import datetime
 from settings import SOURCES
 
-from smid.alias import get_team, get_name, get_competition, get_place, get_stadium, get_city, get_round
+from smid.alias import get_team, get_name, get_season, get_competition, get_place, get_stadium, get_city, get_round
 from smid.mongo import generic_load, soccer_db, insert_rows, insert_row, soccer_db
 
 from magic import get_magic_team, get_magic_name
@@ -138,12 +138,18 @@ def calculate_game_results(d):
 
 def normalize_season(e):
     #e['competition'] = get_competition(e['competition'])
+
+    e['name'] = get_season(e['name'])
+    #e['name']
+
     return e
 
 def normalize_game_stat(e):
     e['team'] = get_team(e['team'])
+    e['team'] = get_magic_team(e['team'], e)
     e['player'] = get_name(e['player'])
     e['competition'] = get_competition(e['competition'])
+    e['season'] = get_season(e['season'])
     
     #if 'Noone' in e['player']:
     #    import pdb; pdb.set_trace()
@@ -156,6 +162,11 @@ def normalize_game_stat(e):
 def normalize_game(e):
 
     e['competition'] = get_competition(e['competition'])
+    e['season'] = get_season(e['season'])
+
+    if e['season'] is None:
+        e['season'] = 'Unknown'
+
     e['round'] = get_round(e.get('round', ''))
     if e.get('group'):
         if e['group'].startswith('Group'):
@@ -299,8 +310,13 @@ def normalize_stadium(e):
 
 def normalize_goal(e):
     e['competition'] = get_competition(e['competition'])
+    e['season'] = get_season(e['season'])
+
     e['team'] = get_team(e['team'])
     e['goal'] = get_name(e['goal'])
+    
+    if 'opponent' in e:
+        e['opponent'] = get_team(e['opponent'])
 
     e['team'] = get_magic_team(e['team'], e)
     e['goal'] = get_magic_name(e['goal'], e)
@@ -334,13 +350,18 @@ def normalize_goal(e):
 
 def normalize_foul(e):
     e['competition'] = get_competition(e['competition'])
+    e['season'] = get_season(e['season'])
+
     e['team'] = get_team(e['team'])
     e['name'] = get_name(e['name'])
     return e
 
 def normalize_stat(e):
     e['competition'] = get_competition(e['competition'])
+    e['season'] = get_season(e['season'])
+
     e['team'] = get_team(e['team'])
+
 
     try:
         e['name'] = get_name(e['name'])
@@ -386,6 +407,8 @@ def normalize_lineup(e):
     # Should handle 'end' code in lineup?
 
     e['competition'] = get_competition(e['competition'])
+    e['season'] = get_season(e['season'])
+
     e['team'] = get_team(e['team'])
     e['name'] = get_name(e['name'])
 
@@ -405,6 +428,8 @@ def normalize_standing(e):
     # What is the format for a standing?
 
     e['competition'] = get_competition(e['competition'])
+    e['season'] = get_season(e['season'])
+
     e['team'] = get_team(e['team'])
     e['team'] = get_magic_team(e['team'], e)
 
@@ -421,6 +446,8 @@ def normalize_standing(e):
 def normalize_roster(e):
     # Need to expand this.
     e['competition'] = get_competition(e['competition'])
+    e['season'] = get_season(e['season'])
+
     e['name'] = get_name(e['name'])
     e['team'] = get_team(e['team'])
     return e
@@ -428,6 +455,7 @@ def normalize_roster(e):
 
 def normalize_award(e):
     e['competition'] = get_competition(e['competition'])
+    e['season'] = get_season(e['season'])
 
     if e['model'] == 'Team':
         e['recipient'] = get_team(e['recipient'])
@@ -438,7 +466,10 @@ def normalize_award(e):
 
 
 def normalize_bio(e):
-    e['name'] = get_name(e['name'])
+    try:
+        e['name'] = get_name(e['name'])
+    except:
+        import pdb; pdb.set_trace()
 
     if e.get('birthdate') and type(e['birthdate']) == int:
         e['birthdate'] = None
