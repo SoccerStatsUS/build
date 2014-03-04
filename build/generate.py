@@ -58,6 +58,7 @@ def generate():
 
 
 
+
 def generate_game_data():
     """
     Infer 
@@ -122,12 +123,23 @@ def generate_game_stats():
 
     for g in soccer_db.goals.find():
         if g['goal']:
-            key = tuple([g[k] for k in ['goal', 'team', 'date', 'competition', 'season']])
-            stats[key]['goals'] += 1
-            stats[key]['games_played'] = 1
-            for assist in g['assists']:
-                k = tuple([assist] + [g[k] for k in ['team', 'date', 'competition', 'season']])
-                stats[k]['assists'] += 1
+            if 'Own Goal' in g['assists']:
+                # need to add opponent in normalize.
+                if 'opponent' in g: 
+                    key = tuple([g[k] for k in ['goal', 'opponent', 'date', 'competition', 'season']])
+                    stats[key]['own_goals'] += 1
+                    stats[key]['games_played'] = 1
+
+                    k2 = tuple(['Own Goal'] + [g[k] for k in ['opponent', 'date', 'competition', 'season']])
+                    stats[k2]['goals'] += 1
+
+            else:
+                key = tuple([g[k] for k in ['goal', 'team', 'date', 'competition', 'season']])
+                stats[key]['goals'] += 1
+                stats[key]['games_played'] = 1
+                for assist in g['assists']:
+                    k = tuple([assist] + [g[k] for k in ['team', 'date', 'competition', 'season']])
+                    stats[k]['assists'] += 1
 
     #for f in soccer_db.fouls.find():
     #    key = tuple([f[k] for k in ['name', 'team', 'date', 'competition', 'season']])
@@ -144,6 +156,9 @@ def generate_game_stats():
 
         if type(l['on']) == int and type(l['off']) == int:
             stats[key]['minutes'] += l['off'] - l['on']
+
+            stats[key]['on'] = l['on']
+            stats[key]['off'] = l['off']
 
         stats[key]['order'] = l.get('order')
 
@@ -162,21 +177,25 @@ def generate_game_stats():
     generic_load(soccer_db.gstats, lambda: lx)
 
 
+
 def generate_competition_stats():
 
-    # Should use game_stats here instead.
-
     def competition_generate(competition):
-        x = generate_stats(soccer_db.goals.find({'competition': competition}), soccer_db.lineups.find({"competition": competition}))
+        x = generate_stats(soccer_db.gstats.find({'competition': competition}))
+        #import pdb; pdb.set_trace()
         generic_load(soccer_db.stats, lambda: x.values())
-
-    def season_generate(competition, season):
-        x = generate_stats(soccer_db.goals.find({'competition': competition, 'season': season}), soccer_db.lineups.find({"competition": competition, 'season': season}))
-        generic_load(soccer_db.stats, lambda: x.values())
-
+        #import pdb; pdb.set_trace()
+        y = 5
 
     # Move this out into a global variable.
     l = [
+
+        # Women
+        'Women\'s Professional Soccer',
+        'Women\'s United Soccer Association',
+
+        # Misc
+
         'FIFA Club World Cup',
         'FIFA World Cup',
         'FIFA U-20 World Cup',
@@ -240,10 +259,10 @@ def generate_competition_stats():
 
         'Ecuadorian Serie A',
         'Categoría Primera A',
-        'Uruguayan Primera Division',
+        'Uruguayan Primera División',
         'Paraguayan Primera División',
         'Peruvian Primera División',
-        'Chilean Primera Division',
+        'Chilean Primera División',
         'Liga de Fútbol Profesional Boliviano',
 
         'Campeonato Metropolitano (Argentina)',
@@ -287,9 +306,6 @@ def generate_competition_stats():
         'K League',
         'J. League',
 
-        # Women
-        'Women\'s Professional Soccer',
-        'Women\'s United Soccer Association',
 
         # other
 
@@ -307,7 +323,6 @@ def generate_competition_stats():
 
     for e in l:
         competition_generate(e)
-
 
 
 
@@ -452,7 +467,41 @@ def generate_standings(competition):
     return standings
 
 
-def generate_stats(goals=[], lineups=[]):
+
+def generate_stats(gstats=[]):
+    sd = {}
+
+    for gstat in gstats:
+        try:
+            t = make_stat_tuple(gstat['player'], gstat)
+        except:
+            import pdb; pdb.set_trace()
+        
+        if t not in sd:
+            sd[t] = {
+                'name': gstat['player'],
+                'team': gstat['team'],
+                'competition': gstat['competition'],
+                'season': gstat['season'],
+                'goals': gstat.get('goals'),
+                'own_goals': gstat.get('own_goals'),
+                'assists': gstat.get('assists'),
+                'games_played': gstat.get('games_played'),
+                'games_started': gstat.get('games_started'),
+                'minutes': gstat.get('minutes'),
+                }
+
+        else:
+            d = sd[t]
+            for key in 'goals', 'own_goals', 'assists', 'games_played', 'games_started', 'minutes':
+                if gstat.get(key) is not None:
+                    d[key] = (d.get(key) or 0) + gstat[key]
+
+    return sd
+
+
+
+def generate_stats_old(goals=[], lineups=[]):
     """
     Generate a stat dict from goals, lineups
     """
@@ -471,8 +520,7 @@ def generate_stats(goals=[], lineups=[]):
         if t not in sd:
             name, team, season, competition = t
             if not name:
-                #"Name not in tuple %s" % str(t)
-                return
+                return # No name on stat.
 
             sd[t] = {
                 'name': name,
@@ -480,18 +528,14 @@ def generate_stats(goals=[], lineups=[]):
                 'season': season,
                 'competition': competition,
                 'goals': 0,
-                'assists': 0,
-                'games_played': 0,
-                'games_started': 0,
-                'minutes': 0,
+                'assists': None,
+                'games_played': None,
+                'games_started': None,
+                'minutes': None,
                 }
 
-        #if t[0] == 'Omar Bravo' and t[1] == 'UANL':
-        #    print(sd[t])
-
-
         # Increment the appropriate key.
-        sd[t][key] += amount
+        sd[t][key] = (sd[t].get(key) or 0) + amount
 
 
     for goal in goals:
