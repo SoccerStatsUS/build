@@ -47,7 +47,14 @@ def transform_names_from_rosters():
             g = []
             coll = soccer_db["%s_goals" % source]
             for e in coll.find():
+
+                if 'Own Goal' in e['assists']:
+                    #print("skipping og: %s" % e)
+                    # Use opponent?
+                    continue
+
                 e['goal'] = rg(e['goal'], e['team'], e['competition'], e['season'])
+                e['assists'] = [rg(a, e['team'], e['competition'], e['season']) for a in e['assists']]
                 g.append(e)
 
             coll.drop()

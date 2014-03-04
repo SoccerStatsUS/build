@@ -264,69 +264,107 @@ def merge_games(games_lists):
         if '_id' in d:
             d.pop("_id")
 
+
+        # Games can be recorded in a variety of ways. 
+        # The goal here is to merge the most games possible
+        # while minimizing false positives.
+        # Minimum ways of identifying a game:
+        # teams, competition, season, round - no date
+        # teams, competition, date - no season, round
+        # Record a game with one or two keys - games that don't
+        # satisfy either of the above requirements are discarded.
+
+        # Process for merging a game.
+        # First, check that both keys, if valid, are not in the 
+        # game dict. If neither is valid, set valid keys to
+        # the item and return.
+
+        # If one is, but one is not, add a reference of 
+        # the missing one to the reference for the valid one.
+    
+        # Merge the new key into the old key.
+
+
+        # Make sure teams are in reliable order.
         teams = tuple(sorted([d['team1'], d['team2']]))
 
-        # add source_id here to handle no date overlaps.
-        key = (teams, d['date'], d['season'])
 
+        if d['round'] is None:
+            key = None
+        else:
+            key = (teams, d['date'], d['season'], d['round'])
 
-        #if sorted([d['team1'], d['team2']]) == ['Los Angeles Blues', 'Phoenix FC']:
-        #    import pdb; pdb.set_trace()
+        if d['date'] is None:
+            key2 = None
+        else:
+            key2 = (teams, d['competition'], d['date'])
 
-        if key not in game_dict:
-            game_dict[key] = d
+        if key is None and key2 is None:
+            return
+            
+        if key not in game_dict and key2 not in game_dict:
+            d['merges'] = 0
+            d['sources'] = d.get('sources', [])
+            game_list.append(d)
+
+            if key:
+                game_dict[key] = d
+            if key2:
+                game_dict[key2] = d
+
+            return # fly away!
+
+        elif key not in game_dict and key2 in game_dict:
+            game_dict[key] = game_dict[key2]
+
+        elif key in game_dict and key2 not in game_dict:
+            game_dict[key2] = game_dict[key]
 
         else:
-            orig = game_dict[key]
-
-            # Overreaction to a bug that was seriously mangling scores when multiple games records were present.
-            # (Was replacing scores of 0 with the larger score for both games.)
-            t1, t2, t1s, t2s, t1r, t2r = [d.pop(e) for e in ('team1', 'team2', 'team1_score', 'team2_score', 'team1_result', 'team2_result')]
-
-            try:
-                if t1 == orig['team1'] and t2 == orig['team2']:
-                    pass
-            except:
-                import pdb; pdb.set_trace()
-
-
+            pass # both keys already in in game dict
             
-            if t1 == orig['team1'] and t2 == orig['team2']:
-                pass
-            elif t1 == orig['team2'] and t2 == orig['team1'] and d['date'] is not None: # make allowances for multiple unknown dates...
-                t1, t1s, t1r, t2, t2s, t2r = t2, t2s, t2r, t1, t1s, t1r
-                try:
-                    assert t1s == orig['team1_score']
-                    assert t2s == orig['team2_score']
-                    assert t1r == orig['team1_result']
-                    assert t1r == orig['team1_result']
-                except:
-                    print("Game information mismatch.")
-                    #print(orig)
-                    #print(d)
+        orig = game_dict[key]
 
-                    #import pdb; pdb.set_trace()
-            else:
-                if d['date'] is not None:
-                    print("Game information mismatch.")
-                    print(orig)
-                    print(d)
+        # Overreaction to a bug that was seriously mangling scores when multiple games records were present.
+        # (Was replacing scores of 0 with the larger score for both games.)
+        t1, t2, t1s, t2s, t1r, t2r = [d.pop(e) for e in ('team1', 'team2', 'team1_score', 'team2_score', 'team1_result', 'team2_result')]
+
+        if t1 == orig['team1'] and t2 == orig['team2']:
+            pass
+        elif t1 == orig['team2'] and t2 == orig['team1'] and d['date'] is not None: # make allowances for multiple unknown dates...
+            t1, t1s, t1r, t2, t2s, t2r = t2, t2s, t2r, t1, t1s, t1r
+            try:
+                assert t1s == orig['team1_score']
+                assert t2s == orig['team2_score']
+                assert t1r == orig['team1_result']
+                assert t1r == orig['team1_result']
+            except:
+                print("Game information mismatch.")
+        else:
+            if d['date'] is not None:
+                print("Game information mismatch.")
+                print(orig)
+                print(d)
                 
-            for k, v in d.items():
-                if not orig.get(k) and v:
-                    orig[k] = v
+        for k, v in d.items():
+            if not orig.get(k) and v:
+                orig[k] = v
 
-            orig['sources'] = orig.get('sources', []) + d.get('sources', [])
-
-        game_dict[key]['merges'] = game_dict[key].get('merges', 0) + 1
+        orig['merges'] += 1
+        if d.get('sources'):
+            orig['sources'] += d['sources']
 
     game_dict = {}
+    game_list = []
 
     for games_list in games_lists:
         for e in games_list:
             update_game(e)
 
-    return game_dict.values()
+    #import pdb; pdb.set_trace()
+
+    return game_list
+    #return game_dict.values()
 
 
 def merge_bios():

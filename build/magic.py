@@ -20,9 +20,10 @@ magic_names = {
     }
 
 
-# Use a partial?
+# Use a partial? memoize?
 def from_competition(competition):
-    return lambda d: d['competition'] == competition
+    from smid.alias import get_competition
+    return lambda d: d[get_competition('competition')] == competition
 
 magic_teams = {
     'Saint Louis': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Saint Louis University')],
@@ -179,19 +180,50 @@ magic_teams = {
         (from_competition('Uruguayan Primera División'), 'Central Español'),
         ],
 
+    'Chaco': [
+        (from_competition('Liga de Fútbol Profesional Boliviano'), 'Chaco Petrolero'),
+        ],
+
+
+    'Chicago': [
+        (from_competition('Major League Soccer'), 'Chicago Fire'),
+        ],
+
     'Chicago Fire Reserves': [
         ],
+
+    'Colorado': [
+        (from_competition('Major League Soccer'), 'Colorado Rapids'),
+        ],
+
+
+    'Columbus': [
+        (from_competition('Major League Soccer'), 'Columbus Crew'),
+        ],
+
 
     'Cristal': [
         (from_competition('Peruvian Primera División'), 'Sporting Cristal'),
         ],
 
     'CSKA': [
-        (from_competition('Russian Football Premier League'), 'CSKA Moscow'),
+        (from_competition('Russian Premier League'), 'CSKA Moscow'),
         ],
+
+    'Dacia': [
+        (from_competition('Liga I'), 'CS Mioveni'),
+        ],
+
 
     'Deportivo': [
         (from_competition('La Liga'), 'Deportivo La Coruna'),
+        (from_competition('Ecuadorian Serie A'), 'Deportivo Quevedo'),
+        ],
+
+
+    'Dinamo': [
+        (from_competition('Liga I'), 'Dynamo Bucharest'),
+        (from_competition('Russian Premier League'), 'Dynamo Moscow'),
         ],
 
 
@@ -212,7 +244,9 @@ magic_teams = {
         (from_competition('InterLiga'), 'Tecos'),
         (from_competition('Ascenso MX'), 'Tecos'),
         (from_competition('Copa Libertadores'), 'Estudiantes de La Plata'),
+        (from_competition('Copa Sudamericana'), 'Estudiantes de La Plata'),
         (from_competition('Argentine Primera División'), 'Estudiantes de La Plata'),
+        (from_competition('Peruvian Primera División'), 'Estudiantes Grau'),
         ],
 
 
@@ -222,6 +256,16 @@ magic_teams = {
 
     'Gimnàstic': [
         (from_competition('La Liga'), 'Gimnàstic de Tarragona'),
+        ],
+
+
+    'Gimnasia y Esgrima': [
+        (from_competition('Copa Libertadores'), 'Gimnasia y Esgrima La Plata'),
+        (from_competition('Copa Sudamericana'), 'Gimnasia y Esgrima La Plata'),
+        ],
+
+    'GC': [
+        (from_competition('Swiss Super League'), 'Grasshopper Club'),
     ],
 
     'Hamilton': [
@@ -249,10 +293,15 @@ magic_teams = {
 
     'Juventud': [
         (from_competition('Liga Nacional de Honduras'), 'Real Juventud'),
+        (from_competition('Uruguayan Primera División'), 'Juventud de Las Piedras'),
         ],
 
     'Liverpool': [
         (from_competition('Uruguayan Primera División'), 'Liverpool (Montevideo)'),
+        ],
+
+    'Lokomotiv': [
+        (from_competition('Russian Premier League'), 'Lokomotiv Moscow'),
         ],
 
     'Los Andes': [
@@ -264,6 +313,7 @@ magic_teams = {
         ],
 
     'Nacional': [
+        (from_competition('Paraguayan Primera División'), 'Club Nacional'),
         (from_competition('Categoría Primera A'), 'Atlético Nacional'),
         (from_competition('Liga Panameña de Fútbol'), 'Atlético Nacional (Panama)'),
         ],
@@ -278,6 +328,10 @@ magic_teams = {
         (from_competition('Copa Mercosur'), 'Club Olimpia'),
         (from_competition('Copa Libertadores'), 'Club Olimpia'),
 
+        (from_competition('Liga I'), 'Olimpia Satu Mare'),
+
+        
+
         (from_competition('Liga Nacional de Honduras'), 'CD Olimpia'),
 
         (from_competition('Paraguayan Primera División'), 'Club Olimpia'),
@@ -289,6 +343,17 @@ magic_teams = {
 
     'Paris': [
         (from_competition('Ligue 1'), 'Paris Saint-Germain'),
+        ],
+
+    'Progreso': [
+        (from_competition('Uruguayan Primera División'), 'CA Progreso'),
+        (from_competition('Copa Libertadores'), 'CA Progreso'),
+        ],
+
+
+    'Rapid': [
+        (from_competition('Liga I'), 'Rapid Bucureşti'),
+
         ],
 
     'Real Espana': [
@@ -348,6 +413,10 @@ magic_teams = {
         (from_competition('Liga de Fútbol Profesional Boliviano'), 'CD San José',),
         ],
 
+    'Santa Fe': [
+        (from_competition('Categoría Primera A'), 'Independiente Santa Fe'),
+        ],
+
     'Santa Lucia': [
         (from_competition('Liga Nacional de Guatemala'), 'Santa Lucía Cotzumalguapa'),
         ],
@@ -361,6 +430,8 @@ magic_teams = {
         (from_competition('North American SuperLiga'), 'Santos Laguna'),
         (from_competition('Primera División de Costa Rica'), 'Santos de Guápiles'),
         (from_competition('Brasileirão'), 'Santos FC'),
+        (from_competition('Copa Libertadores'), 'Santos FC'),
+        (from_competition('Recopa Sudamericana'), 'Santos FC'),
         ],
 
 
@@ -400,8 +471,23 @@ magic_teams = {
         (from_competition('Austrian Bundesliga'), 'Sturm Graz'),
         ],
 
+
+    'Talleres': [
+        (from_competition('Copa Libertadores'), 'Talleres de Córdoba',),
+        ],
+
+
+
+    'UCD': [
+        (from_competition('League of Ireland'), 'University College Dublin'),
+        ],
+
     'Universidad': [
         (from_competition('Liga Nacional de Honduras'), 'Pumas UNAH'),
+        ],
+
+    'Universidad Católica': [
+        (from_competition('Ecuadorian Serie A'), 'Universidad Católica del Ecuador'),
         ],
 
     'Union': [
@@ -410,6 +496,9 @@ magic_teams = {
 
     'Valencia': [
         (from_competition('Liga Nacional de Honduras'), 'Municipal Valencia'),
+        (from_competition('La Liga'), 'Valencia CF'),
+        (from_competition('UEFA Super Cup'), 'Valencia CF'),
+
         ],
 
     'Victoria': [
@@ -425,9 +514,24 @@ magic_teams = {
         (from_competition('Brasileirão'), 'EC Vitória'),
         ],
 
+
+    'Vitória FC': [
+        (from_competition('Primeira Liga'), 'Vitória de Setúbal'),
+        ],
+
+
+    'Vitória SC': [
+        (from_competition('Primeira Liga'), 'Vitória de Guimarães'),
+        ],
+
     'Wanderers': [
         (from_competition('Uruguayan Primera División'), 'Montevideo Wanderers'),
         (from_competition('Chilean Primera División'), 'Santiago Wanderers'),
+        ],
+
+
+    'YB': [
+        (from_competition('Swiss Super League'), 'Young Boys'),
         ],
     }
 
