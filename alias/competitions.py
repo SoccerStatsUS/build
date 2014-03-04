@@ -63,6 +63,8 @@ full_alias = {
     'Eliminatorias AFC': 'FIFA World Cup qualification (AFC)',
 
     'FIFA World Cup Qualifying (CONCACAF)': 'FIFA World Cup qualification (CONCACAF)',
+    'FIFA World Cup Qualification (CONCACAF)': 'FIFA World Cup qualification (CONCACAF)',
+
     'CONCACAF Men\'s Olympic Qualifying Tournament': 'Olympic Games qualification (CONCACAF)',
     'FIFA World Cup Qualification': 'FIFA World Cup qualification',
 

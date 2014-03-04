@@ -323,6 +323,8 @@ def merge_games(games_lists):
         else:
             pass # both keys already in in game dict
             
+
+        # Need to use priority to adjust which is the merger, which the mergee.
         orig = game_dict[key]
 
         # Overreaction to a bug that was seriously mangling scores when multiple games records were present.

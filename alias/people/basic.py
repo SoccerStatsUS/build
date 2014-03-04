@@ -10790,6 +10790,7 @@ basic = {
     'Timothy Ream': 'Tim Ream',
     'David Stahl': 'Dave Stahl',
 
+    'Perica (Peri) Marosevic': 'Perica Marošević',
     'Perica Marosevic': 'Perica Marošević',
     'Peri Marosevic': 'Perica Marošević',
 

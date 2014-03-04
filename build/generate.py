@@ -146,6 +146,14 @@ def generate_game_stats():
     #    stats[key]['red_cards'] += 1
 
     for l in soccer_db.lineups.find():
+
+        if l.get('unused') == True:
+            continue
+
+        # Player didn't play - different from 
+        #if l['on'] == 0 and l['off'] == 0:
+        #    continue
+
         key = tuple([l[k] for k in ['name', 'team', 'date', 'competition', 'season']])
         #stats[key].update({ 'on': l['on'],
         #                    'off': l['off'],
