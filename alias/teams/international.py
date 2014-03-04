@@ -220,6 +220,7 @@ international = {
     'U.S. U-20 MNT': 'United States U-20',
 
     'U.S. U-23 MNT': 'United States U-23',
+    'U.S. U-23': 'United States U-23',
 
     'Indonesia Selection': 'Indonesia XI',
 
@@ -488,6 +489,10 @@ international = {
     'Suecia Femenil Sub-20': 'Sweden Women U-20',
     'Colombia Femenil Sub-20': 'Colombia Women U-20',
     'Nigeria Femenil Sub-20': 'Nigeria Women U-20',
+    'Corea Del Norte Femenil Sub-20': 'North Korea Women U-20',
+    'Brasil Femenil Sub-20': 'Brazil Women U-20',
+    'Canadá Femenil Sub-20': 'Canada Women U-20',
+    'Panamá Femenil Sub-20': 'Panama Women U-20',
 
     'Jamaica Playa': 'Jamaica Beach',
     'Canadá Playa': 'Canada Beach',
@@ -520,6 +525,10 @@ international = {
     'Argentina Femenil J.P.': 'Argentina Women Panamerican',
     'Costa Rica Femenil J.P.': 'Costa Rica Women Panamerican',
     'Brasil Femenil J.P.': 'Brazil Women Panamerican',
+    'Canadá Femenil J.P.': 'Canada Women Panamerican',
+
+    'México Femenil J.P.': 'Mexico Women Panamerican',
+    'Colombia Femenil J.P.': 'Colombia Women Panamerican',
 
 
     'Trinidad Y Tobago Femenil J.P.': 'Trinidad and Tobago Women Panamerican',

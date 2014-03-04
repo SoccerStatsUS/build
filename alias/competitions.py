@@ -6,10 +6,20 @@ aliases = {}
 
 full_alias = {
 
+    'Austrian Football Bundesliga': 'Austrian Bundesliga',
+
+    'Juegos Panamericanos Femenil': 'Women\'s Panamerican Games',
+    'Preolímpico CONCACAF': 'Olympic Games qualification (CONCACAF)',
+    'Preolímpico Femenil CONCACAF': 'Women\'s Olympic Games qualification (CONCACAF)',
+
+    'CONCACAF Championship Qualifying': 'CONCACAF Championship qualification',
+
     'Supercopa': 'Supercopa de España',
 
     'Carling Cup': 'Football League Cup',
     'Dutch Cup': 'KNVB Cup',
+
+    'Copa Mustang': 'Categoría Primera A',
 
 
     'Juegos Olímpicos Femenil': 'Olympic Games Women',
@@ -17,6 +27,7 @@ full_alias = {
     'DFB Pokal': 'DFB-Pokal',
 
     'Bundesliga': '1. Bundesliga',
+    '1. Bundesliga': '1. Bundesliga',
 
     'Liga de Ascenso': 'Ascenso MX',
 
@@ -44,12 +55,17 @@ full_alias = {
 
     'Eurocopa': 'UEFA European Championship',
 
-    'Eliminatorias CONCACAF': 'FIFA World Cup Qualification (CONCACAF)',
-    'Eliminatorias CONMEBOL': 'FIFA World Cup Qualification (CONMEBOL)',
-    'Eliminatorias UEFA': 'FIFA World Cup Qualification (UEFA)',
-    'Eliminatorias OFC': 'FIFA World Cup Qualification (OFC)',
-    'Eliminatorias CAF': 'FIFA World Cup Qualification (CAF)',
-    'Eliminatorias AFC': 'FIFA World Cup Qualification (AFC)',
+    'Eliminatorias CONCACAF': 'FIFA World Cup qualification (CONCACAF)',
+    'Eliminatorias CONMEBOL': 'FIFA World Cup qualification (CONMEBOL)',
+    'Eliminatorias UEFA': 'FIFA World Cup qualification (UEFA)',
+    'Eliminatorias OFC': 'FIFA World Cup qualification (OFC)',
+    'Eliminatorias CAF': 'FIFA World Cup qualification (CAF)',
+    'Eliminatorias AFC': 'FIFA World Cup qualification (AFC)',
+
+    'FIFA World Cup Qualifying (CONCACAF)': 'FIFA World Cup qualification (CONCACAF)',
+    'CONCACAF Men\'s Olympic Qualifying Tournament': 'Olympic Games qualification (CONCACAF)',
+    'FIFA World Cup Qualification': 'FIFA World Cup qualification',
+
 
     'Copa Confederaciones': 'FIFA Confederations Cup',
     'Zon Sagres': 'Primeira Liga',
@@ -179,10 +195,8 @@ full_alias = {
 
     'World Cup': 'FIFA World Cup',
 
-    'FIFA World Cup Qualifying (CONCACAF)': 'FIFA World Cup qualification (CONCACAF)',
-    'FIFA World Cup Qualification': 'FIFA World Cup qualification',
 
-    'CONCACAF Men\'s Olympic Qualifying Tournament': 'Olympic Games qualification (CONCACAF)',
+
     'Olympic Games Qualifying': 'Olympic Games qualification',
 
 
@@ -235,7 +249,13 @@ partial_alias = {
     'North American Nations Cup': 'International Friendly',
     'Presidents Cup': 'International Friendly',
     'Trinidad Tournament': 'International Friendly',
+    'Orange Bowl Cup': 'International Friendly',
+    'Mexico City Cup': 'International Friendly',
+    'Marlboro Cup': 'International Friendly',
+    'Los Angeles Friendship Cup': 'International Friendly',
+
     }
+
 aliases.update(partial_alias)
 
 

@@ -9,3 +9,5 @@ from smid.alias.places import get_place
 from smid.alias.stadiums import get_stadium
 from smid.alias.cities import get_city
 from smid.alias.rounds import get_round
+from smid.alias.seasons import get_season
+

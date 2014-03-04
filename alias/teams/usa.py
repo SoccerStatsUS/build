@@ -1,4 +1,8 @@
 usa = {
+
+    'Utah Spiders': 'Utah Starzz',
+
+    'New York Fury': 'Long Island Fury',
     
     'So. WV King\'s Warriors': 'Southern West Virginia King\'s Warriors',
     'North Sound Sea Wolves': 'North Sound SeaWolves',

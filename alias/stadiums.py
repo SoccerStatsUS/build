@@ -32,6 +32,18 @@ misc = {
 
 world = {
 
+    'A Luz': 'Estádio da Luz',
+    'Municipal de Braga': 'Estádio Municipal de Braga',
+
+    'José Alvalade': 'Estadio José Alvalade',
+    'Ernst-Hapoel Stadion': 'Ernst-Happel-Stadion',
+    'Carlos Iturralde Rivero': 'Estadio Carlos Iturralde',
+
+    'Olimpico di Torino': 'Stadio Olimpico di Torino',
+    'Caliente': 'Estadio Caliente',
+
+    'Nsc Olympiysliy Stadium': 'Kiev Olympic Stadium',    
+
     'Peter Mokaba': 'Peter Mokaba Stadium',
 
     'Ramón Aguilera': 'Estadío Ramón Aguilera', 
@@ -917,7 +929,11 @@ united_states = {
     'Pontiac Silverdome': 'Silverdome',
 
     # Kansas
+
+    'Sporting Park': 'Sporting Kansas City Park',
+    'Sporting Park (Kansas City)': 'Sporting Kansas City Park',
     'Livestrong Sporting Park': 'Sporting Kansas City Park',
+
     'Community America Ballpark': 'CommunityAmerica Ballpark',
 
     # Nevada
@@ -1073,7 +1089,7 @@ united_states = {
     'Frelinghuysen Avenue Ground': 'Frelinghuysen Grounds',
     'Clark\'s Athletic Field': 'Clark\'s Field',
 
-    'Colombus Crew Staduim': 'Columbus Crew Staduim',
+    'Colombus Crew Staduim': 'Columbus Crew Stadium',
     'Río Tinto Stadium':        'Rio Tinto Stadium',
     'Rio Tinto Satadium': 'Rio Tinto Stadium',
     'AT&T; Park': 'AT&T Park',
