@@ -455,7 +455,9 @@ def normalize_roster(e):
 
 def normalize_award(e):
     e['competition'] = get_competition(e['competition'])
-    e['season'] = get_season(e['season'])
+
+    if 'season' in e:
+        e['season'] = get_season(e['season'])
 
     if e['model'] == 'Team':
         e['recipient'] = get_team(e['recipient'])
