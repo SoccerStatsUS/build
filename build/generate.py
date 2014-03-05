@@ -280,6 +280,9 @@ def generate_competition_stats():
         'Campeonato Mineiro',
 
         # UEFA 
+
+        'UEFA Champions League',
+
         'Serie A',
         'La Liga',
         'Premier League',
