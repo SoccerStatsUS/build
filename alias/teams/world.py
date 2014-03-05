@@ -1,5 +1,16 @@
 world = {
 
+    'St. Catharines': 'St Catharines', 
+    'VFR': 'VfR', 
+    'German American S.C.': 'German-American SC',
+    'Reading German Americans': 'Reading German-Americans'
+    'U.S.S.R. Olympic', 'USSR Olympic'
+
+    'Internaţional Curtea de Argeş': 'Internațional Curtea de Argeș'
+    'Jiul Petroşani': 'Jiul Petroșani',
+    'Gloria Bistriţa': 'Gloria Bistrița',
+    'Atletico Pompeya': 'Atlético Pompeya',
+
     'Santa Fé': 'Santa Fe',
 
     'Paysandú': 'Paysandu',

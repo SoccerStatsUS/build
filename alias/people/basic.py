@@ -1,6 +1,42 @@
 
 basic = {
 
+    'Zuraw': 'Żuraw',
+    'Gęsior': 'Gesior',
+    'B.Baranets\'': 'B.Baranets',
+    'Mel\'nyk': 'Melnyk',
+    'Wegrzyn': 'Węgrzyn',
+    'Dąbrowski': 'Dabrowski',
+    'Poltavets\'': 'Poltavets',
+    'Niciński': 'Nicinski',
+    'Maćkiewicz': 'Mackiewicz',
+    'Woś': 'Wos',
+    'Niżnik': 'Niznik',
+    'SUtton': 'Sutton',
+    'Wiśniewski': 'Wisniewski',
+    'W.Górski': 'W.Gorski',
+    'Zurawski': 'Żurawski',
+    'A.Bak': 'A.Bąk',
+    'Jamróz': 'Jamroz',
+    'St Müller': 'St. Muller',
+    'St. Müller': 'St. Muller',
+    'Mięciel': 'Mieciel',
+    'Śrutwa': 'Srutwa',
+    'Krzynówek': 'Krzynowek',
+
+    'Remigiusz Sobociñski': 'Remigiusz Sobociński',
+    'Kazimierz Wegrzyn': 'Kazimierz Węgrzyn',
+    'Jozef Zymanczyk': 'Józef Żymańczyk',
+    'Aidas Preiksaitis': 'Aidas Preikšaitis',
+    'Jerzy Podbrozny': 'Jerzy Podbrożny',
+    'Grzegorz Krol': 'Grzegorz Król',
+    'Dariusz Zuraw': 'Dariusz Żuraw',
+    'Cristiano Pereira da Souza "Brasília"': 'Cristiano Pereira da Souza Brasilia',
+    'Mariusz Śrutwa': 'Mariusz Srutwa',
+
+    'Kenneth Huge Taylor Jr': 'Kenneth Huge Taylor Jr.', # Ken Taylor
+    'Benjamin Van Der Fluit': 'Benjamin Van der Fluit',
+
     'Therry Vaughn': 'Terry Vaughn',
     
     'Callum Mallace': 'Calum Mallace',

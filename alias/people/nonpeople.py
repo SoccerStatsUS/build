@@ -12,6 +12,7 @@ nonpeople = {
     'Penalty kick': 'penalty kick',
 
     'Free Kick': 'free kick',
+    'fk': 'free kick',
 
     'Sent Off': 'sent off',
     'Red Card': 'sent off',
