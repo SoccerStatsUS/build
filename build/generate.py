@@ -182,8 +182,10 @@ def generate_game_stats():
 
         # Hunting these...
         else:
-            import pdb; pdb.set_trace()
-
+            # Colin Jose NASL lineups, eg
+            # All we know is who played, not starters/subs
+            #import pdb; pdb.set_trace()
+            pass
 
         stats[key]['order'] = l.get('order')
 
