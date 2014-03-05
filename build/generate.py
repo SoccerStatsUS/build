@@ -147,26 +147,43 @@ def generate_game_stats():
 
     for l in soccer_db.lineups.find():
 
-        if l.get('unused') == True:
-            continue
 
         # Player didn't play - different from 
         #if l['on'] == 0 and l['off'] == 0:
-        #    continue
+        if l.get('unused') == True:
+            continue
 
         key = tuple([l[k] for k in ['name', 'team', 'date', 'competition', 'season']])
-        #stats[key].update({ 'on': l['on'],
-        #                    'off': l['off'],
-        #                    })
+
         stats[key]['games_played'] = 1
+
         if l['on'] == 0:
             stats[key]['games_started'] = 1
 
         if type(l['on']) == int and type(l['off']) == int:
             stats[key]['minutes'] += l['off'] - l['on']
-
             stats[key]['on'] = l['on']
             stats[key]['off'] = l['off']
+
+            #if l['on'] == 90 and l['off'] == 90:
+            #    import pdb; pdb.set_trace()
+
+        # Presumably a starter where we don't know when he came off.
+        elif type(l['on']) == int:
+            stats[key]['on'] = l['on']
+            stats[key]['off'] = None 
+            stats[key]['minutes'] = 90 # Know this is wrong, but will be closer than nothing
+
+        # Presumably a substitute where we don't know when he came on.
+        elif type(l['off']) == int:
+            stats[key]['on'] = None
+            stats[key]['off'] = 90 # Change this to total game minutes
+            stats[key]['minutes'] = 0 # Know this is wrong, but will be closer than nothing
+
+        # Hunting these...
+        else:
+            import pdb; pdb.set_trace()
+
 
         stats[key]['order'] = l.get('order')
 
