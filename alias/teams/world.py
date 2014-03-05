@@ -6,7 +6,7 @@ world = {
     'Reading German Americans': 'Reading German-Americans'
     'U.S.S.R. Olympic', 'USSR Olympic'
 
-    'Internaţional Curtea de Argeş': 'Internațional Curtea de Argeș'
+    'Internaţional Curtea de Argeş': 'Internațional Curtea de Argeș',
     'Jiul Petroşani': 'Jiul Petroșani',
     'Gloria Bistriţa': 'Gloria Bistrița',
     'Atletico Pompeya': 'Atlético Pompeya',
