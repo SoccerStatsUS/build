@@ -32,6 +32,8 @@ misc = {
 
 world = {
 
+    'Stade Sylvio Cantor': 'Stade Sylvio Cator',
+
     'A Luz': 'Estádio da Luz',
     'Municipal de Braga': 'Estádio Municipal de Braga',
 
