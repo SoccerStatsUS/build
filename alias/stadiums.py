@@ -846,6 +846,7 @@ world = {
     'Stade Saputo': 'Saputo Stadium',
 
     # Guatemala
+    'Mateo Flores Stadium': 'Estadio Mateo Flores',
     'Estadio Nacional Mateo Flores': 'Estadio Mateo Flores',
     'Estadio Mateo Flores': 'Estadío Mateo Flores',
 }

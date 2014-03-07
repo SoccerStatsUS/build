@@ -119,7 +119,7 @@ def load():
     load_competition_maps()
 
     # short circuit bios
-    load_games(); return 
+    #load_games(); return 
 
     load_bios()
     load_extra()
@@ -185,16 +185,16 @@ def load_domestic():
     load_concacaf()
     load_cfu()
 
-    return
-
     load_uefa()
     load_asia()
     load_uefa_leagues()
-    load_mediotiempo()    
     load_australia()    
 
     load_africa()
 
+    return
+
+    load_mediotiempo()    
 
     # modern (mostly)
     load_oceania()
@@ -206,7 +206,7 @@ def load_domestic():
 def load_other():    
     load_ltrack()
 
-    #load_fifa()
+    load_fifa()
     #load_ncaa()
 
     #load_indoor()
