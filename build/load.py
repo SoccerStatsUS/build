@@ -144,10 +144,15 @@ def load_extra():
 
 
 def load_games():  
+    load_domestic()
+
+
+    load_international()
+
     load_women()
     load_other()
-    load_international()
-    load_domestic()
+
+
 
 
 def load_international():
@@ -161,11 +166,14 @@ def load_international():
 
     load_asia_international()
     load_africa_international()
-    load_mixed_confederation()
+
 
 
 def load_domestic():
+    load_nasl() 
 
+    load_mls() 
+    load_mexico()
     load_asl2()           
     load_us_minor()
     load_nafbl()
@@ -173,10 +181,10 @@ def load_domestic():
     load_usa_cups()
 
     load_conmebol_leagues()
-    load_nasl() 
-    load_mls() 
+
+
     load_asl()  
-    load_mexico()
+
 
     load_conmebol()
     load_world()
@@ -188,13 +196,10 @@ def load_domestic():
     load_uefa()
     load_asia()
     load_uefa_leagues()
+    #load_mediotiempo()    
     load_australia()    
 
     load_africa()
-
-    return
-
-    load_mediotiempo()    
 
     # modern (mostly)
     load_oceania()
@@ -205,14 +210,10 @@ def load_domestic():
 
 def load_other():    
     load_ltrack()
-
     load_fifa()
     #load_ncaa()
-
-    #load_indoor()
-    
+    load_indoor()
     load_city()
-
     load_modern_friendlies()
     load_early_friendlies()
 
@@ -1240,7 +1241,7 @@ def load_mexico():
 
     generic_load(soccer_db.mexico_awards, awards.process_mexico_awards)
 
-    #load_standings_standard('mexico', 'domestic/country/mexico/1', ';')
+    load_standings_standard('mexico', 'domestic/country/mexico/1', ';')
     load_standings_standard('mexico', 'domestic/country/mexico/short', ';')
     #load_standings_standard('mexico', 'domestic/country/mexico/primera_fuerza')
 
@@ -1505,6 +1506,8 @@ def load_world():
     from soccerdata.text import awards, rosters
     generic_load(soccer_db.world_awards, awards.process_world_awards)
     generic_load(soccer_db.world_awards, awards.process_isl_awards) # ISL et al.
+
+    load_mixed_confederation()
 
     # Club World Cup
     for e in [2000, 2001] + list(range(2005, 2014)):
