@@ -636,7 +636,6 @@ def load_uefa_minor():
 def load_conmebol_leagues():
     load_conmebol_minor()
     load_brazil()
-
     load_argentina()
 
 def load_conmebol_minor():
@@ -691,10 +690,8 @@ def load_argentina():
     from soccerdata.text import awards
 
     generic_load(soccer_db.conmebol_awards, awards.process_argentina_awards)
-    #load_standings_standard('conmebol', 'domestic/country/argentina2')
-    #load_standings_standard('conmebol', 'domestic/country/argentina')
-
-    return
+    load_standings_standard('conmebol', 'domestic/country/argentina2')
+    load_standings_standard('conmebol', 'domestic/country/argentina')
 
     for year in range(1967, 1985):
         load_games_standard('conmebol', 'domestic/country/argentina/city/%s' % year)
@@ -713,7 +710,6 @@ def load_brazil():
     for e in range(1971, 2013):
         load_games_standard('brazil', 'domestic/country/brazil/brasileiro/%s' % e)
 
-    return
 
     # state leagues.
 
