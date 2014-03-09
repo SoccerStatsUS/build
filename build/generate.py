@@ -55,7 +55,7 @@ def generate():
     generate_competition_standings()
     generate_game_stats()
     generate_competition_stats() # Use game stats to make competition stats.
-
+    generate_cities()
 
 
 
@@ -603,9 +603,45 @@ def generate_stats_old(goals=[], lineups=[]):
 
     return sd
 
+
+
+        
+def generate_cities():
+    print("Generating cities.")
+
+    cities = set()
+
+    for e in soccer_db.teams.find():
+        if 'city' in e:
+            cities.add(e['city'])
+
+
+    for e in soccer_db.bios.find():
+        cities.add(e.get('birthplace'))
+        cities.add(e.get('deathplace'))
+
+
+    # Probably can speed this up substantially
+    for e in soccer_db.games.find():
+        if 'location' in e:
+            cities.add(e['location'])
+
+    for e in soccer_db.stadiums.find():
+        cities.add(e['location'])
+
+    if None in cities:
+        cities.remove(None)
+
+    city_dicts = [{'name': city} for city in sorted(cities)]
+    
+    generic_load(soccer_db.cities, lambda: city_dicts)
+
+    #return city_dicts
+
     
 
              
 if __name__ == "__main__":
     generate()
+
 

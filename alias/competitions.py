@@ -6,6 +6,9 @@ aliases = {}
 
 full_alias = {
 
+    'Haiti Tournament?': 'Haiti Tournament',
+    'Haiti ?': 'Haiti Tournament',
+
     'Austrian Football Bundesliga': 'Austrian Bundesliga',
 
     'Juegos Panamericanos Femenil': 'Women\'s Panamerican Games',
@@ -240,6 +243,8 @@ partial_alias = {
     'Tournament of Champions': 'Friendly',
     'Trans-Atlantic Challenge Cup': 'Friendly',
 
+    'Hurricane Mitch Benefit': 'Friendly',
+
     'Amistad Cup': 'International Friendly',
 
     'International Cup': 'International Friendly',
@@ -255,6 +260,10 @@ partial_alias = {
     'Mexico City Cup': 'International Friendly',
     'Marlboro Cup': 'International Friendly',
     'Los Angeles Friendship Cup': 'International Friendly',
+
+    'International Friendly Tournament': 'International Friendly',
+
+
 
     }
 

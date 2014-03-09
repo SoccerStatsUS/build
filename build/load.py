@@ -119,7 +119,7 @@ def load():
     load_competition_maps()
 
     # short circuit bios
-    load_games(); return 
+    #load_games(); return 
 
     load_bios()
     load_extra()
@@ -201,7 +201,6 @@ def load_domestic():
 
     load_africa()
 
-
     # modern (mostly)
     load_oceania()
 
@@ -211,14 +210,10 @@ def load_domestic():
 
 def load_other():    
     load_ltrack()
-
     load_fifa()
-    load_ncaa()
-
+    #load_ncaa()
     load_indoor()
-    
     load_city()
-
     load_modern_friendlies()
     load_early_friendlies()
 
@@ -503,7 +498,7 @@ def load_uefa_mid():
     load_standings_standard('uefa', 'domestic/country/ukraine')
     load_standings_standard('uefa', 'domestic/country/portugal')
 
-    """
+
     for year in range(1996, 2011):
         load_games_standard('uefa', 'domestic/country/netherlands/%s' % year)
 
@@ -518,7 +513,7 @@ def load_uefa_mid():
 
     for year in range(2003, 2012):
         load_games_standard('uefa', 'domestic/country/russia/%s' % year)
-        """
+
 
     for year in range(2006, 2012):
         load_games_standard('uefa', 'domestic/country/ukraine/%s' % year)
@@ -591,8 +586,6 @@ def load_uefa_minor():
     for year in range(1997, 2012):
         load_games_standard('uefa', 'domestic/country/romania/%s' % year)
 
-
-
     for year in range(1997, 2013):
         load_games_standard('uefa', 'domestic/country/czech/%s' % year)
 
@@ -624,8 +617,6 @@ def load_uefa_minor():
     for year in range(2012, 2013):
         load_games_standard('uefa', 'domestic/country/cyprus/%s' % year)
 
-
-
     return
 
     for year in range(1998, 2013):
@@ -641,7 +632,6 @@ def load_uefa_minor():
 def load_conmebol_leagues():
     load_conmebol_minor()
     load_brazil()
-
     load_argentina()
 
 def load_conmebol_minor():
@@ -697,9 +687,7 @@ def load_argentina():
 
     generic_load(soccer_db.conmebol_awards, awards.process_argentina_awards)
     #load_standings_standard('conmebol', 'domestic/country/argentina2')
-    #load_standings_standard('conmebol', 'domestic/country/argentina')
-
-    return
+    load_standings_standard('conmebol', 'domestic/country/argentina')
 
     for year in range(1967, 1985):
         load_games_standard('conmebol', 'domestic/country/argentina/city/%s' % year)
@@ -718,7 +706,6 @@ def load_brazil():
     for e in range(1971, 2013):
         load_games_standard('brazil', 'domestic/country/brazil/brasileiro/%s' % e)
 
-    return
 
     # state leagues.
 

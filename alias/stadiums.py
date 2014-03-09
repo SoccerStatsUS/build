@@ -32,6 +32,12 @@ misc = {
 
 world = {
 
+
+
+    'Memorial Stadium Baltimore': 'Memorial Stadium (Baltimore)',
+    'Estadio Cuscatlan': 'Estadio Cuscatlán',
+    'Estadio Sergio Leon Chavez': 'Estadio Sergio León Chávez',
+
     'Stade Sylvio Cantor': 'Stade Sylvio Cator',
 
     'A Luz': 'Estádio da Luz',
@@ -582,8 +588,12 @@ world = {
     'Estadio Andres Quintana Roo': 'Estadio Quintana Roo',
 
     'Estadio Tecnologico': 'Estadio Tecnológico',
-    'Estadio Jalisco': 'Estadío Jalisco',
+    'Stadium Tecnologico': 'Estadio Tecnológico',
+    'Tecnologico': 'Estadio Tecnológico',
+
+    'Estadío Jalisco': 'Estadio Jalisco',
     'Jalisco Stadium': 'Estadío Jalisco',
+
     'Estadio Olimpico Universitario': 'Estadio Olímpico Universitario',
     'Estadio Olimpico Universitario Mexico 68': 'Estadio Olímpico Universitario',
     'Estadio Olimpico de CU': 'Estadio Olímpico Universitario',
@@ -594,12 +604,12 @@ world = {
 
     'Nuevo Estadio Corona': 'Estadio TSM Corona',
 
-    'Stadium Tecnologico': 'Estadio Tecnológico',
+
     'Estadio Victor Manuel Reyna': 'Estadio Víctor Manuel Reyna',
     'Estadio Nou Camp': 'Estadio León', 
     'La Corregidora': 'Estadio Corregidora',
     'Neza': 'Estadio Neza 86',
-    'Tecnologico': 'Estadio Tecnológico',
+
     'Azteca': 'Estadio Azteca',
     'Azteca Stadium': 'Estadio Azteca',
     'Jalisco': 'Estadio Jalisco',
@@ -848,6 +858,7 @@ world = {
     'Stade Saputo': 'Saputo Stadium',
 
     # Guatemala
+    'Mateo Flores Stadium': 'Estadio Mateo Flores',
     'Estadio Nacional Mateo Flores': 'Estadio Mateo Flores',
     'Estadio Mateo Flores': 'Estadío Mateo Flores',
 }

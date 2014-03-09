@@ -24,8 +24,8 @@ def denormalize():
     
     team_name_ungetter = make_team_name_ungetter()
 
-    print("Generating cities.")
-    generate_cities()
+
+
 
     #print("Denormalizing games")
     l = []
@@ -212,36 +212,3 @@ def make_competition_name_ungetter():
 
     return getter
         
-        
-def generate_cities():
-
-    cities = set()
-
-
-    for e in soccer_db.teams.find():
-        if 'city' in e:
-            cities.add(e['city'])
-
-    for e in soccer_db.bios.find():
-        cities.add(e.get('birthplace'))
-        cities.add(e.get('deathplace'))
-
-
-
-    for e in soccer_db.games.find():
-        if 'location' in e:
-            cities.add(e['location'])
-
-
-
-    for e in soccer_db.stadiums.find():
-        cities.add(e['location'])
-
-    if None in cities:
-        cities.remove(None)
-
-
-    city_dicts = [{'name': city} for city in sorted(cities)]
-    
-    generic_load(soccer_db.cities, lambda: city_dicts)
-
