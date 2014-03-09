@@ -498,7 +498,7 @@ def load_uefa_mid():
     load_standings_standard('uefa', 'domestic/country/ukraine')
     load_standings_standard('uefa', 'domestic/country/portugal')
 
-    """
+
     for year in range(1996, 2011):
         load_games_standard('uefa', 'domestic/country/netherlands/%s' % year)
 
@@ -513,7 +513,7 @@ def load_uefa_mid():
 
     for year in range(2003, 2012):
         load_games_standard('uefa', 'domestic/country/russia/%s' % year)
-        """
+
 
     for year in range(2006, 2012):
         load_games_standard('uefa', 'domestic/country/ukraine/%s' % year)
@@ -586,8 +586,6 @@ def load_uefa_minor():
     for year in range(1997, 2012):
         load_games_standard('uefa', 'domestic/country/romania/%s' % year)
 
-
-
     for year in range(1997, 2013):
         load_games_standard('uefa', 'domestic/country/czech/%s' % year)
 
@@ -618,8 +616,6 @@ def load_uefa_minor():
 
     for year in range(2012, 2013):
         load_games_standard('uefa', 'domestic/country/cyprus/%s' % year)
-
-
 
     return
 
@@ -690,7 +686,7 @@ def load_argentina():
     from soccerdata.text import awards
 
     generic_load(soccer_db.conmebol_awards, awards.process_argentina_awards)
-    load_standings_standard('conmebol', 'domestic/country/argentina2')
+    #load_standings_standard('conmebol', 'domestic/country/argentina2')
     load_standings_standard('conmebol', 'domestic/country/argentina')
 
     for year in range(1967, 1985):
