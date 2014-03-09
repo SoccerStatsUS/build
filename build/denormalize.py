@@ -20,11 +20,8 @@ def denormalize():
     Additionally, this is where we apply stadium information to games. If we know the home team but not the location,
     we set the location to the team's stadium for that date if possible.
     """
-
     
     team_name_ungetter = make_team_name_ungetter()
-
-
 
 
     #print("Denormalizing games")
@@ -70,11 +67,25 @@ def denormalize():
         lineup['team_original_name'] = team_name_ungetter(lineup['team'], lineup['date'])
         lineups.append(lineup)
 
+
     soccer_db.lineups.drop()
     insert_rows(soccer_db.lineups, lineups)
 
-    hall_of_famers = set([e['recipient'] for e in soccer_db.awards.find({'award': 'US Soccer Hall of Fame'})])
 
+    game_stats = []
+    for gs in soccer_db.game_stats.find():
+
+        #if lineup['date'] == datetime.datetime(2012, 8, 7) and lineup['team'] == 'Chivas USA Reserves' and 'Jorge' in lineup['name']:
+        #    import pdb; pdb.set_trace()
+
+        gs['team_original_name'] = team_name_ungetter(gs['team'], gs['date'])
+        game_stats.append(gs)
+
+    soccer_db.game_stats.drop()
+    insert_rows(soccer_db.game_stats, game_stats)
+
+
+    hall_of_famers = set([e['recipient'] for e in soccer_db.awards.find({'award': 'US Soccer Hall of Fame'})])
     l = []
     for e in soccer_db.bios.find():
         e['hall_of_fame'] = e['name'] in hall_of_famers
@@ -82,6 +93,7 @@ def denormalize():
     
     soccer_db.bios.drop()
     insert_rows(soccer_db.bios, l)
+
 
     #print("Denormalizing standings")
     #standings = []
@@ -131,9 +143,6 @@ def make_reverse_stadium_getter():
         return team
 
     return getter
-
-
-
 
 
 def make_team_name_ungetter():
@@ -207,8 +216,6 @@ def make_competition_name_ungetter():
         if name_season in seasons:
             return to
 
-
         return name
 
     return getter
-        
