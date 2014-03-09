@@ -40,8 +40,8 @@ basic = {
     'Junior Brasilia': 'Júnior Brasília',
     'A Garcia': 'A. García',
     'Jose Antonio Camacho': 'José Antonio Camacho',
-    'Landry Nguemo': 'Landry N\'Guemo':
-    'Landry N’Guemo': 'Landry N\'Guemo':
+    'Landry Nguemo': 'Landry N\'Guemo',
+    'Landry N’Guemo': 'Landry N\'Guemo',
     'Mike Mccans': 'Mike McCans',
     'Hermann Hofer': 'Hermann Höfer',
     'Geoffrey Del Forn': 'Geoffrey del Forn',
