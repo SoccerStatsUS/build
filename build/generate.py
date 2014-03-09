@@ -371,6 +371,8 @@ def generate_competition_standings():
         'Recopa Sudamericana',
         'SURUGA Bank Championship',
         'La Copita del Mundo',    
+
+        'UEFA Champions League',
         'Copa Libertadores',
         'Copa Sudamericana',
         'Copa CONMEBOL',
