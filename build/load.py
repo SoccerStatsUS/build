@@ -804,7 +804,7 @@ def load_mls():
         load_games_standard('mls', 'domestic/country/usa/leagues/reserve/mls/%s' % e)
 
 
-    for e in ['1996.2010', '2011', '2012', '2013']:
+    for e in ['1996.2010', '2011', '2012', '2013', '2014']:
         r = os.path.join(ROOT_DIR, 'usd1/data/games/league/simple/mls')
         load_games_standard('mls', str(e), root=r)
 
