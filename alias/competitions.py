@@ -96,6 +96,7 @@ full_alias = {
     'European Champions Cup': 'UEFA Champions League',
 
     'NCAA Division I Men\'s Soccer Championship': 'NCAA Division I',
+    'NCAA Division II Men\'s Soccer Championship': 'NCAA Division II',
 
     '1.Bundesliga': '1. Bundesliga',
 

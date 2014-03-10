@@ -4,8 +4,8 @@ basic = {
     #'Palva': 
     'P.Alva': 'P. Alva',
 
+    'Joe Lapira': 'Joseph Lapira',
 
-    'free kick': 'Free kick',
 
     'Geert De Vlieger': 'Geert de Vlieger',
     'Gokhan Zan': 'Gökhan Zan',
@@ -94,7 +94,7 @@ basic = {
     'Jason Mcdonald': 'Jason McDonald',
     'Matthew Mckain': 'Matthew McKain',
     'PEDRO CARDOZO': 'Pedro Cardozo',
-    'RUBEN SOSA': 'Rubén Sosa',
+
     'Pablo Forlan': 'Pablo Forlán',
     'GABRIEL ALVEZ': 'Gabriel Álvez',
     'Dariusz Pawlusinski': 'Dariusz Pawlusiński',
@@ -1983,7 +1983,7 @@ basic = {
     'Roberto  Gamarra': 'Roberto Gamarra',
     'L. Pérez': 'L. Perez',
     'Mark González': 'Mark Gonzalez',
-    'Ruben Sosa': 'Rubén Sosa',
+
     'Gabriel Alvez': 'Gabriel Álvez',
     'Cândido': 'Candido',
     'Nádson': 'Nadson',
@@ -6608,7 +6608,12 @@ basic = {
     
     'Blas Lopez': 'Blas López', 
     
-    'Hector Ruben Sosa': 'Héctor Rubén Sosa', 
+    'RUBEN SOSA': 'Rubén Sosa',
+    'Ruben Sosa': 'Rubén Sosa',
+
+    'Hector Ruben Sosa': 'Rubén Héctor Sosa',
+    'Héctor Rubén Sosa': 'Rubén Héctor Sosa',
+
     'Michael Mccomie': 'Michael McComie',
     'Celio Silva': 'Célio Silva',
     
@@ -10612,6 +10617,8 @@ basic = {
     'Sascha Gorres': 'Sascha Görres',
     'Martin Castaneda': 'Martín Castañeda',
     'Mario Diaz': 'Mario Díaz',
+
+    'Andrew Jeanbaptiste': 'Andrew Jean-Baptiste',
     'Andrew Jean Baptiste': 'Andrew Jean-Baptiste',
     'Federico Insua': 'Federico Insúa',
     'Yeniel Marquez': 'Yeniel Márquez',
@@ -10792,7 +10799,7 @@ basic = {
     'Mike McFarland': 'Michael McFarladn',
     'John Jock Ferguson': 'Jock Ferguson',
     
-    'William Adelino Billy Gonsalves': 'Billy Gonsalves',
+
     'David Turner': 'Dave Turner',
     'Whitey Fleming': 'Tommy Fleming',
     'James Jim Gallagher': 'Jim Gallagher',
@@ -11381,6 +11388,9 @@ basic = {
     'Cesidio Collasante': 'Cesidio Colasante',
     'Cesido Colasante': 'Cesidio Colasante',
     'Ancil Elcock': 'Ansil Elcock',
+
+    'William Adelino Billy Gonsalves': 'Billy Gonsalves',
+    'Bill Gonsalves': 'Billy Gonsalves',
     
     'Sinisa Ubiparapovic': 'Sinisa Ubiparipovic',
     'Michael Banner': 'Mike Banner',
@@ -11638,6 +11648,8 @@ basic = {
     'Jose Torres': 'José Francisco Torres',
     
     'Keiran O\'brien': 'Keiran O\'Brien',
+
+    'K. Watson-Siriboe': 'Kwame Watson-Siriboe',
     'Kwame Watson Siriboe': 'Kwame Watson-Siriboe',
     'Kevin O\'brien': 'Kevin O\'Brien',
     'Kim Roentved': 'Kim Røntved',
@@ -11941,6 +11953,9 @@ basic = {
     'Stash (John) Graham': 'Stash Graham',
     'John (Stash) Graham': 'Stash Graham',
     'Tyler D Witmer': 'Tyler Witmer',
+
+    'A Ampaipitakwong': 'Anthony Ampaipitakwong',
+    'A. Ampaipitakwong': 'Anthony Ampaipitakwong',
     'Anthony Ampaiptakwong': 'Anthony Ampaipitakwong',
     'Billy Calligaris Comin': 'Billy Calligaris',
     'Jan Galik': 'Jani Galik',

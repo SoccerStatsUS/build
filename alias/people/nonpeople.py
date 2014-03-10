@@ -13,6 +13,7 @@ nonpeople = {
 
     'Free Kick': 'free kick',
     'fk': 'free kick',
+    'Free kick': 'free kick',
 
     'Sent Off': 'sent off',
     'Red Card': 'sent off',

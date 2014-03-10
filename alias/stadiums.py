@@ -983,6 +983,7 @@ united_states = {
     'JELD-WEN Field': 'Jeld-Wen Field',
     'Portland Civic Stadium': 'Jeld-Wen Field',
     'Civic Stadium': 'Jeld-Wen Field', # There's another Civic Stadium in Eugene, OR.
+    'Jeld-Wen Field': 'Providence Park',
 
     'PGE Park': 'JELD-WEN Field',
     
