@@ -185,8 +185,8 @@ usa = {
     'Sporting KC': 'Sporting Kansas City',
 
     'Los Angeles Galaxy - MLS': 'Los Angeles Galaxy',
-    'LA Galaxy': 'Los Angeles Galaxy',
     'La Galaxy': 'Los Angeles Galaxy',
+    'Los Angeles Galaxy': 'LA Galaxy',
 
     'New England Revolution - MLS': 'New England Revolution',
     'Ne Revolution': 'New England Revolution',

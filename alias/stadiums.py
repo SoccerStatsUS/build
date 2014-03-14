@@ -31,8 +31,12 @@ misc = {
 }
 
 world = {
+    
+    'Maureen Hendricks Field Maryland SoccerPlex': 'Maryland SoccerPlex',
+    'Verizon Wireless Field Durwood Stadium': 'Durwood Stadium',
 
-
+    'Moda Health Pitch Memorial Stadium': 'Seattle High School Memorial Stadium',
+    'Benedictine U. Sports Complex Stadium': 'Benedictine University Sports Complex Stadium',
 
     'Memorial Stadium Baltimore': 'Memorial Stadium (Baltimore)',
     'Estadio Cuscatlan': 'Estadio Cuscatlán',
@@ -981,11 +985,11 @@ united_states = {
 
     # Oregon
     'JELD-WEN Field': 'Jeld-Wen Field',
-    'Portland Civic Stadium': 'Jeld-Wen Field',
-    'Civic Stadium': 'Jeld-Wen Field', # There's another Civic Stadium in Eugene, OR.
-    'Jeld-Wen Field': 'Providence Park',
-
     'PGE Park': 'JELD-WEN Field',
+    'Portland Civic Stadium': 'Jeld-Wen Field',
+    'Civic Stadium': 'Jeld-Wen Field', # There's another Civic Stadium in Eugene, OR; this is way over.
+    'JELD-WEN Park': 'Jeld-Wen Field',
+    'Jeld-Wen Field': 'Providence Park',
     
     # Tennessee
     'Nashville Coliseum': 'LP Field',
@@ -1108,7 +1112,7 @@ united_states = {
     'Rio Tinto Satadium': 'Rio Tinto Stadium',
     'AT&T; Park': 'AT&T Park',
     'LIVESTRONG Sporting Park': 'Livestrong Sporting Park',
-    'JELD-WEN Park': 'Jeld-Wen Field',
+
     'Olímpico Universitario': 'Estadio Olímpico Universitario',
     'Tecnológico': 'Estadio Tecnológico',
     'Jorge Calero Suárez': 'Estadio Jorge Calero Suárez',

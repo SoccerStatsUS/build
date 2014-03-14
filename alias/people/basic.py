@@ -4,6 +4,8 @@ basic = {
     #'Palva': 
     'P.Alva': 'P. Alva',
 
+    'Christopher Karcz': 'Chris Karcz',
+
     'Joe Lapira': 'Joseph Lapira',
 
 
