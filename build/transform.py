@@ -16,6 +16,8 @@ from settings import SOURCES
 
 def transform():
 
+    # Change this to add stuff to ends?
+
     # Transform team names for a given competition based on the applied formatting string.
     # e.g. United States -> United States U-17.
     transform_team_names_for_competition('fifa', 'FIFA U-17 World Cup', '%s U-17')
@@ -30,6 +32,9 @@ def transform():
     transform_team_names_for_competition('concacaf_i', 'CONCACAF U-20 Championship', '%s U-20')
     transform_team_names_for_competition('concacaf_i', 'Olympic Games qualification (CONCACAF)', '%s Olympic')
     transform_team_names_for_competition('concacaf_i', 'Olympic Games qualification', '%s Olympic')
+
+
+    #transform_team_names_for_competition('mls', 'MLS Reserve League', '%s Reserve')
 
 
 

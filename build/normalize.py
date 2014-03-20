@@ -29,14 +29,12 @@ def make_location_normalizer():
     'Richardson, Texas' -> (None, 'Richardson, Texas')
     """
 
-    stadiums = soccer_db.stadiums.find()
-
     stadium_names = set()
     stadium_map = {}
 
     # Map stadium names to stadium objects; add to set.
     # Need to handle multiple stadiums with same name.
-    for stadium in stadiums:
+    for stadium in soccer_db.stadiums.find():
         name = stadium['name']
         stadium_names.add(name)
         stadium_map[name] = stadium

@@ -1,6 +1,8 @@
 
 basic = {
 
+    'Elwood Cook': 'Butch Cook',
+
     #'Palva': 
     'P.Alva': 'P. Alva',
 

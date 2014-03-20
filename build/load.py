@@ -14,13 +14,19 @@ from smid.settings import ROOT_DIR
 
 from foulds.cache import data_cache, set_cache
 
+from donelli.parse import stats, games, standings
+
 GAMES_DIR = os.path.join(ROOT_DIR, "soccerdata/data/games")
 STANDINGS_DIR = os.path.join(ROOT_DIR, "soccerdata/data/standings")
 
 
+USD1_DIR = os.path.join(ROOT_DIR, 'usd1')
+INDOOR_DIR = os.path.join(ROOT_DIR, 'indoor')
 UEFA_DIR = os.path.join(ROOT_DIR, 'uefa-data')
 NCAA_DIR = os.path.join(ROOT_DIR, 'ncaa-data')
 NWSL_DIR = os.path.join(ROOT_DIR, 'nwsl-data')
+
+STATS_DIR = os.path.join(ROOT_DIR, "soccerdata/data/stats")
 
 
 def clear_all():
@@ -43,14 +49,13 @@ def load_games_standard(coll, fn, games_only=False, root=GAMES_DIR):
     """
     Load standard data from a standard games file.
     """
-    from donelli.parse import games
 
     print(fn)
 
     p = os.path.join(root, fn)
-    games, goals, fouls, lineups, rosters = games.process_file(p)
+    gms, goals, fouls, lineups, rosters = games.process_file(p)
 
-    generic_load(soccer_db['%s_games' % coll], lambda: games, delete=False)
+    generic_load(soccer_db['%s_games' % coll], lambda: gms, delete=False)
 
     if not games_only:
         generic_load(soccer_db['%s_lineups' % coll], lambda: lineups, delete=False)
@@ -64,7 +69,6 @@ def load_standings_standard(coll, filename, delimiter=';', root=STANDINGS_DIR):
     Load standard standings.
     """
 
-    from donelli.parse import standings
     print(filename)
 
     path = os.path.join(root, filename)
@@ -144,12 +148,9 @@ def load_extra():
 
 
 def load_games():  
-    load_domestic()
-
-
-    load_international()
-
     load_women()
+    load_domestic()
+    load_international()
     load_other()
 
 
@@ -170,17 +171,24 @@ def load_international():
 
 
 def load_domestic():
+    load_mls() 
+    load_uefa_leagues()
+    load_concacaf()
+    load_conmebol_leagues()
+    load_us_minor()
+
+    load_uefa()
     load_nasl() 
 
-    load_mls() 
+
     load_mexico()
     load_asl2()           
-    load_us_minor()
+
     load_nafbl()
     load_canada()
     load_usa_cups()
 
-    load_conmebol_leagues()
+
 
 
     load_asl()  
@@ -190,12 +198,12 @@ def load_domestic():
     load_world()
     load_alpf()
     load_uncaf()
-    load_concacaf()
+
     load_cfu()
 
-    load_uefa()
+
     load_asia()
-    load_uefa_leagues()
+
     #load_mediotiempo()    
     load_australia()    
 
@@ -236,13 +244,11 @@ def load_excel_standings(coll, fn):
     """
     Load standard excel-formatted standings.
     """
-    from donelli.parse import standings
 
     generic_load(soccer_db['%s_standings' % coll], lambda: standings.process_excel_standings(fn))
 
 
 def load_sd_excel_standings(coll, fn):
-    from donelli.parse import standings
     p = os.path.join(ROOT_DIR, 'soccerdata/data/standings/', fn)
     generic_load(soccer_db['%s_standings' % coll], lambda: standings.process_excel_standings(p))
 
@@ -752,19 +758,23 @@ def load_brazil_international():
 
 
 def load_women():
-    from soccerdata.text import awards, stats
+    from soccerdata.text import awards
 
     generic_load(soccer_db.women_awards, awards.process_women_awards)
 
     WOMEN_ROOT = os.path.join(NWSL_DIR, 'data/games')
 
-    load_games_standard('women', 'wusa', root=WOMEN_ROOT)
-    load_games_standard('women', 'nwsl', root=WOMEN_ROOT)
-    load_games_standard('women', 'wps', root=WOMEN_ROOT)
-    load_games_standard('women', 'wpsl_elite', root=WOMEN_ROOT)
+    load_games_standard('women', 'wusa/wusa', root=WOMEN_ROOT)
+    load_games_standard('women', 'nwsl/2013', root=WOMEN_ROOT)
+    load_games_standard('women', 'nwsl/2014', root=WOMEN_ROOT)
+    load_games_standard('women', 'wps/wps', root=WOMEN_ROOT)
+    load_games_standard('women', 'wpsl/elite', root=WOMEN_ROOT)
 
-    generic_load(soccer_db.women_stats, stats.process_nwsl_stats)
-    
+
+    nwsl_dir = os.path.join(ROOT_DIR, 'nwsl-data/data/stats')
+    nwsl_stats = stats.process_stats("2013", source='nasljerseys.com', root=nwsl_dir, delimiter=';')
+    generic_load(soccer_db.women_stats, nwsl_stats)
+
     for e in ['wusa', 'wps', 'wpsl_elite', 'nwsl']:
         r = os.path.join(ROOT_DIR, 'nwsl-data/data/standings')
         load_standings_standard('women', e, root=r)
@@ -787,7 +797,7 @@ def load_mlssoccer_season(url, competition):
 
 
 def load_mls():
-    from soccerdata.text import awards, stats
+    from soccerdata.text import awards
 
     generic_load(soccer_db.mls_awards, awards.process_mls_awards)
 
@@ -812,8 +822,9 @@ def load_mls():
     load_games_standard('mls', os.path.join(ROOT_DIR, 'usd1/data/games/playoffs/mls'))
 
     # Not loading 1996-2011 stats?
-    generic_load(soccer_db.mls_stats, stats.process_mls_2012_stats)
-    generic_load(soccer_db.mls_stats, stats.process_mls_2013_stats)
+
+    generic_load(soccer_db.mls_stats, stats.process_stats("data/stats/mls/2012", root=USD1_DIR, source='MLSSoccer.com'))
+    generic_load(soccer_db.mls_stats, stats.process_stats("data/stats/mls/2013", source='MLSSoccer.com', root=USD1_DIR, delimiter=';'))
 
     load_mls_lineup_db()
 
@@ -923,7 +934,15 @@ def load_jobs():
     
 
     f1 = lambda: p2.process_file(os.path.join(jobs, 'world/england'), 'Head Coach')
+    #f1 = lambda: p2.process_file(os.path.join(jobs, 'world/argentina'), 'Head Coach')
+
     f2 = lambda: p2.process_file(os.path.join(jobs, 'usa/d1/mls/head'), 'Head Coach', delimiter=';')
+    f2 = lambda: p2.process_file(os.path.join(jobs, 'usa/d1/nasl/head'), 'Head Coach', delimiter=';')
+    #f2 = lambda: p2.process_file(os.path.join(jobs, 'usa/d1/asl/head'), 'Head Coach', delimiter=';')
+
+    f2 = lambda: p2.process_file(os.path.join(jobs, 'usa/d2/nasl/head'), 'Head Coach', delimiter=';')
+    f2 = lambda: p2.process_file(os.path.join(jobs, 'usa/d2/ussfd2'), 'Head Coach', delimiter=';')
+    f2 = lambda: p2.process_file(os.path.join(jobs, 'usa/d3/uslpro'), 'Head Coach', delimiter=';')
 
     #generic_load(soccer_db.positions, positions.process_positions)
     generic_load(soccer_db.positions, f1)
@@ -955,14 +974,13 @@ def load_asl():
 
     DIR = os.path.join(ROOT_DIR, 'usd1/data')
 
-    #load_excel_standings('asl', os.path.join(DIR, 'standings/asl')) # delete?
-    load_standings_standard('asl', 'standings/asl2', root=DIR)
-
     # Colin Jose data
     generic_load(soccer_db.asl_goals, asl.process_asl_goals)
     generic_load(soccer_db.asl_stats, asl.process_stats)
     generic_load(soccer_db.asl_games, asl.process_asl_games)
+    load_standings_standard('asl', 'standings/asl', root=DIR)
 
+    # Original
     load_games_standard('asl', os.path.join(DIR, 'games/league/simple/asl'))
     load_games_standard('asl', os.path.join(DIR, 'games/league/simple/esl'))
 
@@ -991,12 +1009,12 @@ def load_nasl():
     Load stats from the old nasl and misl.
     """
 
-    from soccerdata.text import awards, rosters, stats
+    from soccerdata.text import awards, rosters
     generic_load(soccer_db.nasl_awards, awards.process_nasl_awards)
     generic_load(soccer_db.nasl_awards, awards.process_usa_awards)
     generic_load(soccer_db.nasl_awards, awards.process_npsl_awards)
     generic_load(soccer_db.nasl_rosters, lambda: rosters.process_rosters2(os.path.join(ROOT_DIR, 'usd1/data/rosters/nasl')))
-    generic_load(soccer_db.nasl_stats, stats.process_nasl_stats)
+    generic_load(soccer_db.nasl_stats, stats.process_stats("data/stats/nasl", source='nasljerseys.com', root=USD1_DIR))
 
 
     from usd1.parse import nasl
@@ -1064,13 +1082,12 @@ def load_indoor():
     """
     Load stats and games from the MISL, standings from MISL, APSL and WSA.
     """
-    from soccerdata.text import stats
 
     load_sd_excel_standings('indoor', 'indoor/all')
     load_sd_excel_standings('indoor', 'indoor/misl')
 
     #print("Loading MISL stats.")
-    #generic_load(soccer_db.indoor_stats, stats.process_misl_stats)
+    #generic_load(soccer_db.indoor_stats, stats.process_stats("indoor/misl", source='nasljerseys.com', root=INDOOR_DIR))
 
 
 
@@ -1090,11 +1107,11 @@ def load_mls_lineup_db():
 
 def load_pdl():
     from soccerdata.text.cmp import pdl
-    from soccerdata.text import awards, stats
+    from soccerdata.text import awards
 
     load_sd_excel_standings('us_d4', 'domestic/country/usa/usl/pdl')
     generic_load(soccer_db.us_d4_awards, awards.process_pdl_awards)
-    generic_load(soccer_db.us_d4_stats, stats.process_pdl_stats)
+    generic_load(soccer_db.us_d4_stats, process_pdl_stats)
     generic_load(soccer_db.us_d4_games, pdl.load_pdl_games)
 
     load_standings_standard('us_d2', 'domestic/country/usa/usl/pdl_2012')
@@ -1107,7 +1124,7 @@ def load_us_minor():
     """
 
     from foulds.sites import nasl, uslsoccer
-    from soccerdata.text import awards, stats
+    from soccerdata.text import awards
     from soccerdata.text.cmp import nasl2
 
 
@@ -1129,8 +1146,8 @@ def load_us_minor():
     #generic_load(soccer_db['us_lower_gstats'], nasl.scrape_all_game_stats)
              
     # Division 2
-    generic_load(soccer_db.us_d2_stats, stats.process_usl1_stats)
-    generic_load(soccer_db.us_d2_stats, stats.process_usl2_stats)
+    generic_load(soccer_db.us_d2_stats, process_usl1_stats)
+    generic_load(soccer_db.us_d2_stats, process_usl2_stats)
 
     load_sd_excel_standings('us_d2', 'domestic/country/usa/usl/12') # split
 
@@ -1848,6 +1865,107 @@ def flatten_lineups(lineups):
     r = { tuple([l[k] for k in ['name', 'team', 'season', 'competition']]) for l in lineups }
     rx = [{'name': e[0], 'team': e[1], 'season': e[2], 'competition': e[3]} for e in r]
     return rx
+
+
+
+
+
+def process_ncaa_stats():
+
+    NCAA_DIR = os.path.join(ROOT_DIR, 'ncaa-data')
+
+    l = []
+    for e in [
+        'akron', 
+        'berkeley',
+        'boston_college',
+        'charlotte',
+        'chico',
+        'clemson',
+        'coastal_carolina',
+        'conn',
+
+        #'fairleigh_dickinson',
+        #'fiu',
+
+        'furman',
+        'george_mason',
+        'georgetown',
+
+        #'harvard',
+
+
+        'indiana',
+
+        'kentucky',
+        'louisville',
+
+        'maryland',
+        'nc_state',
+        'new_mexico',
+        'notre_dame',
+        'ohio_state',
+        'oregon_state',
+        'penn_state',
+        'rutgers',
+
+        'san_diego_state',
+        #'san_franciso',
+        #'slu',
+        #'smu',
+        'st_johns',
+        'stanford',
+
+        'uab',
+        #'ucf',
+
+        'ucla',
+        
+        'ucsb',
+
+        'unc',
+        'uva',
+        'uwm',
+
+        'wake_forest',
+        ]:
+        l.extend(stats.process_stats("stats/%s" % e, format_name=True, root=NCAA_DIR, delimiter=';'))
+    
+    return l
+
+
+
+def process_usl1_stats():
+    l = []
+    l.extend(stats.process_stats("d2/19972005", format_name=True, root=STATS_DIR))
+
+    #for e in '06', '07', '08', '09', '11', '12':
+    for e in '06', '07', '09':
+        l.extend(stats.process_stats("d2/20%s" % e, format_name=True, root=STATS_DIR))
+
+    l.extend(stats.process_stats("d2/2008", format_name=True, delimiter=';', root=STATS_DIR))
+
+    return l
+
+def process_usl2_stats():
+    l = []
+    l.extend(stats.process_stats("d3/psl", format_name=True, root=STATS_DIR))
+    l.extend(stats.process_stats("d3/20052009", format_name=True, root=STATS_DIR))
+    for e in range(2010, 2013):
+        l.extend(stats.process_stats("d3/%s" % e, format_name=True, root=STATS_DIR))
+
+    return l
+
+def process_pdl_stats():
+    l = []
+    
+    for e in range(2003, 2013):
+        l.extend(stats.process_stats("d4/%s" % e, format_name=True, root=STATS_DIR)) 
+
+    s = stats.process_stats("d4/pdl_2013", delimiter=";", format_name=True, root=STATS_DIR)
+    l.extend(s)
+
+    return l
         
 
 

@@ -604,8 +604,6 @@ def generate_stats_old(goals=[], lineups=[]):
     return sd
 
 
-
-        
 def generate_cities():
     print("Generating cities.")
 
