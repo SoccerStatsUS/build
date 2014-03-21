@@ -1046,7 +1046,10 @@ united_states = {
     'Invaders Complex': 'Indiana Invaders Soccer Complex',
 
     # New York
+
     'New York Indiana Oval': 'New York Oval',
+    'Indiana-New York Oval': 'New York Oval',
+
     '110th & 8th Ave Park': '110th and 8th Ave Park',
     'Ridgewood Baseball Park': 'Ridgewood Baseball Grounds',
 

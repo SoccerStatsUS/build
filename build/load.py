@@ -148,8 +148,10 @@ def load_extra():
 
 
 def load_games():  
-    load_women()
     load_domestic()
+
+    load_women()
+
     load_international()
     load_other()
 
@@ -171,6 +173,9 @@ def load_international():
 
 
 def load_domestic():
+    load_asl()  
+
+    load_asl2()           
     load_mls() 
     load_uefa_leagues()
     load_concacaf()
@@ -182,7 +187,7 @@ def load_domestic():
 
 
     load_mexico()
-    load_asl2()           
+
 
     load_nafbl()
     load_canada()
@@ -191,7 +196,7 @@ def load_domestic():
 
 
 
-    load_asl()  
+
 
 
     load_conmebol()
@@ -978,10 +983,13 @@ def load_asl():
     generic_load(soccer_db.asl_goals, asl.process_asl_goals)
     generic_load(soccer_db.asl_stats, asl.process_stats)
     generic_load(soccer_db.asl_games, asl.process_asl_games)
+
     load_standings_standard('asl', 'standings/asl', root=DIR)
 
     # Original
-    load_games_standard('asl', os.path.join(DIR, 'games/league/simple/asl'))
+    
+    for e in range(1921, 1934):
+        load_games_standard('asl', os.path.join(DIR, 'games/league/simple/asl/%s' % e))
     load_games_standard('asl', os.path.join(DIR, 'games/league/simple/esl'))
 
     generic_load(soccer_db.asl_rosters, lambda: flatten_stats(soccer_db.asl_stats.find()))

@@ -23,7 +23,19 @@ magic_names = {
 # Use a partial? memoize?
 def from_competition(competition):
     from smid.alias import get_competition
-    return lambda d: d[get_competition('competition')] == competition
+
+    try:
+        c2 = get_competition(competition)
+    except:
+        import pdb; pdb.set_trace()
+
+    return lambda d: get_competition(d['competition']) == c2
+
+
+def from_seasons(competition, seasons):
+    return lambda d: from_competition(competition)(d) and d['season'] in seasons
+    
+
 
 magic_teams = {
     'Saint Louis': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Saint Louis University')],
@@ -168,9 +180,25 @@ magic_teams = {
         (from_competition('1. Bundesliga'), 'Hertha BSC Berlin'),
         ],
 
+
+    'Bethlehem': [
+        (from_competition('American Soccer League (1921-1933)'), 'Bethlehem Steel'),
+        ],
+
+
+    'Boston': [
+        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1928-1929'])), 'Boston Wonder Workers'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1929 Fall'])), 'Boston Bears'),
+        ],
+
     'Bohemians': [
         (from_competition('Gambrinus Liga'), 'Bohemians 1905'),
         ],
+
+    'Brooklyn': [
+        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925'])), 'Brooklyn Wanderers'),
+        ],
+
 
     'Cartagena': [
         (from_competition('Categoría Primera A'), 'Real Cartagena'),
@@ -250,6 +278,12 @@ magic_teams = {
         ],
 
 
+
+    'Fall River': [
+        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1928-1929', '1930 Spring', '1930 Fall'])), 'Fall River Marksmen'),
+        ],
+
+
     'Fortuna': [
         (from_competition('Eredivisie'), 'Fortuna Sittard'),
         ],
@@ -266,7 +300,15 @@ magic_teams = {
 
     'GC': [
         (from_competition('Swiss Super League'), 'Grasshopper Club'),
-    ],
+        ],
+
+    'Hakoah': [
+        (from_seasons('American Soccer League (1921-1933)', set(['1930 Spring', '1930 Fall'])), 'Hakoah All-Stars'),
+        ],
+
+    'Hartford': [
+        (from_seasons('American Soccer League (1921-1933)', set(['1927-1928'])), 'Hartford Americans'),
+        ],
 
     'Hamilton': [
         (from_competition('Scottish Premier League'), 'Hamilton Academical'),
@@ -285,6 +327,11 @@ magic_teams = {
 
     'Huelva': [
         (from_competition('La Liga'), 'Recreativo Huelva'),
+        ],
+
+
+    'Indiana': [
+        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926'])), 'Indiana Flooring'),
         ],
 
     'Junior': [
@@ -322,6 +369,21 @@ magic_teams = {
         (from_competition('Liga Nacional de Honduras'), 'CD Necaxa'),
         ],
 
+
+    'Newark': [
+        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1930 Spring'])), 'Newark Skeeters'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1930 Fall',])), 'Newark Americans'),
+        ],
+
+    'New Bedford': [
+        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1929 Fall', '1930 Spring', '1930 Fall'])), 'New Bedford Whalers'),
+        ],
+
+
+    'New York': [
+        (from_seasons('American Soccer League (1921-1933)', set(['1930 Fall'])), 'New York Giants'),
+        ],
+
     'Olimpia': [
         (from_competition('CONCACAF Champions League'), 'CD Olimpia'),
         (from_competition('Copa Interclubes UNCAF'), 'CD Olimpia'),
@@ -343,6 +405,21 @@ magic_teams = {
 
     'Paris': [
         (from_competition('Ligue 1'), 'Paris Saint-Germain'),
+        ],
+
+
+    'Pawtucket': [
+        (from_seasons('American Soccer League (1921-1933)', set(['1925-1926', '1929 Fall', '1930 Spring', '1930 Fall'])), 'Pawtucket Rangers'),
+        ],
+
+
+    'Philadelphia': [
+        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1929 Fall'])), 'Philadelphia Field Club'),
+        ],
+
+
+    'Providence': [
+        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1928-1929', '1929 Fall', '1930 Spring', '1930 Fall'])), 'Providence Clamdiggers'),
         ],
 
     'Progreso': [
@@ -545,6 +622,7 @@ def get_magic_team(team, data):
     if team not in magic_teams:
         return team
     else:
+
         candidates = magic_teams[team]
         for pred, nteam in candidates:
             if pred(data):

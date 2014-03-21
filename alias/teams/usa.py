@@ -1,5 +1,7 @@
 usa = {
 
+    'Hispano': 'Brooklyn Hispano',
+
     'Utah Spiders': 'Utah Starzz',
 
     'New York Fury': 'Long Island Fury',
@@ -139,6 +141,7 @@ usa = {
 
     'Philadelphia Celtic': 'Philadelphia Field Club',
     'Providence Gold Bugs': 'Providence Clamdiggers', 
+    'Providence FC': 'Providence',
 
     # NASL
     'Washington Dips': 'Washington Diplomats',

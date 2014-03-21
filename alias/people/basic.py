@@ -3,6 +3,8 @@ basic = {
 
     'Elwood Cook': 'Butch Cook',
 
+    'Camilo': 'Camilo Sanvezzo', # too broad.
+
     #'Palva': 
     'P.Alva': 'P. Alva',
 
@@ -11474,7 +11476,9 @@ basic = {
     'CJ Brown': 'C.J. Brown',
     'CJ Brown': 'C.J. Brown',
     'Cole Denormandie': 'Cole DeNormandie',
-    'Camilo': 'Camilo Sanvezzo',
+
+
+
     'Colin Martin': 'Collin Martin',
     'Colin Mclocklan': 'Colin McLocklan',
     'Cristian Da Silva': 'Cristian da Silva',
