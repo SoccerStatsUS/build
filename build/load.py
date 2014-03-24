@@ -21,6 +21,7 @@ STANDINGS_DIR = os.path.join(ROOT_DIR, "soccerdata/data/standings")
 
 
 USD1_DIR = os.path.join(ROOT_DIR, 'usd1')
+ASL2_DIR = os.path.join(ROOT_DIR, 'asl2-data')
 INDOOR_DIR = os.path.join(ROOT_DIR, 'indoor')
 UEFA_DIR = os.path.join(ROOT_DIR, 'uefa-data')
 NCAA_DIR = os.path.join(ROOT_DIR, 'ncaa-data')
@@ -149,6 +150,7 @@ def load_extra():
 
 def load_games():  
     load_domestic()
+    return
 
     load_women()
 
@@ -173,10 +175,16 @@ def load_international():
 
 
 def load_domestic():
-    load_uefa_leagues()
-    load_asl()  
-    load_asl2()           
 
+    load_asl2()           
+    load_asl()  
+    return
+
+    load_alpf()
+
+
+
+    load_uefa_leagues()
     load_mls() 
 
     load_concacaf()
@@ -202,7 +210,7 @@ def load_domestic():
 
     load_conmebol()
     load_world()
-    load_alpf()
+
     load_uncaf()
 
     load_cfu()
@@ -1005,10 +1013,15 @@ def load_asl2():
     generic_load(soccer_db.asl2_awards, awards.process_asl2_awards, delete=False)
     generic_load(soccer_db.asl2_stats, partial.process_asl2_partial)
 
-    generic_load(soccer_db.conmebol_i_rosters, lambda: rosters.process_rosters2('domestic/asl2'))
+    #generic_load(soccer_db.asl2_rosters, lambda: rosters.process_rosters2('domestic/asl2'))
 
     load_sd_excel_standings('asl2', 'domestic/country/usa/asl2')
-    load_games_standard('asl2', 'domestic/country/usa/leagues/d2/asl2')
+    load_games_standard('asl2', 'domestic/country/usa/leagues/d2/asl2', games_only=True)
+
+    rp = os.path.join(ASL2_DIR, "rosters/asl2")
+    generic_load(soccer_db.asl2_rosters, lambda: rosters.process_rosters2(path=rp))
+
+    load_games_standard('asl2', 'games/1933', root=ASL2_DIR)
 
 
 def load_nasl():

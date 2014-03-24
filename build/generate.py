@@ -342,7 +342,7 @@ def generate_competition_stats():
         'Liga MX Liguilla',
         'Campeón de Campeones',
 
-        'American Soccer League (1934-1983)',
+        'American Soccer League (1933-1983)',
         'Mundialito',
 
 

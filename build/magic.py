@@ -201,7 +201,7 @@ magic_teams = {
 
 
     'Brooklyn Hakoah': [
-        (from_competition('American Soccer League (1934-1983)'), 'Hakoah (ASL2)'),
+        (from_competition('American Soccer League (1933-1983)'), 'Hakoah (ASL2)'),
         ],
 
 
@@ -323,7 +323,7 @@ magic_teams = {
         ],
 
     'Hispano': [
-        (from_competition('American Soccer League (1934-1983)'), 'Brooklyn Hispano'),
+        (from_competition('American Soccer League (1933-1983)'), 'Brooklyn Hispano'),
         (from_competition('Liga Nacional de Honduras'), 'Hispano (Comayagua)'),
         ],
 
@@ -341,8 +341,13 @@ magic_teams = {
         (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926'])), 'Indiana Flooring'),
         ],
 
+    'Irish Americans': [
+        (from_competition('American Soccer League (1933-1983)'), 'Kearny Celtic'),
+    ],
+
     'Jersey City': [
         (from_competition('American Soccer League (1921-1933)'), 'Jersey City (ASL)'),
+
         ],
 
 
@@ -403,9 +408,8 @@ magic_teams = {
         ],
 
 
-
     'New York Hakoah': [
-        (from_competition('American Soccer League (1934-1983)'), 'Hakoah (ASL2)'),
+        (from_competition('American Soccer League (1933-1983)'), 'Hakoah (ASL2)'),
         ],
 
     'Olimpia': [

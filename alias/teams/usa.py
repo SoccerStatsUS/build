@@ -890,7 +890,8 @@ usa = {
     'Paterson Silk Sox': 'Paterson F.C.',
     'Trenton Highlanders': 'Paterson F.C.',
 
-    'Newark Germans': 'Paterson F.C.',
+    #'Newark Germans': 'Paterson F.C.',
+    'Newark German': 'Neark Germans',
 
     'West Hudson': 'West Hudson A.A.',
     'West Hudson AA': 'West Hudson A.A.',
@@ -1125,9 +1126,15 @@ usa = {
 
     'Philadephia Shamrocks': 'Philadelphia Shamrocks',
     #Phoenix SC (Philadelphia)
+
     'German American SC (Philadelphia)': 'Philadelphia German Americans',
-    #Donauschwaben (Philadelphia)
+    'Philadelphia German': 'Philadelphia German Americans',
+    'Philadelphia First Germans': 'Philadelphia German Americans',
+
     #German SC (Philadelphia)
+
+    #Donauschwaben (Philadelphia)
+
 
 
     # Cuddy is not Curry.
