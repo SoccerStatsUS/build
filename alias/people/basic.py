@@ -1,6 +1,9 @@
 
 basic = {
 
+
+    'Ziggy Wortmann': 'Siegfried Wortmann',
+
     'Elwood Cook': 'Butch Cook',
 
     'Camilo': 'Camilo Sanvezzo', # too broad.
