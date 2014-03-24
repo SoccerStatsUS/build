@@ -842,8 +842,9 @@ def load_mls():
 
     u = 'http://www.mlssoccer.com/schedule?month=all&year=%s&club=all&competition_type=%s&broadcast_type=all&op=Search&form_id=mls_schedule_form'
 
+    #for year in (2013,):
     for year in (2011, 2012, 2013):
-    for year in (2013,):
+
         load_mlssoccer_season(u % (year, 46), 'Major League Soccer')
         load_mlssoccer_season(u % (year, 45), 'MLS Cup Playoffs')
         load_mlssoccer_season(u % (year, 44), 'MLS Cup Playoffs')

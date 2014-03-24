@@ -891,7 +891,7 @@ usa = {
     'Trenton Highlanders': 'Paterson F.C.',
 
     #'Newark Germans': 'Paterson F.C.',
-    'Newark German': 'Neark Germans',
+    'Newark German': 'Newark Germans',
 
     'West Hudson': 'West Hudson A.A.',
     'West Hudson AA': 'West Hudson A.A.',
