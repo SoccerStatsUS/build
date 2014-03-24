@@ -1,5 +1,7 @@
 usa = {
 
+    'Colombo': 'Colombo (Staten Island)',
+
     'Hispano': 'Brooklyn Hispano',
 
     'Utah Spiders': 'Utah Starzz',
@@ -117,14 +119,15 @@ usa = {
     # ASL
     'Todd Shipyards F.C.': 'Todd Shipyards',
 
-    'New York National Giants': 'New York Giants',
+    'New York Nationals': 'New York National Giants',
+
+    'New York Soccer Club Giants': 'New York SC Giants',
+    
     'NY Giants': 'New York Giants',
 
     'Brooklyn Hakoahs': 'Brooklyn Hakoah',
-    'Brooklyn Hakoah': 'Hakoah All-Stars',
+    #'Brooklyn Hakoah': 'Hakoah All-Stars',
     'Hakoah All Stars': 'Hakoah All-Stars',
-
-
 
     'J&P Coats': 'J & P Coats',
     'J & P Coats': 'Pawtucket Rangers',
@@ -690,17 +693,19 @@ usa = {
     'New York Irish-Americans': 'New York Irish Americans',
     'Ukrainian SC (East NY)': 'NY Ukrainian SC',
 
-    'Hungaria': 'New York Hungaria',     
+    #'Hungaria': 'New York Hungaria',     
     'NY Hungaria': 'New York Hungaria',
     'New York Hungarian': 'New York Hungaria',
     'New York Hungarians': 'New York Hungaria',
     'Hungaria SC (East NY)': 'New York Hungaria',
     'Hungaria SC': 'New York Hungaria',
 
-    'New York Hota': 'NY Hota SC',
+    
+    'NY Hota SC': 'New York Hota',
     'Hota SC': 'NY Hota SC',
     'NY Hota-Bavarian SC': 'NY Hota SC',
-    'NY Hota SC': 'New York Hota SC',
+    'NY Hota SC': 'New York Hota',
+    'New York Hota SC': 'New York Hota',
     
     'Galicia F.C.': 'New York Galicia',
     'Galicia FC': 'New York Galicia',
@@ -730,6 +735,7 @@ usa = {
     'Brooklyn Dodgers S.C.': 'Brooklyn Italians',
     'Brooklyn Dodgers SC': 'Brooklyn Italians',
 
+    'St. Mary Celtic': 'Brooklyn Celtic',
     'St. Mary\'s Celtic': 'Brooklyn Celtic',
     'St. Mary\'s Celtics': 'Brooklyn Celtic',
     'St. Mary’s Celtic': 'St. Mary\'s Celtic',
@@ -915,7 +921,6 @@ usa = {
     'Newark Scots-Americans': 'Kearny Scots',
     'Newark Scots Americans': 'Kearny Scots',
     'Kearny Scots-Americans': 'Kearny Scots',
-
 
     'Kearny Celtics': 'Kearny Celtic',
     'Kearney Celtics': 'Kearny Celtic',
@@ -1132,7 +1137,10 @@ usa = {
     'Germantown Boys': 'Germantown Boys Club',
 
     'Vereinigung Erzgebirge (East PA)': 'Vereinigung Erzgebirge',
+
+    'Philadelphia Nationals': 'Philadelphia Ukrainians',
     'Ukrainian Nationals': 'Philadelphia Ukrainians',
+    'Philadelphia Ukrainian Nationals': 'Philadelphia Ukrainians',
 
     'Harmarville': 'Harmarville Hurricanes',
 
@@ -1161,6 +1169,7 @@ usa = {
     'Fairhill FC (Philadelphia)': 'Philadelphia Fairhill FC',
     'Fairhill FC': 'Philadelphia Fairhill FC',
 
+    'Passon Philles': 'Philadelphia Passon',
     'Passon': 'Philadelphia Passon',
     'Passon SC': 'Philadelphia Passon',
     'Passon FC': 'Philadelphia Passon',
@@ -1394,7 +1403,9 @@ usa = {
     'New England Oceaneers': 'Rhode Island Oceaneers',
 
     'Ludlow S.C.': 'Ludlow Lusitano',
+    'Ludlow SC': 'Ludlow Lusitano',
     'Lusitano SC': 'Ludlow Lusitano',
+    'Ludlow Lusitanos': 'Ludlow Lusitano',
 
     'Fall River Astros': 'Boston Astros',
 

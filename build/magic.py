@@ -196,8 +196,15 @@ magic_teams = {
         ],
 
     'Brooklyn': [
-        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925'])), 'Brooklyn Wanderers'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1928-1929'])), 'Brooklyn Wanderers'),
         ],
+
+
+    'Brooklyn Hakoah': [
+        (from_competition('American Soccer League (1934-1983)'), 'Hakoah (ASL2)'),
+        ],
+
+
 
 
     'Cartagena': [
@@ -242,7 +249,6 @@ magic_teams = {
         (from_competition('Liga I'), 'CS Mioveni'),
         ],
 
-
     'Deportivo': [
         (from_competition('La Liga'), 'Deportivo La Coruna'),
         (from_competition('Ecuadorian Serie A'), 'Deportivo Quevedo'),
@@ -261,7 +267,6 @@ magic_teams = {
         (from_competition('CONCACAF Champions League'), 'Houston Dynamo'),
         ],
 
-
     'España': [
         (from_competition('Liga Nacional de Honduras'), 'Real C.D. España'),
         ],
@@ -278,7 +283,6 @@ magic_teams = {
         ],
 
 
-
     'Fall River': [
         (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1928-1929', '1930 Spring', '1930 Fall'])), 'Fall River Marksmen'),
         ],
@@ -291,7 +295,6 @@ magic_teams = {
     'Gimnàstic': [
         (from_competition('La Liga'), 'Gimnàstic de Tarragona'),
         ],
-
 
     'Gimnasia y Esgrima': [
         (from_competition('Copa Libertadores'), 'Gimnasia y Esgrima La Plata'),
@@ -324,15 +327,24 @@ magic_teams = {
         (from_competition('Liga Nacional de Honduras'), 'Hispano (Comayagua)'),
         ],
 
-
     'Huelva': [
         (from_competition('La Liga'), 'Recreativo Huelva'),
         ],
 
+    'Hungaria': [
+        (from_seasons('Eastern Soccer League (1928-1929)', set(['1928-1929 Second Half'])), 'New York Hungaria'),
+        #(from_seasons('Eastern Soccer League (1928-1929)', set(['1929 Fall'])), 'Victoria Hungaria'),
+        (from_seasons('Eastern Soccer League (1928-1929)', set(['1929 Fall'])), 'New York Hungaria'), # the same, apparently.
+        ],
 
     'Indiana': [
         (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926'])), 'Indiana Flooring'),
         ],
+
+    'Jersey City': [
+        (from_competition('American Soccer League (1921-1933)'), 'Jersey City (ASL)'),
+        ],
+
 
     'Junior': [
         (from_competition('Categoría Primera A'), 'Junior de Barranquilla'),
@@ -369,7 +381,6 @@ magic_teams = {
         (from_competition('Liga Nacional de Honduras'), 'CD Necaxa'),
         ],
 
-
     'Newark': [
         (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1930 Spring'])), 'Newark Skeeters'),
         (from_seasons('American Soccer League (1921-1933)', set(['1930 Fall',])), 'Newark Americans'),
@@ -379,9 +390,22 @@ magic_teams = {
         (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1929 Fall', '1930 Spring', '1930 Fall'])), 'New Bedford Whalers'),
         ],
 
-
     'New York': [
-        (from_seasons('American Soccer League (1921-1933)', set(['1930 Fall'])), 'New York Giants'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1930 Fall'])), 'New York SC Giants'),
+        ],
+
+    'New York Giants': [
+        (from_competition('Eastern Soccer League (1928-1929)'), 'New York SC Giants'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1923-1924', '1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1930 Spring'])), 'New York SC Giants'),
+
+        (from_competition('American Soccer League (1921-1933) Playoffs'), 'New York National Giants'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1930 Fall', '1931 Spring', '1931 Fall', '1932 Spring', '1932 Fall'])), 'New York National Giants'),
+        ],
+
+
+
+    'New York Hakoah': [
+        (from_competition('American Soccer League (1934-1983)'), 'Hakoah (ASL2)'),
         ],
 
     'Olimpia': [
