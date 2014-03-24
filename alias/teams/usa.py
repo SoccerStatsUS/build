@@ -780,8 +780,8 @@ usa = {
     'Gjoa': 'SC Gjoa',
     'Gjoa FC': 'SC Gjoa',
 
-    'Brooklyn FC': 'Brooklyn F.C.',
-    'Brooklyn F.C.': 'Brooklyn Field Club',
+    'Brooklyn F.C.': 'Brooklyn FC',
+    #'Brooklyn FC': 'Brooklyn Field Club',
 
     'German Hungarian SC (NYC)': 'German Hungarian S.C. (NYC)',
     'German Hungarian S.C. (NYC)': 'New York German Hungarian S.C.',

@@ -199,6 +199,9 @@ magic_teams = {
         (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1928-1929'])), 'Brooklyn Wanderers'),
         ],
 
+    'Brooklyn FC': [
+        (from_seasons('American Soccer League (1933-1983)', set(['1924-1925', '1928-1929'])), 'Brooklyn St. Mary\'s Celtic'),
+        ],
 
     'Brooklyn Hakoah': [
         (from_competition('American Soccer League (1933-1983)'), 'Hakoah (ASL2)'),
