@@ -1,5 +1,49 @@
 usa = {
 
+
+    'General Electric FC (Schenectady)': 'Schenectady General Electric',
+
+    'General Electric FC': 'General Electric',
+
+    'German SC (Reading)': 'Reading German SC',
+
+    'German S.C. (Brooklyn)': 'Brooklyn German SC',
+
+    'German SC (Philadelphia)': 'Philadelphia German',
+
+    'Milwaukee Vienna AC': 'Milwaukee Vienna',
+
+    'Prague (National League)': 'New York Prague SC',
+    'Prague SC (NYC)': 'New York Prague SC',
+    'New York Prague SC': 'New York Prague',
+    'Prague FC': 'New York Prague',
+
+    'S.A. Healey FC (White Plains)': 'SA Helaey',
+
+    'Greek American SC (New Orleans)': 'New Orleans Greek American',
+
+    'Lions SC (IL)': 'Chicago Lions',
+
+    'La Sultana FC': 'La Sultana',
+
+
+    'New York Columbia Oval': 'Columbia Oval',
+    'Columbia Oval FC': 'Columbia Oval',
+
+
+    'Merchant Ship FC': 'Merchant Ship',
+    'Merchants Shipbuilding A': 'Merchant Ship',
+    'Merchant Ship A': 'Philadelphia Merchant Ship',
+    'Merchants Ship': 'Philadelphia Merchant Ship',
+    'Philadelphia Merchant Ship': 'Merchant Ship',
+
+
+    'Philadelphia Merchant Ship': 'Merchant Ship',
+    'Philadelphia Merchant Ship B': 'Merchant Ship B',
+    'Merchants Shipbuilding B': 'Merchant Ship B',
+
+
+
     'Colombo': 'Colombo (Staten Island)',
 
     'Hispano': 'Brooklyn Hispano',
@@ -62,10 +106,16 @@ usa = {
 
     'Mass Premier Soccer': 'Mass Premier',
 
-    'New York Hakoahs': 'New York Hakoah',
+    # Hakoah
 
     'Hakoah FC': 'Hakoah',
     'Hakoah F.C.': 'Hakoah',
+    'Hakoah SC (NYC)': 'Hakoah',
+
+    'New York Hakoahs': 'New York Hakoah',
+    'Brooklyn Hakoahs': 'Brooklyn Hakoah',
+    'Hakoah All Stars': 'Hakoah All-Stars',
+
 
     'Western NY Flash': 'Western New York Flash',
     'Seattle Reign FC': 'Seattle Reign',
@@ -125,9 +175,6 @@ usa = {
     
     'NY Giants': 'New York Giants',
 
-    'Brooklyn Hakoahs': 'Brooklyn Hakoah',
-    #'Brooklyn Hakoah': 'Hakoah All-Stars',
-    'Hakoah All Stars': 'Hakoah All-Stars',
 
     'J&P Coats': 'J & P Coats',
     'J & P Coats': 'Pawtucket Rangers',
@@ -343,7 +390,7 @@ usa = {
 
     'Club Espana': 'Club España',
 
-    'German Americans': 'German-Americans',
+
 
     'Clan Macdonald': 'Clan MacDonald',
 
@@ -403,8 +450,11 @@ usa = {
     #Waterbury (CT)
     'Presbyterian FC (Bridgeport)': 'Bridgeport Presbyterian SC',
     'Bridgeport City AF.C': 'Bridgeport City AFC',
+
     'Danersk FC (Stamford)': 'Stamford Danersk FC',
     'Danersk Athletic FC': 'Stamford Danersk FC',
+    'Stamford Danersk FC': 'Stamford Danersk',
+
     'Vasco da Gama SC': 'Vasco Da Gama SC',
     'Vasco Da Gama SC': 'Bridgeport Vasco Da Gama',
     
@@ -438,20 +488,29 @@ usa = {
     #Serbian SC (WI)
 
     'Wacker SC (Milwaukee)': 'Milwaukee Wacker SC',
+    'Milwaukee Wacker SC': 'Milwaukee Wacker',
+
+
     'Schwaben (Milwaukee)': 'Milwaukee Schwaben',
+
     'Hungarian Sports Club (Milwaukee)': 'Milwaukee Hungarian SC',
+    'Milwaukee Hungarian SC': 'Milwaukee Hungarian',
 
 
     'Deutscher Sport Club (Milwaukee)': 'Milwaukee Deutscher Sport Club',
+    'Milwaukee Deutscher Sport Club': 'Milwaukee Deutscher',
+    
     'Falk Field Club (Milwaukee)': 'Milwaukee Falk Field Club',
-    'Milwaukee Bavarian': 'Milwaukee Bavarian SC',
+    'Milwaukee Falk Field Club': 'Milwaukee Falk FC',
+    'Falk Field Club (Mil.)': 'Milwaukee Falk FC',
+    'Falk Field Club': 'Milwaukee Falk FC',
+
     'Milwaukee Bavarian Blue Ribbon': 'Milwaukee Bavarian SC',
     'Bavarian SC (WI)': 'Milwaukee Bavarians SC',
     'Milwaukee Bavarians': 'Milwaukee Bavarian SC',
     'Bavarian SC': 'Milwaukee Bavarian SC',
+    'Milwaukee Bavarian SC': 'Milwaukee Bavarian',
 
-    'Falk Field Club (Mil.)': 'Milwaukee Falk FC',
-    'Falk Field Club': 'Milwaukee Falk FC',
 
     # Georgia
     #Soccer City (GA)
@@ -486,16 +545,26 @@ usa = {
     'Monterey Bay Jaguars': 'California Jaguars',
 
     #King Taco (South CA)
-    #CD Mexico (North CA)
+    
+    'CD Mexico (North CA)': 'El Farolito SC',
+    'El Farolito Soccer Club': 'El Farolito SC',
     #Los Angeles SC (South CA)
+
     'Maccabee AC (Los Angeles, CA)': 'Los Angeles Maccabee AC',
-    #Magyar SC (South CA)
+    'Los Angeles Maccabee AC': 'Los Angeles Maccabee',
+    'Los Angeles Maccabee': 'Maccabi Los Angeles',
+    'Maccabee AC': 'Maccabi Los Angeles',
+
+    'Magyar SC (South CA)': 'Los Angeles Magyar',
+
     #Mexico AC (North CA)
     #Pan-American SC (South CA)
-    #Scots SC (South CA)
+
     #Strikers (South CA)
     #Teutonia SC (North CA)
-    #United Scots (South CA)
+
+    'Scots SC (South CA)': 'Los Angeles Scots',
+    'United Scots (South CA)': 'Los Angeles Scots',
 
 
     #Viking AC (North CA)
@@ -503,7 +572,9 @@ usa = {
 
 
     'Mexico AC (North California)': 'Mexico AC (North CA)',
-    #Danish American SC (South CA)
+    
+    'Danish American SC (South CA)': 'Los Angeles Danish American',
+
     #El Salvador (North CA)
     #Exiles SC (South CA)
     #Fresno Oro (North CA)
@@ -516,7 +587,7 @@ usa = {
     'Los Angeles Soccer Club': 'Los Angeles Kickers', #denormalize
 
     'Sacramento Spirits': 'Sacramento Gold',
-    'Maccabee AC': 'Maccabi Los Angeles',
+
     'LA Blues': 'Los Angeles Blues',
     'Armenian SC (South CA)': 'Los Angeles Armenians',
 
@@ -556,11 +627,19 @@ usa = {
     'Detroit Neon': 'Detroit Safari',
 
     'Celtic FC (Detroit)': 'Detroit Celtic FC',
+    'Detroit Celtic FC': 'Detroit Celtic',
+
     'All Scots FC (Detroit)': 'Detroit All Scots FC',
+    'Detroit All Scots FC': 'Detroit All Scots',
+
     'Bricklayers FC (Michigan)': 'Michigan Bricklayers FC',
+    'Michigan Bricklayers FC': 'Michigan Bricklayers',
+
     'Holley C.': 'Holley Carburetor F.C.',
+    'Holley Carburetor F.C.': 'Holley Carburetor',
 
     'Packard FC': 'Detroit Packard FC',
+    'Detroit Packard FC': 'Detroit Packard',
 
     'Wood Hydraulic (Detroit)': 'Detroit Wood Hydraulic',
     'Workers SC (Detroit)': 'Detroit Workers SC',
@@ -637,6 +716,7 @@ usa = {
 
     'Greek American AC (North CA)': 'San Francisco Greek American AC',
     'San Francisco Greek Americans': 'San Francisco Greek American AC',
+    'San Francisco Greek American AC': 'San Francisco Greek American',
 
     'Bay Area Seals': 'San Francisco Bay Seals',
     'San Francisco Seals': 'San Francisco Bay Seals',
@@ -660,20 +740,28 @@ usa = {
     #'New York Centaurs': 
 
 
-    #German American SC (NYC)
-    #German S.C. (Brooklyn)
-    #'Hakoah SC (NYC)
+
+
+
     'Danish FC (NYC)': 'New York Danish FC',
     #Deutschungarn (New York)
     'Lexington FC (Brooklyn)': 'Brooklyn Lexington FC',
+
     'Norwegian American SC (NYC)': 'New York Norwegian American SC',
+    'New York Norwegian American SC': 'New York Norwegian American',
 
 
 
-    'Prague SC (NYC)': 'New York Prague SC',
+
     'Swedish FC (NYC)': 'New York Swedish FC',
+    'Swedish FC (NY)': 'New York Swedish',
+    'New York Swedish FC': 'New York Swedish',
+    'Swedish FC': 'New York Swedish',
+
     'Viking A.C. (NYC)': 'New York Viking AC',
-    #Tappen Post (NYC)
+    'New York Viking AC': 'New York Viking',
+
+    'Tappen Post (NYC)': 'Tappen Post',
 
 
 
@@ -691,14 +779,22 @@ usa = {
     'Hatikvoh': 'Hatikvoh FC',
 
     'New York Irish-Americans': 'New York Irish Americans',
+
     'Ukrainian SC (East NY)': 'NY Ukrainian SC',
+    'NY Ukrainian SC': 'New York Ukrainian',
+    
 
     #'Hungaria': 'New York Hungaria',     
     'NY Hungaria': 'New York Hungaria',
     'New York Hungarian': 'New York Hungaria',
     'New York Hungarians': 'New York Hungaria',
     'Hungaria SC (East NY)': 'New York Hungaria',
+    'Hungaria Sport Club (NYC)': 'New York Hungaria',
     'Hungaria SC': 'New York Hungaria',
+
+    'First German SC (NYC)': 'New York First German',
+
+
 
     
     'NY Hota SC': 'New York Hota',
@@ -719,8 +815,10 @@ usa = {
 
     'D.S.C. Brooklyn': 'DSC Brooklyn',
 
-    'German Hungarian S.C. (NYC)': 'German Hungarian SC',
 
+    # Think these are all the same.
+    'German American SC (NYC)': 'New York German American',
+    'German Americans': 'German-Americans',
     'German American SC': 'German American S.C.',
     'German-American AC': 'German American AC',
 
@@ -739,10 +837,12 @@ usa = {
     'St. Mary\'s Celtic': 'Brooklyn Celtic',
     'St. Mary\'s Celtics': 'Brooklyn Celtic',
     'St. Mary’s Celtic': 'St. Mary\'s Celtic',
-    'Brooklyn Celtic': 'Brooklyn Celtics',
     'St. Mary\'s Celtic': 'Brooklyn St. Mary\'s Celtic',
     'Brooklyn Celtics': 'Brooklyn St. Mary\'s Celtic',
     'St. Mary\'s Celtic (Brooklyn)': 'Brooklyn St. Mary\'s Celtic',
+
+    'Brooklyn Celtics': 'Brooklyn Celtic',
+    'Brooklyn St. Mary\'s Celtic': 'Brooklyn Celtic',
 
     'New York Greeks': 'New York Apollo',
     'New York United': 'New York Apollo',
@@ -783,8 +883,18 @@ usa = {
     'Brooklyn F.C.': 'Brooklyn FC',
     #'Brooklyn FC': 'Brooklyn Field Club',
 
+    'German Hungarian S.C. (NYC)': 'New York German Hungarian',
     'German Hungarian SC (NYC)': 'German Hungarian S.C. (NYC)',
     'German Hungarian S.C. (NYC)': 'New York German Hungarian S.C.',
+    'New York German Hungarian S.C.': 'New York German Hungarian',
+    'German Hungarian SC (New York)': 'New York German Hungarian',
+    'German-Hungarian SC': 'German Hungarian SC',
+    'German-Hungarians': 'German Hungarian SC',
+    'German Hungarians': 'German Hungarian SC',
+    'German Hungarian SC': 'New York German Hungarian',
+
+    'Swiss SC (East NY)': 'Swiss FC',
+    'Swiss Soccer Club': 'Swiss FC',
 
     'Eintracht SC': 'S.C. Eintracht',
     'Eintracht S.C.': 'S.C. Eintracht',
@@ -798,18 +908,19 @@ usa = {
     'Giuliana': 'Giuliana SC',
     'Guiliana SC (East NY)': 'Giuliana SC',
 
-    'German-Hungarian SC': 'German Hungarian SC',
-    'German-Hungarians': 'German Hungarian SC',
-    'German Hungarians': 'German Hungarian SC',
 
     'Minerva-Pfuelzer': 'Minerva-Pfaelzer SC',
 
     'New York Freedom': 'New York Freedoms',
 
+    'IRT F.C.':'Interborough Rapid Transit FC',
+        
     'IRT Rangers': 'I.R.T. Rangers',
+
     'IRT Strollers': 'I.R.T. Strollers',
 
-    'Alley Boys': 'Alley Boys FC',
+    
+    'Alley Boys FC': 'Alley Boys',
 
     # New York State
 
@@ -818,16 +929,20 @@ usa = {
     #Portuguese American SC (NW NY)
 
     'German AC (Rochester)': 'Rochester German AC',
+    'Rochester German AC': 'Rochester German',
 
     'Thistle SC (Rochester)': 'Rochester Thistles SC',
-    'Kelly Celtic (Rochester)': 'Rochester Kelly Celtic',
     'Thistles SC (Rochester)': 'Rochester Thistles SC',
+    'Rochester Thistles SC': 'Rochester Thistles',
 
+    'Kelly Celtic (Rochester)': 'Rochester Kelly Celtic',
 
     'Rangers FC (Niagara Falls)': 'Niagara Falls Rangers',
-    'MacKenzie FC (Niagara Falls)': 'Niagara Falls MacKenzie FC',
 
-    'Kodak Park': 'Kodak Park FC',
+    'MacKenzie FC (Niagara Falls)': 'Niagara Falls MacKenzie FC',
+    'Niagara Falls MacKenzie FC': 'Niagara Falls MacKenzie',
+
+    'Kodak Park FC': 'Kodak Park',
 
     'Rochester Moose FC': 'Rochester City Moose',
     'Rochester Moose': 'Rochester City Moose',
@@ -846,6 +961,7 @@ usa = {
     'Becks German American SC (Buf.)': 'Becks German American S.C. (Buf.)',
     'Buffalo Becks': 'Buffalo Becks German American SC',
     'Becks German American S.C. (Buf.)': 'Buffalo Becks German American SC',
+    'Buffalo Becks German American SC': 'Buffalo Becks German American',
 
     'Hollywood Inn': 'Yonkers Hollywood Inn',
     'Yonkers Th.': 'Yonkers Thistle',
@@ -858,7 +974,8 @@ usa = {
     #Maritimo XI (Newark)
     #Celtics FC (New Jersey)
     'Trenton Americans': 'Trenton-Americans',
-    #FC Porto (NJ)
+
+    'FC Porto (NJ)': 'New Jersey Porto',
     #Valenciano (NJ)
     #Polish Falcons (NJ)
 
@@ -870,10 +987,7 @@ usa = {
     'Kearny Rovers': 'Kearney Rovers',
     'Kearny Rangers': 'Kearney Rangers',
 
-    'Newark Scottish Americans': 'Newark Scottish-Americans',
 
-    'East Newark Scottish American FC': 'East Newark Scottish-American FC',
-    'Ukrainian Sitch (NJ)': 'Newark Ukrainian Sitch',
 
 
     'Paterson Caledonian Thistles': 'Paterson Thistles',
@@ -885,19 +999,23 @@ usa = {
     'Hoboken F.C.': 'Hoboken FC',
     'Holyoke Falco': 'Holyoke Falcos',
     'Holyoke Falcons': 'Holyoke Falcos',
+
+    'Ukrainian Sitch (NJ)': 'Newark Ukrainian Sitch',
     'Newark Ukrainian': 'Newark Ukrainian Sitch',
 
     'Paterson Silk Sox': 'Paterson F.C.',
     'Trenton Highlanders': 'Paterson F.C.',
+    'Paterson F.C.': 'Paterson FC',
 
     #'Newark Germans': 'Paterson F.C.',
     'Newark German': 'Newark Germans',
 
     'West Hudson': 'West Hudson A.A.',
-    'West Hudson AA': 'West Hudson A.A.',
     'West Hudson A.A': 'West Hudson A.A.',
     'West Hudson FC': 'West Hudson A.A.',
     'West Hudson AC': 'West Hudson A.A.',
+    'West Hudsons': 'West Hudson AA',
+    'West Hudson A.A.': 'West Hudson AA',
     
     'Elizabeth S.C.': 'Elizabeth SC',
 
@@ -907,6 +1025,7 @@ usa = {
     'Federal Shipyards': 'Federal Ship FC',
 
     'Kearny Erie': 'Erie AA',
+
 
     'Scottish Americans': 'Kearny Scots',
     'Scottish-Americans': 'Kearny Scots',
@@ -919,6 +1038,9 @@ usa = {
     'Kearny Americans': 'Kearny Scots', # I think...
 
     # ASL2
+    'Newark Scottish Americans': 'Newark Scottish-Americans', # CHECK THESE
+    'East Newark Scottish American FC': 'East Newark Scottish-American FC',# CHECK THESE
+
     'Newark Scots-Americans': 'Kearny Scots',
     'Newark Scots Americans': 'Kearny Scots',
     'Kearny Scots-Americans': 'Kearny Scots',
@@ -950,6 +1072,8 @@ usa = {
     'New York/New Jersey Stallions': 'New Jersey Stallions',
 
     'Celtics of New Jersey': 'Celtics FC (New Jersey)',
+    'Celtics FC (New Jersey)': 'New Jersey Celtic',
+    
     'Newark SC': 'Newark S.C.',
 
 
@@ -966,6 +1090,7 @@ usa = {
 
     'Jersey A.C': 'Jersey A.C.',
     'Jersey AC': 'Jersey A.C.',
+
     'Newark FC': 'Newark F.C.',
     'Newark F.C': 'Newark F.C.',
 
@@ -990,12 +1115,13 @@ usa = {
     'Tiffany Rovers': 'Newark Tiffany Rovers',
 
     'Alma': 'Newark Almas',
-    'Paterson FC': 'Paterson F.C.',
 
     'Newark Portugeuse': 'Newark Portuguese',
     'Newark Portuguese (NJ)': 'Newark Portuguese',
 
     # Need to figure out what name you want to use.
+    # come on now...
+
     'Harrison SC': 'Harrison S.C.',
     'Harrison Soccer Club': 'Harrison S.C.',
     'Harrison Field Club': 'Harrison S.C.',
@@ -1012,62 +1138,82 @@ usa = {
     #Polish American SC (Illinois)
 
 
-    #Schwaben SC (IL)
+
 
 
     #American Hungarian FC (Illinois)
 
 
-    #Lions SC (IL)
-    #Italian American Maroons (IL)
+    'Italian American Maroons (IL)': 'Chicago Italian Maroons',
     #Gillespie SC (Illinois)
     #Scottish American FC (IL)
 
 
     'Swedish American SC (Chicago)': 'Chicago Swedish American SC',
-    'Maccabee SC (Chicago)': 'Chicago Maccabee SC',
-    'MacDuff FC (Chicago)': 'Chicago MacDuff FC',
-    'Lawndale Rangers (Chicago)': 'Chicago Lawndale Rangers',
+    'Chicago Swedish American SC': 'Chicago Swedish American',
+
     'Hungarian American SC (Chicago)': 'Chicago Hungarian American SC',
-    'Hakoah Center (Chicago)': 'Chicago Hakoah Center',
-    'Thistles FC (Chicago)': 'Chicago Thistles FC',
+    'Chicago Hungarian American SC': 'Chicago Hungarian American',
+
     'Norwegian American SC (Chicago)': 'Chicago Norwegian American SC',
-    'Vienna FC (Chicago)': 'Chicago Vienna FC',
+    'Chicago Norwegian American SC': 'Chicago Norwegian American',
+
     'Yugoslav American SC (Chicago)': 'Chicago Yugoslav American SC',
-
-
+    'Chicago Yugoslav American SC': 'Chicago Yugoslav America',
 
     'Croatian SC (Chicago)': 'Chicago Croatian SC',
+    'Chicago Croatian SC': 'Chicago Croatian',
+
+    'Yugoslav Americnan SC': 'Yugoslav American SC',
+    'Chicago Maccabi': 'Maccabee SC (Chicago)', #verify 11/22/1936 game vs. Tel Aviv Maccabi was Maccabee SC
+
+
+
+    'MacDuff FC (Chicago)': 'Chicago MacDuff FC',
+    'Chicago MacDuff FC': 'Chicago MacDuff',
+    
+    'Maccabee SC (Chicago)': 'Chicago Maccabee SC',
+    'Chicago Maccabee SC': 'Chicago Maccabee',
+
+    'Lawndale Rangers (Chicago)': 'Chicago Lawndale Rangers',
+
+    'Hakoah Center (Chicago)': 'Chicago Hakoah Center',
+
+    'Thistle FC (Chicago)': 'Thistles FC (Chicago)',
+    'Thistles FC (Chicago)': 'Chicago Thistles FC',
+    'Chicago Thistles FC': 'Chicago Thistles',
+
+    'Vienna FC (Chicago)': 'Chicago Vienna FC',
+    'Chicago Vienna FC': 'Chicago Vienna',
+
     'Carpenters FC (Chicago)': 'Chicago Carpenters FC',
 
     'Simmons SC': 'Simmons FC',
     'Pullman Professional FC': 'Pullman FC',
     'Pullman Association FC': 'Pullman FC',
 
-
-    'Yugoslav Americnan SC': 'Yugoslav American SC',
     'Slavia F.C.': 'Slavia FC',
-    'Chicago Maccabi': 'Maccabee SC (Chicago)', #verify 11/22/1936 game vs. Tel Aviv Maccabi was Maccabee SC
-    'Thistle FC (Chicago)': 'Thistles FC (Chicago)',
+
     'Buda A.A. (Harvey, Illinois)': 'Harvey Buda A.A.',
+
     'Manhattan Beer': 'Chicago Manhattan Beer',
 
     'Olympic SC (IL)': 'Olympia FC (Chicago)',
     'Olympia SC (Chicago)': 'Olympia FC (Chicago)',
     'Olympia FC (Chicago)': 'Chicago Olympia FC',
+    'Chicago Olympia FC': 'Chicago Olympia',
 
     'Viking AC': 'Chicago Viking AC',
     'Chicago Vikings': 'Chicago Viking AC',
     'Chicago Viking AC': 'Chicago Viking A.A.',
-    'Chicago Viking': 'Chicago Viking A.A.',
     'Viking AA': 'Chicago Viking A.A.',
     'Viking A.A.': 'Chicago Viking A.A.',
+    'Chicago Viking A.A.': 'Chicago Viking',
 
     'Chicago Sparta Falstaff': 'Chicago Sparta ABA',
     'Chicago Sparta Fallstaff': 'Chicago Sparta ABA',
-    'Chicago Sparta': 'Chicago Sparta ABA',
+
     'Sparta (Chicago)': 'Chicago Sparta ABA',
-    #'Sparta': 'Chicago Sparta ABA',
     'Sparta FC': 'Chicago Sparta ABA',
     'Sparta F.C.': 'Chicago Sparta ABA',
     'Sparta ABA': 'Chicago Sparta ABA',
@@ -1075,16 +1221,20 @@ usa = {
     'Sparta Garden City': 'Chicago Sparta ABA',
     'Sparta Union': 'Chicago Sparta ABA',
     'Sparta Ogden Dairy': 'Chicago Sparta ABA',
-
     'Schwaben (Chicago)': 'Chicago Schwaben',
+    'Schwaben SC (IL)': 'Chicago Schwaben',
+    'Chicago Sparta ABA': 'Chicago Sparta',
 
     'Johnston City AFC (Illinois)': 'Johnston City AFC',
     'Johnston City': 'Johnston City AFC',
 
     'Chicago Horizons': 'Chicago Horizon',
 
-    'AAC Eagles': 'A.A.C. Eagles',
-    'Chicago Eagles': 'A.A.C. Eagles',
+
+    'Polish American SC (Illinois)': 'AAC Eagles',
+    
+    'Chicago Eagles': 'AAC Eagles',
+    'A.A.C. Eagles': 'AAC Eagles',
 
     'Chicago Bricklayers & Masons': 'Chicago Bricklayers',
     'Bricklayers': 'Chicago Bricklayers',
@@ -1104,7 +1254,7 @@ usa = {
     'Slovak AA': 'Chicago Slovak SC',
     'Slovak SC': 'Chicago Slovak SC',
 
-    'Chicago Croatian': 'Chicago Croatian SC',
+
 
     'Hansa (IL)': 'Chicago Hansa',
 
@@ -1151,10 +1301,6 @@ usa = {
 
     'Harmarville': 'Harmarville Hurricanes',
 
-    'Merchant Ship B': 'Philadelphia Merchant Ship B',
-    'Merchant Ship A': 'Philadelphia Merchant Ship',
-    'Merchants Ship': 'Philadelphia Merchant Ship',
-    'Merchant Ship': 'Philadelphia Merchant Ship',
 
     'Fleischer': 'Fleisher Yarn',
     'Fleischer Yarn': 'Fleisher Yarn',
@@ -1175,6 +1321,7 @@ usa = {
 
     'Fairhill FC (Philadelphia)': 'Philadelphia Fairhill FC',
     'Fairhill FC': 'Philadelphia Fairhill FC',
+    'Philadelphia Fairhill FC': 'Philadelphia Fairhill',
 
     'Passon Philles': 'Philadelphia Passon',
     'Passon': 'Philadelphia Passon',
@@ -1187,7 +1334,8 @@ usa = {
 
     'Philadelphia Germans': 'Philadelphia German Americans',
     'Philadelphia-Germans': 'Philadelphia German Americans',
-    'General Electric': 'General Electric FC',
+    
+
 
     'Allentown': 'Bethlehem Hungarian', # huh?
     'Bethlehem Hungarians': 'Bethlehem Hungarian',
@@ -1228,6 +1376,7 @@ usa = {
     'Gallatin FC': 'Pittsburgh Gallatin SC',
     'Gallatin SC': 'Pittsburgh Gallatin SC',
     'Gallatin Sport Clun': 'Pittsburgh Gallatin SC',
+    'Pittsburgh Gallatin SC': 'Pittsburgh Gallatin',
 
     'Jeanette FC (Pittsburgh)': 'Jeanette FC',
 
@@ -1245,7 +1394,11 @@ usa = {
     'Kansas City Attack': 'Kansas City Comets',
 
     'Raftery Painters (St. Louis)': 'St. Louis Raftery Painters',
+    'Raftery’s': 'Raftery Painters',
+
     'Norwegian American SC (St. Louis)': 'St. Louis Norwegian American SC',
+    'St. Louis Norwegian American SC': 'St. Louis Norwegian American',
+
     #St. Louis (CYC) Stars
 
 
@@ -1283,7 +1436,7 @@ usa = {
     'Stix, Baer & Fuller': 'Stix, Baer and Fuller F.C.',
     'Stix, Baer and Fuller': 'Stix, Baer and Fuller F.C.',
     'Central Breweries': 'Stix, Baer and Fuller F.C.',
-    'Stix Baer & Fuller': 'Stix, Baer and Fuller F.C.',
+    'Stix, Baer and Fuller F.C.': 'Stix Baer & Fuller',
 
     'Minit Rubs (St. Louis)': 'Minit-Rubs',
     'Missouri Amateur AC': 'Missouri Amateur AA',
@@ -1337,7 +1490,7 @@ usa = {
     'Vesper Buick': 'Vesper Buicks',
     'Wellston\'s': 'Wellston FC',
 
-    'Raftery’s': 'Raftery Painters',
+
 
     # Maryland
 
@@ -1355,9 +1508,10 @@ usa = {
 
     'Real Maryland Monarchs FC': 'Real Maryland Monarchs',
 
-    'Baltimore Pompei': 'Baltimore Pompei SC',
+    
     'Baltimore Pompeii': 'Baltimore Pompei SC',
     'Baltimore Rockets': 'Baltimore Pompei',
+    'Baltimore Pompei SC': 'Baltimore Pompei',
 
     'Canton SC': 'Baltimore Americans',
     'Baltimore Canton': 'Baltimore Americans',
@@ -1431,33 +1585,50 @@ usa = {
     # Ohio
     #Banat German Sports (Cleveland)
     'Thistles FC (Cleveland)': 'Cleveland Thistles FC',
+    'Cleveland Thistles FC': 'Cleveland Thistles',
+
     'Shamrocks SC (Cleveland)': 'Cleveland Shamrocks SC',
+    'Cleveland Shamrocks SC': 'Cleveland Shamrocks',
+
     'Greenhut Jewelers (Cleveland)': 'Cleveland Greenhut Jewelers',
 
     'Columbus Invaders': 'Canton Invaders', # Name change; set team-name mapping.
 
 
     'Dalarda SC (Cleveland)': 'Cleveland Dalarda SC',
+
     'Favorite Knits FC (Cleveland)': 'Cleveland Favorite Knits FC',
+    'Cleveland Favorite Knits FC': 'Cleveland Favorite Knits',
+
+    'MacKenzie FC (Akron)': 'Clan Mackenzie FC (Akron)',
+    'Clan MacKenzie': 'Clan Mackenzie FC (Akron)',
+    'Clan Mackenzie FC (Akron)': 'Clan MacKenzie FC (Akron)',
+    'Clan Mackenzie FC (Akron)': 'Akron Clan Mackenzie FC',
     'Clan MacKenzie FC (Akron)': 'Akron Clan MacKenzie FC',
     'Akron Clan Mackenzie FC': 'Akron Clan MacKenzie FC',
+    'Akron Clan MacKenzie FC': 'Akron Clan MacKenzie',
+
+
+
     'Celtics FC (Cleveland)': 'Cleveland Celtics FC',
+
     'Alexis Florist (Toledo)': 'Toledo Alexis Florist',
+
     'British War Veterans (Cleveland)': 'Cleveland British War Veterans',
+
     'Bricklayers FC (Cleveland)': 'Cleveland Bricklayers FC',
+    'Cleveland Bricklayers FC': 'Cleveland Bricklayers',
 
     'Mahoning Valley FC': 'Mahoning Valley',
 
     'Goodyear FC': 'Akron Goodyear FC',
     'Goodyear FC (Akron)': 'Akron Goodyear FC',
     'Akron FC': 'Akron Goodyear FC',
+    'Akron Goodyear FC': 'Akron Goodyear',
 
     'Cleveland Hungarians': 'Cleveland American Hungarian FC',
+    'Cleveland American Hungarian FC': 'Cleveland American Hungarian',
 
-    'Clan Mackenzie FC (Akron)': 'Clan MacKenzie FC (Akron)',
-    'MacKenzie FC (Akron)': 'Clan Mackenzie FC (Akron)',
-    'Clan MacKenzie': 'Clan Mackenzie FC (Akron)',
-    'Clan Mackenzie FC (Akron)': 'Akron Clan Mackenzie FC',
 
     'Bruell Hungarian': 'Bruell Hungarians',
     'Bruell Hungarians': 'Bruell Insurance',
@@ -1484,7 +1655,8 @@ usa = {
 
     # Tennessee
     #Nashville Blues (TN)
-    #Survivors (TN)
+
+    'Survivors (TN)': 'Memphis Survivors',
 
     'Tennessee Rhythm': 'Nashville Metros',
 

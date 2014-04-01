@@ -203,8 +203,20 @@ magic_teams = {
         (from_seasons('American Soccer League (1933-1983)', set(['1924-1925', '1928-1929'])), 'Brooklyn St. Mary\'s Celtic'),
         ],
 
+
+    'Brooklyn Celtic': [
+        (from_competition('American Soccer League (1933-1983)'), 'Brooklyn St. Mary\'s Celtic'),
+        (from_seasons('US Open Cup', set([1933, 1934, 1935, 1936, 1937, 1938, 1939, 1940, 1942])), 'Brooklyn St. Mary\'s Celtic'),
+        ],
+
     'Brooklyn Hakoah': [
         (from_competition('American Soccer League (1933-1983)'), 'Hakoah (ASL2)'),
+        ],
+
+
+    'Brooklyn Wanderers': [
+        (from_seasons('American Soccer League (1933-1983)', set(['1942-1943', '1943-1944', '1944-1945', '1945-1946', '1946-1947', '1947-1948', '1948-1949', ])),
+         'Brooklyn Wanderers (ASL2)'), # Sold and became Brooklyn Hakaoh
         ],
 
 

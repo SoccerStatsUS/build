@@ -26,6 +26,7 @@ INDOOR_DIR = os.path.join(ROOT_DIR, 'indoor')
 UEFA_DIR = os.path.join(ROOT_DIR, 'uefa-data')
 NCAA_DIR = os.path.join(ROOT_DIR, 'ncaa-data')
 NWSL_DIR = os.path.join(ROOT_DIR, 'nwsl-data')
+CUPS_DIR = os.path.join(ROOT_DIR, 'us-cups')
 
 STATS_DIR = os.path.join(ROOT_DIR, "soccerdata/data/stats")
 
@@ -175,13 +176,13 @@ def load_international():
 
 
 def load_domestic():
-
+    load_usa_cups()
     load_asl2()           
+    load_nafbl()
     load_asl()  
-    return
-
     load_alpf()
 
+    return
 
 
     load_uefa_leagues()
@@ -193,20 +194,8 @@ def load_domestic():
 
     load_uefa()
     load_nasl() 
-
-
     load_mexico()
-
-
-    load_nafbl()
     load_canada()
-    load_usa_cups()
-
-
-
-
-
-
 
     load_conmebol()
     load_world()
@@ -338,20 +327,21 @@ def load_place_data():
 
 def load_usa_cups():
 
-    from soccerdata.text import awards
+    from soccerdata.text import awards, rosters
 
     generic_load(soccer_db.us_cups_awards, awards.process_american_cup_awards)
     generic_load(soccer_db.us_cups_awards, awards.process_us_open_cup_awards, delete=False)
     generic_load(soccer_db.us_cups_awards, awards.process_lewis_cup_awards, delete=False)
 
-    load_games_standard('us_cups', 'domestic/country/usa/cups/afa')
-    load_games_standard('us_cups', 'domestic/country/usa/cups/afa2')
-    load_games_standard('us_cups', 'domestic/country/usa/cups/lewis')
-    load_games_standard('us_cups', 'domestic/country/usa/cups/duffy')
-    load_games_standard('us_cups', 'domestic/country/usa/cups/aafa')
+    rp = os.path.join(CUPS_DIR, "rosters/afa")
+    generic_load(soccer_db.us_cups_rosters, lambda: rosters.process_rosters2(path=rp))
+
+
+    for e in 'afa', 'afa2', 'lewis', 'duffy', 'aafa':
+        load_games_standard('us_cups', 'games/%s' % e, root=CUPS_DIR)
 
     for e in range(191, 202):
-        load_games_standard('us_cups', 'domestic/country/usa/cups/open/%s0' % e)#, games_only=True)
+        load_games_standard('us_cups', 'games/open/%s0' % e, root=CUPS_DIR)#, games_only=True)
 
 
 def load_canada():
@@ -859,7 +849,10 @@ def load_nafbl():
     generic_load(soccer_db.asl_awards, awards.process_nafbl_awards, delete=False)
     generic_load(soccer_db.asl_awards, awards.process_snesl_awards, delete=False)
 
-    #load_sd_excel_standings('nafbl', 'domestic/country/usa/early')
+    load_sd_excel_standings('nafbl', 'domestic/country/usa/nafbl')
+    load_sd_excel_standings('nafbl', 'domestic/country/usa/snesl')
+
+    #load_sd_excel_standings('nafbl', 'domestic/country/usa/nasfl')
 
     load_games_standard('nafbl', 'domestic/country/usa/leagues/regional/nafbl1')
     load_games_standard('nafbl', 'domestic/country/usa/leagues/regional/nafbl2')
@@ -1022,7 +1015,8 @@ def load_asl2():
     rp = os.path.join(ASL2_DIR, "rosters/asl2")
     generic_load(soccer_db.asl2_rosters, lambda: rosters.process_rosters2(path=rp))
 
-    load_games_standard('asl2', 'games/1933', root=ASL2_DIR)
+    for e in range(1933, 1938):
+        load_games_standard('asl2', 'games/%s' % e, root=ASL2_DIR)
 
 
 def load_nasl():

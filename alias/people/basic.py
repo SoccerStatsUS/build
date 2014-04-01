@@ -1,6 +1,16 @@
 
 basic = {
 
+    'Marcelo Luis Balboa': 'Marcelo Balboa',
+
+    'Bill Lehman': 'William Lehman',
+
+    'Frederick Pepper': 'Fred Pepper',
+
+    'Thomas Murdoch': 'Tommy Murdoch',
+
+    'Dave Priestly': 'Dave Priestley',
+
     'Miguel Noga': 'Mike Noha',
 
     'Rob Clarke': 'Rob Clark', # add to separate.py
