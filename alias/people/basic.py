@@ -1,6 +1,68 @@
 
 basic = {
 
+    'Miguel Noga': 'Mike Noha',
+
+    'Rob Clarke': 'Rob Clark', # add to separate.py
+
+    'Tom Strong': 'Thomas Strong',
+
+    'Johnny Pettigrew': 'John Pettigrew',
+
+    '"Joe" Zell': 'Joe Zell',
+
+    'Werner Meith': 'Werner Mieth',
+
+    'George "Beef" Davis': 'George Davis',
+
+    'Leon Winterling': 'Leo Winterling',
+
+    'Charley "Chappie" Sheppell': 'Charlie Sheppell',
+    'Charlie "Chappy" Sheppell': 'Charlie Sheppell',
+    'Chappie Sheppell': 'Charlie Sheppell',
+
+    'Willy Crilley': 'Willie Crilley',
+
+    'Bobby Aitken': 'Bob Aitken',
+    'Robert Aitken': 'Bob Aitken',
+
+    'Sturdee Maxwell': 'Tom Maxwell', # needs verification (is a guess)
+    'Walter Dow': 'Walt Dowie', # needs verification (is a guess)
+
+    'Jimmy "Muck" Mazza': 'Jimmy Mazza',
+
+    'Bobby Simpson': 'Bob Simpson',
+
+    'William Ballantyne': 'Red Ballantyne',
+
+    'Jack Brown': 'Jackie Brown',
+    
+    'Chuck Steele': 'Charlie Steele',
+
+
+
+    'Adolph Cengia': 'Adolf Cengia',
+
+    'Ray Kelley': 'Ray Kelly',
+
+    'Bobby Nicol': 'Bob Nicol',
+    
+    'John Slavin': 'Johnny Slavin',
+    'John Slaven': 'Johnny Slavin',
+    'Johnny Slaven': 'Johnny Slavin',
+
+    'Freddie Lutkefedder': 'Fred Lutkefedder',
+
+    'Pete Pietras': 'Peter Pietras',
+
+    'Billy Morton': 'Bill Morton',
+
+    'Willie Fiedler': 'Bill Fiedler',
+
+    'Charley Altemose': 'Charles Altemose',
+    'Charlie Altemose': 'Charles Altemose',
+    'Chili Altemose': 'Charles Altemose',
+
 
     'Ziggy Wortmann': 'Siegfried Wortmann',
 
@@ -9090,7 +9152,10 @@ basic = {
     'Eusebio (Eusebio Da Silva Ferreira)': 'Eusebio',
     'Phillip (Phil) Swenda': 'Phil Swenda',
     'Simone Bracalallo': 'Simone Bracalello',
+
     'Deszo Grosz': 'Dezso Grosz',
+    'Deszo Ludwig Grosz': 'Dezso Grosz',
+
     'Nizar Khalifan': 'Nizar Khalfan',
     
     'Daniele Dichio': 'Danny Dichio',
@@ -9512,7 +9577,7 @@ basic = {
     'Joe Kirk': 'Joey Kirk',
     'John de Brito': 'John DeBrito',
     'Ed Hart': 'Eddie Hart',
-    'George Benitez': 'Jorge Benítez',
+    #'George Benitez': 'Jorge Benítez',
     'Lou Yacopec': 'Sonny Yakopec',
     'Henry Farrell': 'Harry Farrell',
     'John Lyons': 'Jack Lyons',
@@ -12346,7 +12411,7 @@ basic = {
     'Corey Gibbs': 'Cory Gibbs',
     'Zackary (Jake) Brennan': 'Zackary Brennan',
     'Jerome Piette': 'Jeremie Piette',
-    'John Slavin': 'Johnny Slavin',
+
     'Lawerence Smalls': 'Lawrence Smalls',
     'Ismael Mintah': 'Ishmael Mintah',
     'Jose Luis Burciaga Jr.': 'Jose Burciaga Jr.',

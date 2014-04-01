@@ -1200,6 +1200,7 @@ usa = {
     'Disston AA': 'Disston A.A.',
     'Disston FC': 'Disston A.A.',
     'Disston A.A.': 'Philadelphia Disston A.A.',
+    'Philadelphia Disston A.A.': 'Disston',
 
 
 
