@@ -1,6 +1,30 @@
 
 basic = {
 
+    'Dixie Skiba': 'Joe Skiba',
+    'Joseph "Dixie" Skiba': 'Joe Skiba',
+
+    'Charley Mullen': 'Charles Mullen',
+
+    'Ted Swieconek': 'Ted Sweiconek',
+
+    'Johnny Clark': 'John Clark',
+
+    'Jimmy Reavie': 'Jimmy Revie',
+
+    'Ilya "Ted" Westermann': 'Ilya Westermann',
+    'Illya Westermann': 'Ilya Westermann',
+
+    'Frankie Moniz': 'Frank Moniz',
+
+    'Eddie Skiba': 'Ed Skiba',
+
+    'Dave Dick': 'David Dick',
+
+    'Tommie McCreadie': 'Tommy McCreadie',
+
+    'Jimmy McGregor': 'James McGregor',
+
     'Marcelo Luis Balboa': 'Marcelo Balboa',
 
     'Bill Lehman': 'William Lehman',
@@ -23,18 +47,26 @@ basic = {
 
     'Werner Meith': 'Werner Mieth',
 
-    'George "Beef" Davis': 'George Davis',
+    'Jimmy Reid': 'Jim Reid',
+
+    #'George "Beef" Davis': 'George Davis',
+    'George "Beef" Davis': 'Beef Davis',
 
     'Leon Winterling': 'Leo Winterling',
 
     'Charley "Chappie" Sheppell': 'Charlie Sheppell',
     'Charlie "Chappy" Sheppell': 'Charlie Sheppell',
     'Chappie Sheppell': 'Charlie Sheppell',
+    'Chap Sheppell': 'Charlie Sheppell',
+    'George "Chappie" Sheppell': 'Charlie Sheppell',
+
+    'Jimmy Aitken': 'Jim Aitken',
 
     'Willy Crilley': 'Willie Crilley',
 
     'Bobby Aitken': 'Bob Aitken',
     'Robert Aitken': 'Bob Aitken',
+    'Rob Aitken': 'Bob Aitken',
 
     'Sturdee Maxwell': 'Tom Maxwell', # needs verification (is a guess)
     'Walter Dow': 'Walt Dowie', # needs verification (is a guess)
@@ -11190,7 +11222,7 @@ basic = {
     
     'Raul Lara': 'Raúl Lara',
     'Juan Manuel Pena': 'Juan Manuel Peña',
-    'Eddie Skiba': 'Ed Skiba',
+
     'Joey Boyle': 'Joe Boyle',
     'Jackie Hynes': 'Jack Hynes',
     

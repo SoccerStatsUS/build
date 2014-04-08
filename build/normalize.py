@@ -4,7 +4,7 @@ from settings import SOURCES
 from smid.alias import get_team, get_name, get_season, get_competition, get_place, get_stadium, get_city, get_round
 from smid.mongo import generic_load, soccer_db, insert_rows, insert_row, soccer_db
 
-from magic import get_magic_team, get_magic_name
+from separate import separate_team, separate_name
 
 
 def make_location_normalizer():
@@ -144,7 +144,7 @@ def normalize_season(e):
 
 def normalize_game_stat(e):
     e['team'] = get_team(e['team'])
-    e['team'] = get_magic_team(e['team'], e)
+    e['team'] = separate_team(e['team'], e)
     e['player'] = get_name(e['player'])
     e['competition'] = get_competition(e['competition'])
     e['season'] = get_season(e['season'])
@@ -174,12 +174,12 @@ def normalize_game(e):
     e['team1'] = get_team(e['team1'])
     e['team2'] = get_team(e['team2'])
 
-    e['team1'] = get_magic_team(e['team1'], e)
-    e['team2'] = get_magic_team(e['team2'], e)
+    e['team1'] = separate_team(e['team1'], e)
+    e['team2'] = separate_team(e['team2'], e)
 
     if e.get('home_team'):
         e['home_team'] = get_team(e['home_team'])
-        e['home_team'] = get_magic_team(e['home_team'], e)
+        e['home_team'] = separate_team(e['home_team'], e)
 
 
     # This is the wrong behavior...huh?
@@ -316,8 +316,8 @@ def normalize_goal(e):
     if 'opponent' in e:
         e['opponent'] = get_team(e['opponent'])
 
-    e['team'] = get_magic_team(e['team'], e)
-    e['goal'] = get_magic_name(e['goal'], e)
+    e['team'] = separate_team(e['team'], e)
+    e['goal'] = separate_name(e['goal'], e)
 
 
     if e['goal'] == 'Own Goal':
@@ -366,8 +366,8 @@ def normalize_stat(e):
     except:
         import pdb; pdb.set_trace()
 
-    e['team'] = get_magic_team(e['team'], e)
-    e['name'] = get_magic_name(e['name'], e)
+    e['team'] = separate_team(e['team'], e)
+    e['name'] = separate_name(e['name'], e)
 
 
     for k in (
@@ -410,8 +410,8 @@ def normalize_lineup(e):
     e['team'] = get_team(e['team'])
     e['name'] = get_name(e['name'])
 
-    e['team'] = get_magic_team(e['team'], e)
-    e['name'] = get_magic_name(e['name'], e)
+    e['team'] = separate_team(e['team'], e)
+    e['name'] = separate_name(e['name'], e)
 
     if type(e['on']) == str and e['on'].endswith('\''):
         e['on'] = e['on'][:-1]
@@ -429,7 +429,7 @@ def normalize_standing(e):
     e['season'] = get_season(e['season'])
 
     e['team'] = get_team(e['team'])
-    e['team'] = get_magic_team(e['team'], e)
+    e['team'] = separate_team(e['team'], e)
 
     if 'games' not in e:
         import pdb; pdb.set_trace()

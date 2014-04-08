@@ -1295,9 +1295,6 @@ usa = {
 
     'Vereinigung Erzgebirge (East PA)': 'Vereinigung Erzgebirge',
 
-    'Philadelphia Nationals': 'Philadelphia Ukrainians',
-    'Ukrainian Nationals': 'Philadelphia Ukrainians',
-    'Philadelphia Ukrainian Nationals': 'Philadelphia Ukrainians',
 
     'Harmarville': 'Harmarville Hurricanes',
 
@@ -1331,6 +1328,11 @@ usa = {
     'Passon Phillies': 'Philadelphia Passon',
     'Philadelphia Passons': 'Philadelphia Passon',
     'Philadelphia Passon': 'Philadelphia Nationals',
+    #'Philadelphia Nationals': 'Philadelphia Ukrainians',
+
+    'Ukrainian Nationals': 'Philadelphia Ukrainians',
+    'Philadelphia Ukrainian Nationals': 'Philadelphia Ukrainians',
+
 
     'Philadelphia Germans': 'Philadelphia German Americans',
     'Philadelphia-Germans': 'Philadelphia German Americans',

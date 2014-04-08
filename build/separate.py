@@ -3,21 +3,7 @@
 
 from smid.alias import get_team
 
-magic_names = {
 
-    'Jorge Flores': [
-        ('Jorge Villafaña', {'team': 'Chivas USA' }),
-        ('Jorge Villafaña', {'team': 'Chivas USA Reserves' }),
-        ],
-
-    'Juninho': [
-        ('Juninho Paulista', {'team': 'Middlesbrough' }),
-        ],
-
-
-    #'Chris Brown': [
-    #    'Chris Brown 1971': {'team': 'FC Dallas' }
-    }
 
 
 # Use a partial? memoize?
@@ -34,10 +20,25 @@ def from_competition(competition):
 
 def from_seasons(competition, seasons):
     return lambda d: from_competition(competition)(d) and d['season'] in seasons
-    
 
 
-magic_teams = {
+sep_names = {
+
+    'Jorge Flores': [
+        ('Jorge Villafaña', {'team': 'Chivas USA' }),
+        ('Jorge Villafaña', {'team': 'Chivas USA Reserves' }),
+        ],
+
+    'Juninho': [
+        ('Juninho Paulista', {'team': 'Middlesbrough' }),
+        ],
+
+    #'Chris Brown': [
+    #    'Chris Brown 1971': {'team': 'FC Dallas' }
+    }
+
+
+sep_teams = {
     'Saint Louis': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Saint Louis University')],
     'Maryland': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Maryland')],
     'West Chester': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'West Chester University')],
@@ -656,17 +657,15 @@ magic_teams = {
     }
 
 
-def get_magic_team(team, data):
-
-    #if team == 'America':
-    #    import pdb; pdb.set_trace()
 
 
-    if team not in magic_teams:
+def separate_team(team, data):
+
+    if team not in sep_teams:
         return team
     else:
 
-        candidates = magic_teams[team]
+        candidates = sep_teams[team]
         for pred, nteam in candidates:
             if pred(data):
                 return get_team(nteam)
@@ -674,14 +673,14 @@ def get_magic_team(team, data):
     return get_team(team)
 
 
-def get_magic_name(name, magic_d):
+def separate_name(name, magic_d):
     # Confusing.
     # Just pass a predicate function?
 
-    if name not in magic_names:
+    if name not in sep_names:
         return name
     else:
-        names = magic_names[name]
+        names = sep_names[name]
         for n, nd in names:
             for k, v in nd.items():
                 if magic_d.get(k) != v:

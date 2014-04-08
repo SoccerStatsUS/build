@@ -176,17 +176,22 @@ def load_international():
 
 
 def load_domestic():
-    load_usa_cups()
-    load_asl2()           
-    load_nafbl()
-    load_asl()  
-    load_alpf()
 
+    load_asl2()           
     return
 
 
-    load_uefa_leagues()
+    load_usa_cups()
+
+    load_nafbl()
+    load_asl()  
+    load_alpf()
     load_mls() 
+
+
+
+    load_uefa_leagues()
+
 
     load_concacaf()
     load_conmebol_leagues()
@@ -1015,7 +1020,7 @@ def load_asl2():
     rp = os.path.join(ASL2_DIR, "rosters/asl2")
     generic_load(soccer_db.asl2_rosters, lambda: rosters.process_rosters2(path=rp))
 
-    for e in range(1933, 1938):
+    for e in range(1933, 1943):
         load_games_standard('asl2', 'games/%s' % e, root=ASL2_DIR)
 
 
