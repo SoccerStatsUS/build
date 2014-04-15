@@ -6,6 +6,8 @@ aliases = {}
 
 full_alias = {
 
+    'Women\'s Premier League': 'FA Women\'s Premier League',
+
     'Haiti Tournament?': 'Haiti Tournament',
     'Haiti ?': 'Haiti Tournament',
 

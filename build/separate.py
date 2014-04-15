@@ -277,6 +277,17 @@ sep_teams = {
         ],
 
 
+    'Doncaster': [
+        (from_competition('Women\'s Premier League'), 'Doncaster Belles'),
+        ],
+
+
+    'Doncaster Rovers': [
+        (from_competition('Women\'s Premier League'), 'Doncaster Belles'),
+        ],
+
+
+
     'Dynamo': [
         (from_competition('North American SuperLiga'), 'Houston Dynamo'),
         (from_competition('Major League Soccer'), 'Houston Dynamo'),

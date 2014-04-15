@@ -1439,6 +1439,7 @@ usa = {
     'Stix, Baer and Fuller': 'Stix, Baer and Fuller F.C.',
     'Central Breweries': 'Stix, Baer and Fuller F.C.',
     'Stix, Baer and Fuller F.C.': 'Stix Baer & Fuller',
+    'Stix, Baer and Fuller F.C.': 'Stix Baer & Fuller',
 
     'Minit Rubs (St. Louis)': 'Minit-Rubs',
     'Missouri Amateur AC': 'Missouri Amateur AA',

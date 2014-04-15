@@ -220,6 +220,7 @@ def generate_competition_stats():
         # Women
         'Women\'s Professional Soccer',
         'Women\'s United Soccer Association',
+        'Damallsvenskan',
 
         # Misc
 

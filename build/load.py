@@ -150,11 +150,12 @@ def load_extra():
 
 
 def load_games():  
-    load_domestic()
-    return
 
     load_women()
 
+
+    return
+    load_domestic()
     load_international()
     load_other()
 
@@ -771,18 +772,33 @@ def load_women():
 
     WOMEN_ROOT = os.path.join(NWSL_DIR, 'data/games')
 
-    load_games_standard('women', 'wusa/wusa', root=WOMEN_ROOT)
-    load_games_standard('women', 'nwsl/2013', root=WOMEN_ROOT)
-    load_games_standard('women', 'nwsl/2014', root=WOMEN_ROOT)
-    load_games_standard('women', 'wps/wps', root=WOMEN_ROOT)
-    load_games_standard('women', 'wpsl/elite', root=WOMEN_ROOT)
+    for e in range(2000, 2005):
+        load_games_standard('women', 'england/1/%s' % e, root=WOMEN_ROOT)
+
+    for e in range(2000, 2011):
+        load_games_standard('women', 'germany/%s' % e, root=WOMEN_ROOT)
+
+    for e in range(2000, 2006):
+        load_games_standard('women', 'sweden/1/%s' % e, root=WOMEN_ROOT)
+
+    #for e in range(2012, 2013):
+    #    load_games_standard('women', 'argentina/%s' % e, root=WOMEN_ROOT)
+
+    for e in range(2008, 2013):
+        load_games_standard('women', 'australia/%s' % e, root=WOMEN_ROOT)
+
+    load_games_standard('women', 'usa/wusa/wusa', root=WOMEN_ROOT)
+    load_games_standard('women', 'usa/nwsl/2013', root=WOMEN_ROOT)
+    load_games_standard('women', 'usa/nwsl/2014', root=WOMEN_ROOT)
+    load_games_standard('women', 'usa/wps/wps', root=WOMEN_ROOT)
+    load_games_standard('women', 'usa/wpsl/elite', root=WOMEN_ROOT)
 
 
     nwsl_dir = os.path.join(ROOT_DIR, 'nwsl-data/data/stats')
     nwsl_stats = stats.process_stats("2013", source='nasljerseys.com', root=nwsl_dir, delimiter=';')
     generic_load(soccer_db.women_stats, nwsl_stats)
 
-    for e in ['wusa', 'wps', 'wpsl_elite', 'nwsl']:
+    for e in ['wusa', 'wps', 'wpsl_elite', 'nwsl', 'sweden', 'france','wsl']:
         r = os.path.join(ROOT_DIR, 'nwsl-data/data/standings')
         load_standings_standard('women', e, root=r)
 

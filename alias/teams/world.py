@@ -1,5 +1,48 @@
 world = {
 
+    'Umea': 'Umeå IK',
+    'Umeå': 'Umeå IK',
+    'Umea IK': 'Umeå IK',
+
+    'Tyreso FF': 'Tyresö FF',
+
+    'Djurgården/Älvsjö': 'Djurgårdens IF Dam',
+
+    'Ldb Malmo': 'FC Rosengård',
+
+
+    'Kopparsberg/L': 'Kopparbergs/Göteborg',
+    'Kopparsberg/Landvetter': 'Kopparbergs/Göteborg',
+    'Kopparsberg/L.': 'Kopparbergs/Göteborg',
+    'Kopparbergs/Landvetter': 'Kopparbergs/Göteborg',
+    'K/Landvetter': 'Kopparbergs/Göteborg',
+    'Kopparberg': 'Kopparbergs/Göteborg',
+
+    'Alingsås': 'HIF Alingsås',
+
+    'Kristianstad/Wa': 'Kristianstads DFF',
+    'Kristianstad/Wä': 'Kristianstads DFF',
+
+    'Mallbacken': 'Mallbackens IF',
+    'Mallbackens': 'Mallbackens IF',
+
+    'Bälinge': 'Bälinge IF',
+    'Balinge': 'Bälinge IF',
+
+    'Sunnanå': 'Sunnanå SK',
+
+    'Själevads': 'Själevad',
+
+    'Linkopings FC': 'Linköpings FC',
+    'Linköpings': 'Linköpings FC',
+    'Linköping': 'Linköpings FC',
+
+    'Alvsjo': 'Älvsjö AIK FF',
+    'Älvsjö': 'Älvsjö AIK FF',
+
+    'Alviks': 'Alviks IK',
+    'Alvik': 'Alviks IK',
+
     'St. Catharines': 'St Catharines', 
     'VFR': 'VfR', 
     'German American S.C.': 'German-American SC',
@@ -19,6 +62,15 @@ world = {
     'Etoile Sahel': 'Étoile du Sahel',
 
     'KS Flamurtari Vlorë': 'Flamurtari Vlorë',
+
+    '1. FFC Turbine Potsdam': 'Turbine Potsdam',
+    '1. FFC Frankfurt': 'FFC Frankfurt',
+    'FFC Brauweiler Pulheim 2000': 'FFC Brauweiler',
+
+    'TuS Niederkirchen': '1. FFC 08 Niederkirchen',
+
+
+    'Sjalevad': 'Själevad',
 
 
 
