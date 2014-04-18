@@ -152,10 +152,10 @@ def load_extra():
 def load_games():  
 
     load_women()
-
+    load_domestic()
 
     return
-    load_domestic()
+
     load_international()
     load_other()
 
@@ -179,13 +179,13 @@ def load_international():
 def load_domestic():
 
     load_asl2()           
+    load_asl()  
+    load_usa_cups()
     return
 
 
-    load_usa_cups()
-
     load_nafbl()
-    load_asl()  
+
     load_alpf()
     load_mls() 
 
@@ -1037,7 +1037,7 @@ def load_asl2():
     generic_load(soccer_db.asl2_rosters, lambda: rosters.process_rosters2(path=rp))
 
     for e in range(1933, 1943):
-        load_games_standard('asl2', 'games/%s' % e, root=ASL2_DIR)
+        load_games_standard('asl2', 'games/allaway/%s' % e, root=ASL2_DIR)
 
 
 def load_nasl():
