@@ -1,6 +1,10 @@
 
 basic = {
 
+    'Fikrejesus (Phil) Amahzion': 'Fikrejesus Amahzion',
+
+    'Pascoal Pepe': 'Pasquale Pepe',
+
     'Ali Wagner': 'Aly Wagner',
 
     'Thomas Gillespie': 'Tom Gillespie',

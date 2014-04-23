@@ -1,5 +1,8 @@
 usa = {
 
+    'Blau-Weiss Gottschee': 'Gottschee Blau-Weiss',
+    'BW Gottschee': 'Gottschee Blau-Weiss',
+    'Gottschee Blauweiss': 'Gottschee Blau-Weiss',
 
     'General Electric FC (Schenectady)': 'Schenectady General Electric',
 
@@ -584,7 +587,9 @@ usa = {
     #IAC (North CA)
 
     'Los Angeles Kickers-Victoria (South California)': 'Los Angeles Kickers',
+
     'Los Angeles Soccer Club': 'Los Angeles Kickers', #denormalize
+    'L.A. Soccer Club': 'Los Angeles Kickers', #denormalize
 
     'Sacramento Spirits': 'Sacramento Gold',
 
@@ -987,12 +992,9 @@ usa = {
     'Kearny Rovers': 'Kearney Rovers',
     'Kearny Rangers': 'Kearney Rangers',
 
-
-
-
-    'Paterson Caledonian Thistles': 'Paterson Thistles',
     #'Paterson Caledonian': 'Paterson F.C.',
 
+    'Paterson Caledonian Thistles': 'Paterson Thistles',
     'Paterson Caledonians': 'Paterson Caledonian',
 
     'Swanton Field Club (Kearny, NJ)': 'Swanton Field Club',
@@ -1339,7 +1341,8 @@ usa = {
     
 
 
-    'Allentown': 'Bethlehem Hungarian', # huh?
+    #'Allentown': 'Bethlehem Hungarian', # huh?
+
     'Bethlehem Hungarians': 'Bethlehem Hungarian',
 
     'Philadelphia Hibernians': 'Philadelphia Hibernian',
@@ -1511,8 +1514,7 @@ usa = {
 
     'Real Maryland Monarchs FC': 'Real Maryland Monarchs',
 
-    
-    'Baltimore Pompeii': 'Baltimore Pompei SC',
+    'Baltimore Pompeii': 'Baltimore Pompei',
     'Baltimore Rockets': 'Baltimore Pompei',
     'Baltimore Pompei SC': 'Baltimore Pompei',
 
@@ -1523,8 +1525,7 @@ usa = {
     'Baltimore S.C.': 'Baltimore Americans',
     'Baltimore SC': 'Baltimore S.C.',
 
-
-    'Baltimore St. Gerards': 'Baltimore Flyers',
+    'Baltimore St. Gerards': 'Baltimore Flyers', # denormalize
     #'Baltimore Stars': 'Baltimore Bays',
 
     

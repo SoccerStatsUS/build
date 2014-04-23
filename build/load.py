@@ -27,6 +27,7 @@ UEFA_DIR = os.path.join(ROOT_DIR, 'uefa-data')
 NCAA_DIR = os.path.join(ROOT_DIR, 'ncaa-data')
 NWSL_DIR = os.path.join(ROOT_DIR, 'nwsl-data')
 CUPS_DIR = os.path.join(ROOT_DIR, 'us-cups')
+ISL_DIR = os.path.join(ROOT_DIR, 'isl-data')
 
 STATS_DIR = os.path.join(ROOT_DIR, "soccerdata/data/stats")
 
@@ -178,11 +179,14 @@ def load_international():
 
 def load_domestic():
 
-    load_asl2()           
-    load_asl()  
-    load_usa_cups()
+    load_isl2()
+
+
     return
 
+    load_asl2()           
+    load_us_cups()
+    load_asl()  
 
     load_nafbl()
 
@@ -331,7 +335,7 @@ def load_place_data():
     generic_load(soccer_db.stadiums, places.load_stadiums)
 
 
-def load_usa_cups():
+def load_us_cups():
 
     from soccerdata.text import awards, rosters
 
@@ -775,11 +779,18 @@ def load_women():
     for e in range(2000, 2005):
         load_games_standard('women', 'england/1/%s' % e, root=WOMEN_ROOT)
 
+    for e in range(2000, 2011): # through 2010.
+        load_games_standard('women', 'france/1/%s' % e, root=WOMEN_ROOT)
+
+    return
+
     for e in range(2000, 2011):
         load_games_standard('women', 'germany/%s' % e, root=WOMEN_ROOT)
 
     for e in range(2000, 2006):
         load_games_standard('women', 'sweden/1/%s' % e, root=WOMEN_ROOT)
+
+
 
     #for e in range(2012, 2013):
     #    load_games_standard('women', 'argentina/%s' % e, root=WOMEN_ROOT)
@@ -1030,8 +1041,8 @@ def load_asl2():
 
     #generic_load(soccer_db.asl2_rosters, lambda: rosters.process_rosters2('domestic/asl2'))
 
-    load_sd_excel_standings('asl2', 'domestic/country/usa/asl2')
-    load_games_standard('asl2', 'domestic/country/usa/leagues/d2/asl2', games_only=True)
+    #load_sd_excel_standings('asl2', 'domestic/country/usa/asl2')
+    #load_games_standard('asl2', 'domestic/country/usa/leagues/d2/asl2', games_only=True)
 
     rp = os.path.join(ASL2_DIR, "rosters/asl2")
     generic_load(soccer_db.asl2_rosters, lambda: rosters.process_rosters2(path=rp))
@@ -1547,10 +1558,21 @@ def load_world_international():
 
 
 
+def load_isl2():
+    from soccerdata.text import awards, rosters
+
+    h = lambda fn: os.path.join(ISL_DIR, fn)
+
+    load_games_standard('world', h('games'))
+    load_standings_standard('world', h('standings'))
+    generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(h('rosters')))
+    generic_load(soccer_db.world_awards, awards.process_isl_awards) # isl et al.
+
+
 def load_world():
     from soccerdata.text import awards, rosters
     generic_load(soccer_db.world_awards, awards.process_world_awards)
-    generic_load(soccer_db.world_awards, awards.process_isl_awards) # ISL et al.
+
 
     load_mixed_confederation()
 
@@ -1562,11 +1584,9 @@ def load_world():
     # International friendly club tournaments - ISL, Parmalat Cup, Copa Rio, etc.
     # Also existed in Brazil / Argentina / Colombia?
     generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(ROOT_DIR, 'soccerdata/data/rosters/domestic/club_world_cup')))
-    generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(ROOT_DIR, 'soccerdata/data/rosters/domestic/isl')))
+
     generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(ROOT_DIR, 'soccerdata/data/rosters/domestic/copita')))
     
-    #load_sd_excel_standings('world', 'domestic/country/usa/isl')
-    load_games_standard('world', 'domestic/country/usa/leagues/isl2')
 
     load_games_standard('world', 'domestic/country/mexico/friendly/palmares')
 

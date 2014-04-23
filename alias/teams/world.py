@@ -1,5 +1,72 @@
 world = {
 
+    'CNFE': 'CNFE FF',
+
+
+    'Juvisy': 'Juvisy FC',
+    'FCF Juvisy': 'Juvisy FC',
+    'Juvisy FCF': 'Juvisy FC',
+    
+    'FF Nord Allier': 'Yzeure Allier Auvergne',
+
+    'FCF Hénin-Beaumont': 'Hénin-Beaumont',
+    'Hénin-B.': 'Hénin-Beaumont',
+    'Hénin': 'Hénin-Beaumont',
+
+    'Soyaux AJ': 'Soyaux ASJ',
+    'Soyaux ASJ': 'ASJ Soyaux',
+
+    'Trion': 'IF Trion',
+
+    'KIF örebro DFF': 'KIF Örebro',
+    'KIF Örebro DFF': 'KIF Örebro',
+    'KIF Örebro IF DFF': 'KIF Örebro',
+
+    'USO Bruay-laBuissière': 'USO Bruay-La-Buissière',
+
+    'Montpellier-le Crès': 'Montpellier-Le Cres',
+
+    'QBIK (Karlstad)': 'QBIK',
+    'QBIK Karlstad': 'QBIK',
+
+    'St-Brieuc FF': 'Saint-Brieuc',
+    'Saint-Brieuc FF': 'Saint-Brieuc',
+    'Saint-Brieuc SC': 'Saint-Brieuc',
+    'St-Brieuc': 'Saint-Brieuc',
+
+    'Saint-Memmie': 'Saint-Memmie Olympique',
+    'Saint-Memmie Ol.': 'Saint-Memmie Olympique',
+    'St.-Memmie Olympique': 'Saint-Memmie Olympique',
+    'St-Memmie': 'Saint-Memmie Olympique',
+
+    'TOAFC Toulouse': 'Toulouse OAC',
+
+    'BK Kenty FF': 'BK Kenty',
+    'Kenty': 'BK Kenty',
+
+    'CNFE Football Fém.': 'CNFE FF',
+    'CNFE Football Féminin': 'CNFE FF',
+
+    'Djurgårdens IF D': 'Djurgårdens DFF',
+    'Djurgårdens IF DFF': 'Djurgårdens DFF',
+    'Djurgårdens IF Dam': 'Djurgårdens DFF',
+
+    'ESOFV La Roche-sur-Yon': 'ESOF La Roche',
+    'La Roche/Yon ESOF': 'ESOF La Roche',
+    'La Roche-sur-Yon ESOF': 'ESOF La Roche',
+    'La Roche': 'ESOF La Roche',
+    'ESOF la Roche': 'ESOF La Roche',
+
+    'Hammarby IF DFF (Stockholm)': 'Hammarby IF DFF',
+
+
+
+    'Jitex BK (Mölndal)': 'Jitex BK',
+
+    'Kopparbergs/Göteborg': 'Kopparbergs/Göteborg FC',
+    'Kopparbergs/ Göteborg': 'Kopparbergs/Göteborg FC',
+    'Kopparberg/Göteborg': 'Kopparbergs/Göteborg FC',
+
     'Umea': 'Umeå IK',
     'Umeå': 'Umeå IK',
     'Umea IK': 'Umeå IK',
@@ -8,7 +75,6 @@ world = {
 
     'Djurgården/Älvsjö': 'Djurgårdens IF Dam',
 
-    'Ldb Malmo': 'FC Rosengård',
 
 
     'Kopparsberg/L': 'Kopparbergs/Göteborg',
@@ -28,7 +94,10 @@ world = {
 
     'Bälinge': 'Bälinge IF',
     'Balinge': 'Bälinge IF',
+    'Bälinge IF (Uppsala)': 'Bälinge IF',
+    'Bälinge IF (Upplands Bälinge)': 'Bälinge IF',
 
+    'Sunnanå SK (Skellefteå)': 'Sunnanå SK',
     'Sunnanå': 'Sunnanå SK',
 
     'Själevads': 'Själevad',
@@ -722,6 +791,15 @@ world = {
     'Gfcoa': 'GFC Ajaccio',
 
     'Olympique Lyonnais': 'Lyon',
+    'Olymp. Lyonnais': 'Lyon',
+    'Olympique Lyonn.': 'Lyon',
+    'Olympique Lyon': 'Lyon',
+    'Lyon FC': 'Lyon',
+
+    'Lyon Féminin FC': 'Lyon FCF',
+    'FC Lyon Féminin': 'Lyon FCF',
+
+
 
     'AS Cannes': 'Cannes',
 
@@ -744,6 +822,7 @@ world = {
     'Saint Etienne': 'Saint-Étienne',
     'AS Saint-Etienne': 'Saint-Étienne',
     'AS Saint-Étienne (Fra)': 'Saint-Étienne',
+    'RC Saint-Etienne': 'Saint-Étienne',
 
     'ATAC Troyes': 'Troyes',
     'ES Troyes AC': 'Troyes',
@@ -767,6 +846,7 @@ world = {
     'Le Mans UC 72': 'Le Mans',
     'Le Mans UC72': 'Le Mans',
 
+    'Montpellier-Hérault SC': 'Montpellier Herault SC',
     'Montpellier Hsc': 'Montpellier Herault SC',
     'Montpellier HSC': 'Montpellier Herault SC',
     'Montpellier-Herault': 'Montpellier Herault SC',
@@ -777,6 +857,9 @@ world = {
     'Olympique Marseille (Fra)': 'Marseille',
     'Olympique Marseille': 'Marseille',
 
+    'Marseille FC': 'Marseille',
+
+    'Paris-St.-Germain FC': 'Paris Saint-Germain',
     'Paris Saint-Germain - France': 'Paris Saint-Germain',
     'Paris Saint-Germain FC': 'Paris Saint-Germain',
     'Paris-Saint-Germain FC': 'Paris Saint-Germain',
@@ -4148,7 +4231,9 @@ world = {
     'Öster': 'Östers IF',
     'Osters IF (Swe)': 'Östers IF',
     'Östers IF (Swe)': 'Östers IF',
-    'Östers': 'Öster',
+    'Östers': 'Östers IF',
+    'Oster': 'Östers IF',
+    'Östers IF Växjö': 'Östers IF',
 
 
 
@@ -4181,6 +4266,10 @@ world = {
     'Malmö': 'Malmö FF',
     'Malmo': 'Malmö FF',
     'Malmö': 'Malmö FF',
+
+    'Ldb Malmo': 'FC Rosengård',
+    'LdB FC Malmö': 'FC Rosengård',
+    'Malmö FF DFF': 'FC Rosengård',
 
     'Gif Sundsvall': 'GIF Sundsvall',
 
@@ -4228,6 +4317,7 @@ world = {
     'Djurgardens IF': 'Djurgårdens IF',
     'Djurgårdens IF (Swe)': 'Djurgårdens IF',
     'Djurgardens': 'Djurgårdens IF',
+    'Djurgarden': 'Djurgårdens IF',
     'Djurgården': 'Djurgårdens IF',
 
     'Örgryte': 'Örgryte IS',

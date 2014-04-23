@@ -610,6 +610,16 @@ sep_teams = {
 
 
 
+    'Tranmere': [
+        (from_competition('FA Women\'s Premier League'), 'Tranmere Rovers Ladies'),
+        ],
+
+    'Tranmere Rovers': [
+        (from_competition('FA Women\'s Premier League'), 'Tranmere Rovers Ladies'),
+        ],
+
+
+
     'UCD': [
         (from_competition('League of Ireland'), 'University College Dublin'),
         ],

@@ -6,6 +6,12 @@ aliases = {}
 
 full_alias = {
 
+
+
+    'Championnat Féminin National, Division 1': 'Championnat Féminin',
+    'Championnat Féminin National': 'Championnat Féminin',
+    'Championnat Feminin': 'Championnat Féminin',
+
     'Women\'s Premier League': 'FA Women\'s Premier League',
 
     'Haiti Tournament?': 'Haiti Tournament',
