@@ -16,6 +16,8 @@ def get_place(s):
 
 places = {
 
+    'Yankees Stadium': 'Yankee Stadium',
+
     # Mediotiempo
     'Azul': 'Estadio Azul',
     'Hidalgo': 'Estadio Hidalgo',

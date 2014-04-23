@@ -1058,7 +1058,9 @@ united_states = {
     'Marina Auto Stadium': 'Sahlen\'s Stadium',
     'Marina Auto Stadium, Rochester, NY': 'Sahlen\'s Stadium',
     'Rochester Rhinos Stadium': 'Sahlen\'s Stadium',
+
     'Yankee Stadium': 'Yankees Stadium',
+
     'Triborough Stadium': 'Downing Stadium',
     'Randall\'s Island Stadium': 'Downing Stadium',
     'Randall\s Island Stadium': 'Downing Stadium',
