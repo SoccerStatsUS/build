@@ -23,7 +23,10 @@ STANDINGS_DIR = os.path.join(ROOT_DIR, "soccerdata/data/standings")
 USD1_DIR = os.path.join(ROOT_DIR, 'usd1')
 ASL2_DIR = os.path.join(ROOT_DIR, 'asl2-data')
 INDOOR_DIR = os.path.join(ROOT_DIR, 'indoor')
+
 UEFA_DIR = os.path.join(ROOT_DIR, 'uefa-data')
+CONMEBOL_DIR = os.path.join(ROOT_DIR, 'conmebol-data')
+
 NCAA_DIR = os.path.join(ROOT_DIR, 'ncaa-data')
 NWSL_DIR = os.path.join(ROOT_DIR, 'nwsl-data')
 CUPS_DIR = os.path.join(ROOT_DIR, 'us-cups')
@@ -179,11 +182,11 @@ def load_international():
 
 def load_domestic():
 
-    load_isl2()
 
+    load_conmebol_leagues()
 
     return
-
+    load_isl2()
     load_asl2()           
     load_us_cups()
     load_asl()  
@@ -199,7 +202,7 @@ def load_domestic():
 
 
     load_concacaf()
-    load_conmebol_leagues()
+
     load_us_minor()
 
     load_uefa()
@@ -653,113 +656,120 @@ def load_conmebol_leagues():
     load_argentina()
 
 def load_conmebol_minor():
+
+
+    load_standings_standard('uefa', 'standings/italy', root=UEFA_DIR)
+    for year in range(1992, 2009):
+        load_games_standard('uefa', 'games/england/%s' % year, root=UEFA_DIR)
+
+
     from soccerdata.text import awards
 
     generic_load(soccer_db.conmebol_awards, awards.process_conmebol_league_awards)
 
-    load_standings_standard('conmebol', 'domestic/country/uruguay2')
-    load_standings_standard('conmebol', 'domestic/country/chile2')
+    load_standings_standard('conmebol', 'standings/uruguay2', root=CONMEBOL_DIR)
+    load_standings_standard('conmebol', 'standings/chile2', root=CONMEBOL_DIR)
 
-    load_standings_standard('conmebol', 'domestic/country/colombia3')
+    load_standings_standard('conmebol', 'standings/colombia3', root=CONMEBOL_DIR)
 
-    load_standings_standard('conmebol', 'domestic/country/ecuador')
+    load_standings_standard('conmebol', 'standings/ecuador', root=CONMEBOL_DIR)
 
-    load_standings_standard('conmebol', 'domestic/country/peru')
-    load_standings_standard('conmebol', 'domestic/country/paraguay')
-    load_standings_standard('conmebol', 'domestic/country/bolivia')
+    load_standings_standard('conmebol', 'standings/peru', root=CONMEBOL_DIR)
+    load_standings_standard('conmebol', 'standings/paraguay', root=CONMEBOL_DIR)
+    load_standings_standard('conmebol', 'standings/bolivia', root=CONMEBOL_DIR)
 
-    #load_standings_standard('conmebol', 'domestic/country/venezuela')
-    #load_standings_standard('conmebol', 'domestic/country/colombia2')
-    #load_standings_standard('conmebol', 'domestic/country/colombia')
-    #load_standings_standard('conmebol', 'domestic/country/chile')
-    #load_standings_standard('conmebol', 'domestic/country/uruguay')
+    #load_standings_standard('conmebol', 'standings/venezuela', root=CONMEBOL_DIR)
+    #load_standings_standard('conmebol', 'standings/colombia2', root=CONMEBOL_DIR)
+    #load_standings_standard('conmebol', 'standings/colombia', root=CONMEBOL_DIR)
+    #load_standings_standard('conmebol', 'standings/chile', root=CONMEBOL_DIR)
+    #load_standings_standard('conmebol', 'standings/uruguay', root=CONMEBOL_DIR)
 
 
     for year in range(1996, 2012):
-        load_games_standard('conmebol', 'domestic/country/uruguay/%s' % year)
+        load_games_standard('conmebol', 'games/uruguay/%s' % year, root=CONMEBOL_DIR)
 
     for year in range(1996, 2014):
-        load_games_standard('conmebol', 'domestic/country/chile/%s' % year)
+        load_games_standard('conmebol', 'games/chile/%s' % year, root=CONMEBOL_DIR)
 
     for year in range(1997, 2011):
-        load_games_standard('conmebol', 'domestic/country/colombia/%s' % year)
+        load_games_standard('conmebol', 'games/colombia/%s' % year, root=CONMEBOL_DIR)
 
     for year in range(1996, 2014):
-        load_games_standard('conmebol', 'domestic/country/ecuador/%s' % year)
+        load_games_standard('conmebol', 'games/ecuador/%s' % year, root=CONMEBOL_DIR)
 
     for year in range(1996, 2012):
-        load_games_standard('conmebol', 'domestic/country/peru/%s' % year)
+        load_games_standard('conmebol', 'games/peru/%s' % year, root=CONMEBOL_DIR)
 
     for year in range(1996, 2013):
-        load_games_standard('conmebol', 'domestic/country/bolivia/%s' % year)
+        load_games_standard('conmebol', 'games/bolivia/%s' % year, root=CONMEBOL_DIR)
 
     for year in range(1997, 2013):
-        load_games_standard('conmebol', 'domestic/country/paraguay/%s' % year)
+        load_games_standard('conmebol', 'games/paraguay/%s' % year, root=CONMEBOL_DIR)
 
     for year in range(2012, 2012):
-        load_games_standard('conmebol', 'domestic/country/venezuela/%s' % year)
+        load_games_standard('conmebol', 'games/venezuela/%s' % year, root=CONMEBOL_DIR)
 
 
 def load_argentina():
     from soccerdata.text import awards
 
     generic_load(soccer_db.conmebol_awards, awards.process_argentina_awards)
-    #load_standings_standard('conmebol', 'domestic/country/argentina2')
-    load_standings_standard('conmebol', 'domestic/country/argentina')
+    #load_standings_standard('conmebol', 'standings/argentina2', root=CONMEBOL_DIR)
+    load_standings_standard('conmebol', 'standings/argentina', root=CONMEBOL_DIR)
 
     for year in range(1967, 1985):
-        load_games_standard('conmebol', 'domestic/country/argentina/city/%s' % year)
+        load_games_standard('conmebol', 'games/argentina/city/%s' % year, root=CONMEBOL_DIR)
 
     for year in range(1932, 2011):
-        load_games_standard('conmebol', 'domestic/country/argentina/leagues/%s' % year)
+        load_games_standard('conmebol', 'games/argentina/leagues/%s' % year, root=CONMEBOL_DIR)
 
 
 def load_brazil():
     from soccerdata.text import awards
 
-    load_standings_standard('conmebol', 'domestic/country/brazil')
+    load_standings_standard('conmebol', 'standings/brazil', root=CONMEBOL_DIR)
 
     generic_load(soccer_db.conmebol_awards, awards.process_brazil_awards)
 
     for e in range(1971, 2013):
-        load_games_standard('brazil', 'domestic/country/brazil/brasileiro/%s' % e)
+        load_games_standard('brazil', 'games/brazil/brasileiro/%s' % e, root=CONMEBOL_DIR)
 
 
     # state leagues.
 
     for year in range(1905, 2013):
-        load_games_standard('brazil', 'domestic/country/brazil/paulista/%s' % year)
+        load_games_standard('brazil', 'games/brazil/paulista/%s' % year, root=CONMEBOL_DIR)
 
     for year in range(1946, 2013):
-        load_games_standard('brazil', 'domestic/country/brazil/carioca/%s' % year)
+        load_games_standard('brazil', 'games/brazil/carioca/%s' % year, root=CONMEBOL_DIR)
 
     for year in range(1915, 1917):
-        load_games_standard('brazil', 'domestic/country/brazil/minas_gerais/%s' % year)
+        load_games_standard('brazil', 'games/brazil/minas_gerais/%s' % year, root=CONMEBOL_DIR)
 
     for year in range(2006, 2013):
-        load_games_standard('brazil', 'domestic/country/brazil/minas_gerais/%s' % year)
+        load_games_standard('brazil', 'games/brazil/minas_gerais/%s' % year, root=CONMEBOL_DIR)
 
     #for year in range(2011, 2013):
-    #    load_games_standard('brazil', 'domestic/country/brazil/gaucho/%s' % year)
+    #    load_games_standard('brazil', 'games/brazil/gaucho/%s' % year, root=CONMEBOL_DIR)
 
     return
 
     for year in range(2011, 2013):
-        load_games_standard('brazil', 'domestic/country/brazil/bahia/%s' % year)
+        load_games_standard('brazil', 'games/brazil/bahia/%s' % year, root=CONMEBOL_DIR)
 
     for year in range(2013, 2013):
-        load_games_standard('brazil', 'domestic/country/brazil/pernambuco/%s' % year)
+        load_games_standard('brazil', 'games/brazil/pernambuco/%s' % year, root=CONMEBOL_DIR)
 
     for year in range(2013, 2013):
-        load_games_standard('brazil', 'domestic/country/brazil/parana/%s' % year)
+        load_games_standard('brazil', 'games/brazil/parana/%s' % year, root=CONMEBOL_DIR)
 
     return
 
     for year in range(2013, 2013):
-        load_games_standard('brazil', 'domestic/country/brazil/santacatarina/%s' % year)
+        load_games_standard('brazil', 'games/brazil/santacatarina/%s' % year, root=CONMEBOL_DIR)
 
 
-    load_games_standard('brazil', 'domestic/country/brazil/friendly/botafogo')
+    load_games_standard('brazil', 'games/brazil/friendly/botafogo', root=CONMEBOL_DIR)
 
 
 def load_brazil_international():
@@ -1260,13 +1270,13 @@ def load_east_asia():
     generic_load(soccer_db.japan_awards, awards.process_japan_awards)
     generic_load(soccer_db.korea_awards, awards.process_korea_awards)
 
-    for e in range(2004, 2013):
+    for e in range(2004, 2014):
         load_games_standard('china', 'domestic/country/china/league/%s' % e)
 
-    for e in range(1997, 2011):
+    for e in range(1997, 2014):
         load_games_standard('japan', 'domestic/country/japan/%s' % e)
 
-    for e in range(1983, 2011):
+    for e in range(1983, 2014):
         load_games_standard('korea', 'domestic/country/korea/%s' % e)
 
 
