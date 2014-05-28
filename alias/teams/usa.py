@@ -978,7 +978,8 @@ usa = {
     #Jersey City (?x)
     #Maritimo XI (Newark)
     #Celtics FC (New Jersey)
-    'Trenton Americans': 'Trenton-Americans',
+    
+    'Trenton-Americans': 'Trenton Americans',
 
     'FC Porto (NJ)': 'New Jersey Porto',
     #Valenciano (NJ)
@@ -1522,7 +1523,7 @@ usa = {
     'Baltimore Canton': 'Baltimore Americans',
     'Baltimore German': 'Baltimore Americans',
     'Baltimore Germans': 'Baltimore Americans',
-    'Baltimore S.C.': 'Baltimore Americans',
+    #'Baltimore S.C.': 'Baltimore Americans',
     'Baltimore SC': 'Baltimore S.C.',
 
     'Baltimore St. Gerards': 'Baltimore Flyers', # denormalize

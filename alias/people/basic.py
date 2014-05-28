@@ -1,6 +1,23 @@
 
 basic = {
 
+    'Charlie Ducilli': 'Charles Ducilli',
+
+    'Frank Monteiga': 'Frank Manteiga', # unsure
+
+    'Gil "Dutch" Schuerholz': 'Dutch Schuerholz',
+    'Gil Schuerholz': 'Dutch Schuerholz',
+
+    'Ed McGarry': 'Eddie McGarry',
+
+    'Barnardo Barrio': 'Bernardo Barrio',
+
+    'Enrique Quinones': 'Enrico Quinones',
+    'Enriquo Quinones': 'Enrico Quinones',
+
+    'Bill Rush': 'William Rush',
+
+
     'Fikrejesus (Phil) Amahzion': 'Fikrejesus Amahzion',
 
     'Pascoal Pepe': 'Pasquale Pepe',
@@ -14,7 +31,16 @@ basic = {
 
     'Charley Mullen': 'Charles Mullen',
 
-    'Ted Swieconek': 'Ted Sweiconek',
+    
+    'Ted Sweiconek': 'Ted Swieconek',
+
+    'Eddie Milinowicz': 'Ed Milinowicz',
+
+    'John "Dutch" Christian': 'Dutch Christian',
+
+    'Val Misialoski': 'Val Misialowski',
+
+    'Alfred Burroughs': 'Al Burroughs',
 
     'Johnny Clark': 'John Clark',
 
@@ -62,6 +88,7 @@ basic = {
 
     'Leon Winterling': 'Leo Winterling',
 
+    'Charles "Chappie" Sheppell': 'Charlie Sheppell',
     'Charley "Chappie" Sheppell': 'Charlie Sheppell',
     'Charlie "Chappy" Sheppell': 'Charlie Sheppell',
     'Chappie Sheppell': 'Charlie Sheppell',
