@@ -427,8 +427,12 @@ def normalize_standing(e):
 
     e['competition'] = get_competition(e['competition'])
     e['season'] = get_season(e['season'])
+    
+    try:
+        e['team'] = get_team(e['team'])
+    except:
+        import pdb; pdb.set_trace()
 
-    e['team'] = get_team(e['team'])
     e['team'] = separate_team(e['team'], e)
 
     if 'games' not in e:
