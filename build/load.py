@@ -162,14 +162,20 @@ def load_extra():
 
 
 def load_games():  
+
     load_indoor()
-    load_domestic()
     return
+
+    load_domestic()
     load_international()
+
+
+    load_amateur()
+
     load_women()
 
-    load_ncaa()
-    load_other()
+    load_friendly()
+    load_outer()
 
 
 
@@ -183,7 +189,6 @@ def load_international():
     load_conmebol_international()
     load_concacaf_international()
     load_oceania_international()
-
     load_asia_international()
     load_africa_international()
 
@@ -191,73 +196,33 @@ def load_international():
 
 def load_domestic():
 
+    # United states
+    load_usd1()
     load_us_minor()
-
-
-    return
-
-    load_conmebol_leagues()
-
-
-
-    load_nafbl()
-    load_alpf()
-
-    load_uefa()
-    load_canada()
-    load_world()
-    load_afc()
-    load_uncaf()
-    load_uefa_leagues()
-
-
-    #load_mediotiempo()    
-
-
-
-    load_cfu()
-
-    load_concacaf()
-
-
-    load_asl()  
-    load_asl2()           
-
     load_us_cups()
-
-
-    load_conmebol()
-
-    load_mexico()
-
-    load_isl2()
-    load_caf()
-
-
-    # modern (mostly)
-    load_oceania()
-
-    # historical
-
-    load_mls() 
-
-    load_nasl() 
-
-
-
-
-def load_other():    
-
-    #load_ltrack()
     load_city()
 
-    load_early_friendlies()
-    load_modern_friendlies()
+    # international
+    load_world()
+    load_concacaf()
+    load_conmebol()
+    load_afc()
+    load_uefa()
+    load_caf()
+    load_ofc()
 
-    load_ny()
 
+def load_usd1():
+    load_alpf()
+    load_asl()
+    load_nasl()
+    load_mls()
+
+
+def load_outer():
     load_fifa()
-
+    load_ltrack()
+    #load_mediotiempo()    
 
 
 def load_mediotiempo():
@@ -447,6 +412,8 @@ def load_uefa():
         load_games_standard('uefa', 'domestic/confederation/uefa/champions/%s' % e)
 
     load_games_standard('uefa', 'domestic/confederation/uefa/super')
+
+    load_uefa_leagues()
 
 
 
@@ -980,21 +947,31 @@ def load_nafbl():
 def load_city():
     from soccerdata.text import awards
 
+    load_new_york()
+    load_st_louis()
+
     #load_games_standard('city', 'city')
-    #load_sd_excel_standings('city', 'domestic/city/slsl')
-    #load_sd_excel_standings('city', 'domestic/city/cosmo')
     #generic_load(soccer_db.city_awards, awards.process_chicago_awards, delete=False)
 
 
-def load_ny():
+def load_new_york():
     from soccerdata.text import awards
 
     #load_games_standard('state', 'domestic/country/usa/leagues/regional/metropolitan')
     #load_games_standard('state', 'domestic/country/usa/friendly/1900_ny')
     generic_load(soccer_db.state_awards, awards.process_ny_awards, delete=False)
+    #load_sd_excel_standings('city', 'domestic/city/cosmo')
+
+def load_st_louis():
+    #load_sd_excel_standings('city', 'domestic/city/slsl')
+    pass
 
 
-def load_early_friendlies():
+def load_friendly():
+    load_early_friendly()
+    load_modern_friendly()
+
+def load_early_friendly():
 
     for e in range(1865, 1891, 5):
         load_games_standard('us_friendly', 'domestic/country/usa/friendly/%s' % e)
@@ -1003,7 +980,7 @@ def load_early_friendlies():
         load_games_standard('us_friendly', 'domestic/country/usa/friendly/%s' % e)
 
 
-def load_modern_friendlies():
+def load_modern_friendly():
 
     load_games_standard('us_friendly', 'games/misc/bicentennial', root=INTERNATIONAL_DIR)
 
@@ -1210,6 +1187,11 @@ def load_indoor():
     """
     Load stats and games from the MISL, standings from MISL, APSL and WSA.
     """
+
+    from soccerdata.text import awards
+
+    generic_load(soccer_db.indoor_awards, awards.process_indoor_awards)
+
     # standings
 
     load_standings_standard('indoor', 'data/standings/nasl', root=INDOOR_DIR)
@@ -1302,7 +1284,8 @@ def load_us_minor():
     from soccerdata.text import awards
     from soccerdata.text.cmp import nasl2
 
-
+    load_nafbl()
+    load_asl2()
     load_apsl()
     load_pdl()
 
@@ -1367,7 +1350,7 @@ def load_afc():
     #load_standings_standard('china', 'standings/uae', root=AFC_DIR)
     #load_standings_standard('china', 'standings/uzbekistan', root=AFC_DIR)
 
-    #load_standings_standard('china', 'standings/india', root=AFC_DIR)
+    load_standings_standard('china', 'standings/india', root=AFC_DIR)
 
     load_australia()    
     load_east_asia()
@@ -1433,7 +1416,7 @@ def load_australia():
 
     load_standings_standard('australia', 'standings/australia', root=AFC_DIR)
 
-    for season in range(2005, 2013):
+    for season in range(2005, 2014):
         load_games_standard('australia', 'games/australia/league/%s' % season, root=AFC_DIR)
 
     load_games_standard('australia', 'games/australia/playoffs', root=AFC_DIR)
@@ -1512,7 +1495,7 @@ def load_mexico():
     load_games_standard('mexico', 'domestic/country/mexico/friendly/veracruz')
 
 
-def load_oceania():
+def load_ofc():
     load_games_standard('oceania', 'domestic/confederation/ofc/wantok')
 
 
@@ -1576,6 +1559,8 @@ def load_mixed_confederation():
 
 def load_conmebol():
     from soccerdata.text import awards
+
+    load_conmebol_leagues()
 
     generic_load(soccer_db.conmebol_awards, awards.process_conmebol_awards)
 
@@ -1730,6 +1715,7 @@ def load_world():
     generic_load(soccer_db.world_awards, awards.process_world_awards)
 
 
+
     load_mixed_confederation()
 
     # Club World Cup
@@ -1743,6 +1729,8 @@ def load_world():
 
     generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(ROOT_DIR, 'soccerdata/data/rosters/domestic/copita')))
     
+
+    load_isl2()
 
     #load_games_standard('world', 'domestic/country/mexico/friendly/palmares')
 
@@ -1873,12 +1861,20 @@ def load_concacaf():
     load_games_standard('concacaf', 'domestic/confederation/concacaf/recopa')
     load_games_standard('concacaf', 'domestic/confederation/concacaf/superliga')
 
+    load_mexico()
+    load_canada()
+    load_cfu()
+    load_uncaf()
+
     for e in range(2008, 2014):
         load_games_standard('concacaf', 'domestic/confederation/concacaf/champions/league/%s' % e)
 
     for e in [1960, 1970, 1980, 1990, 2000]:
         load_games_standard('concacaf', 'domestic/confederation/concacaf/champions/%s' % e)
 
+
+def load_amateur():
+    load_ncaa()
 
 def load_ncaa():
     from soccerdata.text import awards
