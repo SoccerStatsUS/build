@@ -22,7 +22,9 @@ STANDINGS_DIR = os.path.join(ROOT_DIR, "soccerdata/data/standings")
 
 USD1_DIR = os.path.join(ROOT_DIR, 'usd1')
 ASL2_DIR = os.path.join(ROOT_DIR, 'asl2-data')
-INDOOR_DIR = os.path.join(ROOT_DIR, 'indoor')
+INDOOR_DIR = os.path.join(ROOT_DIR, 'indoor-data')
+
+US_MINOR_DIR = os.path.join(ROOT_DIR, 'us-minor-data')
 
 UEFA_DIR = os.path.join(ROOT_DIR, 'uefa-data')
 CONMEBOL_DIR = os.path.join(ROOT_DIR, 'conmebol-data')
@@ -35,7 +37,9 @@ NWSL_DIR = os.path.join(ROOT_DIR, 'nwsl-data')
 CUPS_DIR = os.path.join(ROOT_DIR, 'us-cups')
 ISL_DIR = os.path.join(ROOT_DIR, 'isl-data')
 
-STATS_DIR = os.path.join(ROOT_DIR, "soccerdata/data/stats")
+INTERNATIONAL_DIR = os.path.join(ROOT_DIR, 'international-data')
+
+#STATS_DIR = os.path.join(ROOT_DIR, "soccerdata/data/stats")
 
 
 def clear_all():
@@ -123,7 +127,7 @@ def load():
 
     load_competitions()
 
-    load_transactions()
+
 
     load_teams()
 
@@ -135,6 +139,7 @@ def load():
     load_games(); return 
 
     load_bios()
+    load_transactions()
     load_extra()
 
     load_games()
@@ -157,14 +162,13 @@ def load_extra():
 
 
 def load_games():  
-
-
     load_domestic()
-
-    return
-    load_women()
     load_international()
+    load_women()
+    load_indoor()
+    load_ncaa()
     load_other()
+
 
 
 
@@ -186,72 +190,41 @@ def load_international():
 def load_domestic():
 
 
+
+
+
+    load_nafbl()
+    load_alpf()
+
+    load_uefa()
+    load_canada()
+    load_world()
+    load_afc()
+    load_uncaf()
     load_uefa_leagues()
-    return
-    load_africa()
+
+
+    #load_mediotiempo()    
+
+
+
     load_cfu()
 
-    load_asia()
-
-
-    load_uncaf()
+    load_concacaf()
     load_conmebol_leagues()
-
-
-
-    return
 
     load_asl()  
     load_asl2()           
-
 
     load_us_cups()
 
 
     load_conmebol()
 
-
-
     load_mexico()
 
-    return
     load_isl2()
-
-
-
-
-    load_nafbl()
-
-    load_alpf()
-    load_mls() 
-
-
-
-
-
-
-    load_concacaf()
-
-    load_us_minor()
-
-    load_uefa()
-    load_nasl() 
-
-    load_canada()
-
-
-    load_world()
-
-
-
-
-
-
-
-
-    #load_mediotiempo()    
-    load_australia()    
-
+    load_caf()
 
 
     # modern (mostly)
@@ -259,18 +232,24 @@ def load_domestic():
 
     # historical
 
+    load_mls() 
+    load_us_minor()
+    load_nasl() 
+
+
 
 
 def load_other():    
-    load_ltrack()
-    load_fifa()
-    #load_ncaa()
-    load_indoor()
+
+    #load_ltrack()
     load_city()
-    load_modern_friendlies()
+
     load_early_friendlies()
+    load_modern_friendlies()
 
     load_ny()
+
+    load_fifa()
 
 
 
@@ -389,17 +368,17 @@ def load_us_cups():
 def load_canada():
     from soccerdata.text import awards, partial
 
-    load_standings_standard('canada', 'domestic/country/canada/csl1')
-    load_standings_standard('canada', 'domestic/country/canada/cnsl')
-    load_sd_excel_standings('canada', 'domestic/country/canada/csl')
+    #load_standings_standard('canada', 'domestic/country/canada/csl1')
+    #load_standings_standard('canada', 'domestic/country/canada/cnsl')
+    #load_sd_excel_standings('canada', 'domestic/country/canada/csl')
     
-    load_games_standard('canada', 'domestic/country/canada/cups/championship')
-    load_games_standard('canada', 'domestic/country/canada/cups/early')
+    #load_games_standard('canada', 'domestic/country/canada/cups/championship')
+    #load_games_standard('canada', 'domestic/country/canada/cups/early')
 
-    load_games_standard('canada', 'domestic/country/canada/friendly/1')
-    load_games_standard('canada', 'domestic/country/canada/friendly/friendly2')
-    load_games_standard('canada', 'domestic/country/canada/friendly/toronto')
-    load_games_standard('canada', 'domestic/country/canada/friendly/vancouver')
+    #load_games_standard('canada', 'domestic/country/canada/friendly/1')
+    #load_games_standard('canada', 'domestic/country/canada/friendly/friendly2')
+    #load_games_standard('canada', 'domestic/country/canada/friendly/toronto')
+    #load_games_standard('canada', 'domestic/country/canada/friendly/vancouver')
 
     generic_load(soccer_db.canada_stats, partial.process_csl_partial)
 
@@ -437,20 +416,23 @@ def load_uncaf():
     for e in range(1996, 2014):
         load_games_standard('uncaf', 'games/honduras/%s' % e, root=CONCACAF_DIR)
 
-    for e in range(2003, 2014):
+    for e in range(1997, 2014):
         load_games_standard('uncaf', 'games/costa_rica/league/%s' % e, root=CONCACAF_DIR)
 
-    for e in range(2000, 2014):
+    for e in range(1998, 2014):
         load_games_standard('uncaf', 'games/panama/%s' % e, root=CONCACAF_DIR)
 
     for e in range(2010, 2013):
         load_games_standard('uncaf', 'games/nicaragua/%s' % e, root=CONCACAF_DIR)
 
+    for e in range(2013, 2013):
+        load_games_standard('uncaf', 'games/belize/%s' % e, root=CONCACAF_DIR)
+
     load_games_standard('uncaf', 'domestic/confederation/concacaf/uncaf/fraternidad')
     load_games_standard('uncaf', 'domestic/confederation/concacaf/uncaf/torneograndes')
     load_games_standard('uncaf', 'domestic/confederation/concacaf/uncaf/interclube')
 
-    load_games_standard('uncaf', 'games/el_salvador/torneo', root=CONCACAF_DIR)
+    #load_games_standard('uncaf', 'games/el_salvador/torneo', root=CONCACAF_DIR)
 
 
 def load_uefa():
@@ -475,56 +457,54 @@ def load_uefa_leagues():
 
 
 
-def load_africa():
+def load_caf():
     from soccerdata.text import awards
 
+    load_standings_standard('uefa', 'standings/ghana', root=CAF_DIR)
+    load_standings_standard('uefa', 'standings/southafrica', root=CAF_DIR)
 
-    #load_standings_standard('uefa', 'games/south_africa', root=CAF_DIR)
-    #load_standings_standard('uefa', 'games/nigeria', root=CAF_DIR)
-    #load_standings_standard('uefa', 'games/cameroon', root=CAF_DIR)
-    #load_standings_standard('uefa', 'games/ghana', root=CAF_DIR)
-    #load_standings_standard('uefa', 'games/sudan', root=CAF_DIR)
-    #load_standings_standard('uefa', 'games/congo_dr', root=CAF_DIR)
-    #load_standings_standard('uefa', 'games/angola', root=CAF_DIR)
-    #load_standings_standard('uefa', 'games/cote_divoire', root=CAF_DIR)
-    #load_standings_standard('uefa', 'games/libya', root=CAF_DIR)
-    #load_standings_standard('uefa', 'games/zimbabwe', root=CAF_DIR)
+    #load_standings_standard('uefa', 'standings/nigeria', root=CAF_DIR)
+    #load_standings_standard('uefa', 'standings/cameroon', root=CAF_DIR)
 
-    for year in range(2007, 2011):
+    #load_standings_standard('uefa', 'standings/sudan', root=CAF_DIR)
+    #load_standings_standard('uefa', 'standings/congo_dr', root=CAF_DIR)
+
+    #load_standings_standard('uefa', 'standings/cote_divoire', root=CAF_DIR)
+
+
+    load_northern_africa()
+    load_southern_africa()
+
+    for year in range(2003, 2011):
         load_games_standard('uefa', 'games/nigeria/%s' % year, root=CAF_DIR)
 
-    for year in range(2009, 2009):
+    for year in range(2005, 2013):
         load_games_standard('uefa', 'games/ghana/%s' % year, root=CAF_DIR)
 
-    for year in range(2010, 2011):
+    for year in range(2009, 2014):
         load_games_standard('uefa', 'games/cameroon/%s' % year, root=CAF_DIR)
+
+    return
 
     for year in range(2010, 2010):
         load_games_standard('uefa', 'games/dr_congo/%s' % year, root=CAF_DIR)
 
-    for year in range(2010, 2010):
-        load_games_standard('uefa', 'games/angola/%s' % year, root=CAF_DIR)
+def load_northern_africa():
 
-    for year in range(2010, 2013):
-        load_games_standard('uefa', 'games/southafrica/%s' % year, root=CAF_DIR)
+    #load_standings_standard('uefa', 'standings/tunisia', root=CAF_DIR)
+    #load_standings_standard('uefa', 'standings/egypt', root=CAF_DIR)
+    #load_standings_standard('uefa', 'standings/algeria', root=CAF_DIR)
+    #load_standings_standard('uefa', 'standings/morocco', root=CAF_DIR)
+    #load_standings_standard('uefa', 'standings/libya', root=CAF_DIR)
 
-
-    lod_north_africa()
-
-
-def load_north_africa()
-
-    #load_standings_standard('uefa', 'games/tunisia', root=CAF_DIR)
-    #load_standings_standard('uefa', 'games/egypt', root=CAF_DIR)
-    #load_standings_standard('uefa', 'games/algeria', root=CAF_DIR)
-    #load_standings_standard('uefa', 'games/morocco', root=CAF_DIR)
-
-
-    for year in range(2013, 2013):
-        load_games_standard('uefa', 'games/tunisia/%s' % year, root=CAF_DIR)
+    for year in range(1994, 2014):
+        load_games_standard('uefa', 'games/algeria/%s' % year, root=CAF_DIR)
 
     for year in range(2006, 2014):
         load_games_standard('uefa', 'games/egypt/%s' % year, root=CAF_DIR)
+
+    for year in range(2013, 2013):
+        load_games_standard('uefa', 'games/tunisia/%s' % year, root=CAF_DIR)
 
     for year in range(2010, 2011):
         load_games_standard('uefa', 'games/morocco/%s' % year, root=CAF_DIR)
@@ -532,8 +512,26 @@ def load_north_africa()
     for year in range(2011, 2011):
         load_games_standard('uefa', 'games/libya/%s' % year, root=CAF_DIR)
 
-    for year in range(2005, 2012):
-        load_games_standard('uefa', 'games/algeria/%s' % year, root=CAF_DIR)
+
+
+def load_southern_africa():
+
+    #load_standings_standard('uefa', 'games/south_africa', root=CAF_DIR)
+    #load_standings_standard('uefa', 'games/angola', root=CAF_DIR)
+    #load_standings_standard('uefa', 'games/zimbabwe', root=CAF_DIR)
+    #load_standings_standard('uefa', 'games/zambia', root=CAF_DIR)
+
+    for year in range(2010, 2010):
+        load_games_standard('uefa', 'games/angola/%s' % year, root=CAF_DIR)
+
+    for year in range(2006, 2013):
+        load_games_standard('uefa', 'games/southafrica/%s' % year, root=CAF_DIR)
+
+    for year in range(2013, 2013):
+        load_games_standard('uefa', 'games/zambia/%s' % year, root=CAF_DIR)
+
+    for year in range(2010, 2010):
+        load_games_standard('uefa', 'games/zambia/%s' % year, root=CAF_DIR)
 
 
 def load_premier_league():
@@ -569,7 +567,7 @@ def load_uefa_major():
         load_games_standard('uefa', 'games/italy/%s' % year, root=UEFA_DIR)
 
     return
-    load_games_standard('mexico', 'games/spain/friendly/madrid')
+    load_games_standard('uefa', 'games/spain/friendly/madrid')
 
 
 
@@ -595,11 +593,16 @@ def load_uefa_mid():
     for year in range(1997, 2014):
         load_games_standard('uefa', 'games/belgium/%s' % year, root=UEFA_DIR)
 
-    for year in range(2003, 2014):
+    for year in range(1999, 2014):
         load_games_standard('uefa', 'games/russia/%s' % year, root=UEFA_DIR)
 
-    for year in range(2006, 2014):
+    for year in range(2000, 2014): # 1999
+    #for year in range(1997, 2014):
         load_games_standard('uefa', 'games/ukraine/%s' % year, root=UEFA_DIR)
+
+    for year in range(1990, 1990):
+        load_games_standard('uefa', 'games/ussr/%s' % year, root=UEFA_DIR)
+
 
 
 def load_scandinavia():
@@ -616,7 +619,7 @@ def load_scandinavia():
     for year in range(1999, 2014):
         load_games_standard('uefa', 'games/norway/%s' % year, root=UEFA_DIR)
 
-    for year in range(2001, 2014):
+    for year in range(1998, 2014):
         load_games_standard('uefa', 'games/sweden/%s' % year, root=UEFA_DIR)
 
     #for year in range(2012, 2012):
@@ -663,9 +666,8 @@ def load_uefa_minor():
     for year in range(1998, 2014):
         load_games_standard('uefa', 'games/austria/%s' % year, root=UEFA_DIR)
 
-    for year in range(2006, 2014):
+    for year in range(2000, 2014):
         load_games_standard('uefa', 'games/ireland/%s' % year, root=UEFA_DIR)
-
 
     return
 
@@ -675,22 +677,22 @@ def load_uefa_minor():
     for year in range(1997, 2013):
         load_games_standard('uefa', 'games/czech/%s' % year, root=UEFA_DIR)
 
+    for year in range(2005, 2012):
+        load_games_standard('uefa', 'games/greece/%s' % year, root=UEFA_DIR)
+
+    for year in range(1998, 2013):
+        load_games_standard('uefa', 'games/hungary/%s' % year, root=UEFA_DIR)
+
+    return
+
     for year in range(2008, 2011):
         load_games_standard('uefa', 'games/serbia/%s' % year, root=UEFA_DIR)
 
     for year in range(2012, 2013):
         load_games_standard('uefa', 'games/croatia/%s' % year, root=UEFA_DIR)
 
-    return
-
-    for year in range(2005, 2012):
-        load_games_standard('uefa', 'games/greece/%s' % year, root=UEFA_DIR)
-
     for year in range(2012, 2013):
         load_games_standard('uefa', 'games/cyprus/%s' % year, root=UEFA_DIR)
-
-
-    return
 
     for year in range(2013, 2013):
         load_games_standard('uefa', 'games/bosnia/%s' % year, root=UEFA_DIR)
@@ -700,13 +702,6 @@ def load_uefa_minor():
 
     for year in range(2012, 2013):
         load_games_standard('uefa', 'games/slovakia/%s' % year, root=UEFA_DIR)
-
-
-    return
-
-    for year in range(1998, 2013):
-        load_games_standard('uefa', 'games/hungary/%s' % year, root=UEFA_DIR)
-
 
     for year in range(2012, 2012):
         load_games_standard('uefa', 'games/bulgaria/%s' % year, root=UEFA_DIR)
@@ -725,8 +720,8 @@ def load_conmebol_minor():
     generic_load(soccer_db.conmebol_awards, awards.process_conmebol_league_awards)
 
     load_standings_standard('conmebol', 'standings/uruguay2', root=CONMEBOL_DIR)
-    load_standings_standard('conmebol', 'standings/chile2', root=CONMEBOL_DIR)
-    load_standings_standard('conmebol', 'standings/colombia3', root=CONMEBOL_DIR)
+    #load_standings_standard('conmebol', 'standings/chile2', root=CONMEBOL_DIR)
+    #load_standings_standard('conmebol', 'standings/colombia3', root=CONMEBOL_DIR)
     load_standings_standard('conmebol', 'standings/ecuador', root=CONMEBOL_DIR)
     load_standings_standard('conmebol', 'standings/peru', root=CONMEBOL_DIR)
     load_standings_standard('conmebol', 'standings/paraguay', root=CONMEBOL_DIR)
@@ -754,15 +749,15 @@ def load_conmebol_minor():
         load_games_standard('conmebol', 'games/ecuador/%s' % year, root=CONMEBOL_DIR)
 
     for year in range(1996, 2014):
-        load_games_standard('conmebol', 'games/peru/%s' % year, root=CONMEBOL_DIR)
+        load_games_standard('conmebol', 'games/bolivia/%s' % year, root=CONMEBOL_DIR)
 
     for year in range(1996, 2014):
-        load_games_standard('conmebol', 'games/bolivia/%s' % year, root=CONMEBOL_DIR)
+        load_games_standard('conmebol', 'games/peru/%s' % year, root=CONMEBOL_DIR)
 
     for year in range(1997, 2014):
         load_games_standard('conmebol', 'games/paraguay/%s' % year, root=CONMEBOL_DIR)
 
-    for year in range(2012, 2012):
+    for year in range(2012, 2014):
         load_games_standard('conmebol', 'games/venezuela/%s' % year, root=CONMEBOL_DIR)
 
 
@@ -802,8 +797,8 @@ def load_brazil():
     for year in range(1946, 2013):
         load_games_standard('brazil', 'games/brazil/carioca/%s' % year, root=CONMEBOL_DIR)
 
-    for year in range(1915, 1917):
-        load_games_standard('brazil', 'games/brazil/minas_gerais/%s' % year, root=CONMEBOL_DIR)
+    #for year in range(1915, 1917):
+    #    load_games_standard('brazil', 'games/brazil/minas_gerais/%s' % year, root=CONMEBOL_DIR)
 
     for year in range(2006, 2013):
         load_games_standard('brazil', 'games/brazil/minas_gerais/%s' % year, root=CONMEBOL_DIR)
@@ -834,16 +829,55 @@ def load_brazil():
 def load_brazil_international():
 
     for e in ['1906', '1914', '1923', '1934', '1939']:
-        load_games_standard('brazil', 'international/country/brazil/%s' % e)
+        load_games_standard('brazil', 'games/country/brazil/%s' % e, root=INTERNATIONAL_DIR)
 
 
 
 def load_women():
+    load_women_international()
+    load_women_domestic()
+
+
+def load_women_international():
+    pass
+
+
+def load_women_domestic():
     from soccerdata.text import awards
 
     generic_load(soccer_db.women_awards, awards.process_women_awards)
 
     WOMEN_ROOT = os.path.join(NWSL_DIR, 'data/games')
+
+    for e in range(2012, 2013):
+        load_games_standard('women', 'argentina/%s' % e, root=WOMEN_ROOT)
+
+    for e in range(2008, 2013):
+        load_games_standard('women', 'australia/%s' % e, root=WOMEN_ROOT)
+
+    load_games_standard('women', 'usa/wusa/wusa', root=WOMEN_ROOT)
+    load_games_standard('women', 'usa/nwsl/2013', root=WOMEN_ROOT)
+    load_games_standard('women', 'usa/nwsl/2014', root=WOMEN_ROOT)
+    load_games_standard('women', 'usa/wps/wps', root=WOMEN_ROOT)
+    load_games_standard('women', 'usa/wpsl/elite', root=WOMEN_ROOT)
+
+
+    nwsl_dir = os.path.join(ROOT_DIR, 'nwsl-data/data/stats')
+    nwsl_stats = stats.process_stats("nwsl/2013", root=nwsl_dir, delimiter=';')
+    generic_load(soccer_db.women_stats, nwsl_stats)
+
+    for e in ['usa/wusa', 'usa/wps', 'usa/wpsl_elite', 'usa/nwsl', 'sweden', 'france','usa/wsl']:
+        r = os.path.join(ROOT_DIR, 'nwsl-data/data/standings/')
+        load_standings_standard('women', e, root=r)
+
+    generic_load(soccer_db.women_rosters, lambda: flatten_lineups(soccer_db.women_lineups.find({'competition': 'Women\'s United Soccer Association'})))
+
+    #for e in range(2007, 2013):
+    #    load_games_standard('women', 'domestic/country/usa/leagues/women/wpsl/%s' % e)
+
+
+    # Europe
+
 
     for e in range(2000, 2005):
         load_games_standard('women', 'england/1/%s' % e, root=WOMEN_ROOT)
@@ -860,32 +894,6 @@ def load_women():
         load_games_standard('women', 'sweden/1/%s' % e, root=WOMEN_ROOT)
 
 
-
-    #for e in range(2012, 2013):
-    #    load_games_standard('women', 'argentina/%s' % e, root=WOMEN_ROOT)
-
-    for e in range(2008, 2013):
-        load_games_standard('women', 'australia/%s' % e, root=WOMEN_ROOT)
-
-    load_games_standard('women', 'usa/wusa/wusa', root=WOMEN_ROOT)
-    load_games_standard('women', 'usa/nwsl/2013', root=WOMEN_ROOT)
-    load_games_standard('women', 'usa/nwsl/2014', root=WOMEN_ROOT)
-    load_games_standard('women', 'usa/wps/wps', root=WOMEN_ROOT)
-    load_games_standard('women', 'usa/wpsl/elite', root=WOMEN_ROOT)
-
-
-    nwsl_dir = os.path.join(ROOT_DIR, 'nwsl-data/data/stats')
-    nwsl_stats = stats.process_stats("2013", source='nasljerseys.com', root=nwsl_dir, delimiter=';')
-    generic_load(soccer_db.women_stats, nwsl_stats)
-
-    for e in ['wusa', 'wps', 'wpsl_elite', 'nwsl', 'sweden', 'france','wsl']:
-        r = os.path.join(ROOT_DIR, 'nwsl-data/data/standings')
-        load_standings_standard('women', e, root=r)
-
-    generic_load(soccer_db.women_rosters, lambda: flatten_lineups(soccer_db.women_lineups.find({'competition': 'Women\'s United Soccer Association'})))
-
-    #for e in range(2007, 2013):
-    #    load_games_standard('women', 'domestic/country/usa/leagues/women/wpsl/%s' % e)
 
 
 
@@ -904,7 +912,7 @@ def load_mls():
 
     generic_load(soccer_db.mls_awards, awards.process_mls_awards)
 
-    load_standings_standard('mls', 'domestic/country/usa/mls')
+    load_standings_standard('mls', 'data/standings//mls', root=USD1_DIR)
 
     # Add rsssf games.
     for e in range(2001, 2001):
@@ -914,20 +922,19 @@ def load_mls():
 
     print("Loading MLS reserves data.")
     for e in [2005, 2006, 2007, 2008, 2011, 2012, 2013]:
-        load_games_standard('mls', 'domestic/country/usa/leagues/reserve/mls/%s' % e)
+        load_games_standard('mls', 'data/games/league/simple/reserve/mls/%s' % e, root=USD1_DIR)
 
 
     for e in ['1996.2010', '2011', '2012', '2013', '2014']:
-        r = os.path.join(ROOT_DIR, 'usd1/data/games/league/simple/mls')
-        load_games_standard('mls', str(e), root=r)
+        load_games_standard('mls', 'data/games/league/simple/mls/%s' % e, root=USD1_DIR)
 
 
-    load_games_standard('mls', os.path.join(ROOT_DIR, 'usd1/data/games/playoffs/mls'))
+    load_games_standard('mls', 'data/games/playoffs/mls', root=USD1_DIR)
 
     # Not loading 1996-2011 stats?
 
-    generic_load(soccer_db.mls_stats, stats.process_stats("data/stats/mls/2012", root=USD1_DIR, source='MLSSoccer.com'))
-    generic_load(soccer_db.mls_stats, stats.process_stats("data/stats/mls/2013", source='MLSSoccer.com', root=USD1_DIR, delimiter=';'))
+    generic_load(soccer_db.mls_stats, stats.process_stats("data/stats/mls/2012", source='MLSSoccer.com', root=USD1_DIR))
+    generic_load(soccer_db.mls_stats, stats.process_stats("data/stats/mls/2013", source='MLSSoccer.com', root=USD1_DIR))
 
     load_mls_lineup_db()
 
@@ -955,11 +962,11 @@ def load_nafbl():
 
     #load_sd_excel_standings('nafbl', 'domestic/country/usa/nasfl')
 
-    load_games_standard('nafbl', 'domestic/country/usa/leagues/regional/nafbl1')
-    load_games_standard('nafbl', 'domestic/country/usa/leagues/regional/nafbl2')
-    load_games_standard('nafbl', 'domestic/country/usa/leagues/regional/snesl')
-    load_games_standard('nafbl', 'domestic/country/usa/leagues/regional/nasfl')
-    load_games_standard('nafbl', 'domestic/country/usa/leagues/misc/isl') # ISL 1925?
+    load_games_standard('nafbl', 'games/regional/nafbl1', root=US_MINOR_DIR)
+    load_games_standard('nafbl', 'games/regional/nafbl2', root=US_MINOR_DIR)
+    load_games_standard('nafbl', 'games/regional/snesl', root=US_MINOR_DIR)
+    load_games_standard('nafbl', 'games/regional/nasfl', root=US_MINOR_DIR)
+    #load_games_standard('nafbl', 'games/misc/isl', root=US_MINOR_DIR)
 
 
 
@@ -967,16 +974,16 @@ def load_city():
     from soccerdata.text import awards
 
     #load_games_standard('city', 'city')
-    load_sd_excel_standings('city', 'domestic/city/slsl')
-    load_sd_excel_standings('city', 'domestic/city/cosmo')
+    #load_sd_excel_standings('city', 'domestic/city/slsl')
+    #load_sd_excel_standings('city', 'domestic/city/cosmo')
     #generic_load(soccer_db.city_awards, awards.process_chicago_awards, delete=False)
 
 
 def load_ny():
     from soccerdata.text import awards
 
-    load_games_standard('state', 'domestic/country/usa/leagues/regional/metropolitan')
-    load_games_standard('state', 'domestic/country/usa/friendly/1900_ny')
+    #load_games_standard('state', 'domestic/country/usa/leagues/regional/metropolitan')
+    #load_games_standard('state', 'domestic/country/usa/friendly/1900_ny')
     generic_load(soccer_db.state_awards, awards.process_ny_awards, delete=False)
 
 
@@ -991,7 +998,7 @@ def load_early_friendlies():
 
 def load_modern_friendlies():
 
-    load_games_standard('us_friendly', 'international/misc/bicentennial')
+    load_games_standard('us_friendly', 'games/misc/bicentennial', root=INTERNATIONAL_DIR)
 
     load_games_standard('us_friendly', 'domestic/country/usa/friendly/carolina')
     load_games_standard('us_friendly', 'domestic/country/usa/friendly/dynamo')
@@ -1068,8 +1075,8 @@ def load_copa_america():
     generic_load(soccer_db['%s_fouls' % coll], lambda: fouls, delete=False)
     generic_load(soccer_db['%s_goals' % coll], lambda: goals, delete=False)
 
-    generic_load(soccer_db.conmebol_i_rosters, lambda: rosters.process_rosters('international/copa_america'))
-    load_games_standard('conmebol_i', 'international/confederation/conmebol/copa_america/stadia')
+    generic_load(soccer_db.conmebol_i_rosters, lambda: rosters.process_rosters('rosters/copa_america', root=INTERNATIONAL_DIR))
+    load_games_standard('conmebol_i', 'games/confederation/conmebol/copa_america/stadia',  root=INTERNATIONAL_DIR)
 
     
 def load_asl():
@@ -1131,6 +1138,7 @@ def load_nasl():
     generic_load(soccer_db.nasl_awards, awards.process_usa_awards)
     generic_load(soccer_db.nasl_awards, awards.process_npsl_awards)
     generic_load(soccer_db.nasl_rosters, lambda: rosters.process_rosters2(os.path.join(ROOT_DIR, 'usd1/data/rosters/nasl')))
+
     generic_load(soccer_db.nasl_stats, stats.process_stats("data/stats/nasl", source='nasljerseys.com', root=USD1_DIR))
 
 
@@ -1163,18 +1171,19 @@ def load_apsl():
     from soccerdata.text.cmp import apsl
 
     print("loading apsl stats")
-    apsl_stats = apsl.process_apsl_stats()
-
+    #apsl_stats = apsl.process_apsl_stats()
+    #generic_load(soccer_db.us_d2_stats, apsl_stats)
+    #generic_load(soccer_db.us_d2_rosters, flatten_stats(apsl_stats))
     # lambdas...
-    generic_load(soccer_db.us_d2_stats, apsl_stats)
-    generic_load(soccer_db.us_d2_rosters, flatten_stats(apsl_stats))
+    
+
 
     print("loading apsl partial stats")
     generic_load(soccer_db.us_d2_stats, partial.process_apsl_partial)
 
     generic_load(soccer_db.us_d2_awards, awards.process_apsl_awards)
 
-    load_sd_excel_standings('us_d2', 'domestic/country/usa/apsl')
+    #load_sd_excel_standings('us_d2', 'domestic/country/usa/apsl')
 
 
 
@@ -1187,12 +1196,12 @@ def load_apsl():
     #generic_load(soccer_db.us_d2_games, apsl.process_apsl_scores)
     #load_games_standard('us_d2', 'domestic/country/usa/leagues/wsa3')
 
-    load_games_standard('us_d2', 'domestic/country/usa/leagues/d2/apsl')
-    load_games_standard('us_d2', 'domestic/country/usa/leagues/d3/wsa4')
+    #load_games_standard('us_d2', 'domestic/country/usa/leagues/d2/apsl')
+    #load_games_standard('us_d2', 'domestic/country/usa/leagues/d3/wsa4')
 
-    load_games_standard('us_d2', 'domestic/country/usa/playoffs/apsl')
-    load_games_standard('us_d2', 'domestic/country/usa/playoffs/wsa')
-    load_games_standard('us_d2', 'domestic/country/usa/cups/apsl_professional')
+    #load_games_standard('us_d2', 'domestic/country/usa/playoffs/apsl')
+    #load_games_standard('us_d2', 'domestic/country/usa/playoffs/wsa')
+    #load_games_standard('us_d2', 'domestic/country/usa/cups/apsl_professional')
 
 
 def load_indoor():
@@ -1200,11 +1209,48 @@ def load_indoor():
     Load stats and games from the MISL, standings from MISL, APSL and WSA.
     """
 
-    load_sd_excel_standings('indoor', 'indoor/all')
-    load_sd_excel_standings('indoor', 'indoor/misl')
+    load_standings_standard('indoor', 'data/standings/nasl', root=INDOOR_DIR)
+    load_standings_standard('indoor', 'data/standings/misl', root=INDOOR_DIR)
+    #load_standings_standard('indoor', 'data/standings/misl2', root=INDOOR_DIR)
+    #load_standings_standard('indoor', 'data/standings/aisa', root=INDOOR_DIR)
+    #load_standings_standard('indoor', 'data/standings/npsl', root=INDOOR_DIR)
+    load_standings_standard('indoor', 'data/standings/cisl', root=INDOOR_DIR)
+    load_standings_standard('indoor', 'data/standings/eisl', root=INDOOR_DIR)
+    #load_standings_standard('indoor', 'data/standings/misl3', root=INDOOR_DIR)
+    #load_standings_standard('indoor', 'data/standings/usl', root=INDOOR_DIR)
+    #load_standings_standard('indoor', 'data/standings/pasl', root=INDOOR_DIR)
+
 
     #print("Loading MISL stats.")
-    #generic_load(soccer_db.indoor_stats, stats.process_stats("indoor/misl", source='nasljerseys.com', root=INDOOR_DIR))
+    #generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/nasl", source='nasljerseys.com', root=INDOOR_DIR))
+
+
+    #generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/cisl", source='nasljerseys.com', root=INDOOR_DIR))
+    #generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/misl3", source='nasljerseys.com', root=INDOOR_DIR))
+    #generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/pasl", source='nasljerseys.com', root=INDOOR_DIR))
+
+    for e in range(2013, 2013):
+        load_games_standard('indoor', 'games/nasl/%s' % e, root=INDOOR_DIR)
+
+    for e in range(2013, 2013):
+        load_games_standard('indoor', 'games/misl/%s' % e, root=INDOOR_DIR)
+
+    for e in range(2013, 2013):
+        load_games_standard('indoor', 'games/misl3/%s' % e, root=INDOOR_DIR)
+
+    #for e in range(2013, 2013):
+    #    load_games_standard('indoor', 'games/pasl/%s' % e, root=INDOOR_DIR)
+
+
+    generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/misl/misl", source='nasljerseys.com', root=INDOOR_DIR))
+    generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/misl2", source='nasljerseys.com', root=INDOOR_DIR))
+    generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/misl3", source='nasljerseys.com', root=INDOOR_DIR))
+    generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/cisl", source='nasljerseys.com', root=INDOOR_DIR))
+    generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/aisa", source='nasljerseys.com', root=INDOOR_DIR))
+    generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/wisl", source='nasljerseys.com', root=INDOOR_DIR))
+    generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/npsl", source='nasljerseys.com', root=INDOOR_DIR))
+
+
 
 
 
@@ -1226,13 +1272,13 @@ def load_pdl():
     from soccerdata.text.cmp import pdl
     from soccerdata.text import awards
 
-    load_sd_excel_standings('us_d4', 'domestic/country/usa/usl/pdl')
+    #load_sd_excel_standings('us_d4', 'domestic/country/usa/usl/pdl')
     generic_load(soccer_db.us_d4_awards, awards.process_pdl_awards)
     generic_load(soccer_db.us_d4_stats, process_pdl_stats)
-    generic_load(soccer_db.us_d4_games, pdl.load_pdl_games)
+    #generic_load(soccer_db.us_d4_games, pdl.load_pdl_games)
 
-    load_standings_standard('us_d2', 'domestic/country/usa/usl/pdl_2012')
-    load_standings_standard('us_d2', 'domestic/country/usa/usl/pdl_2013')
+    #load_standings_standard('us_d2', 'domestic/country/usa/usl/pdl_2012')
+    #load_standings_standard('us_d2', 'domestic/country/usa/usl/pdl_2013')
 
 
 def load_us_minor():
@@ -1266,37 +1312,37 @@ def load_us_minor():
     generic_load(soccer_db.us_d2_stats, process_usl1_stats)
     generic_load(soccer_db.us_d2_stats, process_usl2_stats)
 
-    load_sd_excel_standings('us_d2', 'domestic/country/usa/usl/12') # split
+    #load_sd_excel_standings('us_d2', 'domestic/country/usa/usl/12') # split
 
-    load_standings_standard('us_d2', 'domestic/country/usa/usl/usl0')
-    load_standings_standard('us_d2', 'domestic/country/usa/ussf2')
-    load_standings_standard('us_d2', 'domestic/country/usa/nasl2')
+    #load_standings_standard('us_d2', 'domestic/country/usa/usl/usl0')
+    #load_standings_standard('us_d2', 'domestic/country/usa/ussf2')
+    #load_standings_standard('us_d2', 'domestic/country/usa/nasl2')
 
-    load_games_standard('us_d2', 'domestic/country/usa/leagues/d2/usl1')
-    load_games_standard('us_d2', 'domestic/country/usa/leagues/d2/ussfd2')
-    load_games_standard('us_d2', 'domestic/country/usa/leagues/d2/nasl/2011')
-    load_games_standard('us_d2', 'domestic/country/usa/leagues/d2/nasl/2012')
-    load_games_standard('us_d2', 'domestic/country/usa/leagues/d2/nasl/2013')
+    load_games_standard('us_d2', 'games/d2/usl1', root=US_MINOR_DIR)
+    load_games_standard('us_d2', 'games/d2/ussfd2', root=US_MINOR_DIR)
+    load_games_standard('us_d2', 'games/d2/nasl/2011', root=US_MINOR_DIR)
+    load_games_standard('us_d2', 'games/d2/nasl/2012', root=US_MINOR_DIR)
+    load_games_standard('us_d2', 'games/d2/nasl/2013', root=US_MINOR_DIR)
 
-    load_games_standard('us_d2', 'domestic/country/usa/playoffs/usl1')
-    load_games_standard('us_d2', 'domestic/country/usa/playoffs/nasl2')
+    load_games_standard('us_d2', 'games/playoffs/usl1', root=US_MINOR_DIR)
+    load_games_standard('us_d2', 'games/playoffs/nasl2', root=US_MINOR_DIR)
 
     # Division 3
-    load_sd_excel_standings('us_d3', 'domestic/country/usa/usl/pro') # 2 or 3?
-    load_sd_excel_standings('us_d3', 'domestic/country/usa/usl/premier')
+    #load_sd_excel_standings('us_d3', 'domestic/country/usa/usl/pro') # 2 or 3?
+    #load_sd_excel_standings('us_d3', 'domestic/country/usa/usl/premier')
 
-    load_sd_excel_standings('us_d3', 'domestic/country/usa/usl/usisl')
+    #load_sd_excel_standings('us_d3', 'domestic/country/usa/usl/usisl')
 
-    load_standings_standard('us_d3', 'domestic/country/usa/usl/usl_pro')
-    load_standings_standard('us_d3', 'domestic/country/usa/usl/select') # 2 or 3?
+    #load_standings_standard('us_d3', 'domestic/country/usa/usl/usl_pro')
+    #load_standings_standard('us_d3', 'domestic/country/usa/usl/select') # 2 or 3?
 
-    for e in range(2003, 2014):
-        load_games_standard('us_d3', 'domestic/country/usa/leagues/d3/%s' % e)
-    load_games_standard('us_d3', 'domestic/country/usa/playoffs/usl2')
+    #for e in range(2003, 2014):
+    #    load_games_standard('us_d3', 'domestic/country/usa/leagues/d3/%s' % e)
+    #load_games_standard('us_d3', 'domestic/country/usa/playoffs/usl2')
 
 
 
-def load_asia():
+def load_afc():
 
     #load_standings_standard('china', 'standings/iran', root=AFC_DIR)
     #load_standings_standard('china', 'standings/iraq', root=AFC_DIR)
@@ -1307,29 +1353,28 @@ def load_asia():
 
     #load_standings_standard('china', 'standings/india', root=AFC_DIR)
 
-    for e in range(2009, 2013):
+    load_australia()    
+    load_east_asia()
+
+
+    for e in range(2001, 2013):
         load_games_standard('japan', 'games/iran/%s' % e, root=AFC_DIR)
 
     for e in range(2011, 2014):
         load_games_standard('japan', 'games/india/%s' % e, root=AFC_DIR)
 
-    for e in range(2013, 2013):
+    for e in range(2010, 2014):
         load_games_standard('japan', 'games/uzbekistan/%s' % e, root=AFC_DIR)
 
-
-
-    for e in range(2011, 2014):
+    for e in range(2003, 2014):
         load_games_standard('japan', 'games/saudi_arabia/%s' % e, root=AFC_DIR)
 
-    for e in range(2009, 2010):
+    for e in range(2005, 2010):
         load_games_standard('japan', 'games/uae/%s' % e, root=AFC_DIR)
 
-
-    for e in range(2009, 2009):
+    for e in range(1997, 2010):
         load_games_standard('japan', 'games/qatar/%s' % e, root=AFC_DIR)
 
-
-    load_east_asia()
 
 def load_east_asia():
     from soccerdata.text import awards
@@ -1355,7 +1400,7 @@ def load_east_asia():
     for e in range(1983, 2014):
         load_games_standard('korea', 'games/korea/%s' % e, root=AFC_DIR)
 
-    for e in range(2012, 2012):
+    for e in range(2011, 2012):
         load_games_standard('japan', 'games/vietnam/%s' % e, root=AFC_DIR)
 
     for e in range(2012, 2012):
@@ -1365,13 +1410,12 @@ def load_east_asia():
         load_games_standard('japan', 'games/indonesia/%s' % e, root=AFC_DIR)
 
 
-
 def load_australia():
     from soccerdata.text import awards
 
     generic_load(soccer_db.australia_awards, awards.process_australia_awards)
 
-    load_standings_standard('australia', 'games/australia', root=AFC_DIR)
+    load_standings_standard('australia', 'standings/australia', root=AFC_DIR)
 
     for season in range(2005, 2013):
         load_games_standard('australia', 'games/australia/league/%s' % season, root=AFC_DIR)
@@ -1459,48 +1503,48 @@ def load_oceania():
 def load_oceania_international():
 
     for e in range(1986, 2018, 4):
-        load_games_standard('oceania_i', 'international/confederation/ofc/wcq/%s' % e)
+        load_games_standard('oceania_i', 'games/confederation/ofc/wcq/%s' % e, root=INTERNATIONAL_DIR)
 
-    load_games_standard('oceania_i', 'international/confederation/ofc/melanesia')
-    load_games_standard('oceania_i', 'international/confederation/ofc/polynesia')
-    load_games_standard('oceania_i', 'international/confederation/ofc/nations')
+    load_games_standard('oceania_i', 'games/confederation/ofc/cups/melanesia', root=INTERNATIONAL_DIR)
+    load_games_standard('oceania_i', 'games/confederation/ofc/cups/polynesia', root=INTERNATIONAL_DIR)
+    load_games_standard('oceania_i', 'games/confederation/ofc/cups/nations', root=INTERNATIONAL_DIR)
 
 
 def load_uefa_international():
-    load_games_standard('uefa_i', 'international/country/france')
-    #load_games_standard('uefa_i', 'international/country/slovenia')
+    load_games_standard('uefa_i', 'games/country/france', root=INTERNATIONAL_DIR)
+    #load_games_standard('uefa_i', 'games/country/slovenia', root=INTERNATIONAL_DIR)
 
-    #load_games_standard('uefa_i', 'international/country/netherlands')
-    #load_games_standard('uefa_i', 'international/country/belgium')
-    #load_games_standard('uefa_i', 'international/country/austria')
-    #load_games_standard('uefa_i', 'international/country/hungary')
+    #load_games_standard('uefa_i', 'games/country/netherlands', root=INTERNATIONAL_DIR)
+    #load_games_standard('uefa_i', 'games/country/belgium', root=INTERNATIONAL_DIR)
+    #load_games_standard('uefa_i', 'games/country/austria', root=INTERNATIONAL_DIR)
+    #load_games_standard('uefa_i', 'games/country/hungary', root=INTERNATIONAL_DIR)
 
     return
 
-    load_games_standard('uefa_i', 'international/country/germany')
-    load_games_standard('uefa_i', 'international/country/spain')
-    load_games_standard('uefa_i', 'international/country/italy')
-    load_games_standard('uefa_i', 'international/country/sweden')
-    load_games_standard('uefa_i', 'international/country/norway')
-    load_games_standard('uefa_i', 'international/country/denmark')
-    load_games_standard('uefa_i', 'international/country/portugal')
+    load_games_standard('uefa_i', 'games/country/germany', root=INTERNATIONAL_DIR)
+    load_games_standard('uefa_i', 'games/country/spain', root=INTERNATIONAL_DIR)
+    load_games_standard('uefa_i', 'games/country/italy', root=INTERNATIONAL_DIR)
+    load_games_standard('uefa_i', 'games/country/sweden', root=INTERNATIONAL_DIR)
+    load_games_standard('uefa_i', 'games/country/norway', root=INTERNATIONAL_DIR)
+    load_games_standard('uefa_i', 'games/country/denmark', root=INTERNATIONAL_DIR)
+    load_games_standard('uefa_i', 'games/country/portugal', root=INTERNATIONAL_DIR)
 
 
 
 def load_asia_international():
     return
-    load_games_standard('afc_i', 'international/country/south_korea')
-    load_games_standard('afc_i', 'international/country/north_korea')
+    load_games_standard('afc_i', 'games/country/south_korea', root=INTERNATIONAL_DIR)
+    load_games_standard('afc_i', 'games/country/north_korea', root=INTERNATIONAL_DIR)
 
     for e in range(195, 201):
-        load_games_standard('afc_i', 'international/country/japan/%s0' % e)
+        load_games_standard('afc_i', 'games/country/japan/%s0' % e, root=INTERNATIONAL_DIR)
 
 
 def load_africa_international():
     return
-    load_games_standard('caf_i', 'international/country/nigeria')
-    load_games_standard('caf_i', 'international/country/cameroon')
-    load_games_standard('caf_i', 'international/country/ghana')
+    load_games_standard('caf_i', 'games/country/nigeria', root=INTERNATIONAL_DIR)
+    load_games_standard('caf_i', 'games/country/cameroon', root=INTERNATIONAL_DIR)
+    load_games_standard('caf_i', 'games/country/ghana', root=INTERNATIONAL_DIR)
 
 
 def load_mixed_confederation():
@@ -1550,28 +1594,28 @@ def load_conmebol_international():
     generic_load(soccer_db.conmebol_i_awards, awards.process_conmebol_international_awards)
 
     for year in range(1958, 2015, 4):
-        load_games_standard('conmebol_i', 'international/confederation/conmebol/wcq/%s' % year)
+        load_games_standard('conmebol_i', 'games/confederation/conmebol/wcq/%s' % year, root=INTERNATIONAL_DIR)
 
     load_copa_america()
 
-    load_games_standard('conmebol_i', 'international/confederation/conmebol/early_south_america')
-    load_games_standard('conmebol_i', 'international/confederation/conmebol/copa_premio_honor')
-    load_games_standard('conmebol_i', 'international/confederation/conmebol/copa_del_atlantico')
-    load_games_standard('conmebol_i', 'international/confederation/conmebol/copa_newton')
-    load_games_standard('conmebol_i', 'international/confederation/conmebol/copa_lipton')
-    load_games_standard('conmebol_i', 'international/confederation/conmebol/copa_mayo')
+    load_games_standard('conmebol_i', 'games/confederation/conmebol/early/sa', root=INTERNATIONAL_DIR)
+    load_games_standard('conmebol_i', 'games/confederation/conmebol/early/premio', root=INTERNATIONAL_DIR)
+    load_games_standard('conmebol_i', 'games/confederation/conmebol/early/atlantico', root=INTERNATIONAL_DIR)
+    load_games_standard('conmebol_i', 'games/confederation/conmebol/early/newton', root=INTERNATIONAL_DIR)
+    load_games_standard('conmebol_i', 'games/confederation/conmebol/early/lipton', root=INTERNATIONAL_DIR)
+    load_games_standard('conmebol_i', 'games/confederation/conmebol/early/mayo', root=INTERNATIONAL_DIR)
 
-    load_games_standard('conmebol_i', 'international/country/argentina')
-    load_games_standard('conmebol_i', 'international/country/bolivia')
-    #load_games_standard('conmebol_i', 'international/country/brazil')
+    load_games_standard('conmebol_i', 'games/country/argentina', root=INTERNATIONAL_DIR)
+    load_games_standard('conmebol_i', 'games/country/bolivia', root=INTERNATIONAL_DIR)
+    #load_games_standard('conmebol_i', 'games/country/brazil', root=INTERNATIONAL_DIR)
     load_brazil_international()
-    load_games_standard('conmebol_i', 'international/country/chile')
-    load_games_standard('conmebol_i', 'international/country/colombia')
-    load_games_standard('conmebol_i', 'international/country/ecuador')
-    load_games_standard('conmebol_i', 'international/country/paraguay')
-    load_games_standard('conmebol_i', 'international/country/peru')
-    load_games_standard('conmebol_i', 'international/country/uruguay'),
-    load_games_standard('conmebol_i', 'international/country/venezuela')
+    load_games_standard('conmebol_i', 'games/country/chile', root=INTERNATIONAL_DIR)
+    load_games_standard('conmebol_i', 'games/country/colombia', root=INTERNATIONAL_DIR)
+    load_games_standard('conmebol_i', 'games/country/ecuador', root=INTERNATIONAL_DIR)
+    load_games_standard('conmebol_i', 'games/country/paraguay', root=INTERNATIONAL_DIR)
+    load_games_standard('conmebol_i', 'games/country/peru', root=INTERNATIONAL_DIR)
+    load_games_standard('conmebol_i', 'games/country/uruguay', root=INTERNATIONAL_DIR),
+    load_games_standard('conmebol_i', 'games/country/venezuela', root=INTERNATIONAL_DIR)
 
 
 def load_cfu():
@@ -1608,15 +1652,15 @@ def load_uncaf_international():
 
     #generic_load(soccer_db.concacaf_i_awards, awards.process_uncaf_international_awards)
 
-    load_games_standard('concacaf_i', 'international/confederation/concacaf/uncaf')
+    load_games_standard('concacaf_i', 'games/confederation/concacaf/uncaf', root=INTERNATIONAL_DIR)
 
-    load_games_standard('concacaf_i', 'international/country/belize')
-    load_games_standard('concacaf_i', 'international/country/costa_rica')
-    load_games_standard('concacaf_i', 'international/country/el_salvador')
-    load_games_standard('concacaf_i', 'international/country/guatemala')
-    load_games_standard('concacaf_i', 'international/country/honduras')
-    load_games_standard('concacaf_i', 'international/country/nicaragua')
-    load_games_standard('concacaf_i', 'international/country/panama')
+    load_games_standard('concacaf_i', 'games/country/belize', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/costa_rica', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/el_salvador', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/guatemala', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/honduras', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/nicaragua', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/panama', root=INTERNATIONAL_DIR)
 
 
 def load_world_international():
@@ -1625,32 +1669,32 @@ def load_world_international():
     generic_load(soccer_db.world_i_awards, awards.process_world_cup_awards)
     generic_load(soccer_db.world_i_awards, awards.process_olympics_awards)
 
-    #generic_load(soccer_db.world_i_rosters, lambda: rosters.process_rosters('international/olympics'))
+    #generic_load(soccer_db.world_i_rosters, lambda: rosters.process_rosters(olympics'))
     #generic_load(soccer_db.world_i_rosters, lambda: rosters.process_rosters2(os.path.join('soccerdata/data/rosters/international/confederations')))
 
     confed = [1992, 1995, 1997, 1999, 2001, 2003, 2005, 2009, 2013]
 
     for e in confed:
-        load_games_standard('world_i', 'international/world/confederations/%s' % e)
+        load_games_standard('world_i', 'games/world/confederations/%s' % e, root=INTERNATIONAL_DIR)
 
     for e in [1930, 1934] + list(range(1950, 2015, 4)):
-        load_games_standard('world_i', 'international/world/world_cup/%s' % e)
+        load_games_standard('world_i', 'games/world/world_cup/%s' % e, root=INTERNATIONAL_DIR)
 
     #load_games_standard('world_i', 'international/world/u17')
 
-    load_games_standard('world_i', 'international/world/artemio_franchi')
-    load_games_standard('world_i', 'international/world/interallied')
-    load_games_standard('world_i', 'international/world/mundialito')
+    load_games_standard('world_i', 'games/world/artemio_franchi', root=INTERNATIONAL_DIR)
+    load_games_standard('world_i', 'games/world/interallied', root=INTERNATIONAL_DIR)
+    load_games_standard('world_i', 'games/world/mundialito', root=INTERNATIONAL_DIR)
 
     olympics = [1900, 1904, 1908, 1912, 1920, 1924, 1928, 1936] + list(range(1948, 2000, 4))
     # list(range(1948, 2013, 4))
 
     # Merge olympic data.
     for e in olympics:
-        load_games_standard('world_i', 'international/world/olympics/%s' % e, games_only=True)
+        load_games_standard('world_i', 'games/world/olympics/%s' % e, games_only=True, root=INTERNATIONAL_DIR)
 
     for e in range(1977, 2014, 2):
-        load_games_standard('world_i', 'international/world/u20/%s' % e)
+        load_games_standard('world_i', 'games/world/u20/%s' % e, root=INTERNATIONAL_DIR)
 
 
 
@@ -1684,12 +1728,12 @@ def load_world():
     generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(ROOT_DIR, 'soccerdata/data/rosters/domestic/copita')))
     
 
-    load_games_standard('world', 'domestic/country/mexico/friendly/palmares')
+    #load_games_standard('world', 'domestic/country/mexico/friendly/palmares')
 
-    load_games_standard('world', 'domestic/world/parmalat')
-    load_games_standard('world', 'domestic/world/copa_rio')
-    load_games_standard('world', 'domestic/confederation/conmebol/pequena')
-    load_games_standard('world', 'international/misc/fifa_world_stars_games')
+    #load_games_standard('world', 'domestic/world/parmalat')
+    #load_games_standard('world', 'domestic/world/copa_rio')
+    #load_games_standard('world', 'domestic/confederation/conmebol/pequena')
+    #load_games_standard('world', 'games/misc/fifa_world_stars_games', root=INTERNATIONAL_DIR)
 
 
 def load_caribbean_international():
@@ -1697,45 +1741,45 @@ def load_caribbean_international():
 
     generic_load(soccer_db.concacaf_i_awards, awards.process_caribbean_awards)
 
-    load_games_standard('uncaf', 'international/confederation/concacaf/caribbean/cfu')
-    load_games_standard('uncaf', 'international/confederation/concacaf/caribbean/1980')
-    load_games_standard('uncaf', 'international/confederation/concacaf/caribbean/1990')
-    load_games_standard('uncaf', 'international/confederation/concacaf/caribbean/2001')
+    load_games_standard('uncaf', 'games/confederation/concacaf/caribbean/cfu', root=INTERNATIONAL_DIR)
+    load_games_standard('uncaf', 'games/confederation/concacaf/caribbean/1980', root=INTERNATIONAL_DIR)
+    load_games_standard('uncaf', 'games/confederation/concacaf/caribbean/1990', root=INTERNATIONAL_DIR)
+    load_games_standard('uncaf', 'games/confederation/concacaf/caribbean/2001', root=INTERNATIONAL_DIR)
 
-    load_games_standard('concacaf_i', 'international/country/anguilla')
-    load_games_standard('concacaf_i', 'international/country/antigua')
-    load_games_standard('concacaf_i', 'international/country/aruba')
-    load_games_standard('concacaf_i', 'international/country/bahamas')
-    load_games_standard('concacaf_i', 'international/country/barbados')
-    load_games_standard('concacaf_i', 'international/country/bermuda')    
-    load_games_standard('concacaf_i', 'international/country/bvi')
-    load_games_standard('concacaf_i', 'international/country/cayman')
-    load_games_standard('concacaf_i', 'international/country/cuba')
-    load_games_standard('concacaf_i', 'international/country/dominica')
-    load_games_standard('concacaf_i', 'international/country/dr')
-    load_games_standard('concacaf_i', 'international/country/french_guyana')
-    load_games_standard('concacaf_i', 'international/country/grenada')
-    load_games_standard('concacaf_i', 'international/country/guadeloupe')
-    load_games_standard('concacaf_i', 'international/country/guyana')
-    load_games_standard('concacaf_i', 'international/country/haiti')
-    load_games_standard('concacaf_i', 'international/country/jamaica')
-    load_games_standard('concacaf_i', 'international/country/martinique')
-    load_games_standard('concacaf_i', 'international/country/montserrat')
-    load_games_standard('concacaf_i', 'international/country/puerto_rico')
-    load_games_standard('concacaf_i', 'international/country/nevis')
-    load_games_standard('concacaf_i', 'international/country/st_lucia')
-    load_games_standard('concacaf_i', 'international/country/saint_martin')
-    load_games_standard('concacaf_i', 'international/country/st_vincent')
-    load_games_standard('concacaf_i', 'international/country/sint_maarten')
-    load_games_standard('concacaf_i', 'international/country/suriname')
-    load_games_standard('concacaf_i', 'international/country/trinidad_tobago')
-    load_games_standard('concacaf_i', 'international/country/turks_caicos')
-    load_games_standard('concacaf_i', 'international/country/usvi')
+    load_games_standard('concacaf_i', 'games/country/anguilla', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/antigua', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/aruba', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/bahamas', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/barbados', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/bermuda', root=INTERNATIONAL_DIR)    
+    load_games_standard('concacaf_i', 'games/country/bvi', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/cayman', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/cuba', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/dominica', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/dr', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/french_guyana', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/grenada', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/guadeloupe', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/guyana', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/haiti', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/jamaica', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/martinique', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/montserrat', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/puerto_rico', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/nevis', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/st_lucia', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/saint_martin', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/st_vincent', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/sint_maarten', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/suriname', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/trinidad_tobago', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/turks_caicos', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/country/usvi', root=INTERNATIONAL_DIR)
 
-    #load_games_standard('concacaf_i', 'international/country/saint_croix')
-    #load_games_standard('concacaf_i', 'international/country/saint_thomas')    
-    #load_games_standard('concacaf_i', 'international/country/tortola')
-    #load_games_standard('concacaf_i', 'international/country/virgin_gorda')
+    #load_games_standard('concacaf_i', 'games/country/saint_croix', root=INTERNATIONAL_DIR)
+    #load_games_standard('concacaf_i', 'games/country/saint_thomas', root=INTERNATIONAL_DIR)    
+    #load_games_standard('concacaf_i', 'games/country/tortola', root=INTERNATIONAL_DIR)
+    #load_games_standard('concacaf_i', 'games/country/virgin_gorda', root=INTERNATIONAL_DIR)
 
 
 def load_usmnt():
@@ -1760,49 +1804,49 @@ def load_concacaf_international():
 
     # World Cup qualifying
     for year in range(1994, 2015, 4):
-        load_games_standard('concacaf_i', 'international/confederation/concacaf/wcq/%s' % year)
-    load_games_standard('concacaf_i', 'international/confederation/concacaf/wcq/world_cup_qualifying')
+        load_games_standard('concacaf_i', 'games/confederation/concacaf/wcq/%s' % year, root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/confederation/concacaf/wcq/world_cup_qualifying', root=INTERNATIONAL_DIR)
 
     # Olympic qualifying
     for year in range(2000, 2014, 4):
-        load_games_standard('concacaf_i', 'international/confederation/concacaf/olympic/%s' % year)
+        load_games_standard('concacaf_i', 'games/confederation/concacaf/olympic/%s' % year, root=INTERNATIONAL_DIR)
 
     # U-20 World Cup qualifying
     for year in [2009, 2011, 2013]:
-        load_games_standard('concacaf_i', 'international/confederation/concacaf/u20/%s' % year)
+        load_games_standard('concacaf_i', 'games/confederation/concacaf/u20/%s' % year, root=INTERNATIONAL_DIR)
 
     # U-17 World Cup qualifying (incomplete)
     for year in [2009, 2011, 2013]:
-        load_games_standard('concacaf_i', 'international/confederation/concacaf/u17/%s' % year)
+        load_games_standard('concacaf_i', 'games/confederation/concacaf/u17/%s' % year, root=INTERNATIONAL_DIR)
 
     # Gold Cup and predecessors
-    load_games_standard('concacaf_i', 'international/confederation/concacaf/gold/championship')
-    load_games_standard('concacaf_i', 'international/confederation/concacaf/gold/cccf')
+    load_games_standard('concacaf_i', 'games/confederation/concacaf/gold/championship', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/confederation/concacaf/gold/cccf', root=INTERNATIONAL_DIR)
 
     for e in [1991, 1993, 1996, 1998, 2000, 2002, 2003, 2005, 2007, 2009, 2011, 2013]:
-        load_games_standard('concacaf_i', 'international/confederation/concacaf/gold/%s' % e)
+        load_games_standard('concacaf_i', 'games/confederation/concacaf/gold/%s' % e, root=INTERNATIONAL_DIR)
 
     # Miscellaneous
-    load_games_standard('concacaf_i', 'international/confederation/concacaf/cacg')
-    load_games_standard('concacaf_i', 'international/confederation/concacaf/martinez')
-    load_games_standard('concacaf_i', 'international/confederation/concacaf/independence')
-    load_games_standard('cloncacaf_i', 'international/confederation/concacaf/friendly')
+    load_games_standard('concacaf_i', 'games/confederation/concacaf/cacg', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/confederation/concacaf/martinez', root=INTERNATIONAL_DIR)
+    load_games_standard('concacaf_i', 'games/confederation/concacaf/independence', root=INTERNATIONAL_DIR)
+    load_games_standard('cloncacaf_i', 'games/confederation/concacaf/friendly', root=INTERNATIONAL_DIR)
 
     #load_panamerican()
     #generic_load(soccer_db.concacaf_i_awards, awards.process_panamerican_awards)
 
     #for e in [1951, 1955, 1959, 1963, 1967, 1971, 1975, 1979, 1983, 1987, 
     #          1991, 1995, 1999, 2003, 2007]:
-    #    load_games_standard('concacaf_i', 'international/world/panamerican/%s' % e)
+    #    load_games_standard('concacaf_i', 'games/world/panamerican/%s' % e, root=INTERNATIONAL_DIR)
 
 
     # Results by team
     load_uncaf_international()
     load_caribbean_international()
     load_usmnt()
-    load_games_standard('canada', 'international/country/canada/1900')
-    load_games_standard('canada', 'international/country/canada/2000')
-    load_games_standard('mexico', 'international/country/mexico/alltime')
+    load_games_standard('canada', 'games/country/canada/1900', root=INTERNATIONAL_DIR)
+    load_games_standard('canada', 'games/country/canada/2000', root=INTERNATIONAL_DIR)
+    load_games_standard('mexico', 'games/country/mexico/alltime', root=INTERNATIONAL_DIR)
 
 
 def load_concacaf():
@@ -1821,11 +1865,12 @@ def load_concacaf():
 
 
 def load_ncaa():
-    from soccerdata.text import awards, stats
+    from soccerdata.text import awards
     generic_load(soccer_db.ncaa_awards, awards.process_ncaa_awards)
-    load_games_standard('ncaa', 'domestic/country/usa/college')
 
-    generic_load(soccer_db.ncaa_stats, stats.process_ncaa_stats)
+    #load_games_standard('ncaa', 'domestic/country/usa/college')
+
+    generic_load(soccer_db.ncaa_stats, process_ncaa_stats)
 
     for year in range(1959, 1963):
         load_games_standard('ncaa', 'games/championship/%s' % year, root=NCAA_DIR)
@@ -1869,16 +1914,16 @@ def make_team_to_competition_dict():
 
     SDIR = os.path.join(ROOT_DIR, 'soccerdata/data/standings/domestic/country/usa/')
     
-    l = process_standings_file(os.path.join(SDIR, 'mls'))
+    l = process_standings_file(os.path.join(SDIR, 'mls', root=USD1_DIR))
 
-    l.extend(process_excel_standings(os.path.join(SDIR, 'apsl')))
+    #l.extend(process_excel_standings(os.path.join(SDIR, 'apsl')))
 
-    for e in '12', 'pdl', 'premier', 'pro',  'usisl':
-        l.extend(process_excel_standings(os.path.join(SDIR, 'usl', e)))
+    #for e in '12', 'pdl', 'premier', 'pro',  'usisl':
+    #    l.extend(process_excel_standings(os.path.join(SDIR, 'usl', e)))
 
     for e in 'ussf2', 'nasl2', 'usl/select', 'usl/usl_pro':
         p = os.path.join(SDIR, e)
-        l.extend(process_standings_file(p, ';'))
+        l.extend(process_standings_file(p, root=USD1_DIR))
 
     d = {}
     for e in l:
@@ -1981,6 +2026,17 @@ def load_ltrack():
 
     p = os.path.join(ROOT_DIR, 'ltrack/data')
 
+    generic_load(soccer_db.ltrack_goals, lambda: ltrack.parse.process_goals(p))
+    generic_load(soccer_db.ltrack_games, lambda: ltrack.parse.process_games(p))
+    generic_load(soccer_db.ltrack_lineups, lambda: ltrack.parse.process_lineups(p))
+
+
+def load_ltrack_old():
+
+    import ltrack.parse
+
+    p = os.path.join(ROOT_DIR, 'ltrack/data')
+
     # Might be able to do this better...might not.
     func = functools.partial(determine_competition,
                              competition_map=make_team_to_competition_dict())
@@ -2029,12 +2085,12 @@ def process_ncaa_stats():
     l = []
     for e in [
         'akron', 
-        'berkeley',
-        'boston_college',
+        #'berkeley',
+        #'boston_college',
         'charlotte',
-        'chico',
+        #'chico',
         'clemson',
-        'coastal_carolina',
+        #'coastal_carolina',
         'conn',
 
         #'fairleigh_dickinson',
@@ -2047,28 +2103,28 @@ def process_ncaa_stats():
         #'harvard',
 
 
-        'indiana',
+        #'indiana',
 
         'kentucky',
         'louisville',
 
         'maryland',
         'nc_state',
-        'new_mexico',
+        #'new_mexico',
         'notre_dame',
         'ohio_state',
         'oregon_state',
         'penn_state',
         'rutgers',
 
-        'san_diego_state',
+        #'san_diego_state',
         #'san_franciso',
         #'slu',
         #'smu',
         'st_johns',
-        'stanford',
+        #'stanford',
 
-        'uab',
+        #'uab',
         #'ucf',
 
         'ucla',
@@ -2089,33 +2145,28 @@ def process_ncaa_stats():
 
 def process_usl1_stats():
     l = []
-    l.extend(stats.process_stats("d2/19972005", format_name=True, root=STATS_DIR))
+    l.extend(stats.process_stats("stats/d2/19972005", format_name=True, root=US_MINOR_DIR))
 
     #for e in '06', '07', '08', '09', '11', '12':
-    for e in '06', '07', '09':
-        l.extend(stats.process_stats("d2/20%s" % e, format_name=True, root=STATS_DIR))
-
-    l.extend(stats.process_stats("d2/2008", format_name=True, delimiter=';', root=STATS_DIR))
+    for e in '06', '07', '08', '09':
+        l.extend(stats.process_stats("stats/d2/20%s" % e, format_name=True, root=US_MINOR_DIR))
 
     return l
 
 def process_usl2_stats():
     l = []
-    l.extend(stats.process_stats("d3/psl", format_name=True, root=STATS_DIR))
-    l.extend(stats.process_stats("d3/20052009", format_name=True, root=STATS_DIR))
+    l.extend(stats.process_stats("stats/d3/psl", format_name=True, root=US_MINOR_DIR))
+    l.extend(stats.process_stats("stats/d3/20052009", format_name=True, root=US_MINOR_DIR))
     for e in range(2010, 2013):
-        l.extend(stats.process_stats("d3/%s" % e, format_name=True, root=STATS_DIR))
+        l.extend(stats.process_stats("stats/d3/%s" % e, format_name=True, root=US_MINOR_DIR))
 
     return l
 
 def process_pdl_stats():
     l = []
     
-    for e in range(2003, 2013):
-        l.extend(stats.process_stats("d4/%s" % e, format_name=True, root=STATS_DIR)) 
-
-    s = stats.process_stats("d4/pdl_2013", delimiter=";", format_name=True, root=STATS_DIR)
-    l.extend(s)
+    for e in range(2003, 2014):
+        l.extend(stats.process_stats("stats/d4/%s" % e, format_name=True, root=US_MINOR_DIR)) 
 
     return l
         
