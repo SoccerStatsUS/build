@@ -1,6 +1,12 @@
 
 basic = {
 
+    'Paulo Cesar Wanchope': 'Paulo Wanchope',
+    'Josep Guardiola': 'Pep Guardiola',
+
+    'Arkadiusz Glowacki': 'Arkadiusz Głowacki',
+    'Miroslaw Szymkowiak': 'Mirosław Szymkowiak',
+
     'Charlie Ducilli': 'Charles Ducilli',
 
     'Frank Monteiga': 'Frank Manteiga', # unsure
@@ -9256,12 +9262,18 @@ basic = {
     'Vito Testa': 'Vito Testa Jr.',
     
     'Vitor Junior': 'Juninho',
+
     'Luis Enrique': 'Luiz Camargo',
+
     'Steven Armstrong': 'Stephen Armstrong',
+
     'Tony Latronica': 'Anthony Latronica',
+
     'Rick Kotschau': 'Ritchie Kotschau',
     'Rich Kotschau': 'Ritchie Kotschau',
-    'Greg Howes': 'Gregory Howes',
+    
+    'Gregory Howes': 'Greg Howes',
+
     'Nick Budalic': 'Niki Budalic',
     'Nicki Budalic': 'Niki Budalic',
     'Sasha Gorres': 'Sascha Görres',
@@ -11598,7 +11610,9 @@ basic = {
     'Brett Mcdermott': 'Brett McDermott',
     'Brian Mcbride': 'Brian McBride',
     'Baggio Husidic': 'Baggio Husidić',
-    'Brian Haynes': 'Bryan Haynes',
+    
+    'Bryan Haynes': 'Brian Haynes',
+
     'Billy Baumhoff': 'Bill Baumhoff',
     'Benjamin Somoza': 'Ben Somoza',
     'Brendan (Blake) Camp': 'Blake Camp',

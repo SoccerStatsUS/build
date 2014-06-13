@@ -973,7 +973,7 @@ world = {
     'Cambuur': 'SC Cambuur',
     'Cambuur Leeuwarden': 'SC Cambuur',
 
-
+    'sc Heerenveen': 'Heerenveen',
     'Sc Heerenveen': 'Heerenveen',
     'SC Heerenveen': 'Heerenveen',
 
@@ -1642,10 +1642,14 @@ world = {
     'Bucheon': 'Bucheon SK',
     'Anyang': 'Anyang LG Cheetahs',
     'Chunnam': 'Chunnam Dragons',
+    'Chunnam Dragons (Gwangyang)': 'Chunnam Dragons',
 
 
     'Ulsan Hyundai': 'Ulsan Hyundai FC',
+
     'Jeonbuk Motors': 'Jeonbuk Hyundai Motors',
+    'Jeonbuk Hyundai Motors (Jeonju)': 'Jeonbuk Hyundai Motors',
+
     'Busan I Park': 'Busan IPark',
 
     'Hallelujah': 'Hallelujah FC',
@@ -1983,12 +1987,15 @@ world = {
     'Shaanxi Baorong': 'Guizhou Renhe',
     'Shenyang Ginde': 'Guangzhou R&F',
     'Changsha Ginde': 'Guangzhou R&F',
+
     'Jiangsu Guoxin Sainty': 'Jiangsu Sainty',
+    'Jiangsu Sainty (Nanjing)': 'Jiangsu Sainty',
+
     'Nanchang August 1st':'Nanchang Hengyuan',
     'Nanchang Hengyuan': 'Shanghai Shenxin',
     'Zhejiang Lucheng': 'Zhejiang Greentown',
     'Tianjin MasterKong': 'Tianjin Teda',
-    'Wuhan South Asia Optics Valley': 'Wuhan Optics Valley',
+
     'Shaanxi Neo-China Chanba': 'Shaanxi Zhongxin',
     'Shaanxi Chanba': 'Shaanxi Zhongxin',
     'Shaanxi Zhongxin': 'Guizhou Renhe',
@@ -2003,7 +2010,10 @@ world = {
     'Shanghai Shenhua Liansheng': 'Shanghai Shenhua', # Shanghai united merger?
     'Shanghai Zobon': 'Shanghai United',
     'Xi\'an Chanba': 'Inter Shanghai', # add name map.
+
     'Shandong Luneng Taishan': 'Shandong Luneng',
+    'Shandong Luneng (Ji\'nan)': 'Shandong Luneng',
+
     'Shenyang Jinde': 'Shenyang Ginde',
     'Inter Shanghai': 'Shanghai International',
     'Tianjin Kangshifu': 'Tianjin Teda',
@@ -2012,16 +2022,25 @@ world = {
     'Shenzhen Xiangxue': 'Shenzhen Ruby',
     'Shenzhen Shangqingyin': 'Shenzhen Ruby',
     'Shenzhen Kingway': 'Shenzhen Ruby',
+
     'Liaoning Yuandong': 'Liaoning Whowin',
     'Liaoning Hongyun': 'Liaoning Whowin',
     'Liaoning FC': 'Liaoning Whowin',
     'Liaoning F.C.': 'Liaoning Whowin',
+    'Liaoning Whowin (Shenyang)': 'Liaoning Whowin',
+
     'Liaoning Xiyang': 'Liaoning Whowin', # Imagine this is correct.
+
+
+
     'Henan Siwu': 'Henan Jianye',
     'Henan Construction': 'Henan Jianye',
     'Hangzhou Lucheng': 'Hangzhou Greentown',
+
     'Wuhan Guanggu': 'Wuhan Optics Valley',
+    'Wuhan South Asia Optics Valley': 'Wuhan Optics Valley',
     'Wuhan Huanghelou': 'Wuhan Optics Valley',
+
     'Qingdao Zhongneng': 'Qingdao Jonoon',
     'Qingdao Beilaite': 'Qingdao Jonoon',
     'Beijing Hyundai': 'Beijing Guoan',
@@ -2153,6 +2172,7 @@ world = {
     'Burma': 'Myanmar',
     'Pegasus AFC': 'Pegasus A.F.C.',
     
+    'Crystal P': 'Crystal Palace',
     'Crystal Palace - England': 'Crystal Palace',
     'Crystal Palace FC': 'Crystal Palace',
     'Crystal Palace F.C.': 'Crystal Palace',
@@ -2518,6 +2538,8 @@ world = {
 
     # Japan
 
+    'Kasiwa Reysol': 'Kashiwa Reysol',
+
     'V.Kawasaki': 'Verdy Kawasaki',
 
     'Fukuoka': 'Avispa Fukuoka',
@@ -2577,6 +2599,8 @@ world = {
     'Zamalek': 'Zamalek SC',
 
     # Australia
+
+    'West Sydney Wanderers': 'Western Sydney Wanderers',
 
     'South Melbourne':'South Melbourne FC',
 
@@ -2718,6 +2742,7 @@ world = {
 
 
     'FC Paços de Ferreira': 'Paços de Ferreira',
+    'Paços F': 'Paços de Ferreira',
     'Pacos De Ferreira': 'Paços de Ferreira',
     'Pacos Ferreira': 'Paços de Ferreira',
     'Paços Ferreira': 'Paços de Ferreira',
@@ -2727,9 +2752,12 @@ world = {
     'Guimarães': 'Vitória de Guimarães',
     'Vitória De Guimaraes': 'Vitória de Guimarães',
     'Vitoria SC (Guimaraes)': 'Vitória de Guimarães',
+
     'Vitoria SC (Guimarães)': 'Vitória de Guimarães',
     'Vitoria G': 'Vitória de Guimarães',
+    'Vitória G': 'Vitória de Guimarães',
 
+    'Vitoria S': 'Vitória de Setúbal',
     'Setubal': 'Vitória de Setúbal',
     'Setúbal': 'Vitória de Setúbal',
     'Vitoria FC (Setubal)': 'Vitória de Setúbal',
@@ -2837,6 +2865,7 @@ world = {
     'Salamanca': 'UD Salamanca',
     'Oviedo': 'Real Oviedo', # Too broad?
 
+    'Celta de Vigo': 'Celta Vigo',
     'Celta De Vigo': 'Celta Vigo',
     'Celta': 'Celta Vigo',
     'RC Celta (Vigo)': 'Celta Vigo',
@@ -3028,6 +3057,7 @@ world = {
     'NAC': 'NAC Breda',
     'Nac Breda': 'NAC Breda',
 
+    'N.E.C.': 'NEC',
     'NEC (Nijmegen)': 'NEC',
     'NEC (Nĳmegen)': 'NEC',
     'Nec': 'NEC',
@@ -3920,6 +3950,7 @@ world = {
     'Kardemir DÇ Karabükspor K': 'Kardemir Karabükspor',
     'D.C. Karabuk': 'Kardemir Karabükspor',
     'D.Ç. Karabükspor': 'Kardemir Karabükspor',
+    'Karabükspor': 'Kardemir Karabükspor',
 
     'Eskisehirspor': 'Eskişehirspor',
 
@@ -4562,6 +4593,7 @@ world = {
     'Cottbus': 'Energie Cottbus',
     'FC Energie Cottbus': 'Energie Cottbus',
 
+    'FSV Mainz 05': 'Mainz 05',
     '1. FSV Mainz 05': 'Mainz 05',
     'Mainz': 'Mainz 05',
     '1.FSV Mainz 05': 'Mainz 05',

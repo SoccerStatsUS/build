@@ -184,7 +184,7 @@ full_alias = {
     'Western Soccer Alliance': 'Western Soccer League',
     'Western Soccer Alliance Playoffs': 'Western Soccer League Playoffs',
 
-    'Southwest Indoor Soccer League': 'United States Interregional Soccer League (indoor)',
+
     'Southwest Independent Soccer League (indoor)': 'United States Interregional Soccer League (indoor)',
     'Southwest Independent Soccer League': 'United States Interregional Soccer League',
 
@@ -196,7 +196,7 @@ full_alias = {
 
     'A-League': 'USL First Division',
 
-    'American Indoor Soccer Association': 'National Professional Soccer League (indoor)',
+
 
     'Friendly International': 'International Friendly',
 
@@ -205,7 +205,18 @@ full_alias = {
     'Recopa CONCACAF': 'CONCACAF Cup Winners Cup',
     'CONCACAF Champions Cup': 'CONCACAF Champions\' Cup',
 
+    # Indoor
+
+    'Southwest Indoor Soccer League': 'United States Interregional Soccer League (indoor)',
+
     'Premier Soccer Alliance': 'World Indoor Soccer League',
+
+    'American Indoor Soccer Association': 'National Professional Soccer League (indoor)',
+
+    'National Indoor Soccer League': 'Major Indoor Soccer League (2008-2014)',
+
+
+
 
     'World Cup': 'FIFA World Cup',
 
