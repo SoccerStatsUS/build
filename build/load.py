@@ -162,10 +162,12 @@ def load_extra():
 
 
 def load_games():  
+    load_indoor()
     load_domestic()
+    return
     load_international()
     load_women()
-    load_indoor()
+
     load_ncaa()
     load_other()
 
@@ -189,7 +191,12 @@ def load_international():
 
 def load_domestic():
 
+    load_us_minor()
 
+
+    return
+
+    load_conmebol_leagues()
 
 
 
@@ -211,7 +218,7 @@ def load_domestic():
     load_cfu()
 
     load_concacaf()
-    load_conmebol_leagues()
+
 
     load_asl()  
     load_asl2()           
@@ -233,7 +240,7 @@ def load_domestic():
     # historical
 
     load_mls() 
-    load_us_minor()
+
     load_nasl() 
 
 
@@ -677,11 +684,11 @@ def load_uefa_minor():
     for year in range(1997, 2013):
         load_games_standard('uefa', 'games/czech/%s' % year, root=UEFA_DIR)
 
-    for year in range(2005, 2012):
-        load_games_standard('uefa', 'games/greece/%s' % year, root=UEFA_DIR)
-
     for year in range(1998, 2013):
         load_games_standard('uefa', 'games/hungary/%s' % year, root=UEFA_DIR)
+
+    for year in range(2005, 2012):
+        load_games_standard('uefa', 'games/greece/%s' % year, root=UEFA_DIR)
 
     return
 
@@ -720,8 +727,8 @@ def load_conmebol_minor():
     generic_load(soccer_db.conmebol_awards, awards.process_conmebol_league_awards)
 
     load_standings_standard('conmebol', 'standings/uruguay2', root=CONMEBOL_DIR)
-    #load_standings_standard('conmebol', 'standings/chile2', root=CONMEBOL_DIR)
-    #load_standings_standard('conmebol', 'standings/colombia3', root=CONMEBOL_DIR)
+    load_standings_standard('conmebol', 'standings/chile2', root=CONMEBOL_DIR)
+    load_standings_standard('conmebol', 'standings/colombia3', root=CONMEBOL_DIR)
     load_standings_standard('conmebol', 'standings/ecuador', root=CONMEBOL_DIR)
     load_standings_standard('conmebol', 'standings/peru', root=CONMEBOL_DIR)
     load_standings_standard('conmebol', 'standings/paraguay', root=CONMEBOL_DIR)
@@ -1089,8 +1096,8 @@ def load_asl():
     DIR = os.path.join(ROOT_DIR, 'usd1/data')
 
     # Colin Jose data
-    #generic_load(soccer_db.asl_goals, asl.process_asl_goals)
-    #generic_load(soccer_db.asl_games, asl.process_asl_games)
+    generic_load(soccer_db.asl_goals, asl.process_asl_goals)
+    generic_load(soccer_db.asl_games, asl.process_asl_games)
     generic_load(soccer_db.asl_stats, asl.process_stats)
 
 
@@ -1120,8 +1127,8 @@ def load_asl2():
 
     generic_load(soccer_db.asl2_rosters, lambda: rosters.process_rosters2(path=os.path.join(ASL2_DIR, "rosters/asl2")))
 
-    #for e in range(1933, 1951):
-    #    load_games_standard('asl2', 'games/allaway/%s' % e, root=ASL2_DIR)
+    for e in range(1933, 1951):
+        load_games_standard('asl2', 'games/allaway/%s' % e, root=ASL2_DIR)
 
     for e in range(1933, 1984):
         load_games_standard('asl2', 'games/sd/%s' % e, games_only=True, root=ASL2_DIR)
@@ -1171,85 +1178,87 @@ def load_apsl():
     from soccerdata.text.cmp import apsl
 
     print("loading apsl stats")
-    #apsl_stats = apsl.process_apsl_stats()
-    #generic_load(soccer_db.us_d2_stats, apsl_stats)
-    #generic_load(soccer_db.us_d2_rosters, flatten_stats(apsl_stats))
+    apsl_stats = stats.process_stats("stats/d2/apsl", root=US_MINOR_DIR)
+    generic_load(soccer_db.us_d2_stats, apsl_stats)
+    generic_load(soccer_db.us_d2_rosters, flatten_stats(apsl_stats))
+
     # lambdas...
-    
-
-
     print("loading apsl partial stats")
     generic_load(soccer_db.us_d2_stats, partial.process_apsl_partial)
 
     generic_load(soccer_db.us_d2_awards, awards.process_apsl_awards)
 
-    #load_sd_excel_standings('us_d2', 'domestic/country/usa/apsl')
-
-
+    load_standings_standard('us_d2', 'standings/d2/apsl', root=US_MINOR_DIR)
 
     # Test these
-    #load_standings_standard('us_d2', 'domestic/country/usa/wsa')
-    #load_standings_standard('us_d2', 'domestic/country/usa/lssa')
+    load_standings_standard('us_d2', 'standings/d2//wsa', root=US_MINOR_DIR)
+    load_standings_standard('us_d2', 'standings/minor/lssa', root=US_MINOR_DIR)
 
     
     #print("loading apsl scores")
-    #generic_load(soccer_db.us_d2_games, apsl.process_apsl_scores)
-    #load_games_standard('us_d2', 'domestic/country/usa/leagues/wsa3')
+    generic_load(soccer_db.us_d2_games, apsl.process_apsl_scores)
 
-    #load_games_standard('us_d2', 'domestic/country/usa/leagues/d2/apsl')
-    #load_games_standard('us_d2', 'domestic/country/usa/leagues/d3/wsa4')
+    load_games_standard('us_d2', 'games/d2/apsl', root=US_MINOR_DIR)
+    load_games_standard('us_d2', 'games/d3/wsa4', root=US_MINOR_DIR)
 
-    #load_games_standard('us_d2', 'domestic/country/usa/playoffs/apsl')
-    #load_games_standard('us_d2', 'domestic/country/usa/playoffs/wsa')
-    #load_games_standard('us_d2', 'domestic/country/usa/cups/apsl_professional')
+    load_games_standard('us_d2', 'games/playoffs/apsl', root=US_MINOR_DIR)
+    load_games_standard('us_d2', 'games/playoffs/wsa', root=US_MINOR_DIR)
+    #load_games_standard('us_d2', 'domessa/cups/apsl_professional')
 
 
 def load_indoor():
     """
     Load stats and games from the MISL, standings from MISL, APSL and WSA.
     """
+    # standings
 
     load_standings_standard('indoor', 'data/standings/nasl', root=INDOOR_DIR)
     load_standings_standard('indoor', 'data/standings/misl', root=INDOOR_DIR)
     #load_standings_standard('indoor', 'data/standings/misl2', root=INDOOR_DIR)
-    #load_standings_standard('indoor', 'data/standings/aisa', root=INDOOR_DIR)
-    #load_standings_standard('indoor', 'data/standings/npsl', root=INDOOR_DIR)
+    #load_standings_standard('indoor', 'data/standings/aisa', root=INDOOR_DIR) # /npsl?
     load_standings_standard('indoor', 'data/standings/cisl', root=INDOOR_DIR)
     load_standings_standard('indoor', 'data/standings/eisl', root=INDOOR_DIR)
-    #load_standings_standard('indoor', 'data/standings/misl3', root=INDOOR_DIR)
+    load_standings_standard('indoor', 'data/standings/misl3', root=INDOOR_DIR)
     #load_standings_standard('indoor', 'data/standings/usl', root=INDOOR_DIR)
     #load_standings_standard('indoor', 'data/standings/pasl', root=INDOOR_DIR)
 
-
-    #print("Loading MISL stats.")
-    #generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/nasl", source='nasljerseys.com', root=INDOOR_DIR))
+    # games
 
 
-    #generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/cisl", source='nasljerseys.com', root=INDOOR_DIR))
-    #generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/misl3", source='nasljerseys.com', root=INDOOR_DIR))
-    #generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/pasl", source='nasljerseys.com', root=INDOOR_DIR))
-
-    for e in range(2013, 2013):
+    for e in range(1980, 1980):
         load_games_standard('indoor', 'games/nasl/%s' % e, root=INDOOR_DIR)
 
-    for e in range(2013, 2013):
+    for e in range(1978, 1978):
         load_games_standard('indoor', 'games/misl/%s' % e, root=INDOOR_DIR)
 
-    for e in range(2013, 2013):
+    for e in range(2001, 2001):
+        load_games_standard('indoor', 'games/misl2/%s' % e, root=INDOOR_DIR)
+
+    for e in range(2008, 2008):
         load_games_standard('indoor', 'games/misl3/%s' % e, root=INDOOR_DIR)
+
+    for e in range(1993, 1993):
+        load_games_standard('indoor', 'games/cisl/%s' % e, root=INDOOR_DIR)
+
+    for e in range(1998, 1998):
+        load_games_standard('indoor', 'games/wisl/%s' % e, root=INDOOR_DIR)
+
+    load_games_standard('indoor', 'data/games/xsl/2008', root=INDOOR_DIR)
 
     #for e in range(2013, 2013):
     #    load_games_standard('indoor', 'games/pasl/%s' % e, root=INDOOR_DIR)
 
+    # stats
 
-    generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/misl/misl", source='nasljerseys.com', root=INDOOR_DIR))
-    generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/misl2", source='nasljerseys.com', root=INDOOR_DIR))
-    generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/misl3", source='nasljerseys.com', root=INDOOR_DIR))
-    generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/cisl", source='nasljerseys.com', root=INDOOR_DIR))
-    generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/aisa", source='nasljerseys.com', root=INDOOR_DIR))
-    generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/wisl", source='nasljerseys.com', root=INDOOR_DIR))
-    generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/npsl", source='nasljerseys.com', root=INDOOR_DIR))
-
+    generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/nasl/nasl", root=INDOOR_DIR))
+    generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/misl/misl", root=INDOOR_DIR))
+    generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/misl2", root=INDOOR_DIR))
+    generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/misl3", root=INDOOR_DIR))
+    generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/cisl", root=INDOOR_DIR))
+    generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/aisa", root=INDOOR_DIR))
+    generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/wisl", root=INDOOR_DIR))
+    generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/npsl", root=INDOOR_DIR))
+    #generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/pasl", source='nasljerseys.com', root=INDOOR_DIR))
 
 
 
@@ -1272,13 +1281,16 @@ def load_pdl():
     from soccerdata.text.cmp import pdl
     from soccerdata.text import awards
 
-    #load_sd_excel_standings('us_d4', 'domestic/country/usa/usl/pdl')
     generic_load(soccer_db.us_d4_awards, awards.process_pdl_awards)
     generic_load(soccer_db.us_d4_stats, process_pdl_stats)
-    #generic_load(soccer_db.us_d4_games, pdl.load_pdl_games)
 
-    #load_standings_standard('us_d2', 'domestic/country/usa/usl/pdl_2012')
-    #load_standings_standard('us_d2', 'domestic/country/usa/usl/pdl_2013')
+    # Adapt donelli.games to handle PDL hours correctly.
+    #for e in range(2003, 2014):
+    #    load_games_standard('us_d2', 'games/d4/pdl/%s' % e, root=US_MINOR_DIR)
+
+    load_standings_standard('us_d4', 'standings/d4/pdl', root=US_MINOR_DIR)
+    load_standings_standard('us_d2', 'standings/d4/pdl_2012', root=US_MINOR_DIR)
+    load_standings_standard('us_d2', 'standings/d4/pdl_2013', root=US_MINOR_DIR)
 
 
 def load_us_minor():
@@ -1310,13 +1322,16 @@ def load_us_minor():
              
     # Division 2
     generic_load(soccer_db.us_d2_stats, process_usl1_stats)
-    generic_load(soccer_db.us_d2_stats, process_usl2_stats)
 
-    #load_sd_excel_standings('us_d2', 'domestic/country/usa/usl/12') # split
+    load_standings_standard('us_d2', 'standings/d2/usl0', root=US_MINOR_DIR)
+    load_standings_standard('us_d2', 'standings/d2/premier', root=US_MINOR_DIR)
+    load_standings_standard('us_d3', 'standings/d2/usisl', root=US_MINOR_DIR)
+    load_standings_standard('us_d2', 'standings/d2/12', root=US_MINOR_DIR)
 
-    #load_standings_standard('us_d2', 'domestic/country/usa/usl/usl0')
-    #load_standings_standard('us_d2', 'domestic/country/usa/ussf2')
-    #load_standings_standard('us_d2', 'domestic/country/usa/nasl2')
+    load_standings_standard('us_d2', 'standings/d2/ussf2', root=US_MINOR_DIR)
+    load_standings_standard('us_d2', 'standings/d2/nasl2', root=US_MINOR_DIR)
+
+
 
     load_games_standard('us_d2', 'games/d2/usl1', root=US_MINOR_DIR)
     load_games_standard('us_d2', 'games/d2/ussfd2', root=US_MINOR_DIR)
@@ -1328,17 +1343,18 @@ def load_us_minor():
     load_games_standard('us_d2', 'games/playoffs/nasl2', root=US_MINOR_DIR)
 
     # Division 3
-    #load_sd_excel_standings('us_d3', 'domestic/country/usa/usl/pro') # 2 or 3?
-    #load_sd_excel_standings('us_d3', 'domestic/country/usa/usl/premier')
+    generic_load(soccer_db.us_d2_stats, process_usl2_stats)
 
-    #load_sd_excel_standings('us_d3', 'domestic/country/usa/usl/usisl')
+    load_standings_standard('us_d3', 'standings/d3/pro', root=US_MINOR_DIR)
 
-    #load_standings_standard('us_d3', 'domestic/country/usa/usl/usl_pro')
-    #load_standings_standard('us_d3', 'domestic/country/usa/usl/select') # 2 or 3?
 
-    #for e in range(2003, 2014):
-    #    load_games_standard('us_d3', 'domestic/country/usa/leagues/d3/%s' % e)
-    #load_games_standard('us_d3', 'domestic/country/usa/playoffs/usl2')
+    load_standings_standard('us_d3', 'standings/d3/usl_pro', root=US_MINOR_DIR)
+    load_standings_standard('us_d3', 'standings/d3/select', root=US_MINOR_DIR)
+
+    for e in range(2003, 2014):
+        load_games_standard('us_d3', 'games/d3/%s' % e, root=US_MINOR_DIR)
+
+    load_games_standard('us_d3', 'games/playoffs/usl2', root=US_MINOR_DIR)
 
 
 
@@ -2147,7 +2163,6 @@ def process_usl1_stats():
     l = []
     l.extend(stats.process_stats("stats/d2/19972005", format_name=True, root=US_MINOR_DIR))
 
-    #for e in '06', '07', '08', '09', '11', '12':
     for e in '06', '07', '08', '09':
         l.extend(stats.process_stats("stats/d2/20%s" % e, format_name=True, root=US_MINOR_DIR))
 
