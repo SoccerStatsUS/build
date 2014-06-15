@@ -100,7 +100,7 @@ sep_teams = {
     'Northeastern': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Northeastern University')],
     'Georgetown': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Georgetown University')],
     'Marquette': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Marquette University')],
-    'Denver': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Denver')],
+
     'Wisconsin': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Wisconsin')],
     'Quinnipiac': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Quinnipiac University')],
     'Navy': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Naval Academy')],
@@ -142,9 +142,19 @@ sep_teams = {
         (from_competition('Brasileirão'), 'América Futebol Clube'),
         ],
 
+    'Anaheim': [
+        (from_competition('Continental Indoor Soccer League'), 'Anaheim Splash'),
+        ],
+
+
     'Antigua': [
         (from_competition('Liga Nacional de Guatemala'), 'Antigua GFC')
         ],
+
+    'Arizona': [
+        (from_competition('World Indoor Soccer League'), 'Arizona Thunder'),
+        (from_competition('Continental Indoor Soccer League'), 'Arizona Sandsharks'),
+    ],
 
 
     'Arsenal': [
@@ -168,6 +178,13 @@ sep_teams = {
         (from_competition('Brasileirão'), 'Atlético Paranaense'),
         ],
 
+    'Baltimore': [
+        (from_competition('American League of Professional Football'), 'Baltimore Orioles'),
+        (from_competition('Major Indoor Soccer League (1978-1992)'), 'Baltimore Blast'),
+        (from_competition('North American Soccer League (indoor)'), 'Baltimore Comets'),
+        ],
+
+
     'Barcelona': [
         (from_competition('La Liga'), 'FC Barcelona'),
         (from_competition('UEFA Super Cup'), 'FC Barcelona'),
@@ -188,8 +205,9 @@ sep_teams = {
 
 
     'Boston': [
-        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1928-1929'])), 'Boston Wonder Workers'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929'])), 'Boston Wonder Workers'),
         (from_seasons('American Soccer League (1921-1933)', set(['1929 Fall'])), 'Boston Bears'),
+        (from_competition('North American Soccer League (indoor)'), 'Boston Minutemen'),
         ],
 
     'Bohemians': [
@@ -197,7 +215,7 @@ sep_teams = {
         ],
 
     'Brooklyn': [
-        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1928-1929'])), 'Brooklyn Wanderers'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929'])), 'Brooklyn Wanderers'),
         ],
 
     'Brooklyn FC': [
@@ -221,7 +239,41 @@ sep_teams = {
         ],
 
 
+    'Buenos Aires': [
+        (from_competition('Primera División de Costa Rica'), 'Buenos Aires (Costa Rica)'),
+        ],
 
+
+    'Buffalo': [
+        (from_competition('Major Indoor Soccer League (1978-1992)'), 'Buffalo Stallions'),
+        ],
+
+
+
+    'CAI': [
+        (from_competition('Liga Panameña de Fútbol'), 'CAI de La Chorrera'),
+        ],
+
+
+    'Calgary': [
+        (from_competition('North American Soccer League (indoor)'), 'Calgary Boomers'),
+        (from_competition('Western Soccer League'), 'Calgary Kickers'),
+        ],
+
+    'California': [
+        (from_competition('North American Soccer League (indoor)'), 'California Surf'),
+        ],
+
+
+    'Cardiff': [
+        (from_competition('Premier League'), 'Cardiff City'),
+        ],
+
+
+
+    'Carolina': [
+        (from_competition('Continental Indoor Soccer League'), 'Carolina Vipers'),
+        ],
 
     'Cartagena': [
         (from_competition('Categoría Primera A'), 'Real Cartagena'),
@@ -238,10 +290,21 @@ sep_teams = {
 
     'Chicago': [
         (from_competition('Major League Soccer'), 'Chicago Fire'),
+        (from_competition('North American Soccer League (indoor)'), 'Chicago Sting'),
+        (from_seasons('Major Indoor Soccer League (1978-1992)', set(['1982-1983', '1984-1985', '1985-1986', '1986-1987', '1987-1988'])), 'Chicago Sting'),
+        (from_seasons('Major Indoor Soccer League (1978-1992)', set(['1980-1981'])), 'Chicago Horizon'),
+
+
         ],
 
     'Chicago Fire Reserves': [
         ],
+
+    'Cleveland': [
+        (from_seasons('Major Indoor Soccer League (1978-1992)', set(['1978-1979', '1979-1980', '1980-1981', '1981-1982', '1982-1983', '1983-1984', '1984-1985', '1985-1986', '1986-1987', '1987-1988'])), 'Cleveland Force'),
+        (from_seasons('Major Indoor Soccer League (1978-1992)', set(['1989-1990', '1990-1991', '1991-1992'])), 'Cleveland Crunch'),
+        ],
+
 
     'Colorado': [
         (from_competition('Major League Soccer'), 'Colorado Rapids'),
@@ -263,6 +326,27 @@ sep_teams = {
 
     'Dacia': [
         (from_competition('Liga I'), 'CS Mioveni'),
+        ],
+
+    'Dallas': [
+        (from_competition('Continental Indoor Soccer League'), 'Dallas Sidekicks'),
+        (from_competition('Major Indoor Soccer League (1978-1992)'), 'Dallas Sidekicks'),
+        (from_competition('World Indoor Soccer League'), 'Dallas Sidekicks'),
+        (from_competition('North American Soccer League (indoor)'), 'Dallas Tornado'),
+        ],
+
+
+    'Denver': [
+        (from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Denver'),
+        (from_competition('Major Indoor Soccer League (1978-1992)'), 'Denver Avalanche'),
+        ],
+
+
+
+    'Detroit': [
+        (from_competition('Continental Indoor Soccer League'), 'Detroit Neon'),
+        (from_competition('Major Indoor Soccer League (1978-1992)'), 'Detroit Lightning'),
+        (from_competition('North American Soccer League (indoor)'), 'Detroit Express'),
         ],
 
     'Deportivo': [
@@ -294,6 +378,11 @@ sep_teams = {
         (from_competition('CONCACAF Champions League'), 'Houston Dynamo'),
         ],
 
+    'Edmonton': [
+        (from_competition('North American Soccer League (indoor)'), 'Edmonton Drillers'),
+        ],
+
+
     'España': [
         (from_competition('Liga Nacional de Honduras'), 'Real C.D. España'),
         ],
@@ -311,7 +400,16 @@ sep_teams = {
 
 
     'Fall River': [
-        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1928-1929', '1930 Spring', '1930 Fall'])), 'Fall River Marksmen'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1922-1923', '1923-1924', '1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1930 Spring', '1930 Fall'])), 'Fall River Marksmen'),
+        ],
+
+    'Fort Lauderdale': [
+        (from_competition('North American Soccer League (indoor)'), 'Fort Lauderdale Strikers'),
+        ],
+
+
+    'Federal': [
+        (from_competition('Liga Nacional de Honduras'), 'Federal (Honduras)'),
         ],
 
 
@@ -332,12 +430,26 @@ sep_teams = {
         (from_competition('Swiss Super League'), 'Grasshopper Club'),
         ],
 
+    'Golden Bay': [
+        (from_competition('Major Indoor Soccer League (1978-1992)'), 'Golden Bay Earthquakes'), 
+        ],
+
+
     'Hakoah': [
         (from_seasons('American Soccer League (1921-1933)', set(['1930 Spring', '1930 Fall'])), 'Hakoah All-Stars'),
+        (from_competition('Eastern Soccer League (1928-1929)'), 'New York Hakoah'),
+
         ],
+
+    'Harrison': [
+        (from_seasons('American Soccer League (1921-1933)', set(['1922-1923', '1923-1924'])), 'Harrison SC'),
+        ],
+
 
     'Hartford': [
         (from_seasons('American Soccer League (1921-1933)', set(['1927-1928'])), 'Hartford Americans'),
+        (from_competition('Major Indoor Soccer League (1978-1992)'), 'Hartford Hellions'),
+        (from_competition('North American Soccer League (indoor)'), 'Hartford Bicentennials'),
         ],
 
     'Hamilton': [
@@ -358,6 +470,13 @@ sep_teams = {
         (from_competition('La Liga'), 'Recreativo Huelva'),
         ],
 
+
+    'Houston': [
+        (from_competition('Major Indoor Soccer League (1978-1992)'), 'Houston Summit'),
+        (from_competition('Continental Indoor Soccer League'), 'Houston Hotshots'),
+        (from_competition('World Indoor Soccer League'), 'Houston Hotshots'),
+        ],
+
     'Hungaria': [
         (from_seasons('Eastern Soccer League (1928-1929)', set(['1928-1929 Second Half'])), 'New York Hungaria'),
         #(from_seasons('Eastern Soccer League (1928-1929)', set(['1929 Fall'])), 'Victoria Hungaria'),
@@ -366,17 +485,25 @@ sep_teams = {
 
     'Indiana': [
         (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926'])), 'Indiana Flooring'),
+        (from_competition('Continental Indoor Soccer League'), 'Indiana Twisters'),
+        ],
+
+    'Indianapolis': [
+        (from_competition('Continental Indoor Soccer League'), 'Indiana Twisters'),
         ],
 
     'Irish Americans': [
         (from_competition('American Soccer League (1933-1983)'), 'Kearny Celtic'),
-    ],
+        ],
 
     'Jersey City': [
         (from_competition('American Soccer League (1921-1933)'), 'Jersey City (ASL)'),
-
         ],
 
+
+    'Jacksonville': [
+        (from_competition('North American Soccer League (indoor)'), 'Jacksonville Tea Men'),
+        ],
 
     'Junior': [
         (from_competition('Categoría Primera A'), 'Junior de Barranquilla'),
@@ -386,6 +513,17 @@ sep_teams = {
         (from_competition('Liga Nacional de Honduras'), 'Real Juventud'),
         (from_competition('Uruguayan Primera División'), 'Juventud de Las Piedras'),
         ],
+
+
+    'Kansas City': [
+        (from_competition('Major Indoor Soccer League (1978-1992)'), 'Kansas City Comets'),
+        ],
+
+    'Las Vegas': [
+        (from_competition('Continental Indoor Soccer League'), 'Las Vegas Dustdevils'),
+        (from_competition('Major Indoor Soccer League (1978-1992)'), 'Las Vegas Americans'),
+        ],
+
 
     'Liverpool': [
         (from_competition('Uruguayan Primera División'), 'Liverpool (Montevideo)'),
@@ -399,9 +537,44 @@ sep_teams = {
         (from_competition('Argentine Primera División'), 'Los Andes de Lomas de Zamora'),
         ],
 
+    'Los Angeles': [
+        (from_competition('Major Indoor Soccer League (1978-1992)'), 'Los Angeles Lazers'),
+        (from_competition('North American Soccer League (indoor)'), 'Los Angeles Aztecs'),
+        (from_competition('Continental Indoor Soccer League'), 'Los Angeles United'),
+        ],
+
     'Marte': [
         (from_competition('Salvadoran Primera División'), 'C.D. Atlético Marte'),
         ],
+
+    'Memphis': [
+        (from_competition('Major Indoor Soccer League (1978-1992)'), 'Memphis Americans'),
+        ],
+
+    'Miami': [
+        (from_competition('North American Soccer League (indoor)'), 'Miami Toros'),
+        ],
+
+
+
+
+    'Minnesota': [
+        (from_competition('Major Indoor Soccer League (1978-1992)'), 'Minnesota Strikers'),
+        (from_competition('North American Soccer League (indoor)'), 'Minnesota Strikers'),
+        ],
+
+    'Monterrey': [
+        (from_competition('Continental Indoor Soccer League'), 'Monterrey La Raza'),
+        (from_competition('World Indoor Soccer League'), 'Monterrey La Raza'),
+        (from_competition('CONCACAF Champions League'), 'CF Monterrey'),
+        (from_competition('Copa Libertadores'), 'CF Monterrey'),
+
+        ],
+
+    'Montreal': [
+        (from_competition('North American Soccer League (indoor)'), 'Montreal Manic'),
+        ],
+
 
     'Nacional': [
         (from_competition('Paraguayan Primera División'), 'Club Nacional'),
@@ -414,16 +587,31 @@ sep_teams = {
         ],
 
     'Newark': [
-        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1930 Spring'])), 'Newark Skeeters'),
+        (from_competition('Eastern Soccer League (1928-1929)'), 'Newark Skeeters'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1923-1924', '1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1930 Spring'])), 'Newark Skeeters'),
         (from_seasons('American Soccer League (1921-1933)', set(['1930 Fall',])), 'Newark Americans'),
         ],
 
     'New Bedford': [
-        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1929 Fall', '1930 Spring', '1930 Fall'])), 'New Bedford Whalers'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1929 Fall', '1930 Spring', '1930 Fall'])), 'New Bedford Whalers'),
+        ],
+
+
+    'New England': [
+        (from_competition('North American Soccer League (indoor)'), 'New England Tea Men'),
+        ],
+
+
+    'New Jersey': [
+        (from_competition('Major Indoor Soccer League (1978-1992)'), 'New Jersey Rockets'),
         ],
 
     'New York': [
         (from_seasons('American Soccer League (1921-1933)', set(['1930 Fall'])), 'New York SC Giants'),
+        (from_competition('North American Soccer League (indoor)'), 'New York Cosmos'),
+        (from_seasons('Major Indoor Soccer League (1978-1992)',  set(['1978-1979', '1979-1980', '1980-1981', '1981-1982', '1982-1983', '1983-1984'])), 'New York Arrows'),
+        (from_seasons('Major Indoor Soccer League (1978-1992)',  set(['1984-1985'])), 'New York Cosmos'),
+        (from_seasons('Major Indoor Soccer League (1978-1992)',  set(['1986-1987'])), 'New York Express'),
         ],
 
     'New York Giants': [
@@ -447,8 +635,6 @@ sep_teams = {
 
         (from_competition('Liga I'), 'Olimpia Satu Mare'),
 
-        
-
         (from_competition('Liga Nacional de Honduras'), 'CD Olimpia'),
 
         (from_competition('Paraguayan Primera División'), 'Club Olimpia'),
@@ -462,19 +648,44 @@ sep_teams = {
         (from_competition('Ligue 1'), 'Paris Saint-Germain'),
         ],
 
+    'Paterson': [
+        (from_seasons('American Soccer League (1921-1933)', set(['1922-1923',])), 'Paterson FC'),
+        ],
 
     'Pawtucket': [
-        (from_seasons('American Soccer League (1921-1933)', set(['1925-1926', '1929 Fall', '1930 Spring', '1930 Fall'])), 'Pawtucket Rangers'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1921-1922', '1922-1923', '1925-1926', '1929 Fall', '1930 Spring', '1930 Fall'])), 'Pawtucket Rangers'),
         ],
 
 
     'Philadelphia': [
-        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1929 Fall'])), 'Philadelphia Field Club'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1922-1923', '1924-1925', '1927-1928', '1928-1929', '1929 Fall'])), 'Philadelphia Field Club'),
+        (from_competition('Major Indoor Soccer League (1978-1992)'), 'Philadelphia Fever'),
+        (from_seasons('North American Soccer League (indoor)',  set(['1975', ])), 'Philadelphia Atoms'),
+        ],
+
+    'Phoenix': [
+        (from_competition('Major Indoor Soccer League (1978-1992)'), 'Phoenix Inferno'),
         ],
 
 
+
+    'Pittsburgh': [
+        (from_competition('Continental Indoor Soccer League'), 'Pittsburgh Stingers'),
+        (from_competition('Major Indoor Soccer League (1978-1992)'), 'Pittsburgh Spirit'),
+        ],
+
+
+
+    'Portland': [
+        (from_competition('Continental Indoor Soccer League'), 'Portland Pride'),
+        (from_competition('World Indoor Soccer League'), 'Portland Pythons'),
+        (from_competition('North American Soccer League (indoor)'), 'Portland Timbers'),
+        ],
+
+
+
     'Providence': [
-        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1928-1929', '1929 Fall', '1930 Spring', '1930 Fall'])), 'Providence Clamdiggers'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1929 Fall', '1930 Spring', '1930 Fall'])), 'Providence Clamdiggers'),
         ],
 
     'Progreso': [
@@ -490,6 +701,7 @@ sep_teams = {
 
     'Real Espana': [
         (from_competition('Liga Nacional de Honduras'), 'Real C.D. España'),
+        (from_competition('Copa Interclubes UNCAF'), 'Real C.D. España'),
         ],
 
     'Racing': [
@@ -532,17 +744,52 @@ sep_teams = {
         (from_competition('Uruguayan Primera División'), 'River Plate (Montevideo)'),
         ],
 
+    'Rochester': [
+        (from_competition('North American Soccer League (indoor)'), 'Rochester Lancers'),
+        ],
+
+
 
     'Sacachispas': [
         (from_competition('Liga Nacional de Guatemala'), 'CSD Sacachispas')
         ],
 
+    'Sacramento': [
+        (from_competition('Continental Indoor Soccer League'), 'Sacramento Knights'),
+        (from_competition('World Indoor Soccer League'), 'Sacramento Knights'),
+        ],
+
+
     'Salzburg': [
         (from_competition('Liga Nacional de Honduras'), 'Honduras Salzburg'),
         ],
 
+    'San Diego': [
+        (from_competition('Continental Indoor Soccer League'), 'San Diego Sockers'),
+        (from_competition('Major Indoor Soccer League (1978-1992)'), 'San Diego Sockers'),
+        (from_competition('World Indoor Soccer League'), 'San Diego Sockers'),
+        (from_competition('North American Soccer League (indoor)'), 'San Diego Sockers'),
+        ],
+
+
+    'San Francisco': [
+        (from_competition('Major Indoor Soccer League (1978-1992)'), 'San Francisco Fog'),
+        (from_competition('Liga Panameña de Fútbol'), 'San Francisco FC'),
+        (from_competition('Copa Interclubes UNCAF'), 'San Francisco FC'),
+        (from_competition('CONCACAF Champions League'), 'San Francisco FC'),
+        ],
+
     'San Jose': [
         (from_competition('Liga de Fútbol Profesional Boliviano'), 'CD San José',),
+        (from_competition('Continental Indoor Soccer League'), 'San Jose Grizzlies'),
+        (from_competition('North American Soccer League (indoor)'), 'San Jose Earthquakes')
+        ],
+
+
+    'San Marcos': [
+        (from_competition('Nicaraguan Primera División'), 'FC San Marcos'),
+        (from_competition('Chilean Primera División'), 'San Marcos de Arica'),
+
         ],
 
     'Santa Fe': [
@@ -552,6 +799,18 @@ sep_teams = {
     'Santa Lucia': [
         (from_competition('Liga Nacional de Guatemala'), 'Santa Lucía Cotzumalguapa'),
         ],
+
+
+    'Santa Barbara': [
+        (from_competition('Primera División de Costa Rica'), 'Santa Barbara (Costa Rica)'),
+        ],
+
+
+    'San Lorenzo': [
+        (from_competition('Paraguayan Primera División'), 'Sportivo San Lorenzo'),
+        (from_competition('Copa Libertadores'), 'San Lorenzo de Almagro'),
+        ],
+
 
     'Santos': [
         (from_competition('Liga MX'), 'Santos Laguna'),
@@ -564,6 +823,14 @@ sep_teams = {
         (from_competition('Brasileirão'), 'Santos FC'),
         (from_competition('Copa Libertadores'), 'Santos FC'),
         (from_competition('Recopa Sudamericana'), 'Santos FC'),
+        (from_competition('Copa Sudamericana'), 'Santos FC'),
+        (from_competition('Copa CONMEBOL'), 'Santos FC'),
+        ],
+
+
+    'Seattle': [
+        (from_competition('Continental Indoor Soccer League'), 'Seattle SeaDogs'),
+        (from_competition('North American Soccer League (indoor)'), 'Seattle Sounders'),
         ],
 
 
@@ -594,6 +861,14 @@ sep_teams = {
         (from_competition('La Liga'), 'Sporting de Gijon'),
         ],
 
+    'St. Louis': [
+        (from_competition('World Indoor Soccer League'), 'St. Louis Steamers'),
+        (from_competition('North American Soccer League (indoor)'), 'St. Louis Stars'),
+        (from_seasons('Major Indoor Soccer League (1978-1992)',  set(['1979-1980', '1980-1981', '1981-1982', '1982-1983', '1983-1984', '1984-1985', '1985-1986', '1986-1987', '1987-1988'])), 'St. Louis Steamers'),
+        (from_seasons('Major Indoor Soccer League (1978-1992)',  set(['1989-1990', '1990-1991', '1991-1992'])), 'St. Louis Storm'),
+        ],
+
+
 
     'Standard': [
         (from_competition('Belgian Pro League'), 'Standard Liège'),
@@ -603,9 +878,31 @@ sep_teams = {
         (from_competition('Austrian Bundesliga'), 'Sturm Graz'),
         ],
 
+    'Tacoma': [
+        (from_competition('Major Indoor Soccer League (1978-1992)'), 'Tacoma Stars'),
+        ],
+
 
     'Talleres': [
         (from_competition('Copa Libertadores'), 'Talleres de Córdoba',),
+        ],
+
+    'Toronto': [
+        (from_competition('North American Soccer League (indoor)'), 'Toronto Blizzard'),
+        ],
+
+    'Tampa': [
+        (from_competition('North American Soccer League (indoor)'), 'Tampa Bay Rowdies'),
+        ],
+
+
+    'Tampa Bay': [
+        (from_competition('North American Soccer League (indoor)'), 'Tampa Bay Rowdies'),
+        ],
+
+
+    'Tulsa': [
+        (from_competition('North American Soccer League (indoor)'), 'Tulsa Roughnecks'),
         ],
 
 
@@ -626,6 +923,7 @@ sep_teams = {
 
     'Universidad': [
         (from_competition('Liga Nacional de Honduras'), 'Pumas UNAH'),
+        (from_competition('Liga Nacional de Guatemala'), 'Universidad de San Carlos'),
         ],
 
     'Universidad Católica': [
@@ -636,6 +934,11 @@ sep_teams = {
         (from_competition('Argentine Primera División'), 'Unión de Santa Fe'),
         ],
 
+
+    'Utah': [
+        (from_competition('World Indoor Soccer League'), 'Utah Freezz'),
+        ],
+
     'Valencia': [
         (from_competition('Liga Nacional de Honduras'), 'Municipal Valencia'),
         (from_competition('La Liga'), 'Valencia CF'),
@@ -643,8 +946,20 @@ sep_teams = {
 
         ],
 
+    'Vancouver': [
+        (from_competition('North American Soccer League (indoor)'), 'Vancouver Whitecaps'),
+        (from_competition('Western Soccer League'), 'Vancouver Whitecaps'), # i suspect
+        
+        ],
+
+
     'Victoria': [
         (from_competition('Liga Nacional de Honduras'), 'CD Victoria'),
+        ],
+
+
+    'Victoria': [
+        (from_competition('Liga Nacional de Honduras'), 'CDS Vida'),
         ],
 
 
@@ -654,6 +969,7 @@ sep_teams = {
 
     'Vitoria': [
         (from_competition('Brasileirão'), 'EC Vitória'),
+        (from_competition('Copa CONMEBOL'), 'EC Vitória'),
         ],
 
 
@@ -671,6 +987,16 @@ sep_teams = {
         (from_competition('Chilean Primera División'), 'Santiago Wanderers'),
         ],
 
+    'Washington': [
+        (from_competition('Continental Indoor Soccer League'), 'Washington Warthogs'),
+        (from_competition('North American Soccer League (indoor)'), 'Washington Diplomats'),
+        ],
+
+
+
+    'Wichita': [
+        (from_competition('Major Indoor Soccer League (1978-1992)'), 'Wichita Wings'),
+        ],
 
     'YB': [
         (from_competition('Swiss Super League'), 'Young Boys'),

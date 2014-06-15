@@ -1,4 +1,26 @@
+
 usa = {
+
+    'Bridgeport Hungaria/Newark': 'Bridgeport Hungaria',
+
+    'Florida Thundercats': 'Florida ThunderCats',
+    
+    'Ft. Lauderdale': 'Fort Lauderdale',
+
+    'Tupelo Hound Dogs': 'Pensacola Flyers', # name map
+    'Philadelphia Kixx': 'Philadelphia KiXX',
+
+    'Los Angeles United': 'Anaheim Splash', # name map
+
+    'Texas Arsenal': 'Texas Stampede', # name map
+
+    'Massachusetts Aztecs': 'Boston Aztec', # not certain.
+    
+    'Permian Basin Mirage': 'Permian Basin Shooting Stars', # name map
+
+    'Oklahama City Alliance': 'Oklahoma City Warriors', # name map
+
+    'Las Vegas DustDevils': 'Las Vegas Dustdevils',
 
     'Blau-Weiss Gottschee': 'Gottschee Blau-Weiss',
     'BW Gottschee': 'Gottschee Blau-Weiss',
@@ -20,6 +42,10 @@ usa = {
     'Prague SC (NYC)': 'New York Prague SC',
     'New York Prague SC': 'New York Prague',
     'Prague FC': 'New York Prague',
+
+    # presumably - 1933 ASL competitor
+    'Prague Americans': 'New York Prague',
+    'Prague-Americans': 'New York Prague',
 
     'S.A. Healey FC (White Plains)': 'SA Helaey',
 
@@ -68,7 +94,9 @@ usa = {
 
     'VSI Tampa Flames': 'VSI Tampa Bay',
     'VSI Tampa Bay FC': 'VSI Tampa Bay',
+
     'F.A. Euro - New York Magic': 'FA Euro – New York Magic',
+    'FA Euro – New York Magic': 'FA Euro',
     
     'FC Golden Pride': 'FC Gold Pride',
 
@@ -164,7 +192,7 @@ usa = {
     'Bridgeport': 'Bridgeport Bears',
 
     # Colliding with Jersey City slug.
-    'Jersey City ?': 'Jersey City (?x)',
+    #'Jersey City ?': 'Jersey City (?x)',
 
 
     # Division 1
@@ -332,8 +360,9 @@ usa = {
     'El Paso Sixshooters': 'El Paso Patriots',
     'El Paso Spurs': 'El Paso Patriots',
 
-    'Austin Soccadillos': 'Austin Lone Stars',
+    'Austin Soccadillos': 'Austin Lone Stars', # name map
     'Austin Sockadillos': 'Austin Lone Stars',
+    'Austin Capital Sockadillos': 'Austin Lone Stars',
 
     'Rio Grande Valley Grandes FC': 'Rio Grande Valley Grandes',
     'Raleigh Elite': 'Raleigh CASL Elite',
@@ -347,6 +376,7 @@ usa = {
     'Boulder Rapids Reserve': 'Colorado Rapids U-23',
 
     'Abbotsford Rangers': 'Abbotsford Mariners', # alias until 2007
+    'Abbotsford Athletes In Action': 'Fraser Valley Mariners',  # 1998
     'Abbotsford Athletes in Action': 'Abbotsford Mariners', # alias 1998
     'Abbotsford 86ers': 'Fraser Valley Mariners', # 1999
     'Abbotsford 86ers Select': 'Fraser Valley Mariners', # 2000
@@ -366,7 +396,14 @@ usa = {
     'LA Misioneros FC': 'Los Angeles Misioneros',
     'Reading Rage': 'Reading United',
     'Reading United': 'Reading United AC',
+
     'Newark Ironbound Express': 'Jersey Express',
+    'Jersey Express S.C.': 'Jersey Express',
+
+    'NJ-LUSO Rangers FC': 'NJ-LUSO Parma',
+
+    'F. C. Seattle': 'FC Seattle',
+    'King\'s Warriors': 'Southern West Virginia King\'s Warriors',
 
     'Los Angeles Blues 23': 'Pali Blues',
     'MPS Portlnad Phoenix': 'GPS Portland Phoenix',
@@ -699,9 +736,10 @@ usa = {
     'Texas Rattlers': 'DFW Tornados',
     'Texas Spurs': 'DFW Tornados',
     'Texas Toros': 'DFW Tornados',
+    'Dallas/Fort Worth Toros': 'DFW Tornados',
     'Dallas-Fort Worth Toros': 'DFW Tornados',
     'Dallas Toros': 'Dallas-Fort Worth Toros',
-    'Dallas/Ft. Worth Toros': 'Dallas-Fort Worth Toros',
+    'Dallas/Ft. Worth Toros': 'Dallas-Fort Worth Toros',  #name map
     'DFW Toros': 'Dallas-Fort Worth Toros',
 
     

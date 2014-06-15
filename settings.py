@@ -32,6 +32,7 @@ STAT_TABLES = [
 
 
 # Sources are listed in terms of reliability; Order affects priority when merging games.
+# need to reduce this dramatically.
 SOURCES = [
 
     'world_i',

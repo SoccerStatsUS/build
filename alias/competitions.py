@@ -6,7 +6,9 @@ aliases = {}
 
 full_alias = {
 
+    'CCC': 'CONCACAF Champions League',
 
+    'FDLY': 'Friendly',
 
     'Championnat Féminin National, Division 1': 'Championnat Féminin',
     'Championnat Féminin National': 'Championnat Féminin',
@@ -18,6 +20,10 @@ full_alias = {
     'Haiti ?': 'Haiti Tournament',
 
     'Austrian Football Bundesliga': 'Austrian Bundesliga',
+
+    'Panama Liga Profesional de Fútbol': 'Liga Panameña de Fútbol',
+    'Primera División de Nicaragua': 'Nicaraguan Primera División',
+    'Venezuelan Primera División': 
 
     'Juegos Panamericanos Femenil': 'Women\'s Panamerican Games',
     'Preolímpico CONCACAF': 'Olympic Games qualification (CONCACAF)',
@@ -44,6 +50,7 @@ full_alias = {
 
     'Europa League': 'UEFA Europa League',
 
+    'USOC': 'U.S. Open Cup',
     'US Open Cup': 'U.S. Open Cup',
 
     'Copa Mundial': 'FIFA World Cup',
