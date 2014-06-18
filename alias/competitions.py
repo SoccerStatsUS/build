@@ -23,7 +23,6 @@ full_alias = {
 
     'Panama Liga Profesional de Fútbol': 'Liga Panameña de Fútbol',
     'Primera División de Nicaragua': 'Nicaraguan Primera División',
-    'Venezuelan Primera División': 
 
     'Juegos Panamericanos Femenil': 'Women\'s Panamerican Games',
     'Preolímpico CONCACAF': 'Olympic Games qualification (CONCACAF)',
