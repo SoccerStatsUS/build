@@ -128,7 +128,7 @@ def generate_game_stats():
                 if 'opponent' in g: 
                     key = tuple([g[k] for k in ['goal', 'opponent', 'date', 'competition', 'season']])
                     stats[key]['own_goals'] += 1
-                    stats[key]['games_played'] = 1
+                    #stats[key]['games_played'] = 1 #don't add games played on goals; not useful info.
 
                     k2 = tuple(['Own Goal'] + [g[k] for k in ['opponent', 'date', 'competition', 'season']])
                     stats[k2]['goals'] += 1
@@ -136,7 +136,7 @@ def generate_game_stats():
             else:
                 key = tuple([g[k] for k in ['goal', 'team', 'date', 'competition', 'season']])
                 stats[key]['goals'] += 1
-                stats[key]['games_played'] = 1
+                #stats[key]['games_played'] = 1 #don't add games played on goals; not useful info.
                 for assist in g['assists']:
                     k = tuple([assist] + [g[k] for k in ['team', 'date', 'competition', 'season']])
                     stats[k]['assists'] += 1
