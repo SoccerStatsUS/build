@@ -227,9 +227,7 @@ def normalize_game(e):
         elif len(linesmen) == 2:
             e['linesman1'] = get_name(linesmen[0])
             e['linesman2'] = get_name(linesmen[1])
-
-        # This happens in one game...ok?
-        elif len(linesmen) == 3:
+        elif len(linesmen) >= 3:
             e['linesman1'] = get_name(linesmen[0])
             e['linesman2'] = get_name(linesmen[1])
             e['linesman3'] = get_name(linesmen[2])
