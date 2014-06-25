@@ -6,6 +6,13 @@ aliases = {}
 
 full_alias = {
 
+    'NCAA Division I Men\'s Soccer Championship': 'NCAA Division I',
+    
+    'Copa Rio de Janeiro': 'Copa Rio', # not sure?
+
+    'Tweede Klasse': 'Belgian Second Division',
+    'Eindronde': 'Belgian Third Division',
+
     'CCC': 'CONCACAF Champions League',
 
     'FDLY': 'Friendly',

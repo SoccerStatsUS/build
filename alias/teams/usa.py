@@ -1,6 +1,20 @@
 
 usa = {
 
+    '1790 Cincinnati Express': '1790 Cincinnati',
+
+    'Rio Grande Valley Flash': 'Hidalgo La Fiera', # name map
+
+    'Stockton Cougars': 'California Cougars',
+
+    'Wenatchee Fire FC': 'Wenatchee Fire',
+
+    'New York IRT': 'Interborough Rapid Transit FC',
+
+    'Boston Soccer Club': 'Boston SC',
+
+    'Worcester Swedish Americans': 'Worcester Swedish-Americans',
+
     'Bridgeport Hungaria/Newark': 'Bridgeport Hungaria',
 
     'Florida Thundercats': 'Florida ThunderCats',
@@ -283,8 +297,11 @@ usa = {
     'NY Red Bulls': 'New York Red Bulls',
     'Red Bull New York': 'New York Red Bulls',
     'Philadephia Union': 'Philadelphia Union',
+
     'FC Portland': 'Portland Timbers',
+    'F. C. Portland': 'Portland Timbers',
     'Portland F.C.': 'Portland Timbers',
+
     'SJ Earthquakes': 'San Jose Earthquakes',
     'San Jose Clash': 'San Jose Earthquakes',
     'San Joe Earthquakes': 'San Jose Earthquakes',
@@ -401,6 +418,7 @@ usa = {
     'Jersey Express S.C.': 'Jersey Express',
 
     'NJ-LUSO Rangers FC': 'NJ-LUSO Parma',
+    'NJ Luso Rangers': 'NJ-LUSO Parma',
 
     'F. C. Seattle': 'FC Seattle',
     'King\'s Warriors': 'Southern West Virginia King\'s Warriors',
@@ -883,10 +901,12 @@ usa = {
     'St. Mary\'s Celtic': 'Brooklyn St. Mary\'s Celtic',
     'Brooklyn Celtics': 'Brooklyn St. Mary\'s Celtic',
     'St. Mary\'s Celtic (Brooklyn)': 'Brooklyn St. Mary\'s Celtic',
+    'Brooklyn St. Mary\'s Celtics': 'Brooklyn St. Mary\'s Celtic',
 
     'Brooklyn Celtics': 'Brooklyn Celtic',
     'Brooklyn St. Mary\'s Celtic': 'Brooklyn Celtic',
 
+    'New York Apollos': 'New York Apollo',
     'New York Greeks': 'New York Apollo',
     'New York United': 'New York Apollo',
 
