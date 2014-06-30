@@ -288,7 +288,9 @@ places = {
     'Compton Ave Park': 'Compton Avenue Park',
     'Capitoline Lake': 'Capitoline Grounds',
     'Cal State Fullerton': 'Titan Stadium, Fullerton, CA',
+
     'Richmond City Stadium': 'City Stadium, Richmond, VA',
+    'City Stadium (Richmond)': 'City Stadium, Richmond, VA',
 
     'Memorial Stadium Los Angeles': 'Los Angeles Memorial Coliseum',
     'Memorial Stadium, Long Beach, CA': 'Veterans Memorial Stadium, Long Beach, CA',

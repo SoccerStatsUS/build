@@ -63,9 +63,10 @@ SOURCES = [
     'asl2',
 
 
-    'us_d2',
-    'us_d3',
-    'us_d4',
+    'us_minor',
+    #'us_d2',
+    #'us_d3',
+    #'us_d4',
     'us_lower',
     'ltrack',
 

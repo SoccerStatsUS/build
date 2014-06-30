@@ -2673,6 +2673,8 @@ world = {
     'Detroit-Windsor Border Stars': 'Windsor Stars',
 
     'Impact De Montreal': 'Montreal Impact',
+    'Impact de Montreal': 'Montreal Impact',
+
 
     'Hamilton Steloos': 'Hamilton Stelcos',
 
@@ -5319,6 +5321,7 @@ world = {
     'Millionarios': 'Millonarios FC',
     'Millonarios': 'Millonarios FC',
     'CD Millonarios': 'Millonarios FC',
+
     'Soacha FC - Colombia': 'Soacha FC',
 
     # Ecuador
@@ -6367,7 +6370,9 @@ world = {
     'Macaupa (Brazil)': 'Macapá',
     'Macaupo': 'Macapá',
     'National Fast Club (Brazil)': 'National Fast Club',
+
     'Oscar\'s FC - Brazil': 'Oscar\'s FC',
+
     'Parana': 'Paraná',
     'Paraná': 'Paraná Clube',
     'Parana Clube': 'Paraná Clube',
@@ -6988,6 +6993,7 @@ world = {
     'Puntarenas': 'Puntarenas FC',
 
     'San Lorenzo - Costa Rica': 'San Lorenzo Costa Rica',
+
     'Santa Teresita FC -Costa Rica': 'Santa Teresita FC',
 
     'Saprissa - Costa Rica': 'Saprissa',

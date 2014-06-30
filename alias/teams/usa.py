@@ -1,6 +1,14 @@
 
 usa = {
 
+    'Long Island RR': 'Long Island Rough Riders',
+
+    'Wilmington Hammerheads FC': 'Wilmington Hammerheads',
+    'Sacramento Republic FC': 'Sacramento Republic',
+    'Orange County Blues FC': 'Orange County Blues',
+    'OKC Energy FC': 'Oklahoma City Energy',
+
+
     '1790 Cincinnati Express': '1790 Cincinnati',
 
     'Rio Grande Valley Flash': 'Hidalgo La Fiera', # name map
@@ -124,6 +132,13 @@ usa = {
 
     'North Jersey Dragons': 'Jersey Dragons',
     'Ft Lauderdale Sun': 'Fort Lauderdale Sun',
+
+    # college
+
+    'Portland Pilots': 'University of Portland',
+    'Santa Clara Broncos': 'Santa Clara University',
+    'George Mason': 'George Mason University',
+    'Florida Gators': 'University of Florida',
 
     'Princeton College Cliosophic Hall': 'Princeton Cliosophic Hall',
     'Princeton College Whig Hall': 'Princeton Whig Hall',
@@ -338,6 +353,7 @@ usa = {
 
     # USL-1/2
 
+    'Atlanta Ruckus/A.L.L.': 'Atlanta Silverbacks',
     'Atlanta Ruckus': 'Atlanta Silverbacks',
     'Atlanta Datagraphic Magic': 'Atlanta Magic',
     'Atlanta Datagraphic': 'Atlanta Magic',

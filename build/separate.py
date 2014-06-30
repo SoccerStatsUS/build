@@ -49,7 +49,7 @@ sep_teams = {
     'Coastal Carolina': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Coastal Carolina University')],
     'Virginia': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Virginia')],
     'UCF': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Central Florida')],
-    'San Francisco': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of San Francisco')],
+
     'Loyola Chicago': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Loyola University Chicago')],
     'West Virginia': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'West Virginia University')],
     'Akron': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Akron')],
@@ -57,10 +57,10 @@ sep_teams = {
     'Creighton': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Creighton University')],
     'South Florida': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of South Florida')],
     'New Mexico': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of New Mexico')],
-    'Indiana': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Indiana University')],    
+
     'UMBC': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Maryland Baltimore County')],
     'Michigan': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Michigan')],
-    'Tulsa': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Tulsa')],
+
     'VCU': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Virginia Commonwealth University')],
     'George Mason': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'George Mason University')],
     'Penn': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Pennsylvania')],
@@ -87,12 +87,12 @@ sep_teams = {
     'St. John\'s': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'St. John\'s University')],
     'James Madison': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'James Madison University')],
     'Louisville': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Louisville')],
-    'San Diego': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of San Diego')],
+
     'Lafayette': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Lafayette College')],
     'Air Force': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Air Force Academy')],
-    'Washington': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Washington')],
+
     'Kentucky': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Kentucky')],
-    'Syracuse': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Syracuse University')],
+
     'Cornell': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Cornell University')],
     'Niagara': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Niagara University')],
     'Winthrop': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Winthrop University')],
@@ -105,15 +105,15 @@ sep_teams = {
     'Quinnipiac': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Quinnipiac University')],
     'Navy': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Naval Academy')],
     'St. Francis (Brooklyn)': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'St. Francis College')],
-    'California': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of California, Berkeley')],
+
     'Fairfield': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Fairfield University')],
     'Charlotte': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'UNC Charlotte')],
-    'Providence': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Providence College')],
+
     'Delaware': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Delaware')],
-    'Seattle': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Seattle University')],
-    'Milwaukee': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Wisconsin-Milwaukee')],
+
+
     'Saint Mary\'s': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Saint Mary\'s College of California')],
-    'Pittsburgh': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Pittsburgh')],
+
 
 
     'Academica': [
@@ -124,6 +124,7 @@ sep_teams = {
     'Aguila': [
         (from_competition('Salvadoran Primera División'), 'CD Aguila'),
         (from_competition('CONCACAF Champions League'), 'CD Aguila'),
+        (from_competition('CONCACAF Cup Winners Cup'), 'CD Aguila'),
         (from_competition('Copa Interclubes UNCAF'), 'CD Aguila'),
         ],
 
@@ -140,10 +141,17 @@ sep_teams = {
         (from_competition('Liga MX Liguilla'), 'Club America'),
         (from_competition('Categoría Primera A'), 'America de Cali'),
         (from_competition('Brasileirão'), 'América Futebol Clube'),
+        (from_competition('Campeonato Mineiro'), 'América Futebol Clube'),
+        #(from_competition('Campeonato Carioca'), 'América (RJ)'),
         ],
 
     'Anaheim': [
         (from_competition('Continental Indoor Soccer League'), 'Anaheim Splash'),
+        ],
+
+
+    'Ángeles': [
+        (from_competition('Liga MX'), 'Ángeles de Puebla'),
         ],
 
 
@@ -182,6 +190,9 @@ sep_teams = {
         (from_competition('American League of Professional Football'), 'Baltimore Orioles'),
         (from_competition('Major Indoor Soccer League (1978-1992)'), 'Baltimore Blast'),
         (from_competition('North American Soccer League (indoor)'), 'Baltimore Comets'),
+        (from_seasons('American Soccer League (1933-1983)', set(['1934-1935', '1945-1946'])), 'Baltimore Americans'),
+        (from_seasons('American Soccer League (1933-1983)', set(['1936-1937', '1940-1941',])), 'Baltimore S.C.'),
+        (from_competition('Major Indoor Soccer League (2008-2014)'), 'Baltimore Blast'),
         ],
 
 
@@ -194,6 +205,13 @@ sep_teams = {
         (from_competition('Copa Libertadores'), 'Barcelona Sporting Club'),
         ],
 
+
+    'Benfica': [
+        (from_competition('Jamaica National Premier League'), 'Benfica FC'),
+        (from_competition('Primeira Liga'), 'SL Benfica'),
+        (from_competition('Intercontinental Cup'), 'SL Benfica'),
+        ],
+
     'Berlin': [
         (from_competition('1. Bundesliga'), 'Hertha BSC Berlin'),
         ],
@@ -201,12 +219,15 @@ sep_teams = {
 
     'Bethlehem': [
         (from_competition('American Soccer League (1921-1933)'), 'Bethlehem Steel'),
+        (from_seasons('American Soccer League (1933-1983)', set(['1938-1939'])), 'Bethlehem Hungarian'),
         ],
 
 
     'Boston': [
         (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929'])), 'Boston Wonder Workers'),
         (from_seasons('American Soccer League (1921-1933)', set(['1929 Fall'])), 'Boston Bears'),
+        (from_seasons('American Soccer League (1933-1983)', set(['1969'])), 'Boston Astros'),
+        (from_seasons('American Soccer League (1933-1983)', set(['1934-1935'])), 'Boston Bears'),
         (from_competition('North American Soccer League (indoor)'), 'Boston Minutemen'),
         ],
 
@@ -261,6 +282,7 @@ sep_teams = {
         ],
 
     'California': [
+        (from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of California, Berkeley'),
         (from_competition('North American Soccer League (indoor)'), 'California Surf'),
         ],
 
@@ -279,6 +301,11 @@ sep_teams = {
         (from_competition('Categoría Primera A'), 'Real Cartagena'),
         ],
 
+    'Celtic': [
+        (from_competition('Intercontinental Cup'), 'Glasgow Celtic'),
+        ],
+
+
     'Central': [
         (from_competition('Uruguayan Primera División'), 'Central Español'),
         ],
@@ -294,6 +321,8 @@ sep_teams = {
         (from_seasons('Major Indoor Soccer League (1978-1992)', set(['1982-1983', '1984-1985', '1985-1986', '1986-1987', '1987-1988'])), 'Chicago Sting'),
         (from_seasons('Major Indoor Soccer League (1978-1992)', set(['1980-1981'])), 'Chicago Horizon'),
 
+        (from_seasons('Major Indoor Soccer League (2008-2014)', set(['2012-2013'])), 'Chicago Soul'),
+        (from_seasons('Major Indoor Soccer League (2008-2014)', set(['2010-2011'])), 'Chicago Riot'),
 
         ],
 
@@ -396,11 +425,14 @@ sep_teams = {
         (from_competition('Copa Sudamericana'), 'Estudiantes de La Plata'),
         (from_competition('Argentine Primera División'), 'Estudiantes de La Plata'),
         (from_competition('Peruvian Primera División'), 'Estudiantes Grau'),
+        (from_competition('Venezuelan Primera División'), 'Estudiantes de Mérida'),
         ],
 
 
     'Fall River': [
         (from_seasons('American Soccer League (1921-1933)', set(['1922-1923', '1923-1924', '1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1930 Spring', '1930 Fall'])), 'Fall River Marksmen'),
+        (from_seasons('American Soccer League (1933-1983)', set(['1960-1961', '1961-1962', '1963-1964',])), 'Fall River SC'),
+
         ],
 
     'Fort Lauderdale': [
@@ -486,6 +518,7 @@ sep_teams = {
     'Indiana': [
         (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926'])), 'Indiana Flooring'),
         (from_competition('Continental Indoor Soccer League'), 'Indiana Twisters'),
+        (from_competition('NCAA Division I Men\'s Soccer Championship'), 'Indiana University'),
         ],
 
     'Indianapolis': [
@@ -557,17 +590,30 @@ sep_teams = {
 
 
 
+    'Milwaukee': [
+        (from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Wisconsin-Milwaukee'),
+        (from_competition('Major Indoor Soccer League (2008-2014)'), 'Milwaukee Wave'),
+        ],
+
 
     'Minnesota': [
         (from_competition('Major Indoor Soccer League (1978-1992)'), 'Minnesota Strikers'),
         (from_competition('North American Soccer League (indoor)'), 'Minnesota Strikers'),
         ],
 
+    'Missouri': [
+        (from_competition('Major Indoor Soccer League (2008-2014)'), 'Missouri Comets'),
+        ],
+
     'Monterrey': [
         (from_competition('Continental Indoor Soccer League'), 'Monterrey La Raza'),
         (from_competition('World Indoor Soccer League'), 'Monterrey La Raza'),
+        (from_competition('Major Indoor Soccer League (2008-2014)'), 'Monterrey La Raza'),
+
         (from_competition('CONCACAF Champions League'), 'CF Monterrey'),
         (from_competition('Copa Libertadores'), 'CF Monterrey'),
+        (from_competition('Club World Cup'), 'CF Monterrey'),
+        (from_competition('Liga MX'), 'CF Monterrey'),
 
         ],
 
@@ -627,6 +673,12 @@ sep_teams = {
         (from_competition('American Soccer League (1933-1983)'), 'Hakoah (ASL2)'),
         ],
 
+    'Norfolk': [
+        (from_competition('Major Indoor Soccer League (2008-2014)'), 'Norfolk SharX'),
+        ],
+
+
+
     'Olimpia': [
         (from_competition('CONCACAF Champions League'), 'CD Olimpia'),
         (from_competition('Copa Interclubes UNCAF'), 'CD Olimpia'),
@@ -644,12 +696,18 @@ sep_teams = {
 
         ],
 
+    'Omaha': [
+        (from_competition('Major Indoor Soccer League (2008-2014)'), 'Omaha Vipers'),
+        ],
+
+
     'Paris': [
         (from_competition('Ligue 1'), 'Paris Saint-Germain'),
         ],
 
     'Paterson': [
         (from_seasons('American Soccer League (1921-1933)', set(['1922-1923',])), 'Paterson FC'),
+        (from_seasons('American Soccer League (1933-1983)', set(['1940-1941'])), 'Paterson FC (ASL2)'),
         ],
 
     'Pawtucket': [
@@ -657,10 +715,17 @@ sep_teams = {
         ],
 
 
+    'Paysandu': [
+        (from_competition('Uruguayan Primera División'), 'Paysandu FC'),
+        (from_competition('Copa Libertadores'), 'Paysandu Sport Club')
+        ],
+
+
     'Philadelphia': [
         (from_seasons('American Soccer League (1921-1933)', set(['1922-1923', '1924-1925', '1927-1928', '1928-1929', '1929 Fall'])), 'Philadelphia Field Club'),
         (from_competition('Major Indoor Soccer League (1978-1992)'), 'Philadelphia Fever'),
         (from_seasons('North American Soccer League (indoor)',  set(['1975', ])), 'Philadelphia Atoms'),
+        (from_competition('Major Indoor Soccer League (2008-2014)'), 'Philadelphia KiXX'),
         ],
 
     'Phoenix': [
@@ -668,10 +733,17 @@ sep_teams = {
         ],
 
 
+    'Platense': [
+        (from_competition('CONCACAF Champions League'), 'Platense F.C.'),
+        (from_competition('CONCACAF Cup Winners Cup'), 'Platense F.C.'),
+        ],
+
+
 
     'Pittsburgh': [
         (from_competition('Continental Indoor Soccer League'), 'Pittsburgh Stingers'),
         (from_competition('Major Indoor Soccer League (1978-1992)'), 'Pittsburgh Spirit'),
+        (from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Pittsburgh'),
         ],
 
 
@@ -686,6 +758,7 @@ sep_teams = {
 
     'Providence': [
         (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1929 Fall', '1930 Spring', '1930 Fall'])), 'Providence Clamdiggers'),
+        (from_competition('NCAA Division I Men\'s Soccer Championship'), 'Providence College'),
         ],
 
     'Progreso': [
@@ -701,6 +774,7 @@ sep_teams = {
 
     'Real Espana': [
         (from_competition('Liga Nacional de Honduras'), 'Real C.D. España'),
+        (from_competition('CONCACAF Champions League'), 'Real C.D. España'),
         (from_competition('Copa Interclubes UNCAF'), 'Real C.D. España'),
         ],
 
@@ -746,6 +820,12 @@ sep_teams = {
 
     'Rochester': [
         (from_competition('North American Soccer League (indoor)'), 'Rochester Lancers'),
+        (from_competition('Major Indoor Soccer League (2008-2014)'), 'Rochester Lancers'),
+        ],
+
+
+    'Rockford': [
+        (from_competition('Major Indoor Soccer League (2008-2014)'), 'Rockford Rampage'),
         ],
 
 
@@ -769,14 +849,15 @@ sep_teams = {
         (from_competition('Major Indoor Soccer League (1978-1992)'), 'San Diego Sockers'),
         (from_competition('World Indoor Soccer League'), 'San Diego Sockers'),
         (from_competition('North American Soccer League (indoor)'), 'San Diego Sockers'),
+        (from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of San Diego'),
         ],
-
 
     'San Francisco': [
         (from_competition('Major Indoor Soccer League (1978-1992)'), 'San Francisco Fog'),
         (from_competition('Liga Panameña de Fútbol'), 'San Francisco FC'),
         (from_competition('Copa Interclubes UNCAF'), 'San Francisco FC'),
         (from_competition('CONCACAF Champions League'), 'San Francisco FC'),
+        (from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of San Francisco'),
         ],
 
     'San Jose': [
@@ -794,6 +875,7 @@ sep_teams = {
 
     'Santa Fe': [
         (from_competition('Categoría Primera A'), 'Independiente Santa Fe'),
+        (from_competition('Copa Libertadores'), 'Independiente Santa Fe'),
         ],
 
     'Santa Lucia': [
@@ -809,6 +891,7 @@ sep_teams = {
     'San Lorenzo': [
         (from_competition('Paraguayan Primera División'), 'Sportivo San Lorenzo'),
         (from_competition('Copa Libertadores'), 'San Lorenzo de Almagro'),
+        (from_competition('Copa Mercosur'), 'San Lorenzo de Almagro'),
         ],
 
 
@@ -829,8 +912,14 @@ sep_teams = {
 
 
     'Seattle': [
+        (from_competition('NCAA Division I Men\'s Soccer Championship'), 'Seattle University'),
         (from_competition('Continental Indoor Soccer League'), 'Seattle SeaDogs'),
         (from_competition('North American Soccer League (indoor)'), 'Seattle Sounders'),
+        ],
+
+
+    'Seoul': [
+        (from_competition('K League'), 'FC Seoul'),
         ],
 
 
@@ -878,6 +967,14 @@ sep_teams = {
         (from_competition('Austrian Bundesliga'), 'Sturm Graz'),
         ],
 
+    'Syracuse': [
+        (from_competition('Major Indoor Soccer League (2008-2014)'), 'Syracuse Silver Knights'),
+        (from_competition('NCAA Division I Men\'s Soccer Championship'), 'Syracuse University'),
+        ],
+
+
+
+
     'Tacoma': [
         (from_competition('Major Indoor Soccer League (1978-1992)'), 'Tacoma Stars'),
         ],
@@ -885,6 +982,7 @@ sep_teams = {
 
     'Talleres': [
         (from_competition('Copa Libertadores'), 'Talleres de Córdoba',),
+        (from_competition('Copa Mercosur'), 'Talleres de Córdoba',),
         ],
 
     'Toronto': [
@@ -902,6 +1000,7 @@ sep_teams = {
 
 
     'Tulsa': [
+        (from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Tulsa'),
         (from_competition('North American Soccer League (indoor)'), 'Tulsa Roughnecks'),
         ],
 
@@ -990,12 +1089,13 @@ sep_teams = {
     'Washington': [
         (from_competition('Continental Indoor Soccer League'), 'Washington Warthogs'),
         (from_competition('North American Soccer League (indoor)'), 'Washington Diplomats'),
+        (from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Washington'),
         ],
-
 
 
     'Wichita': [
         (from_competition('Major Indoor Soccer League (1978-1992)'), 'Wichita Wings'),
+        (from_competition('Major Indoor Soccer League (2008-2014)'), 'Wichita Wings'),
         ],
 
     'YB': [
@@ -1013,7 +1113,13 @@ def separate_team(team, data):
     else:
 
         candidates = sep_teams[team]
-        for pred, nteam in candidates:
+        for c in candidates:
+            try:
+                pred, nteam = c
+            except:
+                import pdb; pdb.set_trace()
+                continue
+
             if pred(data):
                 return get_team(nteam)
 
