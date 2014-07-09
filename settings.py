@@ -49,21 +49,22 @@ SOURCES = [
     'concacaf',
     'conmebol',
     'oceania',
-    'uncaf',
-    'cfu',
 
+    #'uncaf',
+    #'cfu',
+
+    'alpf',
     'asl',
     'nasl',
     'mls',
     'mls2',
     'mls3',
 
-    'alpf',
-    'nafbl',
+
+    #'nafbl',
     'asl2',
-
-
     'us_minor',
+
     #'us_d2',
     #'us_d3',
     #'us_d4',
@@ -88,14 +89,17 @@ SOURCES = [
     'argentina',
     'brazil',
 
-    'china',
-    'japan',
-    'korea',
+    'afc',
+
+    #'china',
+    #'japan',
+    #'korea',
+    #'australia',
 
     'uefa',
     'epl',
 
-    'australia',
+
 
     'mediotiempo',
 
