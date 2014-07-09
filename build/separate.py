@@ -226,8 +226,9 @@ sep_teams = {
     'Boston': [
         (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929'])), 'Boston Wonder Workers'),
         (from_seasons('American Soccer League (1921-1933)', set(['1929 Fall'])), 'Boston Bears'),
-        (from_seasons('American Soccer League (1933-1983)', set(['1969'])), 'Boston Astros'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1932 Spring', '1932 Fall'])), 'Boston Bears'),
         (from_seasons('American Soccer League (1933-1983)', set(['1934-1935'])), 'Boston Bears'),
+        (from_seasons('American Soccer League (1933-1983)', set(['1969'])), 'Boston Astros'),
         (from_competition('North American Soccer League (indoor)'), 'Boston Minutemen'),
         ],
 
@@ -236,7 +237,7 @@ sep_teams = {
         ],
 
     'Brooklyn': [
-        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929'])), 'Brooklyn Wanderers'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1930 Fall',])), 'Brooklyn Wanderers'),
         ],
 
     'Brooklyn FC': [
@@ -639,7 +640,7 @@ sep_teams = {
         ],
 
     'New Bedford': [
-        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1929 Fall', '1930 Spring', '1930 Fall'])), 'New Bedford Whalers'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1929 Fall', '1929-1930', '1930 Spring', '1930 Fall', '1931 Fall', '1932 Spring'])), 'New Bedford Whalers'),
         ],
 
 
@@ -653,7 +654,7 @@ sep_teams = {
         ],
 
     'New York': [
-        (from_seasons('American Soccer League (1921-1933)', set(['1930 Fall'])), 'New York SC Giants'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1925-1926', '1930 Fall'])), 'New York SC Giants'),
         (from_competition('North American Soccer League (indoor)'), 'New York Cosmos'),
         (from_seasons('Major Indoor Soccer League (1978-1992)',  set(['1978-1979', '1979-1980', '1980-1981', '1981-1982', '1982-1983', '1983-1984'])), 'New York Arrows'),
         (from_seasons('Major Indoor Soccer League (1978-1992)',  set(['1984-1985'])), 'New York Cosmos'),
@@ -711,7 +712,7 @@ sep_teams = {
         ],
 
     'Pawtucket': [
-        (from_seasons('American Soccer League (1921-1933)', set(['1921-1922', '1922-1923', '1925-1926', '1929 Fall', '1930 Spring', '1930 Fall'])), 'Pawtucket Rangers'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1921-1922', '1922-1923', '1925-1926', '1929 Fall', '1929-1930', '1930 Spring', '1930 Fall', '1932 Spring', '1932 Fall'])), 'Pawtucket Rangers'),
         ],
 
 
@@ -757,7 +758,7 @@ sep_teams = {
 
 
     'Providence': [
-        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1929 Fall', '1930 Spring', '1930 Fall'])), 'Providence Clamdiggers'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1929 Fall', '1929-1930', '1930 Spring', '1930 Fall'])), 'Providence Clamdiggers'),
         (from_competition('NCAA Division I Men\'s Soccer Championship'), 'Providence College'),
         ],
 

@@ -1,6 +1,8 @@
 
 usa = {
 
+    'Bohemian Queens': 'Queens Bohemians',
+
     'Long Island RR': 'Long Island Rough Riders',
 
     'Wilmington Hammerheads FC': 'Wilmington Hammerheads',
