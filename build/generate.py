@@ -10,6 +10,20 @@ from standings import get_standings
 make_stat_tuple = lambda name, d: (name, d['team'], d['season'], d['competition'])
 
 
+def stadiums_to_teams():
+    from soccerdata.text import stadiummap
+    from smid.alias import get_stadium
+
+    d = defaultdict(set)
+
+    for e in stadiummap.load():
+        key = get_stadium(e['stadium'])
+        value = e['team']
+        d[key].add(value)
+
+    return d
+        
+
 
 def make_stadium_getter():
     """
@@ -70,6 +84,8 @@ def generate_game_data():
     stadium_getter = make_stadium_getter()
     team_city_map = dict([(e['name'], e.get('city')) for e in soccer_db.teams.find()])
 
+    stadium_mapper = stadiums_to_teams()
+
     l = []
 
     for e in soccer_db.games.find():
@@ -92,15 +108,30 @@ def generate_game_data():
         elif home_team is None:
             # Get home team based on team info.
             # Fix location/city inconsistencies.
-            team1_city = team_city_map.get(e['team1'])
-            team2_city = team_city_map.get(e['team2'])
-            if team1_city and team2_city:
-                if team1_city != team2_city and e.get('location'):
-                    if team1_city == e['location']:
-                        e['home_team'] = e['team1']
 
-                    if team2_city == e['location']:
-                        e['home_team'] = e['team2']
+            # If we know about a stadium, try to use the stadium.
+            if 'stadium' in e and e['stadium'] in stadium_mapper:                
+                try:
+                    teams = stadium_mapper[e['stadium']]
+                except:
+                    import pdb; pdb.set_trace()
+
+                if e['team1'] in teams and e['team2'] not in teams:
+                    e['home_team'] = e['team1']
+                elif e['team2']:
+                    e['home_team'] = e['team2']
+
+            else:
+
+                team1_city = team_city_map.get(e['team1'])
+                team2_city = team_city_map.get(e['team2'])
+                if team1_city and team2_city:
+                    if team1_city != team2_city and e.get('location'):
+                        if team1_city == e['location']:
+                            e['home_team'] = e['team1']
+
+                        if team2_city == e['location']:
+                            e['home_team'] = e['team2']
 
         l.append(e)
 
@@ -270,8 +301,10 @@ def generate_competition_stats():
 
         # US Minor
 
-        'USSF Division 2 Professional League',
         'American Professional Soccer League', 
+        'USSF Division 2 Professional League',
+        'North American Soccer League (2011-)',
+
 
         # CONCACAF
         'Liga MX',
@@ -347,7 +380,7 @@ def generate_competition_stats():
         'Mundialito',
 
 
-        #'North American Soccer League',
+
         # Overlap?
         #'USL Second Division',
         ]
