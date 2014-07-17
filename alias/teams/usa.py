@@ -1,6 +1,10 @@
 
 usa = {
 
+    'Floridians F.C.': 'Floridians FC',
+
+    'Nor East United': 'Nor\'East United',
+
     'Bohemian Queens': 'Queens Bohemians',
 
     'Long Island RR': 'Long Island Rough Riders',
@@ -106,7 +110,10 @@ usa = {
     'New York Fury': 'Long Island Fury',
     
     'So. WV King\'s Warriors': 'Southern West Virginia King\'s Warriors',
+
     'North Sound Sea Wolves': 'North Sound SeaWolves',
+    'North Sound SeaWolves': 'Puget Sound Gunners FC',
+
 
     'OC Blues Strikers': 'OC Blues Strikers FC', # Pali Blues
     
@@ -121,6 +128,7 @@ usa = {
 
     'F.A. Euro - New York Magic': 'FA Euro – New York Magic',
     'FA Euro – New York Magic': 'FA Euro',
+    'F.A. Euro': 'FA Euro',
     
     'FC Golden Pride': 'FC Gold Pride',
 
@@ -437,6 +445,9 @@ usa = {
 
     'NJ-LUSO Rangers FC': 'NJ-LUSO Parma',
     'NJ Luso Rangers': 'NJ-LUSO Parma',
+    'NJ LUSO Rangers FC': 'NJ-LUSO Parma',
+    'NJ Luso Parma': 'NJ-LUSO Parma',
+    'NJ LUSO Parma': 'NJ-LUSO Parma',
 
     'F. C. Seattle': 'FC Seattle',
     'King\'s Warriors': 'Southern West Virginia King\'s Warriors',
@@ -882,12 +893,16 @@ usa = {
     'NY Hota SC': 'New York Hota',
     'New York Hota SC': 'New York Hota',
     
+
     'Galicia F.C.': 'New York Galicia',
     'Galicia FC': 'New York Galicia',
     'NY Galicia': 'New York Galicia',
 
+    # sure?
     'Galicia SC': 'Brookhattan',
     'Galicia-Honduras': 'Brookhattan',
+    'Galicia Honduras': 'Brookhattan',
+
     'New York Brookhattan': 'Brookhattan',
     'Brookhattan-Galicia': 'Brookhattan',
     'Brookhattan Galicia': 'Brookhattan',
@@ -1386,6 +1401,8 @@ usa = {
     'Avella Polar Star (W. Pa.)': 'Avella Polar Star',
 
     # Uh...might not be a good name to use Uhrik Truckers.
+    'Uhriks': 'Uhrik Truckers',
+    'Philadelphia Uhrik': 'Uhrik Truckers',
     'Philadelphia Truckers': 'Uhrik Truckers',
     'Philadelphia Uhriks': 'Uhrik Truckers',
     'Uhrik Truckers': 'Philadelphia German Americans',
