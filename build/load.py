@@ -140,7 +140,7 @@ def load():
     load_competition_maps()
 
     # short circuit bios
-    load_games(); return 
+    #load_games(); return 
 
     load_bios()
     load_transactions()
@@ -168,12 +168,6 @@ def load_extra():
 def load_games():  
     load_domestic()
     load_indoor()
-    return
-
-
-
-
-
     load_amateur()
     load_outer()
     load_international()
@@ -198,16 +192,8 @@ def load_international():
 
 def load_domestic():
     load_usd1()    
-
-    return
     load_us_minor()
     load_concacaf()
-
-
-
-
-    return
-
     load_caf()
     load_world()
     load_ofc()
@@ -220,11 +206,11 @@ def load_domestic():
 
 def load_usd1():
     load_asl()
-    return
+    load_mls()
     load_alpf()
 
     load_nasl()
-    load_mls()
+
 
 
 def load_outer():
@@ -426,7 +412,6 @@ def load_uefa_leagues():
     load_uefa_major()
     load_uefa_mid()
     return
-
     load_uefa_minor()
 
 
@@ -1887,8 +1872,6 @@ def load_concacaf():
         load_games_standard('concacaf', 'games/confederation/champions/%s' % e, root=CONCACAF_DIR)
 
     load_games_standard('concacaf', 'games/confederation/recopa', root=CONCACAF_DIR)
-
-    return
 
     load_mexico()
     load_cfu()

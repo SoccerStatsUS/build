@@ -224,8 +224,8 @@ sep_teams = {
 
 
     'Boston': [
-        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929'])), 'Boston Wonder Workers'),
-        (from_seasons('American Soccer League (1921-1933)', set(['1929-1930', '1929 Fall'])), 'Boston Bears'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1929 Fall'])), 'Boston Wonder Workers'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1929-1930', ])), 'Boston Bears'),
         (from_seasons('American Soccer League (1921-1933)', set(['1931 Spring', '1931 Fall', '1932 Spring', '1932 Fall'])), 'Boston Bears'),
         (from_seasons('American Soccer League (1933-1983)', set(['1934-1935'])), 'Boston Bears'),
         (from_seasons('American Soccer League (1933-1983)', set(['1969'])), 'Boston Astros'),
@@ -470,7 +470,7 @@ sep_teams = {
 
 
     'Hakoah': [
-        (from_seasons('American Soccer League (1921-1933)', set(['1929-1930', '1930 Spring', '1930 Fall', '1931 Fall', '1932 Spring',])), 'Hakoah All-Stars'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1929-1930', '1930 Spring', '1930 Fall', '1931 Spring', '1931 Fall', '1932 Spring',])), 'Hakoah All-Stars'),
         (from_seasons('American Soccer League (1921-1933)', set(['1929 Fall',])), 'Brooklyn Hakoah'),
         (from_competition('Eastern Soccer League (1928-1929)'), 'New York Hakoah'),
 
@@ -656,7 +656,7 @@ sep_teams = {
         ],
 
     'New York': [
-        (from_seasons('American Soccer League (1921-1933)', set(['1925-1926', '1930 Fall'])), 'New York SC Giants'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1925-1926', '1930 Fall'])), 'New York Giants (1923-1930)'),
         (from_competition('North American Soccer League (indoor)'), 'New York Cosmos'),
         (from_seasons('Major Indoor Soccer League (1978-1992)',  set(['1978-1979', '1979-1980', '1980-1981', '1981-1982', '1982-1983', '1983-1984'])), 'New York Arrows'),
         (from_seasons('Major Indoor Soccer League (1978-1992)',  set(['1984-1985'])), 'New York Cosmos'),
@@ -664,11 +664,10 @@ sep_teams = {
         ],
 
     'New York Giants': [
-        (from_competition('Eastern Soccer League (1928-1929)'), 'New York SC Giants'),
-        (from_seasons('American Soccer League (1921-1933)', set(['1923-1924', '1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1930 Spring'])), 'New York SC Giants'),
-
-        (from_competition('American Soccer League (1921-1933) Playoffs'), 'New York National Giants'),
-        (from_seasons('American Soccer League (1921-1933)', set(['1929-1930', '1930 Fall', '1931 Spring', '1931 Fall', '1932 Spring', '1932 Fall'])), 'New York National Giants'),
+        (from_competition('Eastern Soccer League (1928-1929)'), 'New York Giants (1923-1930)'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1923-1924', '1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1930 Spring'])), 'New York Giants (1923-1930)'),
+        (from_competition('American Soccer League (1921-1933) Playoffs'), 'New York Nationals'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1929-1930', '1930 Fall', '1931 Spring', '1931 Fall', '1932 Spring', '1932 Fall'])), 'New York Nationals'),
         ],
 
 

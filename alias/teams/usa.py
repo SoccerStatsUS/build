@@ -239,9 +239,10 @@ usa = {
     # ASL
     'Todd Shipyards F.C.': 'Todd Shipyards',
 
-    'New York Nationals': 'New York National Giants',
+    #'New York Nationals': 'New York National Giants', # this is just incorrect
 
     'New York Soccer Club Giants': 'New York SC Giants',
+    'New York SC Giants': 'New York Giants (1923-1930)',
     
     'NY Giants': 'New York Giants',
 
