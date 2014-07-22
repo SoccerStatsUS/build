@@ -225,8 +225,8 @@ sep_teams = {
 
     'Boston': [
         (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929'])), 'Boston Wonder Workers'),
-        (from_seasons('American Soccer League (1921-1933)', set(['1929 Fall'])), 'Boston Bears'),
-        (from_seasons('American Soccer League (1921-1933)', set(['1932 Spring', '1932 Fall'])), 'Boston Bears'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1929-1930', '1929 Fall'])), 'Boston Bears'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1931 Spring', '1931 Fall', '1932 Spring', '1932 Fall'])), 'Boston Bears'),
         (from_seasons('American Soccer League (1933-1983)', set(['1934-1935'])), 'Boston Bears'),
         (from_seasons('American Soccer League (1933-1983)', set(['1969'])), 'Boston Astros'),
         (from_competition('North American Soccer League (indoor)'), 'Boston Minutemen'),
@@ -237,7 +237,7 @@ sep_teams = {
         ],
 
     'Brooklyn': [
-        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1930 Fall',])), 'Brooklyn Wanderers'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1922-1923', '1923-1924', '1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1929 Fall', '1929-1930', '1930 Fall', '1931 Spring',])), 'Brooklyn Wanderers'),
         ],
 
     'Brooklyn FC': [
@@ -431,7 +431,8 @@ sep_teams = {
 
 
     'Fall River': [
-        (from_seasons('American Soccer League (1921-1933)', set(['1922-1923', '1923-1924', '1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1930 Spring', '1930 Fall'])), 'Fall River Marksmen'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1922-1923', '1923-1924', '1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1929-1930', '1929 Fall', '1930 Spring', '1930 Fall'])), 'Fall River Marksmen'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1932 Fall'])), 'Fall River FC'),
         (from_seasons('American Soccer League (1933-1983)', set(['1960-1961', '1961-1962', '1963-1964',])), 'Fall River SC'),
 
         ],
@@ -469,7 +470,8 @@ sep_teams = {
 
 
     'Hakoah': [
-        (from_seasons('American Soccer League (1921-1933)', set(['1930 Spring', '1930 Fall'])), 'Hakoah All-Stars'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1929-1930', '1930 Spring', '1930 Fall', '1931 Fall', '1932 Spring',])), 'Hakoah All-Stars'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1929 Fall',])), 'Brooklyn Hakoah'),
         (from_competition('Eastern Soccer League (1928-1929)'), 'New York Hakoah'),
 
         ],
@@ -517,7 +519,7 @@ sep_teams = {
         ],
 
     'Indiana': [
-        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926'])), 'Indiana Flooring'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1926-1927'])), 'Indiana Flooring'),
         (from_competition('Continental Indoor Soccer League'), 'Indiana Twisters'),
         (from_competition('NCAA Division I Men\'s Soccer Championship'), 'Indiana University'),
         ],
@@ -635,12 +637,12 @@ sep_teams = {
 
     'Newark': [
         (from_competition('Eastern Soccer League (1928-1929)'), 'Newark Skeeters'),
-        (from_seasons('American Soccer League (1921-1933)', set(['1923-1924', '1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1930 Spring'])), 'Newark Skeeters'),
-        (from_seasons('American Soccer League (1921-1933)', set(['1930 Fall',])), 'Newark Americans'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1923-1924', '1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1929-1930', '1930 Spring'])), 'Newark Skeeters'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1930 Fall','1931 Spring','1931 Fall',])), 'Newark Americans'),
         ],
 
     'New Bedford': [
-        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1929 Fall', '1929-1930', '1930 Spring', '1930 Fall', '1931 Fall', '1932 Spring'])), 'New Bedford Whalers'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1929 Fall', '1929-1930', '1930 Spring', '1930 Fall', '1931 Spring', '1931 Fall', '1932 Spring'])), 'New Bedford Whalers'),
         ],
 
 
@@ -666,13 +668,18 @@ sep_teams = {
         (from_seasons('American Soccer League (1921-1933)', set(['1923-1924', '1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1930 Spring'])), 'New York SC Giants'),
 
         (from_competition('American Soccer League (1921-1933) Playoffs'), 'New York National Giants'),
-        (from_seasons('American Soccer League (1921-1933)', set(['1930 Fall', '1931 Spring', '1931 Fall', '1932 Spring', '1932 Fall'])), 'New York National Giants'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1929-1930', '1930 Fall', '1931 Spring', '1931 Fall', '1932 Spring', '1932 Fall'])), 'New York National Giants'),
         ],
 
 
     'New York Hakoah': [
         (from_competition('American Soccer League (1933-1983)'), 'Hakoah (ASL2)'),
         ],
+
+    'New York SC': [
+        (from_seasons('American Soccer League (1921-1933)', set(['1923-1924','1930 Fall'])), 'New York SC Giants'),
+        ],
+
 
     'Norfolk': [
         (from_competition('Major Indoor Soccer League (2008-2014)'), 'Norfolk SharX'),
@@ -712,7 +719,7 @@ sep_teams = {
         ],
 
     'Pawtucket': [
-        (from_seasons('American Soccer League (1921-1933)', set(['1921-1922', '1922-1923', '1925-1926', '1929 Fall', '1929-1930', '1930 Spring', '1930 Fall', '1932 Spring', '1932 Fall'])), 'Pawtucket Rangers'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1921-1922', '1922-1923', '1925-1926', '1928-1929', '1929 Fall', '1929-1930', '1930 Spring', '1930 Fall', '1931 Spring', '1931 Fall', '1932 Spring', '1932 Fall'])), 'Pawtucket Rangers'),
         ],
 
 
@@ -723,7 +730,7 @@ sep_teams = {
 
 
     'Philadelphia': [
-        (from_seasons('American Soccer League (1921-1933)', set(['1922-1923', '1924-1925', '1927-1928', '1928-1929', '1929 Fall'])), 'Philadelphia Field Club'),
+        (from_seasons('American Soccer League (1921-1933)', set(['1921-1922', '1922-1923', '1923-1924', '1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1929 Fall'])), 'Philadelphia Field Club'),
         (from_competition('Major Indoor Soccer League (1978-1992)'), 'Philadelphia Fever'),
         (from_seasons('North American Soccer League (indoor)',  set(['1975', ])), 'Philadelphia Atoms'),
         (from_competition('Major Indoor Soccer League (2008-2014)'), 'Philadelphia KiXX'),
@@ -923,6 +930,15 @@ sep_teams = {
         (from_competition('K League'), 'FC Seoul'),
         ],
 
+    'Shawsheen': [
+        (from_competition('American Soccer League (1921-1933)'), 'Shawsheen Indians'),
+        ],
+
+
+    'Springfield': [
+        (from_competition('American Soccer League (1921-1933)'), 'Shawsheen Indians'),
+        ],
+
 
     'Slavia': [
         (from_competition('Gambrinus Liga'), 'Slavia Prague'),
@@ -950,6 +966,11 @@ sep_teams = {
         (from_competition('UEFA Europa League'), 'Sporting CP'),
         (from_competition('La Liga'), 'Sporting de Gijon'),
         ],
+
+    'Springfield': [
+        (from_competition('American Soccer League (1921-1933)'), 'Springfield Babes'),
+        ],
+
 
     'St. Louis': [
         (from_competition('World Indoor Soccer League'), 'St. Louis Steamers'),

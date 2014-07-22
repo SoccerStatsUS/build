@@ -140,7 +140,7 @@ def load():
     load_competition_maps()
 
     # short circuit bios
-    #load_games(); return 
+    load_games(); return 
 
     load_bios()
     load_transactions()
@@ -166,11 +166,14 @@ def load_extra():
 
 
 def load_games():  
-
     load_domestic()
+    load_indoor()
     return
 
-    load_indoor()
+
+
+
+
     load_amateur()
     load_outer()
     load_international()
@@ -194,30 +197,32 @@ def load_international():
 
 
 def load_domestic():
-
-
     load_usd1()    
+
+    return
     load_us_minor()
+    load_concacaf()
+
+
+
+
     return
 
     load_caf()
-
     load_world()
-    load_concacaf()
     load_ofc()
     load_uefa()
-
     load_conmebol()
     load_afc()
-
     load_us_cups()
 
 
 
 def load_usd1():
-    load_alpf()
     load_asl()
     return
+    load_alpf()
+
     load_nasl()
     load_mls()
 
@@ -393,9 +398,9 @@ def load_uncaf():
     for e in range(2013, 2013):
         load_games_standard('concacaf', 'games/belize/%s' % e, root=CONCACAF_DIR)
 
-    load_games_standard('concacaf', 'domestic/confederation/concacaf/uncaf/fraternidad')
-    load_games_standard('concacaf', 'domestic/confederation/concacaf/uncaf/torneograndes')
-    load_games_standard('concacaf', 'domestic/confederation/concacaf/uncaf/interclube')
+    load_games_standard('concacaf', 'games/confederation/uncaf/fraternidad', root=CONCACAF_DIR)
+    load_games_standard('concacaf', 'games/confederation/uncaf/torneograndes', root=CONCACAF_DIR)
+    load_games_standard('concacaf', 'games/confederation/uncaf/interclube', root=CONCACAF_DIR)
 
     #load_games_standard('concacaf', 'games/el_salvador/torneo', root=CONCACAF_DIR)
 
@@ -1072,9 +1077,9 @@ def load_asl():
     DIR = os.path.join(ROOT_DIR, 'usd1/data')
 
     # Colin Jose data
-    #generic_load(soccer_db.asl_goals, asl.process_asl_goals)
-    #generic_load(soccer_db.asl_games, asl.process_asl_games)
-    #generic_load(soccer_db.asl_stats, asl.process_stats)
+    generic_load(soccer_db.asl_goals, asl.process_asl_goals)
+    generic_load(soccer_db.asl_games, asl.process_asl_games)
+    generic_load(soccer_db.asl_stats, asl.process_stats)
 
     load_standings_standard('asl', 'standings/asl', root=DIR)
 
@@ -1168,7 +1173,7 @@ def load_apsl():
 
     
     #print("loading apsl scores")
-    generic_load(soccer_db.us_minor_games, apsl.process_apsl_scores)
+    #generic_load(soccer_db.us_minor_games, apsl.process_apsl_scores)
 
     load_games_standard('us_minor', 'games/d2/apsl', root=US_MINOR_DIR)
     load_games_standard('us_minor', 'games/d3/wsa4', root=US_MINOR_DIR)
@@ -1247,7 +1252,6 @@ def load_indoor():
 
 
 
-
 def load_mls_lineup_db():
     from usd1.parse import lineupdb
     # MLS lineup data 1996-2010 from http://usasoccer.blogspot.com/
@@ -1263,19 +1267,21 @@ def load_mls_lineup_db():
 
 
 def load_pdl():
-    from soccerdata.text.cmp import pdl
     from soccerdata.text import awards
 
     generic_load(soccer_db.us_minor_awards, awards.process_pdl_awards)
-    generic_load(soccer_db.us_minor_stats, process_pdl_stats)
-
-    # Adapt donelli.games to handle PDL hours correctly.
-    #for e in range(2003, 2014):
-    #    load_games_standard('us_minor', 'games/d4/pdl/%s' % e, root=US_MINOR_DIR)
 
     load_standings_standard('us_minor', 'standings/d4/pdl', root=US_MINOR_DIR)
     load_standings_standard('us_minor', 'standings/d4/pdl_2012', root=US_MINOR_DIR)
     load_standings_standard('us_minor', 'standings/d4/pdl_2013', root=US_MINOR_DIR)
+
+    # Adapt donelli.games to handle PDL hours correctly.
+    for e in range(2007, 2015):
+        load_games_standard('us_minor', 'games/d4/pdl/%s' % e, root=US_MINOR_DIR)
+
+    generic_load(soccer_db.us_minor_stats, process_pdl_stats)
+
+    generic_load(soccer_db.us_minor_rosters, lambda: flatten_stats(process_pdl_stats()))
 
 
 def load_us_minor():
@@ -1283,14 +1289,11 @@ def load_us_minor():
     Load all-time us minor league stats.
     """
 
-    load_nafbl()
-    load_asl2()
-    return
     load_usl()
     load_apsl()
     load_pdl()
-
-
+    load_nafbl()
+    load_asl2()
 
     #load_city()
 
@@ -1329,11 +1332,12 @@ def load_usl():
 
     generic_load(soccer_db.us_minor_stats, stats.process_stats("stats/d2/2013", root=US_MINOR_DIR, delimiter=';'))
 
-    load_games_standard('us_minor', 'games/d2/usl1', root=US_MINOR_DIR)
-    load_games_standard('us_minor', 'games/d2/ussfd2', root=US_MINOR_DIR)
+    #load_games_standard('us_minor', 'games/d2/usl1', root=US_MINOR_DIR)
+    #load_games_standard('us_minor', 'games/d2/ussfd2', root=US_MINOR_DIR)
 
-    for e in range(2011, 2015):
-        load_games_standard('us_minor', 'games/d2/nasl/%s' % e, root=US_MINOR_DIR)
+    #for e in range(1996, 2015):
+    for e in range(2003, 2015):
+        load_games_standard('us_minor', 'games/d2/%s' % e, root=US_MINOR_DIR)
 
     load_games_standard('us_minor', 'games/playoffs/usl1', root=US_MINOR_DIR)
     load_games_standard('us_minor', 'games/playoffs/nasl2', root=US_MINOR_DIR)
@@ -1342,7 +1346,6 @@ def load_usl():
     generic_load(soccer_db.us_minor_stats, process_usl2_stats)
 
     load_standings_standard('us_minor', 'standings/d3/pro', root=US_MINOR_DIR)
-
 
     load_standings_standard('us_minor', 'standings/d3/usl_pro', root=US_MINOR_DIR)
     load_standings_standard('us_minor', 'standings/d3/select', root=US_MINOR_DIR)
@@ -1634,9 +1637,9 @@ def load_cfu():
     from soccerdata.text import awards
     generic_load(soccer_db.concacaf_awards, awards.process_cfu_awards)
 
-    load_games_standard('concacaf', 'domestic/confederation/concacaf/cfu/1990')
-    load_games_standard('concacaf', 'domestic/confederation/concacaf/cfu/2000')
-    load_games_standard('concacaf', 'domestic/confederation/concacaf/cfu/2010')
+    load_games_standard('concacaf', 'games/confederation/cfu/1990', root=CONCACAF_DIR)
+    load_games_standard('concacaf', 'games/confederation/cfu/2000', root=CONCACAF_DIR)
+    load_games_standard('concacaf', 'games/confederation/cfu/2010', root=CONCACAF_DIR)
 
     # league results
     
@@ -1873,18 +1876,19 @@ def load_concacaf():
     generic_load(soccer_db.concacaf_awards, awards.process_concacaf_awards)
 
     for e in range(2008, 2014):
-        load_games_standard('concacaf', 'domestic/confederation/concacaf/champions/league/%s' % e)
+        load_games_standard('concacaf', 'games/confederation/champions/league/%s' % e, root=CONCACAF_DIR)
 
-    load_games_standard('concacaf', 'domestic/confederation/concacaf/superliga')
-    load_games_standard('concacaf', 'domestic/confederation/concacaf/giantscup')
-
+    load_games_standard('concacaf', 'games/confederation/superliga', root=CONCACAF_DIR)
+    load_games_standard('concacaf', 'games/confederation/giants', root=CONCACAF_DIR)
 
 
     for e in [1960, 1970, 1980, 1990, 2000]:
     #for e in [1990, 2000]:
-        load_games_standard('concacaf', 'domestic/confederation/concacaf/champions/%s' % e)
+        load_games_standard('concacaf', 'games/confederation/champions/%s' % e, root=CONCACAF_DIR)
 
-    load_games_standard('concacaf', 'domestic/confederation/concacaf/recopa')
+    load_games_standard('concacaf', 'games/confederation/recopa', root=CONCACAF_DIR)
+
+    return
 
     load_mexico()
     load_cfu()
@@ -1968,9 +1972,6 @@ def load_ltrack():
     generic_load(soccer_db.ltrack_lineups, lambda: ltrack.parse.process_lineups(p))
 
 
-
-
-
 def flatten_stats(stats):
     """
     Convert stats into rosters.
@@ -1986,8 +1987,6 @@ def flatten_stats(stats):
                 })
     return r
         
-
-
 def flatten_lineups(lineups):
     """
     Convert lineups into rosters.

@@ -89,6 +89,12 @@ def generate_game_data():
     l = []
 
     for e in soccer_db.games.find():
+        # The main thing being generated is location data.
+        # 1. if we know who is the home team, try to set the stadium and/or city.
+
+        # If we don't know who is the home team, try to infer it from stadium.
+        # If that fails, try to infer from city.
+
 
         home_team = e.get('home_team')
         if home_team and not e.get('stadium'):
@@ -105,7 +111,7 @@ def generate_game_data():
                     e['city'] = city
                     e['location_inferred'] = True
 
-        elif home_team is None:
+        if home_team is None:
             # Get home team based on team info.
             # Fix location/city inconsistencies.
 
@@ -117,21 +123,21 @@ def generate_game_data():
                     import pdb; pdb.set_trace()
 
                 if e['team1'] in teams and e['team2'] not in teams:
-                    e['home_team'] = e['team1']
+                    home_team = e['team1']
                 elif e['team2']:
-                    e['home_team'] = e['team2']
+                    home_team = e['team2']
 
-            else:
+        # do this again, in case stadium inference failed.
+        if home_team is None:
+            team1_city = team_city_map.get(e['team1'])
+            team2_city = team_city_map.get(e['team2'])
+            if team1_city and team2_city:
+                if team1_city != team2_city and e.get('location'):
+                    if team1_city == e['location']:
+                        e['home_team'] = e['team1']
 
-                team1_city = team_city_map.get(e['team1'])
-                team2_city = team_city_map.get(e['team2'])
-                if team1_city and team2_city:
-                    if team1_city != team2_city and e.get('location'):
-                        if team1_city == e['location']:
-                            e['home_team'] = e['team1']
-
-                        if team2_city == e['location']:
-                            e['home_team'] = e['team2']
+                    if team2_city == e['location']:
+                        e['home_team'] = e['team2']
 
         l.append(e)
 
