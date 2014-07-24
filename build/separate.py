@@ -873,6 +873,11 @@ sep_teams = {
         (from_competition('North American Soccer League (indoor)'), 'San Jose Earthquakes')
         ],
 
+    'San Jose Earthqukaes': [
+        (from_competition('USL Premier Developmental League'), 'San Jose Earthquakes (PDL)'),
+        ],
+        
+
 
     'San Marcos': [
         (from_competition('Nicaraguan Primera División'), 'FC San Marcos'),
