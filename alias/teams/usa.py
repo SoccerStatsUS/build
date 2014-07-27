@@ -228,8 +228,6 @@ usa = {
     'Philadelphia 1928-1929': 'Philadelphia Field Club',
     'Philadelphia FC': 'Philadelphia Field Club',
 
-    'Bridgeport': 'Bridgeport Bears',
-
     # Colliding with Jersey City slug.
     #'Jersey City ?': 'Jersey City (?x)',
 
@@ -239,10 +237,11 @@ usa = {
     # ASL
     'Todd Shipyards F.C.': 'Todd Shipyards',
 
-    #'New York Nationals': 'New York National Giants', # this is just incorrect
+    'NY Nationals': 'New York Nationals',
 
     'New York Soccer Club Giants': 'New York SC Giants',
     'New York SC Giants': 'New York Giants (1923-1930)',
+    'New York National Giants': 'New York Giants (1923-1930)',
     
     'NY Giants': 'New York Giants',
 
@@ -257,6 +256,9 @@ usa = {
 
     'Bethlehewm Steel': 'Bethlehem Steel',
 
+    'NY Americans': 'New York Americans',
+
+    'NY Yankees': 'Fall River Marksmen',
     'New York Yankees': 'Fall River Marksmen',
     'New York Soccer Club': 'Fall River Marksmen',
 

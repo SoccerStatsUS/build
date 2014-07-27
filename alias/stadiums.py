@@ -1102,6 +1102,9 @@ united_states = {
     # New Jersey
     'ONT AA Grounds': 'Clark ONT Field',
     'Clark Field': 'Clark ONT Field',
+    'Clark\'s Field': 'Clark ONT Field',
+
+
     'New Meadowlands Stadium': 'Giants Stadium', # Huh?
     'Freulinghausen Ave Grounds': 'Frelinghuysen Grounds',
     'Yurcak Field Stadium': 'Yurcak Field',

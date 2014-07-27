@@ -9603,7 +9603,9 @@ basic = {
     
     
     'Philippe Leonard':  'Philippe Léonard',
-    'James Tec White': 'Jimmy White',
+
+    'James Tec White': 'Tec White',
+
     'Héctor Gimenez': 'Héctor Giménez',
     'Carlos Septien': 'Carlos Septién',
     'Martin Machón': 'Martín Machón',
