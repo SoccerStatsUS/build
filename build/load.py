@@ -160,7 +160,7 @@ def load_transactions():
 
 
 def load_extra():
-    #load_salaries()
+    load_salaries()
     load_news()
 
 
@@ -191,12 +191,14 @@ def load_international():
 
 
 def load_domestic():
+    load_usd1()    
+    load_us_minor()
     load_conmebol()
 
     load_afc()
     load_us_cups()
-    load_us_minor()
-    load_usd1()    
+
+
     load_concacaf()
     load_world()
     load_caf()
@@ -976,9 +978,6 @@ def load_modern_friendly():
 
     load_games_standard('us_friendly', 'games/misc/bicentennial', root=INTERNATIONAL_DIR)
 
-    load_games_standard('us_friendly', 'domestic/country/usa/friendly/carolina')
-    load_games_standard('us_friendly', 'domestic/country/usa/friendly/dynamo')
-
     load_games_standard('us_friendly', 'domestic/country/usa/friendly/1960')
     load_games_standard('us_friendly', 'domestic/country/usa/friendly/1967')
     load_games_standard('us_friendly', 'domestic/country/usa/friendly/1970')
@@ -993,8 +992,15 @@ def load_modern_friendly():
     load_games_standard('us_friendly', 'domestic/country/usa/friendly/mls_all_star')
 
     # Premium tournaments (superclubs)
-    load_games_standard('us_friendly', 'domestic/country/usa/friendly/wfc')
-    load_games_standard('us_friendly', 'domestic/country/usa/friendly/icc')
+    #load_games_standard('us_friendly', 'domestic/country/usa/friendly/wfc')
+    #load_games_standard('us_friendly', 'domestic/country/usa/friendly/icc')
+
+    for e in ['arizona', 'canada', 'carolina', 'coliseo', 'desert', 'disney', 'dynamo', 'europac', 'festival_of_americas', 'hawaii',
+              'icc', 'los_angeles_nations', 'miami', 'mls_all_star', 'mls_combine', 'pegaso', 'super_cup', 'tecate', 'wfc',
+              ]: #'los_angeles', 'miami_cup', 'women',
+        load_games_standard('us_friendly', 'domestic/country/usa/friendly/%s' % e)
+        
+
 
 
 def load_competitions():
@@ -1064,17 +1070,20 @@ def load_asl():
 
     DIR = os.path.join(ROOT_DIR, 'usd1/data')
 
-    # Colin Jose data
-    generic_load(soccer_db.asl_goals, asl.process_asl_goals)
-    generic_load(soccer_db.asl_games, asl.process_asl_games)
-    generic_load(soccer_db.asl_stats, asl.process_stats)
-
     load_standings_standard('asl', 'standings/asl', root=DIR)
 
-    # Original
-    
+    # Colin Jose data
+    #generic_load(soccer_db.asl_goals, asl.process_asl_goals)
+    #generic_load(soccer_db.asl_games, asl.process_asl_games)
+    generic_load(soccer_db.asl_stats, asl.process_stats)
+
+    for e in range(1921, 1932):
+        load_games_standard('asl', os.path.join(DIR, 'games/league/jose/a/%s' % e))
+
     for e in range(1921, 1934):
         load_games_standard('asl', os.path.join(DIR, 'games/league/simple/asl/%s' % e))
+
+
     load_games_standard('asl', os.path.join(DIR, 'games/league/simple/esl'))
 
     generic_load(soccer_db.asl_rosters, lambda: flatten_stats(soccer_db.asl_stats.find()))
@@ -1095,8 +1104,8 @@ def load_asl2():
 
     generic_load(soccer_db.us_minor_rosters, lambda: rosters.process_rosters2(path=os.path.join(ASL2_DIR, "rosters/asl2")))
 
-    #for e in range(1933, 1951):
-    #    load_games_standard('us_minor', 'games/allaway/%s' % e, root=ASL2_DIR)
+    for e in range(1933, 1951):
+        load_games_standard('us_minor', 'games/allaway/%s' % e, root=ASL2_DIR)
 
     for e in range(1933, 1984):
         load_games_standard('us_minor', 'games/sd/%s' % e, games_only=True, root=ASL2_DIR)
@@ -1159,7 +1168,6 @@ def load_apsl():
     load_standings_standard('us_minor', 'standings/d2/wsa', root=US_MINOR_DIR)
     load_standings_standard('us_minor', 'standings/minor/lssa', root=US_MINOR_DIR)
 
-    
     #print("loading apsl scores")
     #generic_load(soccer_db.us_minor_games, apsl.process_apsl_scores)
 

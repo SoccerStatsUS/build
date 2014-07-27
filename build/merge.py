@@ -341,9 +341,11 @@ def merge_games(games_lists):
                 assert t1r == orig['team1_result']
                 assert t1r == orig['team1_result']
             except:
+                #import pdb; pdb.set_trace()
                 print("Game information mismatch.")
         else:
             if d['date'] is not None:
+                import pdb; pdb.set_trace()
                 print("Game information mismatch.")
                 print(orig)
                 print(d)
@@ -363,10 +365,7 @@ def merge_games(games_lists):
         for e in games_list:
             update_game(e)
 
-    #import pdb; pdb.set_trace()
-
     return game_list
-    #return game_dict.values()
 
 
 def merge_bios():
