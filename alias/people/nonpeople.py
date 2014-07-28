@@ -20,6 +20,7 @@ nonpeople = {
     'red card': 'sent off',
     'ejection': 'sent off',
 
+    'OWN GOAL': 'Own Goal', 
     'og': 'Own Goal',
     'o.g.': 'Own Goal',
     'Own goal': 'Own Goal',

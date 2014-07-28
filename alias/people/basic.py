@@ -1,6 +1,510 @@
 
 basic = {
 
+    'Tj Kennedy': 'T.J. Kennedy',
+    'KHALAF AL-LATAYFEH': 'Khalaf Al-Latayfeh',
+    'HOWARD ASH': 'Howard Ash',
+    'RYAN SCHWOEBLE': 'Ryan Schwoeble',
+    'JASON PELLETIER': 'Jason Pelletier',
+    'RUSS WOLF': 'Russ Wolf',
+    'KARA HONTHUMB': 'Kara Honthumb',
+    'SCOTT KACHMARIK': 'Scott Kachmarik',
+    'ERIC EHRMAN': 'Eric Ehrman',
+    'KEVIN ROBERTS': 'Kevin Roberts',
+    'Marie-Josée CHARBONNEAU': 'Marie Josee Charbonneau',
+    'DRITERO ALIAJ': 'Dritero Aliaj',
+    'SAM MOKALLED': 'Sam Mokalled',
+    'MELANIE STONER': 'Melanie Stoner',
+    'ILIR GAXHI': 'Ilir Gaxhi',
+    'LUCAS FEATHERS': 'Lucas Feathers',
+    'RIZAL MILLIKEN': 'Rizal Milliken',
+    'CULLEN MADDEN': 'Cullen Madden',
+    'BRIAN BOZARD': 'Brian Bozard',
+    'ALEXANDER CASELLA': 'Alexander Casella',
+    'KENNETH KOOPMANS': 'Kenneth Koopmans',
+    'CESAR IBARRA': 'Cesar Ibarra',
+    'JEREMY SCHEER': 'Jeremy Scheer',
+    'WIlliam Bryant': 'William Bryant',
+
+    'SEAN REGAN': 'Sean Regan',
+    'BRUNO MOZZO': 'Bruno Mozzo',
+    'lahoucine Kharmaj': 'Lahoucine Kharmaj',
+    'BEN LARASON': 'Ben Larason',
+    'CHRISTOPHER KOLL': 'Christopher Koll',
+    'Carlos Enrique saucedo': 'Carlos Enrique Saucedo',
+
+
+
+    'ben Warren': 'Ben Warren',
+    'CORY RICHARDSON': 'Cory Richardson',
+    'JORGE ENRICO': 'Jorge Enrico',
+    'DOUG CAMPBELL': 'Doug Campbell',
+    'Mathieu SOUARÉ': 'Mathieu Souare',
+    'Jacob SLoth': 'Jacob Sloth',
+    'MARK ALLATIN': 'Mark Allatin',
+    'Ab Brody': 'AB Brody',
+
+
+
+    'Adam Black': ': Adam Black',
+    'Becky Sauerbrunn ©': 'Becky Sauerbrunn',
+    'Jose  Gomez': 'José Gómez',
+    'Michael lucas': 'Michael Lucas',
+    'Justin mack': 'Justin Mack',
+    'Lori  Chalupny': 'Lori Chalupny',
+    'Nicolas Cabrera**': 'Nicolás Cabrera',
+    'Drew Beckie*': 'Drew Beckie',
+    'Erin McLeod ©': 'Erin Mcleod',
+    'Derrick Bassi^': 'Derrick Bassi',
+    'John  Maessner': 'John Maessner',
+    'Julio NIno': 'Julio Nino',
+    'Daniel Fabrizi^': 'Daniel Fabrizi',
+    'Farid  Touil': 'Farid Touil',
+    'Cau� Da Silva': 'Cau Da Silva',
+    'Jonathan Osorio^': 'Jonathan Osorio',
+    '*Porter': 'Porter',
+    'Konrad Warzycha**': 'Konrad Warzycha',
+    #'Luigi Glombard   (+45' Ht)': 'Luigi Glombard   (-45' Ht)',
+    ': Minori Sato': 'Minori Sato',
+    '*Nane': 'Nane',
+    #'Lucas Pantelis   (+45' Ht)': 'Lucas Pantelis   (-45' Ht)',
+    ##Zisis Vryzas   (-45' Ht)>, <Bio: Zisis Vryzas    (-45' Ht)>]
+    '*Kalungi': 'Kalungi',
+    'Taylor Morgan*': 'Taylor Morgan',
+    #[<Bio: Zisis Vryzas   (-45' Ht)': 'Zisis Vryzas    (-45' Ht)',
+    'Cláudio  Adão': 'Cláudio Adão', # fix
+    'André Duarte]': 'André Duarte', # fix
+    'Yacine Ait-Slimane*': 'Yacine Ait-Slimane', # fix
+    'Christian Gonzalez*': 'Christian González', # fix
+    'JAiro Castillo': 'Jairo Castillo', # fix
+    'Jones, C.': 'Jones, C', # fix!
+    '*Elisama Padilla': 'Elisama Padilla', # fix
+    'Marco *Carrizales': 'Marco Carrizales', #fix
+    'Jeff Farina*': 'Jeff Farina', # fix
+    'Louis Thomas*': 'Louis Thomas', # fix
+    'Peña': 'Pena', # fix
+    'Ocaño]': 'Ocaño', # fix
+
+
+
+    'Ian O’Neil': 'Ian O\'Neil',
+    'Junior Ross': 'Júnior Ross',
+    'Marko Devic': 'Marko Dević',
+    'predrag Ivanovic': 'Predrag Ivanovic',
+    'dos Reis': 'Dos Reis', 
+
+    'Nick Labrocca': 'Nick LaBrocca',
+    'Juan Velez': 'Juan Vélez',
+    'Mark Declouet': 'Mark DeClouet',
+    'Yosmel De Armas': 'Yosmel de Armas',
+    'Seth c’DeBaca': 'Seth C\'deBaca',
+    'Don D\'ambra': 'Don D\'Ambra',
+    'Kyle Mccord': 'Kyle McCord',
+    'Santiago Martínez': 'Santiago Martinez',
+    'Lee Jung-soo': 'Lee Jung-Soo',
+    'Ivan Emmanuel Gonzalez Ferreira': 'Iván Emmanuel González Ferreira', 
+    'Cesar Obando': 'César Obando', 
+    'Farouk Belkaid': 'Farouk Belkaïd',
+    'William Mcconnell': 'William McConnell',
+    'Dia’a Haroun': 'Dia\'a Haroun', 
+    'Juan Ibarra Trevino': 'Juan Ibarra-Trevino',
+    'Nick Deleon': 'Nick DeLeon',
+    'Wilbert sánchez': 'Wilbert Sánchez',
+    'Steve Dileo': 'Steve DiLeo',
+    'Danny Diprima': 'Danny DiPrima',
+    'Alfonso Martinez': 'Alfonso Martínez',
+    'John Dearmond': 'John DeArmond',
+    'Jorge Valenca': 'Jorge Valença',
+    'Riley O’Neill': 'Riley O\'Neill',
+    'Dame N\'Doye': 'Dame N’Doye',
+    'Ramon Fernandez': 'Ramón Fernández',
+    'Sebastián Fernandez': 'Sebastián Fernández',
+    'Thembinkosi "Terror" Fanteni': 'Thembinkosi Fanteni',
+    'Thembinkosi \'Terror\' Fanteni': 'Thembinkosi Fanteni',
+    'Juan Carlos Enriquez': 'Juan Carlos Enríquez', 
+    'Colton O’Neill': 'Colton O\'Neill',
+    'Saad Al Harthi': 'Saad Al-Harthi',
+    'Ala’a Hubail': 'Ala\'a Hubail',
+
+    'CJ Kaufman': 'C.J. Kaufman', 
+    'Mckauley Tulloch': 'McKauley Tulloch', 
+
+
+    'Moises Garduno': 'Moisés Garduño',
+    'Michael O’Neill': 'Michael O\'Neill',
+    'Ebrahim Toure': 'Ebrahim Touré',
+    'Alex del Angel': 'Alex Del Angel',
+    'Alaa Al-Kowaykabi': 'Ala’a Al-Kowaykabi',
+    'Carlos Júnior': 'Carlos Junior',
+    'Harold Miranda': 'Hárold Miranda',
+    'Joazinho Arroe': 'Joazinho Arroé',
+    'Mohamed Abou Azab': 'Mohamed Abou-Azab',
+    'Nick Mcdonald': 'Nick McDonald',
+    'Soo Hui Um': 'Soo-Hui Um',
+    'Christiano Francois': 'Christiano François',
+
+    'Aaron McAthy': 'Aaron Mcathy',
+    'Wílberth Castro': 'Wilberth Castro',
+    'Talysson de Oliveira': 'Talysson De Oliveira',
+
+    'Mitchell Mcpike': 'Mitchell McPike',
+    'Leigh-Ann Robinson': 'Leigh Ann Robinson',
+    'Victor Munoz': 'Victor Muñoz',
+    'Felipe Sipiran': 'Felipe Sipirán',
+
+    'Joaquín Lencinas': 'Joaquin Lencinas',
+    'Francis Devries': 'Francis DeVries',
+    'Érick Scott': 'Erick Scott',
+    'Farés Fellahi': 'Farès Fellahi',
+    'Bosco Frontan': 'Bosco Frontán',
+
+    'Franck M\'bemba': 'Franck M\'Bemba',
+
+    'Kyle O’Brien': 'Kyle O\'Brien',
+    'Frederic Lajoie-Gravelle': 'Frédéric Lajoie-Gravelle',
+    'Garret Mcconville': 'Garret McConville',
+    'Marlon Mancia': 'Marlon Mancía',
+
+    'Cj Tappel': 'C.J. Tappel',
+    'Andres Lopez': 'Andrés López',
+    'Pape Latyr N\'diaye': 'Pape Latyr N\'Diaye',
+    'Ruben Cano': 'Rubén Cano',
+    'Ray Moffatte Jr': 'Ray Moffatte Jr.',
+    'Guillermo De Los Santos': 'Guillermo De los Santos',
+    'Moussa Konate': 'Moussa Konaté',
+    'Larry A. Stroud JR': 'Larry A Stroud Jr.',
+
+
+    'Ryan van Dyne': 'Ryan Van Dyne',
+    'P.J. Wakefield': 'PJ Wakefield',
+    'Adrian Morales': 'Adrián Morales',
+    'Paul Dibernardo': 'Paul DiBernardo',
+
+    'Marcos \'Pepe\' de Jesus': 'Marcos \'Pepe\' De Jesus',
+    'Francisco Ibañez': 'Francisco Ibáñez',
+
+
+    'Myles Mcginley': 'Myles McGinley',
+    'Robbie C\'deBaca': 'Robbie C\'Debaca',
+    'Yacine Boulaincer': 'Yacine Boulaïncer',
+
+    'Léo Silva': 'Leo Silva',
+
+    'Reco Mclaren': 'Reco McLaren',
+    'Raul Aleman': 'Raúl Alemán',
+    'Reed Mckenna': 'Reed McKenna',
+    'Hadj Bougueche': 'Hadj Bouguèche',
+    'Serafin Garcia': 'Serafín García',
+    'José Maria Rivas': 'Jose Maria Rivas',
+    'A.J. Delagarza': 'A.J. DeLaGarza',
+
+    'Richmond Mccarthy': 'Richmond McCarthy',
+
+    'A.J. Sheta': 'AJ Sheta',
+    'Matt Mcalpine': 'Matt McAlpine',
+    'Vito Testa Jr': 'Vito Testa Jr.',
+    'Veronica Boquete': 'Verónica Boquete',
+
+    'Francis Latulippe': 'Francis LaTulippe',
+    'Abdulaziz Al-Sa’aran': 'Abdulaziz Al-Sa\'aran',
+    'Abdulaziz Al-Saaran': 'Abdulaziz Al-Sa\'aran',
+    'Simplício': 'Simplicio',
+    'Antonio Nunez': 'Antonio Núñez',
+    'Chad Bartlome': 'Chad Bartlomé',
+    'Juan De La O': 'Juan de la O',
+    'Nicky Mackain': 'Nicky MacKain',
+    'Philip Da Silva': 'Philip da Silva',
+    'Nago MBengue': 'Nago Mbengue',
+    'Bouchaib El Moubarki': 'Bouchaib El-Moubarki',
+    'Ms Beaudoin': 'MS Beaudoin',
+    'Alejandro De la Garza': 'Alejandro de la Garza',
+
+    'Dženan Radončić': 'Dzenan Radoncic',
+    'Manuel \'Tico-Tico\' Bucuane': 'Manuel Bucuane',
+    'Manuel \'Tico Tico\' Bucuane': 'Manuel Bucuane',
+    'Lindokuhle Mfeka': 'Lindokuhle M\'feka',
+    'Jayson Leseth': 'Jayson LeSeth',
+    'Marcelo Tavarez "Camacho"': 'Marcelo Tavarez Camacho',
+    'Midge Van Es': 'Midge Van-Es',
+
+    'Andre Alexis': 'André Alexis',
+    'Oneil Smith': 'O\'Neil Smith',
+    'O’Neil Smith': 'O\'Neil Smith',
+    'Saleh Al Saqri': 'Saleh Al-Saqri',
+    'Mohamed Amine Belkheïr': 'Mohamed Amine Belkheir',
+    'El Hadj Cisse': 'El-Hadj Cissé',
+    'Marcos Méndez': 'Marcos Mendez',
+
+    'Christian Tabo': 'Christian Tabó',
+    'Rowin Van Zaanen': 'Rowin van Zaanen',
+    'Mark Mckeever': 'Mark McKeever',
+    'Jose Luis Hernandez': 'José Luis Hernández',
+    'Derek Mccaffrey': 'Derek McCaffrey',
+    'Nawaf Al-Da’ajani': 'Nawaf Al-Da\'ajani', 
+    'Miguel Angel Sanchez': 'Miguel Ángel Sánchez',
+    'Dj Catrow': 'D.J. Catrow',
+
+    'Adrian Incapie': 'Adrián Incapié',
+
+    'Victor Santibanez': 'Víctor Santibáñez',
+    'Kristian Alvarez': 'Kristian Álvarez',
+    'Luis Plua': 'Luis Plúa',
+    'Leandro Rodríguez': 'Leandro Rodriguez',
+    'Giorgian de Arrascaeta': 'Giorgian De Arrascaeta',
+    'Matthew franz': 'Matthew Franz',
+    'Luís Neto': 'Luis Neto',
+    'Érick Jiménez': 'Erick Jimenez',
+    'John Olu Molomo': 'John Olu-Molomo',
+
+    'Milan Dolinsky': 'Milan Dolinský',
+    'Nelson Dasilva': 'Nelson DaSilva',
+    'Bryan De La Fuente': 'Bryan de la Fuente',
+    'Walter Ibáñez': 'Walter Ibañez',
+
+    'Luxene Elestin': 'Luxène Elestin',
+    'Mehdi SeyedSalehi': 'Mehdi Seyed-Salehi',
+    'Mehdi Seyedsalehi': 'Mehdi Seyed-Salehi',
+    'Juan José Alvarez': 'Juan Jose Alvarez',
+    'John Astrom': 'John Åström',
+    'Junior Pre’valus': 'Junior Pre\'Valus',
+    'Elmer Mejia': 'Elmer Mejía',
+    'Tj Newberg': 'TJ Newberg',
+    'Patrick Mcandrew': 'Patrick McAndrew',
+    'Hareaipha \'Simba\' Marumo': 'Hareaipha Marumo',
+    'Hareaipha Simba Marumo': 'Hareaipha Marumo', 
+
+    'Toufik Chaib': 'Toufik Chaïb',
+    'Hugo Decasanova': 'Hugo DeCasanova',
+    'Martin Diaz': 'Martín Díaz',
+    'Sylvian N\'Guessan': 'Sylvian N\'guessan',
+
+    'Levaughn Williams': 'LeVaughn Williams',
+    'Yasser al-Qahtani': 'Yasser Al-Qahtani',
+    'Jasem Al Huwaidi': 'Jasem Al-Huwaidi',
+    'Álvaro Peña': 'Alvaro Peña',
+
+
+    'Kaizer Motaung Jnr.': 'Kaizer Motaung',
+    'Kaizer Motaung Jnr': 'Kaizer Motaung',
+    'Sebastian Suria': 'Sebastián Súria',
+
+
+    'Luis Quirós': 'Luis Quiros',
+    'Julián Di Cosmo': 'Julian Di Cosmo',
+    'Luis De La Vega': 'Luis de la Vega',
+    'Eliphène Cadet': 'Eliphéne Cadet',
+    'JC Mack': 'J.C. Mack',
+    'Jose Carlos Pedro "Kalou"': 'Jose Carlos Pedro “Kalou”',
+    'Arturo Jauregui': 'Arturo Jáuregui',
+    'Farlem Ilama': 'Fárlem Ilama',
+    'Roversio': 'Rovérsio',
+
+    'Saeed Al-Wada’ani': 'Saeed Al-Wadaani',
+
+    'Abdulnasser Al Obaidly': 'Abdulnasser Al-Obaidly',
+    'Bianca D\'Agostino': 'Bianca D’Agostino',
+    'Paulo Albarracín': 'Paulo Albarracin',
+
+
+    'Leonard Smith Iii': 'Leonard Smith III',
+    'Adlène Bensaïd': 'Adlène Bensaid',
+    'Florian Devries': 'Florian DeVries',
+    'Jordan A Pramuk': 'Jordan A. Pramuk',
+    'Sam Demello': 'Sam DeMello',
+
+
+    'Martín Hernández': 'Martin Hernandez',
+    'Sean De Silva': 'Sean de Silva',
+    'Renae Cuellar': 'Renae Cuéllar',
+    'Jesse McNeil': 'Jesse Mcneil',
+    'Aras Ozbiliz': 'Aras Özbiliz',
+
+
+    'Daniel Chávez': 'Daniel Chavez',
+    'Andrew Van Woesik': 'Andrew van Woesik',
+    'Percibal Piggot': 'Pércibal Piggot',
+    'Facundo Barcelo': 'Facundo Barceló',
+
+    'Alan Mcgreal': 'Alan McGreal',
+    'Ángelo Cruzado': 'Angelo Cruzado',
+
+    'Obrian Woodbine': 'O\'Brian Woodbine',
+    'Vinicius Araújo': 'Vinícius Araújo',
+
+    'Marie Jose Charbonneau': 'Marie-Jose Charbonneau',
+
+
+    'Alán Pulido': 'Alan Pulido',
+    'Vincent Dibullo': 'Vincent DiBullo',
+    'José Pérez': 'Jose Perez',
+
+    'Markhus LaCroix': 'Markhus Lacroix',
+    'Rashed Al Dosari': 'Rashed Al-Dosari',
+
+
+    'Mark Mcnally Dawes': 'Mark McNally-Dawes',
+
+
+
+    'Omar Al Ghamdi': 'Omar Al-Ghamdi',
+    'Tony Delois': 'Tony DeLois',
+    'Jose Armando Cruz': 'José Armando Cruz',
+    'Saïd Saihi': 'Saïd Saïhi',
+    'Devin L’Amoreaux': 'Devin L\'Amoreaux',
+    'Michael D’Angelo': 'Michael D\'Angelo',
+    'Stevica Ristic': 'Stevica Ristić',
+
+    'Stefan St Louis': 'Stefan St. Louis',
+    'Lazhar Hadj Aissa': 'Lazhar Hadj Aïssa',
+    'Alfredo Ramua': 'Alfredo Ramúa',
+    'Khaled Laâmeche': 'Khaled Laâmèche',
+    'Alban Gomez': 'Albán Gómez',
+    'Edgar Martínez': 'Edgar Martinez',
+
+    'Joseph-Desiré Job': 'Joseph-Désiré Job',
+    'Casey Mccool': 'Casey McCool',
+
+    'Newton Sterling?': 'Newton Sterling',
+    'Will Beaugé': 'Will Beauge',
+    'Márcinho': 'Marcinho',
+
+    'Michael O’Brien': 'Michael O\'Brien',
+    'Jesús Pineda': 'Jesus Pineda',
+    'Gonzalo Pérez': 'Gonzalo Perez',
+    'Victor Cedron': 'Víctor Cedrón',
+    'German Umaña': 'Germán Umaña',
+
+    'Tre Gaither': 'Tre\' Gaither',
+    'Alexis Hernandez': 'Alexis Hernández',
+    'Kimberly Francois': 'Kimberly François',
+    'David  Malloy': 'David Malloy',
+
+    'Jose Augusto “Kleber”': 'Jose Augusto Kleber',
+
+
+    'Patrick O’Brien': 'Patrick O\'Brien',
+    'Cho Byung Kuk': 'Cho Byung-Kuk',
+
+    'Víctor Guazá': 'Victor Guaza',
+    'Yannick Djalo': 'Yannick Djaló',
+    'Kevin Terry Jr': 'Kevin Terry Jr.',
+    'Nick Mcdevitt': 'Nick McDevitt',
+    'Alberto Gutiérrez': 'Alberto Gutierrez',
+    'Emmanuel Daribba': 'Emmanuel DaRibba',
+    'Kayode Mckinnon': 'Kayode McKinnon',
+    'Cornel Chin-sue': 'Cornel Chin-Sue',
+
+
+    'Nasha\'at Akram': 'Nasha’at Akram',
+
+    'Jackson Mccracken': 'Jackson McCracken',
+    'Eric Defreitas': 'Eric DeFreitas',
+
+    'Paul Rodriguez': 'Paul Rodríguez',
+    'Jassem Al Tamimi': 'Jassem Al-Tamimi',
+    'Modi N’Gay': 'Modi N\'Gay',
+    'Ali Al Malki': 'Ali Al-Malki',
+
+    'Mohamed Cheraitia': 'Mohamed Cheraïtia',
+    'Ricardo Mercado Jr': 'Ricardo Mercado Jr.',
+    'Iman Mob\'ali': 'Iman Mobali',
+    'John Lung\'aho': 'John Lung\'Aho',
+
+
+
+    'Damian Luna': 'Damián Luna',
+    'Raúl Jiménez': 'Raul Jimenez',
+    'Matt Vanoekel': 'Matt VanOekel',
+
+    'Roger Mejia': 'Róger Mejía',
+    'Berny Pena': 'Berny Peña',
+    'Raul Leguias': 'Raúl Leguías',
+    'Aziz Rouaighia': 'Aziz Rouaïghia',
+    'Mario DiMecili': 'Mario Dimecili',
+    'Juan Carlos Vilchez': 'Juan Carlos Vílchez',
+    'Francois Swaby': 'François Swaby',
+
+
+    'Kelley O’Hara': 'Kelley O\'Hara',
+    'Ruben De la Costa': 'Ruben de la Costa',
+    'Nicolas Mezquida': 'Nicolás Mezquida',
+    'Pablo Sanchez': 'Pablo Sánchez',
+    'Ruben Fernandez': 'Ruben Fernández',
+    'Mohammad Mo\'meni': 'Mohammad Momeni',
+    'Alex Marquand-Willse': 'Alex-Marquand Willse',
+    'Jonathan Juarez': 'Jonathan Juárez',
+
+    'Diego Chavez': 'Diego Chávez',
+    'Mintou Doucoure': 'Mintou Doucouré',
+
+
+
+    'Benny del Castillo': 'Benny Del Castillo',
+
+    'JerJer Gibson': 'Jerjer Gibson',
+    'Park Dong-hyuk': 'Park Dong-Hyuk',
+    'Eduardo Jeff Jr': 'Eduardo Jeff Jr.',
+    'Paulo Emilio': 'Paulo Emílio',
+
+    'Agustin Pelletieri': 'Agustín Pelletieri',
+    'Farés Djabelkheir': 'Farés Djabelkheïr',
+    'Alireza Nikbakht Vahedi': 'Alireza Nikbakht-Vahedi',
+    'Adriana Martin': 'Adriana Martín',
+    'Kyle Mcturk': 'Kyle McTurk',
+
+    'Taian de Souza': 'Taian De Souza',
+    'Clayton Da Cunha': 'Clayton da Cunha',
+    'Jose Antonio Torrealba Acevedo': 'José Antonio Torrealba Acevedo',
+    'Dorlán Pabón': 'Dorlan Pabón',
+    'T.J. Cyrus': 'TJ Cyrus',
+    'Hassan Maaz': 'Hassan Ma\'az',
+    'Aaron Mckenna': 'Aaron McKenna',
+    'Khalfan ibrahim': 'Khalfan Ibrahim',
+    'Jose de Jesus Jimenez': 'José de Jesús Jiménez',
+
+    'Lenworth Hyde Jr': 'Lenworth Hyde Jr.',
+    'Joel Mckell': 'Joel McKell',
+    'Guillermo Sánchez': 'Guillermo Sanchez',
+    'Táylor Morales': 'Taylor Morales',
+    'Emmanuel Osei-Kuffour': 'Emmanuel Osei Kuffour',
+    'Leonel Saint-Preux': 'Léonel Saint-Preux',
+    'Robert N\'gambi': 'Robert Ng\'ambi',
+    'Curt Mcdonald': 'Curt McDonald',
+
+
+    'Sin-hang Lai': 'Sin-Hang Lai',
+
+    'Juan Gutiérrez': 'Juan Gutierrez',
+    'Oneil McDonald': 'O\'Neil McDonald',
+    'O’Neil McDonald': 'O\'Neil McDonald',
+
+    'Jesus Alvarez': 'Jesús Álvarez',
+
+    'Angel Dealbert': 'Ángel Dealbert',
+    'Pedro Trejo Jr': 'Pedro Trejo Jr.',
+    'Yacine Ait Slimane': 'Yacine Ait-Slimane',
+    'Bernard Don Bortey': 'Bernard Don-Bortey',
+    'Heather O’Reilly': 'Heather O\'Reilly',
+    'Draion Mcnain': 'Draion McNain',
+
+    'Elias Gaspar "Domingues" Pelembe': 'Elias Gaspar Domingues Pelembe',
+    'Saul Narvaez': 'Saúl Narváez',
+    'Adrian Mcinnis': 'Adrian McInnis',
+    'Cian Mcdonald': 'Cian McDonald',
+    'Ernesto Javier Chevantón': 'Ernesto Javier Chevanton',
+    'Ever Chavez': 'Ever Chávez',
+    'Adel Al Mulla': 'Adel Al-Mulla',
+    'Oshane Brown': 'O\'Shane Brown',
+
+    'Carmen D\'Onofrio': 'Carmen D\'onofrio',
+
+
+    'Juan Gonzales_Vigil': 'Juan Gonzales-Vigil',
+    'Aurelio Saco_Vertiz': 'Aurelio Saco Vértiz',
+
+    'Gerardo Vonder Putten': 'Gerardo Vonder Pütten',
+    'Gerardo Vonder_Putten': 'Gerardo Vonder Pütten',
+
     'Paulo Cesar Wanchope': 'Paulo Wanchope',
     'Josep Guardiola': 'Pep Guardiola',
 
@@ -238,7 +742,7 @@ basic = {
     'D.Gonzalez': 'D.González',
     'German Navea': 'Germán Navea',
     'Nicolas Diez': 'Nicolás Diez',
-    ##Zisis Vryzas   (-45' Ht)>, <Bio: Zisis Vryzas    (-45' Ht)>]
+
     'Evan Mcneley': 'Evan McNeley',
     'Brandin Mcclay': 'Brandin McClay',
     'Alonso Zuniga': 'Alonso Zúñiga',
@@ -1267,7 +1771,11 @@ basic = {
     'Tito Torrejon': 'Tito Torrejón',
     'Mccolm Cephas': 'McColm Cephas',
     'Gino Diflorio': 'Gino DiFlorio',
+
+    'Matt O’ Brien': 'Matt O\'Brien',
+    'Matt O\' Brien': 'Matt O\'Brien',
     'Matt O’Brien': 'Matt O\'Brien',
+
     'Bürger': 'Burger',
     'Devin Mcneil': 'Devin McNeil',
     'Ian  Butchard': 'Ian Butchard',
@@ -1946,7 +2454,7 @@ basic = {
     'Alcides Rodas': 'Alcídes Rodas',
     'A. Sánchez': 'A. Sanchez',
     'Marcio Costa': 'Márcio Costa',
-    '*Tommy Thompson': 'Tommy Thompson', # fix
+    #'*Tommy Thompson': 'Tommy Thompson', # fix
     'Charles Da Silva': 'Charles da Silva',
     'Liber Prudente': 'Líber Prudente',
     'Róbinson': 'Robinson',
@@ -1993,6 +2501,7 @@ basic = {
     'Roberto Ordenes': 'Roberto Órdenes',
     'D. Peña': 'D. Pena',
     'Alvaro Torres': 'Álvaro Torres',
+
     'Jorge Araujo': 'Jorge Araújo',
     'Saul Feldman': 'Saúl Feldman',
     'Sídnei': 'Sidnei',
@@ -2011,7 +2520,8 @@ basic = {
     'Jose Carini': 'José Carini',
     'Jorge Galvez': 'Jorge Gálvez',
     'Joãozinho': 'Joaozinho',
-    'Cláudio  Adão': 'Cláudio Adão', # fix
+
+
     'Mauricio Perez': 'Mauricio Pérez',
     'Edgar Villamarin': 'Edgar Villamarín',
     'Adrian Coria': 'Adrián Coria',
@@ -2037,6 +2547,8 @@ basic = {
     'Juan Carlos Paz Garcia': 'Juan Carlos Paz García',
     'Hector Acuna': 'Héctor Acuña',
     'Alexis Sánchez.': 'Alexis Sánchez', # fix
+
+
     'Paolo Delpiccolo': 'Paolo DelPiccolo',
     'Chavarría': 'Chavarria',
     'Restrepó': 'Restrepo',
@@ -2047,7 +2559,8 @@ basic = {
     'Valério': 'Valerio',
     'Nicolas Schenone': 'Nicolás Schenone',
     'Michael Rios': 'Michael Ríos',
-    'André Duarte]': 'André Duarte', # fix
+
+
     'José Luis Diaz': 'José Luis Díaz',
     'Juan Pablo Ubeda': 'Juan Pablo Úbeda',
     'Carlos De Castro': 'Carlos de Castro',
@@ -2125,7 +2638,8 @@ basic = {
     'Victor Fuentes': 'Víctor Fuentes',
     'Fabian Caballero': 'Fabián Caballero',
     'Dé': 'De',
-    'Yacine Ait-Slimane*': 'Yacine Ait-Slimane', # fix
+
+
     'Cristian Oviedo': 'Cristián Oviedo',
     'Diego Ruiz': 'Diego Ruíz',
     'Ruben Forestello': 'Rubén Forestello',
@@ -2171,7 +2685,7 @@ basic = {
     'Joao Daniel': 'João Daniel',
     'Javier Espinola': 'Javier Espínola',
     'Martin Tenemas': 'Martín Tenemás',
-    'Christian Gonzalez*': 'Christian González', # fix
+
     'Marcio Diogo': 'Márcio Diogo',
     'Abel Hernandez': 'Abel Hernández',
     'Junior Fernandez': 'Junior Fernández',
@@ -2182,11 +2696,12 @@ basic = {
     'Ruben Acosta': 'Rubén Acosta',
     'Baylón': 'Baylon',
     'Adan Balbin': 'Adán Balbín',
-    'JAiro Castillo': 'Jairo Castillo', # fix
+
     'Mardôni': 'Mardoni',
     'Juan Azconzabal': 'Juan Azconzábal',
     'Carcelén': 'Carcelen',
-    'Jones, C.': 'Jones, C', # fix!
+
+
     'juan Manuel Arostegui': 'Juan Manuel Aróstegui',
     'Dalla Libera': 'Dalla Líbera',
     'Ewerton Pascoa': 'Ewerton Páscoa',
@@ -2203,7 +2718,8 @@ basic = {
     'Aricó': 'Arico',
     'Pablo López': 'Pablo Lopez',
     'Cristian Fabbiani': 'Cristián Fabbiani',
-    '*Elisama Padilla': 'Elisama Padilla', # fix
+
+
     'Mathias Riquero': 'Mathías Riquero',
     'Elias Ferreira': 'Elías Ferreira',
     'Hernan Rengifo': 'Hernán Rengifo',
@@ -2211,9 +2727,11 @@ basic = {
     'Andrés Gonzalez': 'Andrés González',
     'Edson Torpedo': 'Édson Torpedo',
     'Jaílson': 'Jailson',
-    'Ocaño]': 'Ocaño', # fix
+
     'Fernando Méndez': 'Fernando Mendez',
-    'Peña': 'Pena)', # fix
+
+
+
     'Richard Martínez': 'Richard Martinez',
     'Gino Perez': 'Gino Pérez',
     'Arámbulo': 'Arambulo',
@@ -2302,17 +2820,18 @@ basic = {
     'Von-Schwedler': 'Von Schwedler',
     'L.Suárez': 'L.Suarez',
     'Raul Alonso Jimenez': 'Raúl Alonso Jiménez',
-    'Marco *Carrizales': 'Marco Carrizales', #fix
+
+
     'Ruben Rodriguez': 'Rubén Rodríguez',
     'L.Díaz': 'L.Diaz',
-    'Jeff Farina*': 'Jeff Farina', # fix
+
     'Ignacio Pallas': 'Ignacio Pallás',
     'Jesus Rey': 'Jesús Rey',
     'Patricio Gutierrez': 'Patricio Gutiérrez',
     'Celio Lino': 'Célio Lino',
     'Fidel Amado Perez': 'Fidel Amado Pérez',
     'Martin Reyes': 'Martín Reyes',
-    'Louis Thomas*': 'Louis Thomas', # fix
+
     'Mario Amorin': 'Mario Amorín',
     'Juan Jose Ossandon': 'Juan José Ossandón',
     'Alvaro Méndez': 'Álvaro Méndez',

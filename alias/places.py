@@ -16,6 +16,17 @@ def get_place(s):
 
 places = {
 
+    # called after Croke Park in Dublin.
+    'Croke Park': 'Gaelic Park, Bronx, NY',    
+    'Croke Park, New York, NY': 'Gaelic Park, Bronx, NY',    
+    'Croke Park, Bronx, NY': 'Gaelic Park, Bronx, NY',    
+
+    'Newark Turn Verein Field': 'Turn Verein Field, Newark, NJ',
+
+    'West Side Baseball Park': 'West End Grounds, Jersey City, NJ', # presumably
+    'West Side Park, Jersey City, NJ': 'West End Grounds, Jersey City, NJ', # presumably
+    'Cricket Grounds, Trenton, NJ': 'Trenton Cricket Grounds',
+
     'Yankees Stadium': 'Yankee Stadium',
 
     # Mediotiempo
@@ -104,8 +115,11 @@ places = {
 
 
     # other
+    
+    'Shea Stadium (Colorado), Highlands Ranch, CO': 'Highlands Ranch Shea Stadium',
 
     'Benedetti–Wehrli Stadium': 'Cardinal Stadium, Naperville, IL',
+    
 
     'Cricket Ground, Sydney': 'Sydney Cricket Ground',
     'Sports Ground, Sydney': 'Sydney Sports Ground',
@@ -296,6 +310,8 @@ places = {
     'Memorial Stadium, Long Beach, CA': 'Veterans Memorial Stadium, Long Beach, CA',
 
     'St. George Cricket Grounds, Hoboken': 'St. George\'s Cricket Grounds, Hoboken',
+
+    'Douglas Stadium, San Diego, CA': 'Merrill Douglas Stadium',
 
     'Southwestern College, San Diego, California': 'Southwestern College, Chula Vista, California',
     'Molson Stadium, Montreal': 'Percival Molson Memorial Stadium',

@@ -31,6 +31,10 @@ misc = {
 }
 
 world = {
+
+    'Frank Clair Stadium': 'TD Place',
+
+
     
     'Maureen Hendricks Field Maryland SoccerPlex': 'Maryland SoccerPlex',
     'Verizon Wireless Field Durwood Stadium': 'Durwood Stadium',
@@ -891,7 +895,7 @@ united_states = {
     'Albert/Daly Stadium': 'Albert-Daly Field',
     'Cara McGrane Stadium': 'Cara McGrane Memorial Stadium',
     'Calder Stadium': 'Nathan Calder Stadium',
-    'Cardinal Stadium': 'Benedetti–Wehrli Stadium',
+    #'Cardinal Stadium': 'Benedetti–Wehrli Stadium',
     'UBC Thunderbird Stadium': 'Thunderbird Stadium',
     'Balboa Park Stadium': 'Boxer Stadium',
     'UBC Thunderbird Stadium': 'Thunderbird Stadium',
@@ -967,8 +971,12 @@ united_states = {
     'Silverbacks Park': 'Atlanta Silverbacks Park',
 
     # North Carolina
+
+    'Queens Sports Complex': 'Queens University Stadium',
+
     'SAS Stadium': 'WakeMed Soccer Park',
     'SAS Soccer Park': 'WakeMed Soccer Park',
+    'Wakemed Soccer Park': 'WakeMed Soccer Park',
 
     # Colorado
     'DSG Park': 'Dick\'s Sporting Goods Park',
@@ -983,6 +991,10 @@ united_states = {
     # Ohio
     'Crew Stadium': 'Columbus Crew Stadium',
 
+    'Beaver Creek High School': 'Dayton Outpatient Center Stadium',
+    'Beavercreek High School': 'Dayton Outpatient Center Stadium',
+    'DOC Stadium': 'Dayton Outpatient Center Stadium',
+
     # Oregon
     'JELD-WEN Field': 'Jeld-Wen Field',
     'PGE Park': 'JELD-WEN Field',
@@ -995,6 +1007,8 @@ united_states = {
     'Nashville Coliseum': 'LP Field',
 
     # Florida
+
+    'ESPN Wide World of Sports': 'ESPN Wide World of Sports Complex',
     'Florida Citrus Bowl': 'Citrus Bowl',
     'Orange Bowl': 'Miami Orange Bowl',
     'Alltel Stadium': 'EverBank Field',
@@ -1024,6 +1038,12 @@ united_states = {
     'Robert F. Kennedy Memorial': 'Robert F. Kennedy Memorial Stadium',
 
     # California
+
+    'Cagan Stadium': 'Laird Q. Cagan Stadium',
+
+    'Hughes Stadium': 'Charles C. Hughes Stadium',
+    'Anteater Stadium at UCI': 'Anteater Stadium',
+
     'Rancho La Cienega Stadium': 'Rancho La Cienga Stadium',
     'Cal State Fullerton Titan Stadium': 'Titan Stadium',
     'Fullerton Stadium': 'Titan Stadium',
@@ -1047,6 +1067,12 @@ united_states = {
 
     # New York
 
+
+    'Thrift Field': 'Thrift Oval',
+
+    'Todd\'s Field': 'Todd Field',
+    'Lenox Field': 'Lenox Oval', # caledonian grounds?
+
     'New York Indiana Oval': 'New York Oval',
     'Indiana-New York Oval': 'New York Oval',
 
@@ -1066,7 +1092,18 @@ united_states = {
     'Randall\s Island Stadium': 'Downing Stadium',
     'Randall\s Island': 'Downing Stadium',
 
+    # Illinois
+
+    'Winnemac Park Stadium': 'Winnemac Park',
+
     # Pennsylvania
+
+    # 'Yellow Jacket Stadium': 'Frankford Stadium', multiple Yellow Jacket Stadiums existed.
+    'Cambria Stadium': 'Cambria Field',
+
+    'Phillies Park': 'Baker Bowl',
+    'Phillies Ball Park': 'Baker Bowl',
+
     'City Island Stadium': 'Skyline Sports Complex',
     'Philadelphia Municipal Stadium':  'John F. Kennedy Stadium',
     'Fedex Field': 'FedEx Field',
@@ -1074,7 +1111,10 @@ united_states = {
     'Bethlehem Steel Field': 'Steel Field',
 
     # Texas    
-    'Soccorro Stadium': 'Socorro Stadium',
+    'Soccorro Stadium': 'SISD Student Activities Complex',
+    'Socorro Stadium': 'SISD Student Activities Complex',
+    
+
     'Texas A&M Intl Univ Soccer Complex': 'TAMIU Soccer Complex',
     'WoodForest Stadium': 'Woodforest Bank Stadium',
     'Sun Bowl (UTEP)': 'Sun Bowl Stadium',
@@ -1088,9 +1128,12 @@ united_states = {
     # Washington
     'Memorial Stadium (Seattle)': 'Seattle Memorial Stadium',
     'Seahawk Stadium': 'CenturyLink Field',
+
+    'Starfire Sports Stadium': 'Starfire Sports Complex',
     'Starfire Complex': 'Starfire Sports Complex',
-    'Seahawks Stadium': 'CenturyLink Field',
     'Starfire Stadium': 'Starfire Sports Complex',
+
+    'Seahawks Stadium': 'CenturyLink Field',
     'Qwest Field': 'CenturyLink Field',
 
     # Massachusetts
@@ -1100,6 +1143,10 @@ united_states = {
     'Soldier\'s Field': 'Harvard Stadium',
 
     # New Jersey
+
+    'Ironbound Park': 'Ironbound Field',
+
+    'Lubetkin Field @ NJIT': 'Lubetkin Field',
     'ONT AA Grounds': 'Clark ONT Field',
     'Clark Field': 'Clark ONT Field',
     'Clark\'s Field': 'Clark ONT Field',

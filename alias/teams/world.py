@@ -1,5 +1,37 @@
 world = {
 
+
+    'RC Arbâa': 'RC Arbaâ',
+    'Uniao São Joao': 'União São João',
+    'USM Algér': 'USM Alger',
+    'Ríver': 'River',
+
+    'BidVest Wits': 'Bidvest Wits',
+    'BidVest Wits University': 'Bidvest Wits',
+    'Bidvest Wits University': 'Bidvest Wits',
+
+
+    'Sanat-Naft': 'Sanat Naft',
+    'Umm-Salal': 'Umm Salal',
+    'Olímpia': 'Olimpia',
+    'Internațional Curtea de Argeș': 'Internaţional Curtea de Argeş',
+    'Western Mass. Pioneers': 'Western Mass Pioneers',
+
+    'Gottschee Blau-weiss': 'Gottschee Blau-Weiss',
+    'USM El-Harrach': 'USM El Harrach',
+    'Ashantigold': 'AshantiGold',
+    'JSM Bejaïa': 'JSM Béjaïa',
+    'Galícia': 'Galicia',
+    'Roumde Adjia': 'Roumdé Adjia',
+    'Aracatuba': 'Araçatuba',
+    'Ál-Nasr': 'Al-Nasr',
+    'ES Setif': 'ES Sétif',
+    'AS Ain M\'lila': 'AS Aïn M\'lila',
+    'XV de Jau': 'XV de Jaú',
+    'Amazulu': 'AmaZulu',
+    'CR Bélouizdad': 'CR Belouizdad',
+
+
     'Ottawa Fury FC': 'Ottawa Fury',
 
     # indoor
