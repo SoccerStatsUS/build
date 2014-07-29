@@ -1,5 +1,6 @@
 
 basic = {
+    #'Peña': 'Pena', # fix
 
     'Tj Kennedy': 'T.J. Kennedy',
     'KHALAF AL-LATAYFEH': 'Khalaf Al-Latayfeh',
@@ -82,7 +83,7 @@ basic = {
     'Marco *Carrizales': 'Marco Carrizales', #fix
     'Jeff Farina*': 'Jeff Farina', # fix
     'Louis Thomas*': 'Louis Thomas', # fix
-    'Peña': 'Pena', # fix
+
     'Ocaño]': 'Ocaño', # fix
 
 
