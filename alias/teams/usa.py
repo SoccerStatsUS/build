@@ -1,7 +1,7 @@
 
 usa = {
 
-    'West Hoboken Americus': 'Americus A.A.',
+    'West Hoboken Americus': 'Americus AA',
     'Americus': 'Americus AA',
     'Americus FC': 'Americus AA',
     'Americus A.A.': 'Americus AA',
@@ -1100,7 +1100,7 @@ usa = {
     #Polish Falcons (NJ)
 
 
-    'Americus AA': 'Americus A.A.',
+
 
     'Bunker Hill F.C.': 'Bunker Hill FC',
 
