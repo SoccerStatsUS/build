@@ -1,6 +1,23 @@
 
 usa = {
 
+    'West Hoboken Americus': 'Americus A.A.',
+    'Americus': 'Americus AA',
+    'Americus FC': 'Americus AA',
+    'Americus A.A.': 'Americus AA',
+
+    'Chicago Fire U-23': 'Chicago Fire (PDL)',
+    'Albuquerque Sol F.C.': 'Albuquerque Sol FC',
+
+    'America F. C.': 'America F.C.',
+
+    'New Jersey Schaefer Brewers': 'Schaefer Brewers',
+    'Hungarian-Americans': 'Hungarian Americans',
+    'Falcons Warsaw': 'Elizabeth Falcons',
+    'LA Misioneros': 'Los Angeles Misioneros',
+    'Baltimore Cantons': 'Baltimore Canton',
+
+    'Fort Lauderdale Schulz Academy': 'Floridians FC',
     'Floridians F.C.': 'Floridians FC',
 
     'Nor East United': 'Nor\'East United',
@@ -313,6 +330,8 @@ usa = {
     'Los Angeles Galaxy - MLS': 'Los Angeles Galaxy',
     'La Galaxy': 'Los Angeles Galaxy',
     'Los Angeles Galaxy': 'LA Galaxy',
+
+    'Los Angeles Galaxy II': 'LA Galaxy II',
 
     'New England Revolution - MLS': 'New England Revolution',
     'Ne Revolution': 'New England Revolution',
@@ -924,6 +943,7 @@ usa = {
 
     'Italian United': 'Brooklyn Italians',
     'Inter-Brooklyn Italians': 'Brooklyn Italians',
+    'New York Inter SC': 'Brooklyn Italians',
     'New York Inter': 'Brooklyn Italians',
     'Inter SC': 'Brooklyn Italians',
     'Brooklyn-Italians': 'Brooklyn Italians',

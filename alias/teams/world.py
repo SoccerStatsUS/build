@@ -1,8 +1,20 @@
 world = {
 
+    'Operário-P': 'Operário-PR',
+    'Operário/CG': 'Operário/CG-MT',
+
+    'Uniao SJ': 'União São João',
+    'Uniao S Joao': 'União São João',
+    'União S. João': 'União São João',
+    'Uniao São Joao': 'União São João',
+
+    'União Nacional FC': 'União Nacional',
+
+    'Paduano': 'Paduano EC',
+
 
     'RC Arbâa': 'RC Arbaâ',
-    'Uniao São Joao': 'União São João',
+
     'USM Algér': 'USM Alger',
     'Ríver': 'River',
 
@@ -27,7 +39,9 @@ world = {
     'Ál-Nasr': 'Al-Nasr',
     'ES Setif': 'ES Sétif',
     'AS Ain M\'lila': 'AS Aïn M\'lila',
-    'XV de Jau': 'XV de Jaú',
+
+
+
     'Amazulu': 'AmaZulu',
     'CR Bélouizdad': 'CR Belouizdad',
 
@@ -1579,10 +1593,21 @@ world = {
     'Deportes Arica': 'San Marcos de Arica',
 
 
-    'Jau XV': 'XV de Jaú',
+
 
     'SC Braga': 'Braga',
+
+    'XV de Jau': 'XV de Jaú',
+    'Jau XV': 'XV de Jaú',
+    'XV de Novembro (Jaú)': 'XV de Jaú',
+    'Xv De Novembro/J': 'XV de Jaú',
+    'XV de Novembro/J': 'XV de Jaú',
+
     'XV de Novembro (Piracicaba)': 'XV de Piracicaba',
+    'XV Piracicaba': 'XV de Piracicaba',
+    'XV de Novembro/P': 'XV de Piracicaba',
+    'XV de Novembro': 'XV de Piracicaba',
+    'XV de Pìracicaba': 'XV de Piracicaba',
 
     'Rosenheim 1860': 'TSV 1860 Rosenheim',
 
@@ -1718,6 +1743,7 @@ world = {
     'Porteno': 'Porteño',
     'Racing Club Saint Joseph': 'Racing Club Saint-Joseph',
     'Emigrantes Das Ilhas': 'Emigrantes das Ilhas',
+
     'Vitoria FC': 'Vitória FC',
 
     'Corinthian FC': 'Corinthian F.C.',
@@ -2600,7 +2626,6 @@ world = {
     'Atletico Madrid': 'Atlético Madrid',
     'Atlético Madrid (Esp)': 'Atlético Madrid',
     
-    #Dominican Rep>, <Team: Dominican Rep.>]
     'Galt FC': 'Galt F.C.',
 
     'Lduq': 'LDU Quito',
@@ -2618,7 +2643,7 @@ world = {
 
     
     'EC Vitoria': 'EC Vitória',
-    #Santa Lucia>, <Team: Santa Lucía>]
+
 
     'University of Massachusetts-Amherst': 'University of Massachusetts Amherst',
 

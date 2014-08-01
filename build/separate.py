@@ -195,6 +195,10 @@ sep_teams = {
         (from_competition('Major Indoor Soccer League (2008-2014)'), 'Baltimore Blast'),
         ],
 
+    'Baltimore FC': [
+        (from_seasons('American Soccer League (1933-1983)', set(['1937-1938', '1938-1939', '1939-1940', '1940-1941', '1941-1942',])), 'Baltimore S.C.'),
+        ],
+
 
     'Barcelona': [
         (from_competition('La Liga'), 'FC Barcelona'),
@@ -230,6 +234,10 @@ sep_teams = {
         (from_seasons('American Soccer League (1933-1983)', set(['1934-1935'])), 'Boston Bears'),
         (from_seasons('American Soccer League (1933-1983)', set(['1969'])), 'Boston Astros'),
         (from_competition('North American Soccer League (indoor)'), 'Boston Minutemen'),
+        ],
+
+    'Boston SC': [
+        (from_seasons('American Soccer League (1933-1983)', set(['1963-1964'])), 'Boston Astros'),
         ],
 
     'Bohemians': [
@@ -334,7 +342,8 @@ sep_teams = {
 
         ],
 
-    'Chicago Fire Reserves': [
+    'Chicago Fire': [
+        (from_competition('USL Premier Developmental League'), 'Chicago Fire (PDL)'),
         ],
 
     'Cleveland': [
@@ -441,8 +450,11 @@ sep_teams = {
         (from_seasons('American Soccer League (1921-1933)', set(['1922-1923', '1923-1924', '1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1929-1930', '1929 Fall', '1930 Spring', '1930 Fall'])), 'Fall River Marksmen'),
         (from_seasons('American Soccer League (1921-1933)', set(['1931 Spring', '1932 Fall'])), 'Fall River FC'), # 1932 Fall?
         (from_seasons('American Soccer League (1921-1933)', set(['1921-1922'])), 'Fall River Rovers'),
-        (from_seasons('American Soccer League (1933-1983)', set(['1960-1961', '1961-1962', '1963-1964',])), 'Fall River SC'),
+        (from_seasons('American Soccer League (1933-1983)', set(['1959-1960', '1960-1961', '1961-1962', '1962-1963', '1963-1964',])), 'Fall River SC'),
+        ],
 
+    'Fall River': [
+        (from_seasons('American Soccer League (1933-1983)', set(['1957-1958'])), 'Fall River SC'),
         ],
 
     'Fort Lauderdale': [
@@ -481,6 +493,7 @@ sep_teams = {
         (from_seasons('American Soccer League (1921-1933)', set(['1929-1930', '1930 Spring', '1930 Fall', '1931 Spring', '1931 Fall', '1932 Spring',])), 'Hakoah All-Stars'),
         (from_seasons('American Soccer League (1921-1933)', set(['1929 Fall',])), 'Brooklyn Hakoah'),
         (from_competition('Eastern Soccer League (1928-1929)'), 'New York Hakoah'),
+        (from_competition('American Soccer League (1933-1983)'), 'Hakoah (ASL2)'),
 
         ],
 
@@ -592,6 +605,15 @@ sep_teams = {
         (from_competition('North American Soccer League (indoor)'), 'Los Angeles Aztecs'),
         (from_competition('Continental Indoor Soccer League'), 'Los Angeles United'),
         ],
+
+    'Ludlow': [
+        (from_seasons('American Soccer League (1921-1933)', set(['1956-1957'])), 'Ludlow Lusitano'),
+        ],
+
+    'Ludlow': [
+        (from_seasons('American Soccer League (1921-1933)', set(['1956-1957', '1957-1958'])), 'Ludlow Lusitano'),
+        ],
+
 
     'Marte': [
         (from_competition('Salvadoran Primera División'), 'C.D. Atlético Marte'),
@@ -734,7 +756,12 @@ sep_teams = {
 
     'Paterson': [
         (from_seasons('American Soccer League (1921-1933)', set(['1922-1923',])), 'Paterson FC'),
-        (from_seasons('American Soccer League (1933-1983)', set(['1940-1941'])), 'Paterson FC (ASL2)'),
+        (from_seasons('American Soccer League (1933-1983)', set(['1939-1940', '1940-1941'])), 'Paterson FC (ASL2)'),
+        ],
+
+
+    'Paterson FC': [
+        (from_seasons('American Soccer League (1933-1983)', set(['1938-1939', '1939-1940', '1940-1941'])), 'Paterson FC (ASL2)'),
         ],
 
     'Pawtucket': [
