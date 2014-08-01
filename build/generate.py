@@ -11,6 +11,11 @@ make_stat_tuple = lambda name, d: (name, d['team'], d['season'], d['competition'
 
 
 def stadiums_to_teams():
+    """
+    Map stadium to teams who have had it as a home stadium
+    """
+    # Used to infer home teams given a stadium.
+
     from soccerdata.text import stadiummap
     from smid.alias import get_stadium
 
@@ -29,7 +34,8 @@ def make_stadium_getter():
     """
     Given a team name, eg FC Dallas and a date, return the appropriate stadium.
     """
-    # This is also done in sdev...
+    # This code is duplicated in sdev.
+    # Not sure how to extract.
     
     from soccerdata.text import stadiummap
 
@@ -79,7 +85,8 @@ def generate_game_data():
     - home team using location
     - location using home team
     """
-    # By this point, location should be gone, replaced by stadium/city/state/country
+    # By this point, location should be removed.
+    # replaced by stadium, city, state and country fields
 
     stadium_getter = make_stadium_getter()
     team_city_map = dict([(e['name'], e.get('city')) for e in soccer_db.teams.find()])

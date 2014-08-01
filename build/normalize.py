@@ -177,6 +177,15 @@ def normalize_game(e):
     e['team1'] = separate_team(e['team1'], e)
     e['team2'] = separate_team(e['team2'], e)
 
+    # Make sure we always know the order of teams.
+    if e['team1'] > e['team2']:
+        e['team1'], e['team2'] = e['team2'], e['team1']
+        e['team1_score'], e['team2_score'] = e['team2_score'], e['team1_score']
+
+        if 'team1_result' in e:
+            e['team1_result'], e['team2_result'] = e['team2_result'], e['team1_result']
+
+
     if e.get('home_team'):
         e['home_team'] = get_team(e['home_team'])
         e['home_team'] = separate_team(e['home_team'], e)

@@ -191,10 +191,9 @@ def load_international():
 
 
 def load_domestic():
-    load_usd1()    
     load_us_minor()
+    load_usd1()    
     load_conmebol()
-
     load_afc()
     load_us_cups()
 
@@ -1004,10 +1003,17 @@ def load_modern_friendly():
 
 
 def load_competitions():
-    from soccerdata.text import competitions, seasons
+    from soccerdata.text import confederations, competitions, seasons
     print("Loading competitions.")
+
+    soccer_db.confederations.drop()
+    generic_load(soccer_db.confederations, confederations.load_confederations)
+
     generic_load(soccer_db.competitions, competitions.load_competitions)
     generic_load(soccer_db.seasons, seasons.load_seasons)
+
+    soccer_db.competition_relations.drop()
+    generic_load(soccer_db.competition_relations, competitions.load_competition_relations)
 
 
 def load_teams():

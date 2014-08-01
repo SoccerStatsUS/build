@@ -22,13 +22,16 @@ def merge():
 
     merge_bios()
 
-    merge_teams()
-
     merge_all_rosters()
         
 
 
 def standard_merge(coll):
+    """
+    A standard merge that assumes no collisions.
+    Every collection with a given postfix is simply added into a larger collection.
+    """
+
     from settings import SOURCES
 
     soccer_db[coll].drop()
@@ -36,12 +39,62 @@ def standard_merge(coll):
         insert_rows(soccer_db[coll], soccer_db['%s_%s' % (e, coll)].find())
 
 
-def merge_teams():
-    #soccer_db.teams.drop()
-    #insert_rows(soccer_db.teams, soccer_db.chris_teams.find())
-    #insert_rows(soccer_db.teams, soccer_db.wiki_teams.find())
-    pass
 
+def update_game_stat(d, key_list, final_d):
+    """
+    Experiment in abstracting update
+    """
+    # Pretty sure this will work.
+    # Relies on mutating the final_d.
+
+    if '_id' in d:
+        d.pop("_id")
+        
+    key = tuple([d[k] for k in key_list])
+
+    if key in final_d:
+        orig = dd[key]
+
+        for k, v in d.items():
+            if not orig.get(k) and v:
+                orig[k] = v
+
+    else:
+        final_d[key] = d
+
+
+
+
+
+# Why are these _all_ necessary?
+
+def merge_all_games():            
+
+
+    games_coll_names = ['%s_games' % coll for coll in SOURCES]
+    games_lists = [soccer_db[k].find() for k in games_coll_names]
+
+    games = merge_games(games_lists)
+    soccer_db.games.drop()
+    insert_rows(soccer_db.games, games)
+
+
+def merge_all_stats():            
+    stats_lists = [soccer_db[k].find() for k in ['%s_stats' % coll for coll in SOURCES]]
+    stats = merge_stats(stats_lists)
+
+    soccer_db.stats.drop()
+    insert_rows(soccer_db.stats, stats)
+
+
+def merge_all_rosters():
+
+    roster_coll_names = ['%s_rosters' % coll for coll in SOURCES]
+    roster_lists = [soccer_db[k].find() for k in roster_coll_names]
+
+    rosters = merge_rosters(roster_lists)
+    soccer_db.rosters.drop()
+    insert_rows(soccer_db.rosters, rosters)
 
 
 def merge_standings():
@@ -50,19 +103,6 @@ def merge_standings():
 
 def merge_awards():
     standard_merge('awards')
-
-    return
-    soccer_db.awards.drop()
-    insert_rows(soccer_db.awards, soccer_db.asl_awards.find())
-    insert_rows(soccer_db.awards, soccer_db.nasl_awards.find())
-    insert_rows(soccer_db.awards, soccer_db.apsl_awards.find())
-    insert_rows(soccer_db.awards, soccer_db.mls_awards.find())
-    insert_rows(soccer_db.awards, soccer_db.ncaa_awards.find())
-    insert_rows(soccer_db.awards, soccer_db.usl_awards.find())
-    insert_rows(soccer_db.awards, soccer_db.asl_awards.find())
-    insert_rows(soccer_db.awards, soccer_db.usa_awards.find())
-
-    
     
 
 def merge_goals():
@@ -73,21 +113,19 @@ def merge_goals():
         if '_id' in d:
             d.pop("_id")
         
-        # Issues here: a player scores two goals in the same minute.
-        # A player scores in a game, we don't have a minute, but we have separate sources referring.
-        # Add a source key here.
+        # Issues with keys: 
+        # a player scores two goals in the same minute.
+        # a player scores in a game, we don't have a minute, and we have separate sources referring.
+        # Solution: track sources, do not merge within sources, do across sources.
 
         if d['minute']:
-            try:
-                key = (d['date'], d['goal'], d['minute'])
-            except:
-                import pdb; pdb.set_trace()
+            key = (d['date'], d['goal'], d['minute'])
         else: 
-            # For the case where a player has scored multiple goals, but we don't have a minute for any of them.
-            # random.random() -> None.
+            # For the case where a player has scored multiple goals in a game but we don't know minutes.
+            # Can remove when source tracking is implemented
             key = (d['date'], d['goal'], random.random())
 
-        # source_id not implemented, but should be something simple (timestamp, counter)
+        # source_id not implemented, but should be something simple (counter, name)
         # to distinguish different internal 'sources' - different files or scrapes, basically.
         if key in dd: # and orig.get('source_id') != d.get('source_id'): 
             orig = dd[key]
@@ -111,14 +149,18 @@ def merge_goals():
     insert_rows(soccer_db.goals, dd.values())
 
 
-
-
-
 def merge_game_stats():
+    """
+    Merge game stats.
+    """
+    # This seems potentially problematic because most game stats are generated after the merge step.
+    # There are a few cases where game stats exist beforehand - USLsoccer style data, primarily.
 
     dd = {}
 
     def update_game_stat(d):
+        # This could probably be abstracted into a standard update function.
+
         if '_id' in d:
             d.pop("_id")
         
@@ -145,10 +187,11 @@ def merge_game_stats():
     insert_rows(soccer_db.gstats, dd.values())
 
 
-
-
-
 def merge_fouls():
+    """
+    Merge foul data.
+    """
+    # Have been woefully slow in adding sophisticated foul data.
 
     dd = {}
 
@@ -177,6 +220,9 @@ def merge_fouls():
 
 
 def merge_lineups():
+    """
+    Merge lineup data.
+    """
 
     dd = {}
 
@@ -207,50 +253,40 @@ def merge_lineups():
     insert_rows(soccer_db.lineups, dd.values())
 
 
+def merge_bios():
+    """
+    Merge bios
+    """
 
-def merge_all_games():            
-    games_coll_names = ['%s_games' % coll for coll in SOURCES]
-    games_lists = [soccer_db[k].find() for k in games_coll_names]
-
-    games = merge_games(games_lists)
-    soccer_db.games.drop()
-    insert_rows(soccer_db.games, games)
+    bio_dict = {}
 
 
-
-def merge_all_rosters():
-
-    roster_coll_names = ['%s_rosters' % coll for coll in SOURCES]
-    roster_lists = [soccer_db[k].find() for k in roster_coll_names]
-
-    rosters = merge_rosters(roster_lists)
-    soccer_db.rosters.drop()
-    insert_rows(soccer_db.rosters, rosters)
-
-
-def merge_rosters(roster_lists):
-
-    def update_roster(d):
-        # Need to consider how rosters interact with seasons, start/end dates.
-        # Currently going to just ignore start/end dates for all rosters.
-
-
-        if '_id' in d:
-            d.pop('_id')
-
-        key = (d['team'], d['season'], d['name'])
-
-        if key not in roster_dict:
-            roster_dict[key] = d
-
+    def update_bio(d):
+        # This will overmerge. e.g.
+        # { 'name': 'John Smith', 'birthdate': datetime.datetime(1900, 1, 1) }
+        # { 'name': 'John Smith', 'birthdate': datetime.datetime(1980, 6, 15), 'birthplace': 'Atlanta, Georgia' } 
+        # -> { 'name': 'John Smith', 'birthdate': datetime.datetime(1900, 1, 1), birthplace': 'Atlannta, Georgia' }
+        # Probably want to under-merge, then apply split logic.
         
-    roster_dict = {}
+        n = d['name']
+        
+        if n in bio_dict:
+            orig = bio_dict[n]
+            for k, v in d.items():
+                if not orig.get(k) and v:
+                    orig[k] = v
+        else:
+            bio_dict[n] = d
 
-    for roster_list in roster_lists:
-        for e in roster_list:
-            update_roster(e)
+      
+    for e in SOURCES:
+        c = '%s_bios' % e
+        coll = soccer_db[c]
+        for e in coll.find():
+            update_bio(e)
 
-    return roster_dict.values()
+    soccer_db.bios.drop()
+    insert_rows(soccer_db.bios, bio_dict.values())
 
 
 def merge_games(games_lists):
@@ -368,56 +404,35 @@ def merge_games(games_lists):
     return game_list
 
 
-def merge_bios():
-    """
-    Merge bios
-    """
+def merge_rosters(roster_lists):
 
-    bio_dict = {}
+    def update_roster(d):
+        # Need to consider how rosters interact with seasons, start/end dates.
+        # Currently going to just ignore start/end dates for all rosters.
 
 
-    def update_bio(d):
-        # This will overmerge. e.g.
-        # { 'name': 'John Smith', 'birthdate': datetime.datetime(1900, 1, 1) }
-        # { 'name': 'John Smith', 'birthdate': datetime.datetime(1980, 6, 15), 'birthplace': 'Atlanta, Georgia' } 
-        # -> { 'name': 'John Smith', 'birthdate': datetime.datetime(1900, 1, 1), birthplace': 'Atlannta, Georgia' }
-        # Probably want to under-merge, then apply split logic.
+        if '_id' in d:
+            d.pop('_id')
+
+        key = (d['team'], d['season'], d['name'])
+
+        if key not in roster_dict:
+            roster_dict[key] = d
+
         
-        n = d['name']
-        
-        if n in bio_dict:
-            orig = bio_dict[n]
-            for k, v in d.items():
-                if not orig.get(k) and v:
-                    orig[k] = v
-        else:
-            bio_dict[n] = d
+    roster_dict = {}
 
-      
-    for e in SOURCES:
-        c = '%s_bios' % e
-        coll = soccer_db[c]
-        for e in coll.find():
-            update_bio(e)
+    for roster_list in roster_lists:
+        for e in roster_list:
+            update_roster(e)
 
-    soccer_db.bios.drop()
-    insert_rows(soccer_db.bios, bio_dict.values())
+    return roster_dict.values()
 
 
-
-def merge_all_stats():            
-    stats_lists = [soccer_db[k].find() for k in ['%s_stats' % coll for coll in SOURCES]]
-    stats = merge_stats(stats_lists)
-
-    soccer_db.stats.drop()
-    insert_rows(soccer_db.stats, stats)
-
-    
 def merge_stats(stats_lists):
     """
     Merge stats.
     """
-
 
     def update_stat(d):
         if 'team' not in d:
