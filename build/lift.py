@@ -12,7 +12,6 @@ from collections import defaultdict
 def lift():
     transform_names_from_rosters()
 
-
     print("Transforming names.")
     # Comment this out if worried about over-assigning full names.
     #transform_player_names() 
@@ -26,6 +25,9 @@ def transform_names_from_rosters():
     Transform lineup and goal player names based on roster data.
     """
 
+
+
+
     for source in SOURCES:
 
         rdb = soccer_db['%s_rosters' % source]
@@ -34,6 +36,8 @@ def transform_names_from_rosters():
 
             rg = make_roster_guesser(rdb)
 
+
+            """
             l = []
             coll = soccer_db["%s_lineups" % source]
             for e in coll.find():
@@ -42,6 +46,7 @@ def transform_names_from_rosters():
 
             coll.drop()
             insert_rows(coll, l)
+            """
 
 
             g = []
@@ -68,11 +73,16 @@ def get_name_from_fragment(fragment, candidates):
     # It's obvious what should happen here. W. Reid gets turned into Willie Reid, then Reid gets turned into Willie Reid
     # But less obvious how to do it.
 
+    from helpers import string_to_ascii
+
+
     if fragment is None:
         return fragment
 
+    ascii_fragment = string_to_ascii(fragment)
 
-    cx = [e for e in candidates if e.endswith(fragment) and e != fragment]
+
+    cx = [full for (ascii, full) in candidates if ascii.endswith(ascii_fragment) and ascii != ascii_fragment]
 
     if len(cx) == 1:
         #print("Converting %s to % s" % (fragment, c2[0]))
@@ -84,21 +94,22 @@ def get_name_from_fragment(fragment, candidates):
 
     else:
         # We've failed to find a match. This may be because we have a situation like W. Reid.
+        # This doesn't seem to do anything.
         if fragment.count('.') != 1:
             return fragment
 
         else:
-            f1, f2 = fragment.split('.')
+            f1, f2 = ascii_fragment.split('.')
             
             # Presumably there should be more than one match. This is why you would include a first initial at all.
-            cx = [e for e in candidates if e.endswith(f2) and e != f2]
+            cx = [(ascii, full) for (ascii, full) in candidates if ascii.endswith(f2) and ascii != f2]
 
             # This is the only case where we want produce a match.
             # right?
             matches = []
-            for cd in cx:
-                if cd.startswith(f1):
-                    matches.append(cd)
+            for (ascii, full) in cx:
+                if ascii.startswith(f1):
+                    matches.append(full)
 
             if len(matches) == 1:
                 return matches[0]
@@ -114,9 +125,12 @@ def make_roster_guesser(db):
     d = defaultdict(set)
     for e in db.find():
         key = (e['team'], e['competition'], e['season'])
-        d[key].add(e['name'])
+        #d[key].add(e['name'])
+        d[key].add((e['ascii_name'], e['name']))
 
     def getter(name, team, competition, season):
+
+
         key = (team, competition, season)
         candidates = d[key]
         return get_name_from_fragment(name, candidates)

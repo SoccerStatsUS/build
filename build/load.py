@@ -139,8 +139,8 @@ def load():
     load_stadium_maps()
     load_competition_maps()
 
-    # short circuit bios
-    #load_games(); return 
+    # short circuit slow bios.
+    load_games(); return 
 
     load_bios()
     load_transactions()
@@ -899,6 +899,7 @@ def load_mls():
 
     load_standings_standard('mls', 'data/standings/mls', root=USD1_DIR)
 
+    """
     # Add rsssf games.
     for e in range(2001, 2001):
         r = os.path.join(ROOT_DIR, 'usd1/data/games/league/rsssf/%s' % e)
@@ -913,8 +914,12 @@ def load_mls():
     for e in ['1996.2010', '2011', '2012', '2013', '2014']:
         load_games_standard('mls', 'data/games/league/simple/mls/%s' % e, root=USD1_DIR)
 
-
     load_games_standard('mls', 'data/games/playoffs/mls', root=USD1_DIR)
+
+    """
+
+
+
 
     # Not loading 1996-2011 stats?
 

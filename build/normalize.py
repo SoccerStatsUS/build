@@ -6,6 +6,8 @@ from smid.mongo import generic_load, soccer_db, insert_rows, insert_row, soccer_
 
 from separate import separate_team, separate_name
 
+from helpers import string_to_ascii
+
 
 def make_location_normalizer():
     # What is the proper way to handle locations?
@@ -134,11 +136,11 @@ def calculate_game_results(d):
     x = 5
 
 
+
+
 def normalize_season(e):
     #e['competition'] = get_competition(e['competition'])
-
     e['name'] = get_season(e['name'])
-    #e['name']
 
     return e
 
@@ -461,7 +463,10 @@ def normalize_roster(e):
     e['season'] = get_season(e['season'])
 
     e['name'] = get_name(e['name'])
+    e['ascii_name'] = string_to_ascii(e['name'])
+
     e['team'] = get_team(e['team'])
+
     return e
 
 
