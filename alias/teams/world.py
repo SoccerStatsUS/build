@@ -1323,6 +1323,7 @@ world = {
     'Balatón': 'BFC Siófok',
     'Balaton FC': 'BFC Siófok',
 
+    'MTK Budapest FC': 'MTK Budapest',
     'Vörös Lobogó': 'MTK Budapest',
     'MTK Hungária': 'MTK Budapest',
     'MTK (Budapest) (Hun)': 'MTK Budapest',
@@ -4833,6 +4834,7 @@ world = {
     'Eintracht Braunschwieg': 'Eintracht Braunschweig',
     'Eintracht Braunschweig (Ger)': 'Eintracht Braunschweig',
 
+
     'TSV Munich': '1860 Munchen',
     '1860 München': '1860 Munchen',
     'TSV München 1860': '1860 Munchen',
@@ -4843,6 +4845,7 @@ world = {
     '1860 Munchen': 'TSV 1860 München',
     'TSC Muenchen 1860': 'TSV 1860 München',
     'TSV 1860 München (Ger)': 'TSV 1860 München',
+    'TSV 1860 Munchen': 'TSV 1860 München',
     '1860 Munich': 'TSV 1860 München',
 
     'Bayer Leverkusen - Germany': 'Bayer Leverkusen',

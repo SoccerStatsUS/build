@@ -17,13 +17,13 @@ def stadiums_to_teams():
     # Used to infer home teams given a stadium.
 
     from soccerdata.text import stadiummap
-    from smid.alias import get_stadium
+    from smid.alias import get_stadium, get_team
 
     d = defaultdict(set)
 
     for e in stadiummap.load():
         key = get_stadium(e['stadium'])
-        value = e['team']
+        value = get_team(e['team'])
         d[key].add(value)
 
     return d
@@ -38,11 +38,12 @@ def make_stadium_getter():
     # Not sure how to extract.
     
     from soccerdata.text import stadiummap
+    from smid.alias import get_stadium, get_team
 
     d = defaultdict(list)
     for x in stadiummap.load():
-        key = x['team']
-        value = (x['stadium'], x['start'], x['end'])
+        key = get_team(x['team'])
+        value = (get_stadium(x['stadium']), x['start'], x['end'])
         d[key].append(value)
 
 
@@ -102,10 +103,14 @@ def generate_game_data():
         # If we don't know who is the home team, try to infer it from stadium.
         # If that fails, try to infer from city.
 
-
         home_team = e.get('home_team')
+
+        #if home_team == 'LA Galaxy' and e['competition'] == 'Major League Soccer':
+        #        import pdb; pdb.set_trace()
+
         if home_team and not e.get('stadium'):
             stadium = stadium_getter(home_team, e['date'])
+
 
             # stadium_getter returns home_team as a fallback; don't set that.
             if stadium and stadium != home_team:

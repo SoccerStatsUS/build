@@ -167,6 +167,7 @@ def load_extra():
 
 def load_games():  
     load_domestic()
+    return
     load_indoor()
     load_amateur()
     load_outer()
@@ -191,14 +192,17 @@ def load_international():
 
 
 def load_domestic():
-    load_us_minor()
     load_usd1()    
+    return
+    load_concacaf()
+    load_us_minor()
+
     load_conmebol()
     load_afc()
     load_us_cups()
 
 
-    load_concacaf()
+
     load_world()
     load_caf()
     load_ofc()
@@ -207,8 +211,10 @@ def load_domestic():
 
 
 def load_usd1():
-    load_asl()
     load_mls()
+    return
+    load_asl()
+
     load_alpf()
 
     load_nasl()
@@ -233,16 +239,28 @@ def load_mediotiempo():
 
 
 def load_name_maps():
+    """
+    Map team names to appropriate aliases
+    eg FC Dallas -> Dallas Burn for 1996-2004
+    """
     from soccerdata.text import namemap
     generic_load(soccer_db.name_maps, namemap.load)
 
 
 def load_competition_maps():
+    """
+    Competition aliases.
+    eg A-League / USL 1
+    """
     from soccerdata.text import competitionnamemap
     generic_load(soccer_db.competition_maps, competitionnamemap.load)    
 
 
 def load_stadium_maps():
+    """
+    Team to stadium mappings
+    eg FC Dallas -> Dragon Stadium, 2003, 2003
+    """
     from soccerdata.text import stadiummap
     generic_load(soccer_db.stadium_maps, stadiummap.load)
 

@@ -23,8 +23,6 @@ def denormalize():
     
     team_name_ungetter = make_team_name_ungetter()
 
-
-    #print("Denormalizing games")
     l = []
     for e in soccer_db.games.find():
         e['team1_original_name'] = team_name_ungetter(e['team1'], e['date'])
@@ -37,7 +35,6 @@ def denormalize():
     #print("Denormalizing competitions")
     #l = []
 
-    #print("Denormalizing goals")
     l = []
     for goal in soccer_db.goals.find():
         if goal['date']:
@@ -57,7 +54,6 @@ def denormalize():
     #soccer_db.stats.drop()
     #insert_rows(soccer_db.stats, l)
             
-    #print("Denormalizing lineups")
     lineups = []
     for lineup in soccer_db.lineups.find():
 
@@ -74,9 +70,6 @@ def denormalize():
 
     game_stats = []
     for gs in soccer_db.game_stats.find():
-
-        #if lineup['date'] == datetime.datetime(2012, 8, 7) and lineup['team'] == 'Chivas USA Reserves' and 'Jorge' in lineup['name']:
-        #    import pdb; pdb.set_trace()
 
         gs['team_original_name'] = team_name_ungetter(gs['team'], gs['date'])
         game_stats.append(gs)

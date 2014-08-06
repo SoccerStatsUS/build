@@ -213,6 +213,9 @@ def normalize_game(e):
 
             e['stadium'], e['location'] = location_normalizer(e['location'])
 
+    #if not e.get('stadium') and e['competition'] == 'Major League Soccer':
+    #    import pdb; pdb.set_trace()
+
 
     if 'shootout_winner' not in e:
         e['shootout_winner'] = None
@@ -521,6 +524,7 @@ def normalize():
 
     normalize_single_coll(soccer_db.seasons, normalize_season)
     normalize_single_coll(soccer_db.positions, normalize_position)
+
     normalize_single_coll(soccer_db.stadium_maps, normalize_stadiummap)
 
     normalize_single_coll(soccer_db.picks, normalize_pick)

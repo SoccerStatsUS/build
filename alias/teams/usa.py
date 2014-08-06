@@ -1,6 +1,9 @@
 
 usa = {
 
+    'West Point Academy': 'West Point',
+    'University of Penn': 'University of Pennsylvania',
+
     'West Hoboken Americus': 'Americus AA',
     'Americus': 'Americus AA',
     'Americus FC': 'Americus AA',
@@ -1592,6 +1595,7 @@ usa = {
     'Kutis': 'St. Louis Kutis',
     'St. Louis Kutis SC': 'St. Louis Kutis',
 
+    'Ben Miller': 'Ben Millers',
     'Ben Miller FC': 'Ben Millers',
     'Ben Miller SC': 'Ben Millers',
     'Ben Miller A.C.': 'Ben Millers',
