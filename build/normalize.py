@@ -319,6 +319,7 @@ def normalize_stadium(e):
 
 
 def normalize_goal(e):
+
     e['competition'] = get_competition(e['competition'])
     e['season'] = get_season(e['season'])
 
@@ -425,11 +426,14 @@ def normalize_lineup(e):
     e['team'] = separate_team(e['team'], e)
     e['name'] = separate_name(e['name'], e)
 
+    # What are these doing?
     if type(e['on']) == str and e['on'].endswith('\''):
         e['on'] = e['on'][:-1]
 
     if type(e['off']) == str and e['off'].endswith('\''):
         e['off'] = e['off'][:-1]
+
+    # Consider coercing on, off to integers?
 
     return e
 

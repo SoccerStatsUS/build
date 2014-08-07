@@ -140,7 +140,7 @@ def load():
     load_competition_maps()
 
     # short circuit slow bios.
-    load_games(); return 
+    #load_games(); return 
 
     load_bios()
     load_transactions()
@@ -193,8 +193,9 @@ def load_international():
 
 def load_domestic():
     load_usd1()    
-    return
     load_concacaf()
+    return
+
     load_us_minor()
 
     load_conmebol()
@@ -899,43 +900,39 @@ def load_mls():
 
     load_standings_standard('mls', 'data/standings/mls', root=USD1_DIR)
 
-    """
     # Add rsssf games.
     for e in range(2001, 2001):
         r = os.path.join(ROOT_DIR, 'usd1/data/games/league/rsssf/%s' % e)
         load_games_standard('mls3', str(e), root=r)
 
+    for e in ['1996.2010', '2011', '2012', '2013', '2014']:
+        load_games_standard('mls', 'data/games/league/simple/mls/%s' % e, root=USD1_DIR)
 
+
+    load_mls_lineup_db()
+
+    """
     print("Loading MLS reserves data.")
     for e in [2005, 2006, 2007, 2008, 2011, 2012, 2013]:
         load_games_standard('mls', 'data/games/league/simple/reserve/mls/%s' % e, root=USD1_DIR)
 
 
-    for e in ['1996.2010', '2011', '2012', '2013', '2014']:
-        load_games_standard('mls', 'data/games/league/simple/mls/%s' % e, root=USD1_DIR)
-
     load_games_standard('mls', 'data/games/playoffs/mls', root=USD1_DIR)
-
     """
-
-
-
 
     # Not loading 1996-2011 stats?
 
     generic_load(soccer_db.mls_stats, stats.process_stats("data/stats/mls/2012", source='MLSSoccer.com', root=USD1_DIR))
     generic_load(soccer_db.mls_stats, stats.process_stats("data/stats/mls/2013", source='MLSSoccer.com', root=USD1_DIR))
 
-    load_mls_lineup_db()
 
     u = 'http://www.mlssoccer.com/schedule?month=all&year=%s&club=all&competition_type=%s&broadcast_type=all&op=Search&form_id=mls_schedule_form'
 
-    #for year in (2013,):
     for year in (2011, 2012, 2013):
-
         load_mlssoccer_season(u % (year, 46), 'Major League Soccer')
-        load_mlssoccer_season(u % (year, 45), 'MLS Cup Playoffs')
-        load_mlssoccer_season(u % (year, 44), 'MLS Cup Playoffs')
+        #load_mlssoccer_season(u % (year, 45), 'MLS Cup Playoffs')
+        #load_mlssoccer_season(u % (year, 44), 'MLS Cup Playoffs')
+    
 
     generic_load(soccer_db.mls_rosters, lambda: flatten_stats(soccer_db.mls_stats.find()))
 
@@ -1901,6 +1898,8 @@ def load_concacaf():
 
     for e in range(2008, 2014):
         load_games_standard('concacaf', 'games/confederation/champions/league/%s' % e, root=CONCACAF_DIR)
+
+    return
 
     load_games_standard('concacaf', 'games/confederation/superliga', root=CONCACAF_DIR)
     load_games_standard('concacaf', 'games/confederation/giants', root=CONCACAF_DIR)

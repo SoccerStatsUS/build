@@ -15,7 +15,9 @@ def merge():
     merge_all_stats()
     merge_all_games()
 
+
     merge_goals()
+
     merge_lineups()
     merge_game_stats()
     merge_fouls()

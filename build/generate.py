@@ -204,8 +204,10 @@ def generate_game_stats():
 
         key = tuple([l[k] for k in ['name', 'team', 'date', 'competition', 'season']])
 
+        # Anyone with an appearance and no unused flag gets a games played.
         stats[key]['games_played'] = 1
 
+        # Set game started
         if l['on'] == 0:
             stats[key]['games_started'] = 1
 
@@ -213,9 +215,6 @@ def generate_game_stats():
             stats[key]['minutes'] += l['off'] - l['on']
             stats[key]['on'] = l['on']
             stats[key]['off'] = l['off']
-
-            #if l['on'] == 90 and l['off'] == 90:
-            #    import pdb; pdb.set_trace()
 
         # Presumably a starter where we don't know when he came off.
         elif type(l['on']) == int:
