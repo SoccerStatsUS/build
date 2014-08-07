@@ -1,6 +1,8 @@
 
 usa = {
 
+    'Trenton Butler Street': 'Trenton Butler Streets',
+
     'West Point Academy': 'West Point',
     'University of Penn': 'University of Pennsylvania',
 
@@ -478,6 +480,10 @@ usa = {
     'King\'s Warriors': 'Southern West Virginia King\'s Warriors',
 
     'Los Angeles Blues 23': 'Pali Blues',
+
+    'LA Blues': 'Los Angeles Blues',
+    'Los Angeles Blues': 'Orange County Blues',
+
     'MPS Portlnad Phoenix': 'GPS Portland Phoenix',
     'New Hampshire Phantoms': 'Seacoast United Phantoms',
     'Tacoma Tide': 'Sounders FC U23',
@@ -702,7 +708,7 @@ usa = {
 
     'Sacramento Spirits': 'Sacramento Gold',
 
-    'LA Blues': 'Los Angeles Blues',
+
     'Armenian SC (South CA)': 'Los Angeles Armenians',
 
     # Virginia

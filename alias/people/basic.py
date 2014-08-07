@@ -1,6 +1,121 @@
 
 basic = {
     #'Peña': 'Pena', # fix
+    'Collin (Cj) Robinson': 'C.J. Robinson',
+    'Andre Berenzen': 'Andre Berenzon',
+    'Andre Brietenreiter': 'Andre Breitenreiter',
+    'Andre S Castel': 'Andre Castel',
+
+    'Fernando Andres Caffaso': 'Fernando Andres Cafasso',
+    'Fernando Andres Cafasson': 'Fernando Andres Cafasso',
+
+    'Mauro Andres Fanari': 'Mauro Fanari',
+    'Thierry Fondelet': 'Thierry Fondelot',
+    'Robert Boswell': 'Bobby Boswell',
+    'Osvaldo Francisco Canobbio': 'Osvaldo Canobbio',
+
+    'David Cortes Pizarro': 'David Pizarro',
+    'David Marcelo Pizarro': 'David Pizarro',
+    'David Cortes Marcelo Pizarro': 'David Pizarro',
+
+    'Limbert Pizarro': 'Límbert Pizarro',
+    'Percy Limbert Pizarro': 'Límbert Pizarro',
+    'Limbert Percy Pizarro': 'Límbert Pizarro',
+
+    'Yasser Anwar Corona': 'Yasser Corona',
+    'Yaser Radwan': 'Yasser Radwan',
+
+    'Dennis Ce De Baca': 'Dennis CdeBaca',
+    'Dennis Cdebaca': 'Dennis CdeBaca',
+    'Dennis C De Baca': 'Dennis CdeBaca',
+    'Dennis De Baca': 'Dennis CdeBaca',
+
+    'Dennis Mccaughey': 'Denny McCaughey',
+
+    'Dennis Kirjgsman': 'Dennis Krijgsman',
+
+    'Dennis de Turk': 'Dennis den Turk',
+
+    'Dennis Violet': 'Dennis Violett',
+
+    'Joaquin Rodriguez Serrano': 'Joaquin Serrano',
+
+    'Jarzinho Serrano': 'Jairzinho Serrano',
+
+    # Search for name without nickname
+    'Marcos ‘Pepe’ De Jesus': 'Marcos Pepe De Jesus',
+    'Marcos Pepe de Jesus': 'Marcos Pepe De Jesus',
+    'Marcos \'Pepe\' De Jesus': 'Marcos Pepe De Jesus',
+    
+    'Cristian Jesus Reynaldo': 'Christian Jesus Reynaldo',
+
+    'Dagoberto Curimilla': 'Dagoberto Currimilla',
+
+    'Jesus Arizmendi': 'Jesus Arismendi',
+    
+    'Marlos De Jesus': 'Marlon De Jesus',
+
+    'Dwight Pezarossi': 'Dwight Pezzarossi',
+    'Dwight Pezzarossii': 'Dwight Pezzarossi',
+    'Benjamin Strong': 'Ben Strong',
+
+    'Tommy Strong': 'Thomas Strong',
+
+    'Carl Howarth': 'Carl Haworth',
+
+    'K Motaung Jnr': 'Kaizer Motaung Junior',
+    'Donald Finley': 'Don Finley',
+
+    'Stan Strong': 'Stan Stronge',
+    'Mike Deering': 'Michael Deering',
+
+    'Alan Trost': 'Al Trost',
+
+    'David Butler': 'Dave Butler',
+
+    'Bob Moffat': 'Bobby Moffat',
+
+    'Ray Moffate Jr.': 'Raymond Moffate',
+    
+    'Walt Bahr': 'Walter Bahr',
+
+    'Chris Boyles': 'Christopher Boyles',
+
+    'James Lemon': 'Jim Lemon',
+
+    'Robert Rigby': 'Bob Rigby',
+
+    'Douglas (Doug) Demartin': 'Doug DeMartin',
+    'Doug Neely': 'Doug Neeley',
+
+    'Enrique Ernesto Wolff': 'Enrique Wolff',
+    'Ernesto Enrique Wolff': 'Enrique Wolff',
+
+    'Douglas Wolff': 'Doug Wolff',
+
+    'Mounir Idmanalak': 'Mounir Idmalak',
+    'Mounir Ichmalik': 'Mounir Idmalak',
+
+    'Qusai Munir': 'Qusai Mounir',
+    'Glenton Wolfe': 'Glenton Wolffe',
+
+    'Cees de Wolf': 'Cees DeWolf',
+
+    'Russ Wolf': 'Russell Wolf',
+    'Kameel Wolfe': 'Kemeel Wolfe',
+
+    'Wollery Wolfe': 'Wolry Wolfe',
+    'Wolry Wolf': 'Wolry Wolfe',
+
+    'Lucas Salmon': 'Luke Salmon',
+    'Glenn Salmon': 'Glen Salmon',
+
+    'Ruben Smiley': 'Rubin Smiley',
+    
+
+
+
+
 
     'Tj Kennedy': 'T.J. Kennedy',
     'KHALAF AL-LATAYFEH': 'Khalaf Al-Latayfeh',
@@ -4986,6 +5101,12 @@ basic = {
     'Edgar Espíndola': 'Édgar Espindola',
 
     'Donovan FaydHerbe deMaudave': 'Donovan Fayd\'Herbe deMaudave',
+    'Donovan Faydherbe Demaudave': 'Donovan Fayd\'Herbe de Maudave',
+    'Donovan FeydHerbe-deMauvade': 'Donovan Fayd\'Herbe de Maudave',
+
+    'Terence Donovan': 'Terry Donovan',
+    'Donovan Nooche': 'Donovan Noocha',
+
     'Carl Raines': 'C.W. Raines',
     'Ignacio Riss': 'Ignacio Risso',
     'Germán Alemano': 'Germán Alemanno',
@@ -6845,8 +6966,11 @@ basic = {
     'Anailson': 'Anaílson',
     'André Luis': 'André Luís',
     'Andre Rocha': 'André Rocha',
+
+    'Andres D Alessandro': 'Andrés D\'Alessandro',
     'Andres D\'Alessandro': 'Andrés D\'Alessandro',
     'Andrés D’Alessandro': 'Andrés D\'Alessandro',
+
     'Andres Guglielminpietro': 'Andrés Guglielminpietro',
     'Andres Silvera': 'Andrés Silvera',
     'Andy Herron': 'Andy Herrón',
@@ -10078,7 +10202,7 @@ basic = {
     'Stephen Deroux': 'Stephen deRoux',
     'Steve Keel': 'Stephen Keel',
     'Erik Kronberg': 'Eric Kronberg',
-    'Jose Luis Burciaga': 'Jose Burciaga Jr.',
+
     'Jose Luis Gonzalez': 'José Luis González',
     'Steven Shirley': 'Stephen Shirley',
     'Steve Shirley': 'Stephen Shirley',
@@ -10267,9 +10391,13 @@ basic = {
     'Kenold Versailles': 'Kénold Versailles',
     'Juke Nanoski': 'Duke Nanoski',
     
+    'Jean Peguero': 'Peguero Jean Philippe',
     'Jean Philippe Peguero': 'Peguero Jean Philippe',
     'Jean-Phillipe Peguero': 'Peguero Jean Philippe',
     'Jean Phillipe Peguero': 'Peguero Jean Philippe',
+    'Jean Phillippe Peguero': 'Jean Philippe Peguero',
+    'Jean-Philippe Peguero': 'Jean Philippe Peguero',
+
     'CelestinoLennonEduardoCarvalho': 'Lennon Celestino',
     'Christian Quinones': 'Cristian Quinones',
     'Cristian Quinones': 'Cristian Quiñones',
@@ -11649,7 +11777,10 @@ basic = {
     'Andy Parrish': 'Andrew Parrish',
     'Jim Manganello': 'James Manganello',
     'Charles Brown': 'C.J. Brown',
-    'Jose Vasquez': 'Joseph Vasquez-Martinez',
+
+    # too broad.
+    #'Jose Vasquez': 'Jose Vasquez-Martinez',
+    #'Joseph Vasquez-Martinez': 'Jose Vasquez-Martinez', # think Joseph was just a mistake.
     'Brian Taylor': 'Bryan Taylor',
     'Jacob Joy': 'Jake Joy',
     'Jacob (Jake) Joy': 'Jake Joy',
@@ -11938,7 +12069,6 @@ basic = {
     'RJ Allen': 'R.J. Allen',
     'Todd Denault': 'Todd DeNault',
     
-    'Jose Burciaga, Jr.': 'Jose Burciaga Jr.',
     'Ramon Nuñez': 'Ramón Núñez',
     'Ramon Núñez': 'Ramón Núñez',
     'Carlos Rodriguez': 'Carlos Rodríguez',
@@ -12295,7 +12425,7 @@ basic = {
     'Jean-Claude Desir': 'Jean-Claude Désir',
     'Jesus Arellano': 'Jesús Arellano',
     'Josh Gros': 'Joshua Gros',
-    'Jose Burciaga': 'Jose Burciaga Jr.',
+
     'Jacob Traeger': 'Jake Traeger',
     'John O Brien': 'John O\'Brien',
     'Joe Max Moore': 'Joe-Max Moore',
@@ -12306,7 +12436,7 @@ basic = {
     'Jon Leathers': 'Jonathan Leathers',
     'Jan Van Bevern': 'Jan van Beveren',
     'Jan Van Beveren': 'Jan van Beveren',
-    'Jean Phillippe Peguero': 'Jean Philippe Peguero',
+
     'Jurgen Sommer': 'Juergen Somme',
     'Juan Suarez': 'Juan Berthy Suarez',
     'Jim St Andre': 'Jim St. Andre',
@@ -12319,7 +12449,12 @@ basic = {
     'Jeff Devettori': 'Jeff DeVettori',
     'Jason Ditullio': 'Jason DiTullio',
 
+    'Jose Burciaga': 'Jose Burciaga Jr.',
+    'Jose Luis Burciaga': 'Jose Burciaga Jr.',
+    'Jose Burciaga, Jr.': 'Jose Burciaga Jr.',
     'Jose Burciaga Jr': 'Jose Burciaga Jr.',
+    'Jose Luis Burciaga Jr.': 'Jose Burciaga Jr.',
+
     'Jonathan Mccurley': 'Jonathan McCurley',
     'JOHN Mccallion': 'John McCallion',
     'John Mccallion': 'John McCallion',
@@ -12332,7 +12467,7 @@ basic = {
     'John Debrito': 'John DeBrito',
     'Joe Franchino': 'Joey Franchino',
     'Jasen Garey': 'Jason Garey',
-    'Jean-Philippe Peguero': 'Jean Philippe Peguero',
+
     'Jeay Heaps': 'Jay Heaps',
     'Jose Torres': 'José Francisco Torres',
     
@@ -13027,7 +13162,9 @@ basic = {
 
     'Lawerence Smalls': 'Lawrence Smalls',
     'Ismael Mintah': 'Ishmael Mintah',
-    'Jose Luis Burciaga Jr.': 'Jose Burciaga Jr.',
+
+
+
     'Jose Farias': 'José Farias',
     'Romario De Souza-Farias': 'Romário',
     'Romario': 'Romário',
