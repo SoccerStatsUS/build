@@ -189,6 +189,7 @@ def load_international():
 
 
 def load_domestic():
+    load_uefa()
     load_us_minor()
     load_usd1()    
     load_concacaf()
@@ -198,7 +199,7 @@ def load_domestic():
     load_world()
     load_caf()
     load_ofc()
-    load_uefa()
+
 
 
 
@@ -653,7 +654,7 @@ def load_uefa_minor():
         load_games_standard('uefa', 'games/country/romania/%s' % year, root=UEFA_DIR)
 
     for year in range(1997, 2013):
-        load_games_standard('uefa', 'couuntry/games/czech/%s' % year, root=UEFA_DIR)
+        load_games_standard('uefa', 'games/country/czech/%s' % year, root=UEFA_DIR)
 
     for year in range(1998, 2013):
         load_games_standard('uefa', 'games/country/hungary/%s' % year, root=UEFA_DIR)
