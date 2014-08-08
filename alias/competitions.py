@@ -13,7 +13,7 @@ full_alias = {
     'Tweede Klasse': 'Belgian Second Division',
     'Eindronde': 'Belgian Third Division',
 
-    'CCC': 'CONCACAF Champions League',
+
 
     'FDLY': 'Friendly',
 
@@ -105,6 +105,7 @@ full_alias = {
     'Superliga': 'North American SuperLiga',
 
     'Champions League': 'UEFA Champions League',
+    'European Champions Cup': 'UEFA Champions League',
 
     'La Liga Española': 'La Liga',
 
@@ -114,7 +115,7 @@ full_alias = {
     'Campeonato da Cidade de Belo Horizonte': 'Belo Horizonte City Championship',
     'Belo Horizonte City Championship': 'Campeonato Mineiro',
 
-    'European Champions Cup': 'UEFA Champions League',
+
 
     'NCAA Division I Men\'s Soccer Championship': 'NCAA Division I',
     'NCAA Division II Men\'s Soccer Championship': 'NCAA Division II',
@@ -141,9 +142,10 @@ full_alias = {
 
     # Once competition mapping is implemented.
 
+    'CCC': 'CONCACAF Champions\' Cup',
     'Liga de Campeones CONCACAF': 'CONCACAF Champions League',
     'Copa de Campeones CONCACAF': 'CONCACAF Champions League',
-    'CONCACAF Champions\' Cup': 'CONCACAF Champions League',
+    #'CONCACAF Champions\' Cup': 'CONCACAF Champions League',
 
     'Copa Fraternidad Centroamericana': 'Copa Interclubes UNCAF',
     'Torneo Grandes de Centroamerica': 'Copa Interclubes UNCAF',

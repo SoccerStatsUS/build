@@ -1,5 +1,262 @@
 
 basic = {
+
+    'Jonathan Jaqua': 'Nate Jaqua',
+
+    'Amir Waite': 'Amir Waithe',
+    'Amir White': 'Amir Waithe',
+
+    'Ross LaBaeux': 'Ross LaBauex',
+    'Transito Eduardo Montepeque': 'Transito Montepeque',
+    'Oscar Boniek García': 'Boniek Garcia',
+    'Pablo Daniel Antonio Gabas': 'Pablo Gabas',
+    'Patricio David Gomez': 'Patricio Gomez',
+    'Patricio Gomez Barrochez': 'Patricio Gomez',
+    'Patrick Noonan': 'Pat Noonan',
+    'Paul Caliguiri': 'Paul Caligiuri',
+    'Pedro Julio Samoyoa': 'Pedro Julio Samayoa',
+    'Pedro Julio Samayoa': 'Pedro Samayoa',
+    'Pedro Pineda Deras': 'Pedro Pineda',
+
+    'Rafael Alejandro Figueroa': 'Rafael Figueroa', # check.
+    
+    'Reiner Joel Mayorquin': 'Reinieri Mayorquín',
+    'Reinier Joel Mayorquin': 'Reinieri Mayorquín',
+    'Reinieri Joel Mayorquin': 'Reinieri Mayorquín',
+    'Renato Perreira': 'Renato Pereira',
+
+    'Reynaldo Tiguath': 'Reynaldo Tilguath',
+    'Reynaldo Tilgauth': 'Reynaldo Tilguath',
+    'Reynaldo Antonio Tilguath': 'Reynaldo Tilguath',
+    'Rodolfo Manuel Lopez': 'Rodolfo López',
+    
+
+    'Rodolfo Pablo Suarez': 'Rodolfo Paolo Suarez',
+    'Rodolfo Paulo Suarez': 'Rodolfo Paolo Suarez',
+    'Rodolfo Paolo Suarez': 'Rodolfo Suarez',
+
+    'Aaron Alexis Sandoval': 'Aaron Sandoval',
+    'Abner Isai Trigueros': 'Abner Trigueros',
+    'Adolfo Abdiel Machado': 'Adolfo Machado',
+
+    'Adrian Alexei Aldrete': 'Adrián Aldrete',
+    'Alexei Adrian Aldrete': 'Adrián Aldrete',
+    'Alexei Aldrete': 'Adrián Aldrete',
+
+    'Alfredo Alberto Pacheco': 'Alfredo Pacheco',
+
+    'Allan Kardeck Dos Santos': 'Allan Kardeck',
+    'Allan Dos Santos': 'Allan Kardeck',
+    'Santos Pereira Allan Kardeck': 'Allan Kardeck',
+    
+    
+    'Allen Esteban Guevara': 'Allen Guevara',
+    
+    'Aly Christopher Arriola': 'Aly Christofer Arriola',
+
+    'Andres Alexandre Flores': 'Andres Alexander Flores',
+    'Anel Alejandro Canales': 'Anel Canales',
+    
+    'Arnol Simion Solorzano': 'Arnol Solorzano',
+    
+    'Astor Sherman Henriquez': 'Astor Shermon Henriquez',
+
+    'Ataulla Guerra': 'Ataullah Guerra',
+    
+    'Bradley Evans': 'Brad Evans',
+
+    'Carlos Reinaldo Mendieta': 'Carlos Reynaldo Mendieta',
+    'Carlos Alberto Campos': 'Carlos Campos',
+
+    'Christopher Birchall': 'Chris Birchall',
+    'Cristian Jafeth Noriega': 'Cristian Noriega',
+
+    'Damián Alejandro Manso': 'Damian Manso',
+    'Daniel Gargan': 'Dan Gargan',
+
+    'Eduardo Manuel Gamez': 'Eduardo Gamez',
+
+    'Jeffrey Parke': 'Jeff Parke',
+
+    'Kendell Jagdeosingh': 'Kendall Jagdeosingh',
+    'Kevin Villaroel': 'Kevon Villaroel',
+    
+    'Terence Boss': 'Terry Boss',
+    
+    'Juan Carlos Ramírez': 'Juan Ramirez',
+    'Leandro Augusto Oldoni': 'Leandro Oldoni',
+
+    'Cesar Fabian Delgado': 'César Delgado',
+
+    'Humberto Andrés Suazo': 'Humberto Suazo',
+    'Humerto Andres Suazo': 'Humberto Suazo',
+
+    'Jesus Aldo De Nigris': 'Aldo de Nigris',
+    'Jesus Aldo de Nigris': 'Aldo de Nigris',
+    
+    'Jonathan Emanuel Orozco': 'Jonathan Orozco',
+    'Jonathan Emmanuel Orozco': 'Jonathan Orozco',
+
+    'José María Basanta': 'José Basanta',
+
+    'Juan De Dios Ibarra': 'Juan de Dios Ibarra',
+
+    'Luis Ernesto Pérez': 'Luis Pérez',
+
+    'Neri Raul Cardozo': 'Neri Cardozo',
+    'Neri Raúl Cardozo': 'Neri Cardozo',
+    'Nery Cardozo': 'Neri Cardozo',
+
+
+    'Sergio Alejandro Santana': 'Sergio Santana',
+    'Severo Efrain Meza': 'Severo Meza',
+    
+    'Walter Orlando Ayovi': 'Walter Ayoví',
+
+    'Christian Riveros': 'Cristián Riveros',
+    'Joel Huqui': 'Joel Huiqui',
+    
+    'Maximiliano Bianchucchi': 'Maxi Biancucchi',
+    'Maximiliano Biancucchi': 'Maxi Biancucchi',
+    'Maximiliano Daniel Biancucchi': 'Maxi Biancucchi',
+
+    'Douglas Sequiera': 'Douglas Sequeira',
+
+    'Carlos Gerardo Rodriguez': 'Carlos Rodríguez',
+    'Damián Alejandro Manso': 'Damian Manso',
+    
+    'Gregorio Isidro Torres': 'Gregorio Torres',
+    'Javier David Munoz': 'Javier Muñoz',
+
+    'Miguel Ángel Calero': 'Miguel Calero',
+
+    'Raul Ascension Martinez': 'Raul Ascencion Martinez',
+    'Raul Ascencion Martinez': 'Raúl Martínez',
+    'Luis Gabriel Rey': 'Luis Rey',
+    
+    'Ernesto Alfonso Iraheta': 'Ernesto Iraheta',
+    'Mario Edgardo Aguilar Posadas': 'Mario Edgardo Aguilar',
+
+    'Edwin Yobanni Avila': 'Edwin Yobani Avila',
+    'Elvis Danilo Turcios': 'Elvis Turcios',
+    'Erick Salvador Andino Portillo': 'Erick Salvador Andino',
+    'Johnny Eulogio Palacios': 'Johnny Eulogio',
+    #'Johnny Palacios': 'Johnny Eulogio',
+
+    'Sergio Giovany Mendoza': 'Sergio Mendoza',
+
+    'Walter Joel Castro': 'Walter Castro',
+    'Washington Ramiro Bruschi': 'Washington Bruschi',
+    'Wilmer Neal Velasquez': 'Wilmer Velásquez',
+
+    'Edgardo Antonio Panezo': 'Edgardo Panezo',
+
+    'Johann Alejandro De Avila': 'Johan De Ávila',
+
+    'Jairo Randolfo Arreola': 'Jairo Arreola',
+    'Jean Jonathan Marquez': 'Jean Márquez',
+
+    'Cristhian Blanco': 'Cristian Blanco',
+
+    'Carlos Rodríguez': 'Carlso Rodriguez',
+
+    'Cristian Vega': 'Christian Vega',
+
+    'Jhoan Andres Melo': 'Jhoan Melo',
+    
+    'Juan De Dios Perez': 'Juan Perez',
+
+    'Luis Fernando Escobar': 'Luis Escobar',
+
+    'Willington Dominguez': 'Wellington Dominguez',
+    
+    'Jeffrey Larentowicz': 'Jeff Larentowicz',
+    
+    'Stewart Ceus': 'Steward Ceus',
+    'Andrew Iro': 'Andy Iro',
+
+    'Gabriel Gala': 'Gabe Gala',
+    'Julian DeGuzman': 'Julian de Guzman',
+
+    'Max Usanov': 'Maxim Usanov',
+    'Nicky Soolsma': 'Nick Soolsma',
+    'Reginald Thompson-Lambe': 'Reggie Lambe',
+
+    'Daniel Emanuel Luduena': 'Daniel Ludueña',
+
+    'Edson Francisco Morua': 'Edson Morua',
+
+    'Francisco Javier Torres': 'Francisco Torres',
+    
+    'Jorge Ivan Estrada': 'Jorge Estrada',
+
+    'Juan Pablo Santiago': 'Juan Santiago',
+    'Rafael Alejandro Figueroa': 'Rafael Figueroa',
+
+    'Deon Carlyle Mitchell': 'Carlyle Mitchell',
+    'Edder Gerardo Delgado': 'Edder Delgado',
+    'Edgar Andrade Renteria': 'Edgar Andrade',
+
+    'Edgardo Fernando Leguizamon': 'Edgar Fernando Leguizamon',
+    'Fernando Leguizamon':'Edgar Fernando Leguizamon',
+    'Edgar Fernando Lequizamon': 'Edgar Fernando Leguizamon',
+
+    'Elder Vildad Valladares': 'Elder Valladares',
+    'Elkin Reynaldo Gonzales': 'Elkin Reynaldo Gonzalez',
+    'Elman Alberto Rivas': 'Elman Rivas',
+    'Elmer Antonio Mejia': 'Elmer Mejía',
+    'Elvis Geovanny Scott': 'Elvis Geovany Scott',
+    'Eric Cecillio Vallecillo': 'Eric Cecilio Vallecillo',
+    'Eric Cecillo Valecillo': 'Eric Cecilio Vallecillo',
+    'Eric Cecillo Vallecillo': 'Eric Cecilio Vallecillo',
+    'Ernesto Noel Aquino': 'Ernesto Aquino',
+    'Federico Villar': 'Federico Vilar',
+
+    'Franklin Ulises Lopez': 'Franklin López',
+    'Gonzalo Antonio Romero': 'Gonzalo Romero',
+    'Henry Edimar Hernandez': 'Henry Hernández',
+    'Jaime Manuel Penedo': 'Jaime Penedo',
+    'Jaime Arturo Lozano': 'Jaime Lozano',
+    'Jaime Dario Vides': 'Jaime Vides',
+    
+    'Jonathan Fana Farias': 'Jonathan Faña',
+    'Jonathan Leonardo Lacerda': 'Jonathan Lacerda',
+    'Jose Alvarado Alberto': 'Jose Alvarado',
+
+    'Jose Carlos Dias Junior': 'Jose Carlos Dias',
+    'Jose Carlos Diaz Junior': 'Jose Carlos Dias',
+
+    'Leo Di Lorenzo': 'Leonardo Di Lorenzo',
+    'Leonardo Dilorenzo': 'Leonardo Di Lorenzo',
+
+    'Manuel De La Torre': 'Manuel de la Torre',
+    'Mariano Eli Acevedo': 'Mariano Acevedo',
+    'Mario Cesar Berrios': 'Mario Berríos',
+
+    'Marlon Jose Medina': 'Marlon José Medina',
+    'Marvin Tomas Avila': 'Marvin Ávila',
+
+    'Maximo Francisco Lucas': 'Maximo Lucas',
+    'Melvin Valladares': 'Melvin Yovany Valladares',
+
+    'Nery Olvin Medina': 'Nery Medina',
+    'Orvin Alexander Paz': 'Orvin Paz',
+    
+    'Rudel Alexander Calero': 'Rudel Calero',
+    'Samuel Israel Wilson': 'Samuel Wilson',
+
+    'Leonardo David Pekarnik': 'Leonardo Pekarnik',
+    'Leonardo Gabriel Pekarnik': 'Leonardo Pekarnik',
+
+    'Manuel Alejandro Salazar': 'Manuel Salazar',
+    'Ramon Patricio Avila': 'Ramón Avila',
+    'Ruben Adolfo Quijada': 'Ruben Quijada',
+    'Sergio Augusto Guevara': 'Sergio Guevara',
+    'Fernando Antonio Castillo': 'Fernando Castillo',
+    'Glen Mitchell Brown': 'Glen Brown',
+
+    
+
     #'Peña': 'Pena', # fix
     'Collin (Cj) Robinson': 'C.J. Robinson',
     'Andre Berenzen': 'Andre Berenzon',
@@ -111,7 +368,15 @@ basic = {
     'Glenn Salmon': 'Glen Salmon',
 
     'Ruben Smiley': 'Rubin Smiley',
+
+    'Selvyn Estuardo Ponciano': 'Selvyn Ponciano',
+    'Sergy Giovany Mendoza': 'Sergio Mendoza',
     
+    'William Silva de Oliveira': 'William Silva De Oliveira',
+    'William Silva DeOliveira': 'William Silva De Oliveira',
+
+    'Williams Enrique Reyes': 'Williams Reyes',
+    'Yimy Rodrigo Cuellar': 'Yimy Cuellar',
 
 
 
@@ -5057,7 +5322,7 @@ basic = {
     'Bulmaro Gonzalez': 'Bulmaro González',
     'Castagno Suarez': 'Castagno Suárez',
     'Liber Quiñones': 'Líber Quiñones',
-    'Neri Raúl Cardozo': 'Neri Raul Cardozo',
+
     'Jose Devaca': 'José Devaca',
     'Valdemarín': 'Valdemarin',
     #'Chilavert': '[Chilavert',
@@ -5121,7 +5386,7 @@ basic = {
     'Carlos J. Buchanan': 'Carlos Buchanan',
     'Lionel Ríos': 'Leonel Ríos',
     'Juan P. Avendaño': 'Juan Avendaño',
-    'Neri Cardozo': 'Nery Cardozo',
+
     'Emanuel Fernandes Francou': 'Emmanuel Fernandes Francou',
     'Emanuel Fernández Francou': 'Emmanuel Fernandes Francou',
     'Emiliano Zelaya': 'Emilio Zelaya',
@@ -6406,7 +6671,7 @@ basic = {
     'Agustin Salinas': 'Agustín Salinas',
     'José Guadalupe Castañeda': 'Jose Guadalupe Castañeda',
     'Sebastián Bini': 'Sebastian Bini',
-    'José Cancela': 'Jose Cancela',
+
     'Miguel Sabáh': 'Miguel Sabah',
     'Martin Felix Ubaldi': 'Martín Félix Ubaldi',
     'Fredy Vichez': 'Fredy Víchez',
@@ -12442,7 +12707,11 @@ basic = {
     'Jim St Andre': 'Jim St. Andre',
     'JT Dorsey': 'J.T. Dorsey',
     'Jose Dasilva': 'Jose DaSilva',
+
     '\xa0Jose Cancela': 'Jose Cancela',
+    'José Cancela': 'Jose Cancela',
+    'Jose Carlos Cancela': 'Jose Cancela',
+
     'Joey Disalvo': 'Joey DiSalvo',
     'Joey Digiamarino': 'Joey DiGiamarino',
     'John Diraimondo': 'John DiRaimondo',
@@ -13124,7 +13393,10 @@ basic = {
     'Bryan Freeman': 'Brian Freeman',
     'Jimmy Wardorp': 'Jimmy Wardrop',
     'Joe Poremba': 'Joseph Poremba',
+
     'Dominic Mediate': 'Domenic Mediate',
+    'Stanton Domenic Mediate': 'Domenic Mediate',
+
     'Greg Marshall': 'Gregory Marshall',
     'Nick Marshall': 'Nicholas Marshall',
     'Christopher Rolfe': 'Chris Rolfe',

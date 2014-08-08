@@ -1,6 +1,12 @@
 
 usa = {
 
+    'San Fern. Val. Gldn Eagles': 'San Fernando Valley Golden Eagles',
+    'S.F. Valley Golden Eagles': 'San Fernando Valley Golden Eagles',
+    'SGV Highlanders': 'San Gabriel Valley Highlanders',
+
+    'Azzurri - USASA': 'Azzurri',
+
     'Trenton Butler Street': 'Trenton Butler Streets',
 
     'West Point Academy': 'West Point',
@@ -11,7 +17,7 @@ usa = {
     'Americus FC': 'Americus AA',
     'Americus A.A.': 'Americus AA',
 
-    'Chicago Fire U-23': 'Chicago Fire (PDL)',
+
     'Albuquerque Sol F.C.': 'Albuquerque Sol FC',
 
     'America F. C.': 'America F.C.',
@@ -369,7 +375,10 @@ usa = {
     'DC United Reserves': 'D.C. United Reserves',
     'Kansas City Wizards Reserves': 'Sporting Kansas City Reserves',
     'MetroStars Reserves': 'New York Red Bulls Reserves',
-    'Chicago Fire Premier': 'Chicago Fire Reserves',
+
+    'Chicago Fire Premier': 'Chicago Fire (PDL)',
+    #'Chicago Fire Reserves': 'Chicago Fire (PDL)',
+    'Chicago Fire U-23': 'Chicago Fire (PDL)',
 
 
     # Division 2
@@ -485,7 +494,10 @@ usa = {
     'Los Angeles Blues': 'Orange County Blues',
 
     'MPS Portlnad Phoenix': 'GPS Portland Phoenix',
+
     'New Hampshire Phantoms': 'Seacoast United Phantoms',
+    'Phantoms of New Hampshire': 'Seacoast United Phantoms',
+
     'Tacoma Tide': 'Sounders FC U23',
     'Sounders FC U23': 'Seattle Sounders FC U-23',
     'West Texas Sockers': 'West Texas United Sockers',
@@ -623,6 +635,7 @@ usa = {
     'Falk Field Club (Mil.)': 'Milwaukee Falk FC',
     'Falk Field Club': 'Milwaukee Falk FC',
 
+    'Bavarian SC - USASA': 'Milwaukee Bavarian SC',
     'Milwaukee Bavarian Blue Ribbon': 'Milwaukee Bavarian SC',
     'Bavarian SC (WI)': 'Milwaukee Bavarians SC',
     'Milwaukee Bavarians': 'Milwaukee Bavarian SC',
@@ -839,6 +852,7 @@ usa = {
     'San Francisco Greek Americans': 'San Francisco Greek American AC',
     'San Francisco Greek American AC': 'San Francisco Greek American',
 
+    'SF Bay Seals': 'San Francisco Bay Seals',
     'Bay Area Seals': 'San Francisco Bay Seals',
     'San Francisco Seals': 'San Francisco Bay Seals',
     'SFB Seals': 'San Francisco Bay Seals',
@@ -1483,6 +1497,7 @@ usa = {
 
 
 
+    'Pittsburgh Strassers': 'Morgan Strasser',
     'Morgan FC': 'Morgan Strasser',
     'Morgan SC': 'Morgan Strasser',
     'Morgan Haulers': 'Morgan Strasser',
