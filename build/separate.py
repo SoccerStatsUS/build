@@ -648,7 +648,7 @@ sep_teams = {
         (from_competition('Continental Indoor Soccer League'), 'Monterrey La Raza'),
         (from_competition('World Indoor Soccer League'), 'Monterrey La Raza'),
         (from_competition('Major Indoor Soccer League (2008-2014)'), 'Monterrey La Raza'),
-
+        (from_competition('CONCACAF Champions\' Cup'), 'CF Monterrey'),
         (from_competition('CONCACAF Champions League'), 'CF Monterrey'),
         (from_competition('Copa Libertadores'), 'CF Monterrey'),
         (from_competition('Club World Cup'), 'CF Monterrey'),

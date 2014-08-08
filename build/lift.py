@@ -58,6 +58,9 @@ def transform_names_from_rosters():
                     # Use opponent?
                     continue
 
+                #if e['goal'] == 'Sabah':
+                #    import pdb; pdb.set_trace()
+
                 e['goal'] = rg(e['goal'], e['team'], e['competition'], e['season'])
                 e['assists'] = [rg(a, e['team'], e['competition'], e['season']) for a in e['assists']]
                 g.append(e)
@@ -79,10 +82,13 @@ def get_name_from_fragment(fragment, candidates):
     if fragment is None:
         return fragment
 
+    #if fragment == 'A. Munoz':
+    #    import pdb; pdb.set_trace()
+
     ascii_fragment = string_to_ascii(fragment)
 
-
     cx = [full for (ascii, full) in candidates if ascii.endswith(ascii_fragment) and ascii != ascii_fragment]
+
 
     if len(cx) == 1:
         #print("Converting %s to % s" % (fragment, c2[0]))
@@ -93,12 +99,10 @@ def get_name_from_fragment(fragment, candidates):
         return fragment
 
     else:
+
         # We've failed to find a match. This may be because we have a situation like W. Reid.
         # This doesn't seem to do anything.
-        if fragment.count('.') != 1:
-            return fragment
-
-        else:
+        if fragment.count('.') == 1:
             f1, f2 = ascii_fragment.split('.')
             
             # Presumably there should be more than one match. This is why you would include a first initial at all.
@@ -118,6 +122,16 @@ def get_name_from_fragment(fragment, candidates):
             elif len(matches) > 1:
                 print("Ambiguous:", fragment, matches)
 
+        else:
+            # Handle situations like Sabah -> Miguel Sabah Gerardo
+            # name embedded inside longer name. 
+            padded_fragment = ' %s ' % ascii_fragment
+            matches = [(ascii, full) for (ascii, full) in candidates if padded_fragment in ascii]
+
+            if len(matches) == 1:
+                return matches[0][1]
+
+
     return fragment
 
 
@@ -129,11 +143,11 @@ def make_roster_guesser(db):
         d[key].add((e['ascii_name'], e['name']))
 
     def getter(name, team, competition, season):
-
-
         key = (team, competition, season)
         candidates = d[key]
         return get_name_from_fragment(name, candidates)
+    
+    #getter.d = d # for debugging
 
     return getter
 

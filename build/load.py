@@ -167,15 +167,13 @@ def load_extra():
 
 def load_games():  
     load_domestic()
-    return
+    load_outer()
     load_indoor()
     load_amateur()
-    load_outer()
+
     load_international()
     load_women()
     load_friendly()
-
-
 
 
 def load_international():
@@ -190,20 +188,13 @@ def load_international():
     load_africa_international()
 
 
-
 def load_domestic():
+    load_us_minor()
     load_usd1()    
     load_concacaf()
-    return
-
-    load_us_minor()
-
     load_conmebol()
     load_afc()
     load_us_cups()
-
-
-
     load_world()
     load_caf()
     load_ofc()
@@ -213,17 +204,13 @@ def load_domestic():
 
 def load_usd1():
     load_mls()
-    return
     load_asl()
-
     load_alpf()
-
     load_nasl()
 
 
-
 def load_outer():
-    #load_ltrack()
+    load_ltrack()
     load_fifa()
 
     #load_mediotiempo()    
@@ -323,7 +310,8 @@ def load_place_data():
 
 def load_us_cups():
 
-    from soccerdata.text import awards, rosters
+    from soccerdata.text import awards
+    from donelli.parse import rosters
 
     generic_load(soccer_db.us_cups_awards, awards.process_american_cup_awards)
     generic_load(soccer_db.us_cups_awards, awards.process_us_open_cup_awards, delete=False)
@@ -435,7 +423,6 @@ def load_uefa_leagues():
 
     load_uefa_major()
     load_uefa_mid()
-    return
     load_uefa_minor()
 
 
@@ -1072,7 +1059,7 @@ def load_jobs():
 
 
 def load_copa_america():
-    from soccerdata.text import rosters
+    from donelli.parse import rosters
     from soccerdata.text.cmp import copaamerica
 
     coll = 'conmebol_i'
@@ -1121,7 +1108,8 @@ def load_alpf():
 
 
 def load_asl2():
-    from soccerdata.text import awards, partial, rosters
+    from soccerdata.text import awards, partial
+    from donelli.parse import rosters
 
     generic_load(soccer_db.us_minor_awards, awards.process_asl2_awards, delete=False)
     generic_load(soccer_db.us_minor_stats, partial.process_asl2_partial)
@@ -1143,7 +1131,9 @@ def load_nasl():
     Load stats from the old nasl and misl.
     """
 
-    from soccerdata.text import awards, rosters
+    from soccerdata.text import awards
+    from donelli.parse import rosters
+
     generic_load(soccer_db.nasl_awards, awards.process_nasl_awards)
     generic_load(soccer_db.nasl_awards, awards.process_usa_awards)
     generic_load(soccer_db.nasl_awards, awards.process_npsl_awards)
@@ -1315,7 +1305,6 @@ def load_us_minor():
     load_apsl()
     load_pdl()
     load_asl2()
-
     #load_city()
 
 
@@ -1702,7 +1691,8 @@ def load_uncaf_international():
 
 
 def load_world_international():
-    from soccerdata.text import awards, rosters
+    from soccerdata.text import awards
+    from donelli.parse import rosters
 
     generic_load(soccer_db.world_i_awards, awards.process_world_cup_awards)
     generic_load(soccer_db.world_i_awards, awards.process_olympics_awards)
@@ -1739,7 +1729,8 @@ def load_world_international():
 
 
 def load_isl2():
-    from soccerdata.text import awards, rosters
+    from soccerdata.text import awards
+    from donelli.parse import rosters
 
     h = lambda fn: os.path.join(ISL_DIR, fn)
 
@@ -1750,7 +1741,8 @@ def load_isl2():
 
 
 def load_world():
-    from soccerdata.text import awards, rosters
+    from soccerdata.text import awards
+    from donelli.parse import rosters
     generic_load(soccer_db.world_awards, awards.process_world_awards)
 
 
@@ -1893,20 +1885,22 @@ def load_concacaf_international():
 
 def load_concacaf():
     from soccerdata.text import awards
+    from donelli.parse import rosters
+
+    for e in range(2008, 2012):
+        generic_load(soccer_db.concacaf_rosters, lambda: rosters.process_rosters3('rosters/league/%s' % e, root=CONCACAF_DIR))
+
 
     generic_load(soccer_db.concacaf_awards, awards.process_concacaf_awards)
 
     for e in range(2008, 2014):
         load_games_standard('concacaf', 'games/confederation/champions/league/%s' % e, root=CONCACAF_DIR)
 
-    return
-
     load_games_standard('concacaf', 'games/confederation/superliga', root=CONCACAF_DIR)
     load_games_standard('concacaf', 'games/confederation/giants', root=CONCACAF_DIR)
 
 
     for e in [1960, 1970, 1980, 1990, 2000]:
-    #for e in [1990, 2000]:
         load_games_standard('concacaf', 'games/confederation/champions/%s' % e, root=CONCACAF_DIR)
 
     load_games_standard('concacaf', 'games/confederation/recopa', root=CONCACAF_DIR)
@@ -1918,21 +1912,9 @@ def load_concacaf():
 
 
 
-
-
-
-
-
-
 def load_amateur():
-
     load_ncaa()
-
-    
-
     # Olympics?
-
-
 
 
 def load_ncaa():
