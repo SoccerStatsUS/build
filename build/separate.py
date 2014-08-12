@@ -623,11 +623,13 @@ sep_teams = {
         (from_competition('Major Indoor Soccer League (1978-1992)'), 'Memphis Americans'),
         ],
 
+    'Mérida': [
+        (from_competition('Ascenso MX'), 'C.F. Mérida'),
+        ],
+
     'Miami': [
         (from_competition('North American Soccer League (indoor)'), 'Miami Toros'),
         ],
-
-
 
     'Milwaukee': [
         (from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Wisconsin-Milwaukee'),

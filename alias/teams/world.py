@@ -1,5 +1,26 @@
 world = {
 
+    'Mérida FC': 'C.F. Mérida',
+    'Altamira': 'Altamira FC',
+
+    
+    'St. Catherines Roma': 'St Catharines Roma Wolves',
+    'St. Catharines Roma': 'St Catharines Roma Wolves',
+    'St. Catharine Wolves': 'St Catharines Roma Wolves',
+    'St Catharines Wolves': 'St Catharines Roma Wolves',
+
+    'Sy. Catherines Heidelberg': 'St. Catherines Heidelberg',
+
+    'Sebija Kitchener': 'Serbja Kitchener',
+    'Srbija Kitchener': 'Serbja Kitchener',
+
+    'Toronto Malta': 'Toronto Malta United',
+
+    'Toronto Transit Commission': 'Toronto Transit',
+
+    'Toronto Ukraina': 'Toronto Ukrainians',
+    'Toronto Ukrainia': 'Toronto Ukrainians',
+
     'Operário-P': 'Operário-PR',
     'Operário/CG': 'Operário/CG-MT',
 

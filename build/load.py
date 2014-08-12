@@ -140,7 +140,7 @@ def load():
     load_competition_maps()
 
     # short circuit slow bios.
-    #load_games(); return 
+    load_games(); return 
 
     load_bios()
     load_transactions()
@@ -167,6 +167,7 @@ def load_extra():
 
 def load_games():  
     load_domestic()
+    return
     load_outer()
     load_indoor()
     load_amateur()
@@ -189,10 +190,13 @@ def load_international():
 
 
 def load_domestic():
+    load_concacaf()
+    return
+
     load_uefa()
     load_us_minor()
     load_usd1()    
-    load_concacaf()
+
     load_conmebol()
     load_afc()
     load_us_cups()
@@ -673,6 +677,8 @@ def load_uefa_minor():
 
     for year in range(2013, 2013):
         load_games_standard('uefa', 'games/country/bosnia/%s' % year, root=UEFA_DIR)
+
+    return
 
     for year in range(2012, 2013):
         load_games_standard('uefa', 'games/country/slovenia/%s' % year, root=UEFA_DIR)
@@ -1469,11 +1475,12 @@ def load_mexico():
     #load_standings_standard('mexico', 'standings/mexico/primera_fuerza', root=CONCACAF_DIR)
     load_standings_standard('mexico', 'standings/mexico/1', ';', root=CONCACAF_DIR)
     load_standings_standard('mexico', 'standings/mexico/short', ';', root=CONCACAF_DIR)
+    load_standings_standard('mexico', 'standings/mexico/ascenso', ';', root=CONCACAF_DIR)
 
     for e in range(1970, 2014):
         load_games_standard('mexico', 'games/country/mexico/league/%s' % e, root=CONCACAF_DIR)
 
-    for e in range(2012, 2014):
+    for e in range(2001, 2014):
         load_games_standard('mexico', 'games/country/mexico/ascenso/%s' % e, root=CONCACAF_DIR)
 
     for e in range(1970, 2020, 10):

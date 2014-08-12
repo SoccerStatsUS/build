@@ -1,6 +1,8 @@
 
 basic = {
 
+    'Roberto Antonio Nurse': 'Roberto Nurse',
+
     'Jonathan Jaqua': 'Nate Jaqua',
 
     'Amir Waite': 'Amir Waithe',
@@ -10855,7 +10857,7 @@ basic = {
     'Jose  Macotelo': 'Jose Macotelo',
     
     'Jonny Steele': 'Jonathan Steele',
-    'Christopher Ronald Nurse': 'Chris Nurse',
+
     'Robert Ssejemba': 'Robert Ssejjemba',
     'Aaron Simutone': 'Aaron Simutowe',
     'Aaron Simuntowe': 'Aaron Simutowe',
@@ -11236,6 +11238,7 @@ basic = {
     'Chris Lewis': 'Christopher Lewis',
     'Chris Love': 'Christopher Love',
     'Chris Nurse': 'Christopher Nurse',
+    'Christopher Ronald Nurse': 'Chris Nurse',
     'Chris Penny': 'Christian Penny',
     'Chris Roselli': 'Christopher Roselli',
     'Chris Salvaggione': 'Christopher Salvaggione',
@@ -12612,7 +12615,7 @@ basic = {
     'Dennis Hamlett': 'Denis Hamlett',
     'Daniel Keat': 'Dan Keat',
     'Danny Califf': 'Dan Califf',
-    'Daniel Cruz': 'Danny Cruz',
+    #'Daniel Cruz': 'Danny Cruz',
     
     'Eddie Johnson': 'Edward Johnson',
     'Emilo Renteria': 'Emilio Renteria',
