@@ -1,6 +1,8 @@
 
 basic = {
 
+    'Lisa DeVanna': 'Lisa De Vanna',
+
     'Roberto Antonio Nurse': 'Roberto Nurse',
 
     'Jonathan Jaqua': 'Nate Jaqua',

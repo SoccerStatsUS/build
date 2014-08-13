@@ -31,10 +31,24 @@ sep_names = {
 
     'Juninho': [
         ('Juninho Paulista', {'team': 'Middlesbrough' }),
+        ('Juninho Pernambucano', {'team': 'New York Red Bulls' }),
+        ('Vitor Gomes Pereira Júnior', {'team': 'LA Galaxy' }),
         ],
 
-    #'Chris Brown': [
-    #    'Chris Brown 1971': {'team': 'FC Dallas' }
+    'Thiago': [
+        ('Thiago de Souza', {'team': 'LA Galaxy' }),
+        ('Thiago da Rosa Correa', {'team': 'Chicago Fire' }),
+        ('Thiago da Rosa Correa', {'team': 'Chicago Fire Reserves' }),
+        ],
+
+    'Chris Brown': [
+        ('Chris Brown (1971)', {'team': 'FC Dallas' }),
+        ('Chris Brown (1971)', {'team': 'Richmond Kickers' }),
+        ('Chris Brown (1971)', {'team': 'Tampa Bay Terror' }),
+        ('Chris Brown (1971)', {'team': 'New Orleans Riverboat Gamblers' }),
+        ('Chris Brown (1971)', {'team': 'Maryland Mania' }),
+
+        ],
     }
 
 
@@ -1211,15 +1225,23 @@ def separate_name(name, magic_d):
     # Confusing.
     # Just pass a predicate function?
 
+    def matching_dicts(src, target):
+        for key, value in src.items():
+            if target.get(key) != value:
+                return False
+        return True
+    
+    #if name == 'Juninho':
+    #    import pdb; pdb.set_trace()
+
     if name not in sep_names:
         return name
     else:
+        # Check each option in names.
+        # If all the items in the sep_names dict match the items in magic_d, return the new name.
+        # Otherwise, proceed.
         names = sep_names[name]
         for n, nd in names:
-            for k, v in nd.items():
-                if magic_d.get(k) != v:
-                    return name
-            #import pdb; pdb.set_trace()
-            #x = 5
-            return n
+            if matching_dicts(nd, magic_d):
+                return n
     return name

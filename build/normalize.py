@@ -148,6 +148,8 @@ def normalize_game_stat(e):
     e['team'] = get_team(e['team'])
     e['team'] = separate_team(e['team'], e)
     e['player'] = get_name(e['player'])
+    e['player'] = separate_name(e['player'], e)
+
     e['competition'] = get_competition(e['competition'])
     e['season'] = get_season(e['season'])
     
@@ -332,16 +334,21 @@ def normalize_goal(e):
     e['team'] = separate_team(e['team'], e)
     e['goal'] = separate_name(e['goal'], e)
 
+    #if e['goal'] == 'Juninho':
+    #    import pdb; pdb.set_trace()
+
 
     if e['goal'] == 'Own Goal':
         e['own_goal'] = True
         e['goal'] = None
         if e.get('assists'):
             e['own_goal_player'] = get_name(e['assists'][0])
+            e['own_goal_player'] = separate_name(e['own_goal_player'], e) # convert to opponent?
             e['assists'] = []
             
 
     e['assists'] = [get_name(n) for n in e.get('assists', [])]
+    e['assists'] = [separate_name(n, e) for n in e['assists']]
 
     if e['assists']:
         if e['assists'][0] == 'penalty kick':
