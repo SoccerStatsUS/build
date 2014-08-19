@@ -210,6 +210,7 @@ full_alias = {
     'USL Pro': 'USL Second Division',
 
     'A-League': 'USL First Division',
+    'USL Division 1': 'USL First Division',
 
 
 

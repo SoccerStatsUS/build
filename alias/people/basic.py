@@ -1,5 +1,17 @@
 
 basic = {
+    
+    'Amir KhalifehAsl': 'Amir Khalifeh-Asl',
+
+    'James Nealis': 'Jimmy Nealis',
+
+    'Patrick Phelan': 'Pat Phelan',
+
+    'Eddie Edward': 'Edson Edward',
+    'Giovanni Edson Edward': 'Edson Edward',
+
+    'Jose Correa': 'José Erick Correa',
+    
 
     'Lisa DeVanna': 'Lisa De Vanna',
 
@@ -9678,7 +9690,11 @@ basic = {
     'Daniel (Dan) Stevens': 'Daniel Stevens',
     'David (Dave) Hertel': 'Dave Hertel',
     'Justin Sass': 'Justin Saas',
+
     'Luckymore Mkosana': 'Lucky Mkosana',
+    'Luckmore Mkosana': 'Lucky Mkosana',
+    'Luck Mkosana': 'Lucky Mkosana',
+
     'Mkhokheli (Mo) Dube': 'Mkhokheli Dube',
     'Steven (Steve) Clark': 'Steven Clark',
     'Zachary (Zac) Scaffidi': 'Zachary Scaffidi',
@@ -10839,8 +10855,9 @@ basic = {
     
     
     
-    
+    'Mitchell Hildebrandt': 'Mitch Hildebrandt',
     'Mitch Hildenbrandt': 'Mitch Hildebrandt',
+
     'Tommy Brandt': 'Tom Brandt',
     'Karo K. Okiomah': 'Karo Okiomah',
     'K. Okiomah': 'Karo Okiomah',
@@ -12953,10 +12970,12 @@ basic = {
     'Tyron Marshall': 'Tyrone Marshall', 
     'Tyronne Marshall': 'Tyrone Marshall', 
     'Thomas W. Cahill': 'Thomas Cahill',
+
     'Ty Shipalane': 'Tiyi Shipalane',
     'Tiyiselani Shipalane': 'Tiyi Shipalane',
     'Tiyiselani (Ti) Shipalane': 'Tiyi Shipalane',
     'Tiyiselani (Ty) Shipalane': 'Tiyi Shipalane',
+
     'Piotr (Pete) Nowak': 'Pete Nowak',
     'Michael (Mike) Holody': 'Michael Holody',
     'Nathan Norman': 'Nate Norman',
@@ -13476,7 +13495,7 @@ basic = {
     
     
     'Nathaniel Boyden': 'Nate Boyden',
-    'Luckmore Mkosana': 'Lucky Mkosana',
+
     'Knox (Washington) Cameron': 'Knox Cameron',
     
     

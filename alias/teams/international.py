@@ -1,6 +1,12 @@
 
 international = {
 
+    'Trinidad & Tobago Olympic Team': 'Trinidad and Tobago Olympic',
+
+    'Trinidad and Tobago U23': 'Trinidad and Tobago U-23',
+
+    'Canada U23': 'Canada U-23',
+
     'Benín': 'Benin',
     'Libano': 'Lebanon',
     'Tahití': 'Tahiti',

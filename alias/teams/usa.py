@@ -1,5 +1,16 @@
 
 usa = {
+    'MLS Project 40': 'Project-40',
+    'MLS Project 40': 'Project-40',
+    #'Nike Project-40': 'Project-40',
+    #'Generation adidas': 'Project-40', # name map
+
+    'Portland Timbers U-23': 'Portland Timbers U-23s', 
+
+    'N.Y.Capital Dist. Alleycats': 'Albany Alleycats',
+    'New Mexico Chillies': 'New Mexico Chiles',
+
+    'Colorado Rapids U-23\'s': 'Colorado Rapids U-23',
 
     'San Fern. Val. Gldn Eagles': 'San Fernando Valley Golden Eagles',
     'S.F. Valley Golden Eagles': 'San Fernando Valley Golden Eagles',
@@ -40,12 +51,14 @@ usa = {
     'Wilmington Hammerheads FC': 'Wilmington Hammerheads',
     'Sacramento Republic FC': 'Sacramento Republic',
     'Orange County Blues FC': 'Orange County Blues',
+
+    'OKC Energy': 'Oklahoma City Energy',
     'OKC Energy FC': 'Oklahoma City Energy',
 
 
     '1790 Cincinnati Express': '1790 Cincinnati',
 
-    'Rio Grande Valley Flash': 'Hidalgo La Fiera', # name map
+    'Rio Grande Valley Flash': 'Hidalgo La Fiera', 
 
     'Stockton Cougars': 'California Cougars',
 
@@ -72,7 +85,7 @@ usa = {
 
     'Massachusetts Aztecs': 'Boston Aztec', # not certain.
     
-    'Permian Basin Mirage': 'Permian Basin Shooting Stars', # name map
+    'Permian Basin Mirage': 'Permian Basin Shooting Stars',
 
     'Oklahama City Alliance': 'Oklahoma City Warriors', # name map
 
@@ -165,8 +178,11 @@ usa = {
     'Golden Bay Buccaneers': 'Oakland Buccaneers',
     'Chicago Schwaben AC': 'Chicago Schwaben',
 
+    # Merger!
     'Puget Sound BigFoot': 'Seattle BigFoot', # name map
     'Puget Sound Hammers': 'Seattle BigFoot', # name map
+    'Everett Bigfoot': 'Everett BigFoot',
+
 
     'North Jersey Dragons': 'Jersey Dragons',
     'Ft Lauderdale Sun': 'Fort Lauderdale Sun',
@@ -389,7 +405,7 @@ usa = {
     'Georgia Generals': 'Cleveland Cobras',
     'Connecticut Wildcats': 'Connecticut Yankees',
     'Northeast United': 'Connecticut Yankees',
-    'Hartford SC': 'Hartford Kings', # name map
+    'Hartford SC': 'Hartford Kings',
     'Hartford FC': 'Hartford Kings',
     'Indianapolis Daredevils': 'Rhode Island Oceaneers',
     # 'Las Vegas Quicksilvers': 'Las Vegas Quicksilver', these are different teams.
@@ -611,7 +627,7 @@ usa = {
     'Miami Strike Force': 'Miami Breakers',
     'Miami Tango': 'Miami Breakers',
     
-    'Tampa Bay Cyclones': 'Jacksonville Cyclones', # Set team-name mapping.
+    'Tampa Bay Cyclones': 'Jacksonville Cyclones', # name map
 
     # Wisconsin
 
@@ -745,8 +761,6 @@ usa = {
     #Fatigue Technology (WA)
     #Murphy's Pub (WA)
 
-    'Everett BigFoot': 'Seattle BigFoot',
-    'Everett Bigfoot': 'Seattle BigFoot',
     'Mitre Eagles (WA)': 'Seattle Mitre Eagles',
 
     'Viking S.C. (Seattle)': 'Seattle Viking SC',
@@ -1053,7 +1067,7 @@ usa = {
 
     'Minerva-Pfuelzer': 'Minerva-Pfaelzer SC',
 
-    'New York Freedom': 'New York Freedoms',
+    'New York Freedoms': 'New York Freedom',
 
     'IRT F.C.':'Interborough Rapid Transit FC',
         
@@ -1738,7 +1752,7 @@ usa = {
 
     'Greenhut Jewelers (Cleveland)': 'Cleveland Greenhut Jewelers',
 
-    'Columbus Invaders': 'Canton Invaders', # Name change; set team-name mapping.
+    'Columbus Invaders': 'Canton Invaders', # name map
 
 
     'Dalarda SC (Cleveland)': 'Cleveland Dalarda SC',

@@ -1,5 +1,10 @@
 world = {
 
+    'Vancouver Whitecaps U23': 'Vancouver Whitecaps U-23',
+    'Vancouver Whitecaps FC U-23': 'Vancouver Whitecaps U-23',
+
+    'Montreal Impact U23': 'Montreal Impact U-23',
+
     'Mérida FC': 'C.F. Mérida',
     'Altamira': 'Altamira FC',
 
