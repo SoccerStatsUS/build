@@ -125,57 +125,68 @@ def load():
     check_for_team_loops()
     clear_all()
 
+    load_metadata()
+    load_by_subject()
+    load_advanced()
+
+
+
+
+def load_metadata():
+    """
+    Load soccer metadata
+    """
 
     load_sources()
     load_place_data()
-
     load_competitions()
-
-
-
     load_teams()
+    load_bios()
 
     load_name_maps()
     load_stadium_maps()
     load_competition_maps()
 
-    # short circuit slow bios.
-    #load_games(); return 
 
-    load_bios()
-    load_transactions()
-    load_extra()
-
-    load_games()
-
-
-def load_transactions():
-
+def load_advanced():
     from soccerdata.text import drafts
+
+    # drafts
 
     generic_load(soccer_db.drafts, drafts.load_drafts)
     generic_load(soccer_db.picks, drafts.load_picks)
 
+    # jobs
     load_jobs()
+    load_transactions()
 
-
-def load_extra():
+    # money data
     load_salaries()
+
+    # news feee data
     load_news()
 
 
 
-def load_games():  
+def load_by_subject():  
+    """
+    Load all main data by subject
+    domestic: FIFA Club World Cup, Champions League, MLS, US minor, etc.
+    women: US, Sweden, England
+    indoor: US indoor 1975-2014)
+    amateur: NCAA, amateur cup (?)
+    international: USMNT, FIFA international, countries
+    friendly: US friendly data
+    """
+
     load_domestic()
-    #load_women()
+
     load_outer()
     return
-
+    load_women()
     load_indoor()
     load_amateur()
-
     load_international()
-
     load_friendly()
 
 
@@ -1063,6 +1074,11 @@ def load_jobs():
     #generic_load(soccer_db.positions, positions.process_positions)
     generic_load(soccer_db.positions, f1)
     generic_load(soccer_db.positions, f2)
+
+
+def load_transactions():
+    pass
+
 
 
 def load_copa_america():

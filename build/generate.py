@@ -10,6 +10,21 @@ from standings import get_standings
 make_stat_tuple = lambda name, d: (name, d['team'], d['season'], d['competition'])
 
 
+def generate():
+
+    generate_cities()
+
+    # Generate game data
+    generate_game_data()
+    generate_game_stats()
+    #generate_appearance_data()
+
+    generate_competition_standings()
+    generate_competition_stats() # Use game stats to make competition stats.
+
+
+
+
 def stadiums_to_teams():
     """
     Map stadium to teams who have had it as a home stadium
@@ -70,13 +85,6 @@ def make_stadium_getter():
 
     return getter
 
-
-def generate():
-    generate_game_data()
-    generate_competition_standings()
-    generate_game_stats()
-    generate_competition_stats() # Use game stats to make competition stats.
-    generate_cities()
 
 
 
@@ -656,6 +664,10 @@ def generate_stats_old(goals=[], lineups=[]):
 
 
 def generate_cities():
+    """
+    Generate cities from team, bio, game, stadium data
+    """
+
     print("Generating cities.")
 
     cities = set()

@@ -4,22 +4,62 @@ from settings import SOURCES
 from smid.alias import get_team, get_name, get_season, get_competition, get_place, get_stadium, get_city, get_round
 from smid.mongo import generic_load, soccer_db, insert_rows, insert_row, soccer_db
 
-from separate import separate_team, separate_name
+from build.build.separate import separate_team, separate_name
 
 from helpers import string_to_ascii
 
+    
+def normalize():
+    """
+    Normalize different data types for collections.
+    The goal here is to ensure that team, player, competition, and place names are consistent.
+    That is, DaMarcus Beasley, Damarcus Beasley, and DeMarcus Beasley should all point to the same person.
+    To do this, we aggressively standardize all names.
+    Sometimes, this will result in different items being merged into one (e.g. Eddie Johnson and Edward Johnson)
+    These will then be split up with denormalize.py.
+    """
+
+    def normalize_single_coll(coll, func):
+        l = [func(e) for e in coll.find()]
+        coll.drop()
+        insert_rows(coll, l)
+
+    def normalize_multiple_colls(data_type, func):
+        for source in SOURCES:
+            coll = soccer_db["%s_%s" % (source, data_type)]
+            normalize_single_coll(coll, func)
+            
+
+    # Metadata
+    normalize_single_coll(soccer_db.seasons, normalize_season)
+    normalize_single_coll(soccer_db.stadiums, normalize_stadium)
+    normalize_single_coll(soccer_db.teams, normalize_team)
+    normalize_multiple_colls('bios', normalize_bio) # Bios only as a group.
+    normalize_single_coll(soccer_db.stadium_maps, normalize_stadiummap)
+
+    # Game data
+    normalize_multiple_colls('games', normalize_game)
+    normalize_multiple_colls('goals', normalize_goal)
+    normalize_multiple_colls('misconduct', normalize_foul)
+    normalize_multiple_colls('lineups', normalize_lineup)
+    normalize_multiple_colls('gstats', normalize_game_stat)
+    normalize_multiple_colls('rosters', normalize_roster)
+    normalize_multiple_colls('stats', normalize_stat)
+    normalize_multiple_colls('standings', normalize_standing)
+
+
+    # Advanced
+    normalize_single_coll(soccer_db.salaries, normalize_salary)
+    normalize_single_coll(soccer_db.picks, normalize_pick)
+    normalize_single_coll(soccer_db.positions, normalize_position)
+    normalize_multiple_colls('awards', normalize_award)
+
+
+
+
 
 def make_location_normalizer():
-    # What is the proper way to handle locations?
-    # Locations are primarily used by game and bio data.
-    # Apply place alias.
-    # Check if the location is a team (games only, team alias)
-    # Check if the location is a stadium (stadium alias)
-    # Check if the location is a city (city alias)
-    # Check if the location is a state
-    # Check if the location is a country
-    # Throw an error.
-    # Return a dict with appropriate values.
+
     """
     Detect stadium and split off from place name
     Split off a stadium from a place name, if possible.
@@ -30,6 +70,16 @@ def make_location_normalizer():
     'Pizza Hut Park, Dallas, Texas' -> ('Pizza Hut Park', 'Dallas, TX')
     'Richardson, Texas' -> (None, 'Richardson, Texas')
     """
+    # What is the proper way to handle locations?
+    # Locations are primarily used by game and bio data.
+    # Apply place alias.
+    # Check if the location is a team (games only, team alias)
+    # Check if the location is a stadium (stadium alias)
+    # Check if the location is a city (city alias)
+    # Check if the location is a state
+    # Check if the location is a country
+    # Throw an error.
+    # Return a dict with appropriate values.
 
     stadium_names = set()
     stadium_map = {}
@@ -516,49 +566,3 @@ def normalize_bio(e):
 
     return e
     
-    
-def normalize():
-    """
-    Normalize different data types for collections.
-    The goal here is to ensure that team, player, competition, and place names are consistent.
-    That is, DaMarcus Beasley, Damarcus Beasley, and DeMarcus Beasley should all point to the same person.
-    To do this, we aggressively standardize all names.
-    Sometimes, this will result in different items being merged into one (e.g. Eddie Johnson and Edward Johnson)
-    These will then be split up with denormalize.py.
-    """
-
-    def normalize_single_coll(coll, func):
-        l = [func(e) for e in coll.find()]
-        coll.drop()
-        insert_rows(coll, l)
-
-    def normalize_multiple_colls(data_type, func):
-        for source in SOURCES:
-            coll = soccer_db["%s_%s" % (source, data_type)]
-            normalize_single_coll(coll, func)
-            
-
-    normalize_single_coll(soccer_db.seasons, normalize_season)
-    normalize_single_coll(soccer_db.positions, normalize_position)
-
-    normalize_single_coll(soccer_db.stadium_maps, normalize_stadiummap)
-
-    normalize_single_coll(soccer_db.picks, normalize_pick)
-    normalize_single_coll(soccer_db.salaries, normalize_salary)
-    normalize_single_coll(soccer_db.stadiums, normalize_stadium)
-
-    normalize_single_coll(soccer_db.teams, normalize_team)
-
-
-    # Not normalizing fouls, rosters...
-    # Bios only as a group.
-    normalize_multiple_colls('bios', normalize_bio)
-    normalize_multiple_colls('games', normalize_game)
-    normalize_multiple_colls('goals', normalize_goal)
-    normalize_multiple_colls('lineups', normalize_lineup)
-    normalize_multiple_colls('stats', normalize_stat)
-    normalize_multiple_colls('gstats', normalize_game_stat)
-    normalize_multiple_colls('standings', normalize_standing)
-    normalize_multiple_colls('rosters', normalize_roster)
-    normalize_multiple_colls('awards', normalize_award)
-

@@ -1,4 +1,87 @@
-# Soccerdata - repository of data for soccerstats.us (and others?)
+# build code for soccerstats.us
+### transform text data to structured data
+
+### build steps
+
+the build process consists of a series of steps
+
+
+
+#### load
+
+load all data from text files
+
+#### normalize
+
+convert data into canonical forms and normalize formatting differences
+
+player names: Damarcus Beasley -> DaMarcus Beasley
+team names: Dallas Burn -> FC Dallas
+place names: New York City -> New York, NY
+
+#### lift
+
+convert abbreviated player names using roster data into full names
+
+Lift('Henry', ['Thierry Henry', 'Patrick Vieira']) -> Thierry Henry
+
+#### transform
+
+some random stuff
+
+#### merge
+
+merge data from various sources into a single representation
+
+Merge([{'date': datetime.datetime(1996, 7, 1), 'team1': 'San Jose Earthquakes', 'team1_score': 1, 'team2': 'DC United', 'team2_score': 0 }, 
+       {'date': datetime.datetime(1996, 7, 1), 'team1': 'San Jose Earthquakes', 'team1_score': None, 'team2': 'DC United', 'team2_score': None, 'location': 'San Jose, CA' }] -> 
+       {'date': datetime.datetime(1996, 7, 1), 'team1': 'San Jose Earthquakes', 'team1_score': 1, 'team2': 'DC United', 'team2_score': 0, 'location': 'San Jose, CA' })
+
+
+#### generate
+
+generate secondary data from known data
+
+Generated data includes:
+1. various stats - GameStat, standard Stat, TeamStat, CompetitionStat, CareerStat, etc.
+2. various standings - 
+3. 
+
+#### denormalize
+
+add time-specific data to canonical representations
+
+give time-specific team names, player names
+
+
+
+#### build steps
+
+check aliases for loops
+clear all database data
+load metadata (place, source, competition, team, player data, mappings (team->name,team->stadium,competition->name))
+load game data (game results, stats, rosters, standings, awards)
+load extra data (drafts, transactions, salaries, news [disabled])
+
+normalize metadata (seasons, stadiums, teams, player data, mappings)
+normalize game data (games, goals, lineups, game stats, stats, game stats, rosters, stats, standings
+normalize extra data (drafts, transactions, positions, awards)
+
+lift player names (use roster data to convert abbreviated names into full names)
+transform team names for given competitions - mostly Youth competitions
+
+merge data (metadata, game data, extra data)
+
+generate game data - infer location / home team using metadata
+generate game stats
+generate competition standings, competition statistics
+
+
+
+Check data (standing validity, game fields)
+
+
+
 
 
 ### Outstanding tasks.

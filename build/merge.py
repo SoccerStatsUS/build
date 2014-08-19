@@ -10,22 +10,23 @@ import random
 # Data is better generated after merge (but either should be ok)
 
 def merge():
-    merge_standings()
-    merge_awards()
-    merge_all_stats()
-    merge_all_games()
 
-
-    merge_goals()
-
-    merge_lineups()
-    merge_game_stats()
-    merge_fouls()
-
+    # Merge metadata
     merge_bios()
 
+    # Merge game data
+    merge_all_games()
+    merge_goals()
+    merge_lineups()
+    merge_fouls()
+    merge_game_stats()
     merge_all_rosters()
-        
+    merge_all_stats()
+    merge_standings()
+
+    # Merge extra data
+    merge_awards()
+
 
 
 def standard_merge(coll):

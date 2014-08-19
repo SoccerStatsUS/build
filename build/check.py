@@ -17,6 +17,7 @@ def check():
 def check_standings():
     """
     Check that standings are valid.
+    1. standing game totals equal standing game count.
     """
     for s in mongo.soccer_db.standings.find():
 
@@ -37,6 +38,7 @@ def check_people():
 
 def check_games():
     """
+    Check that game results have the necessary fields.
     """
 
     game_fields = [
@@ -60,10 +62,6 @@ def check_games():
                     import pdb; pdb.set_trace()
                     x = 5
                 continue
-            #assert(type(game['date']) == datetime.date)
-            #assert(type(away_score) == int)
-            #assert(type(home_score) == int)
-
             
 
 

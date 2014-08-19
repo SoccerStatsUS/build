@@ -21,7 +21,14 @@ def denormalize():
     we set the location to the team's stadium for that date if possible.
     """
     
-    team_name_ungetter = make_team_name_ungetter()
+    denormalize_games()
+    denormalize_goals()
+    denormalize_lineups()
+    denormalize_game_stats()
+    denormalize_stats()
+
+    
+def denormalize_games()
 
     l = []
     for e in soccer_db.games.find():
@@ -35,6 +42,9 @@ def denormalize():
     #print("Denormalizing competitions")
     #l = []
 
+
+def denormalize_goals():
+
     l = []
     for goal in soccer_db.goals.find():
         if goal['date']:
@@ -46,6 +56,10 @@ def denormalize():
     insert_rows(soccer_db.goals, l)
 
 
+def denormalize_stats():
+
+    pass
+
     #print("Denormalizing stats")
     #l = []
     #for stat in soccer_db.stats.find():
@@ -53,6 +67,9 @@ def denormalize():
 
     #soccer_db.stats.drop()
     #insert_rows(soccer_db.stats, l)
+
+
+def denormalize_lineups():
             
     lineups = []
     for lineup in soccer_db.lineups.find():
@@ -66,6 +83,9 @@ def denormalize():
 
     soccer_db.lineups.drop()
     insert_rows(soccer_db.lineups, lineups)
+
+
+def denormalize_game_stats():
 
 
     game_stats = []
@@ -212,3 +232,6 @@ def make_competition_name_ungetter():
         return name
 
     return getter
+
+
+team_name_ungetter = make_team_name_ungetter()

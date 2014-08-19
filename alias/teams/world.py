@@ -1,5 +1,7 @@
 world = {
 
+    'Supersport United': 'SuperSport United',
+
     'Vancouver Whitecaps U23': 'Vancouver Whitecaps U-23',
     'Vancouver Whitecaps FC U-23': 'Vancouver Whitecaps U-23',
 
@@ -2956,11 +2958,11 @@ world = {
     'Sporting (Portugal)': 'Sporting Lisbon',
     'Sporting Club Lisbon': 'Sporting Lisbon',
     'Sporting C. Lisboa': 'Sporting Lisbon',
-    'Sporting CP': 'Sporting Lisbon',
     'Sporting CP (Por)': 'Sporting Lisbon',
     'Sporting CP (Lisbon-Por)': 'Sporting Lisbon',
     'Sporting CP Lisbon (Por)': 'Sporting Lisbon',
     'Sporting CP Lisboa (Por)': 'Sporting Lisbon',
+    'Sporting Lisbon': 'Sporting CP',
 
     'Academica de Coimbra': 'Académica de Coimbra',
 
@@ -3021,6 +3023,7 @@ world = {
     'Belenenses - Portugal': 'C.F. Os Belenenses',
     'Belenenses': 'C.F. Os Belenenses',
     'CF \'Os Belenenses\'': 'C.F. Os Belenenses',
+    'C.F. Os Belenenses': 'Os Belenenses',
 
     'CD Santa Clara (Azores)': 'Santa Clara',
     'Santa Clara - Portugal': 'Santa Clara',
@@ -3669,8 +3672,8 @@ world = {
     'AEK Athinai': 'AEK Athens F.C.',
     'Aek': 'AEK Athens F.C.',
     'AEK': 'AEK Athens F.C.',
-    'AEK Athens': 'AEK Athens F.C.',
     'AEK Athens (Gre)': 'AEK Athens F.C.',
+    'AEK Athens F.C.': 'AEK Athens',
 
     'AE Larissa (Gre)': 'AEL 1964',
     'Larisa': 'AEL 1964',
@@ -4016,9 +4019,8 @@ world = {
 
     'Ferencvaros (Hungary)': 'Ferencvárosi TC',
     'Ferencvaros': 'Ferencvárosi TC',
-    #'Ferencvaros': 'Ferencváros',
-    'Ferencváros': 'Ferencvárosi TC',
     'Ferencváros (Hun)': 'Ferencvárosi TC',
+    'Ferencvárosi TC': 'Ferencváros',
 
     'Ujpest Dosza': 'Újpest FC',
     'Újpesti Dózsa (Hun)': 'Újpest FC',

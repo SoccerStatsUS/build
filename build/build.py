@@ -63,14 +63,13 @@ def build():
 
     for func in [
         load, 
-
         normalize, 
         lift,
         transform, 
         merge, 
         generate, 
         denormalize, 
-        check
+        #check
         ]:
         print(func.__name__)
         timer(func)()
