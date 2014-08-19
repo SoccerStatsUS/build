@@ -10,23 +10,14 @@ from collections import defaultdict
 
 
 def lift():
+    print("Lifting names")
     transform_names_from_rosters()
-
-    print("Transforming names.")
-    # Comment this out if worried about over-assigning full names.
-    #transform_player_names() 
-
-
-
 
 
 def transform_names_from_rosters():
     """
     Transform lineup and goal player names based on roster data.
     """
-
-
-
 
     for source in SOURCES:
 
@@ -37,7 +28,6 @@ def transform_names_from_rosters():
             rg = make_roster_guesser(rdb)
 
 
-            """
             l = []
             coll = soccer_db["%s_lineups" % source]
             for e in coll.find():
@@ -46,8 +36,6 @@ def transform_names_from_rosters():
 
             coll.drop()
             insert_rows(coll, l)
-            """
-
 
             g = []
             coll = soccer_db["%s_goals" % source]
@@ -58,15 +46,13 @@ def transform_names_from_rosters():
                     # Use opponent?
                     continue
 
-                #if e['goal'] == 'Sabah':
-                #    import pdb; pdb.set_trace()
-
                 e['goal'] = rg(e['goal'], e['team'], e['competition'], e['season'])
                 e['assists'] = [rg(a, e['team'], e['competition'], e['season']) for a in e['assists']]
                 g.append(e)
 
             coll.drop()
             insert_rows(coll, g)
+
 
 
 
@@ -150,68 +136,3 @@ def make_roster_guesser(db):
     #getter.d = d # for debugging
 
     return getter
-
-
-
-def transform_player_names2():
-    full_name_guesser = make_player_name_guesser()
-
-
-    for source in SOURCES:
-        l = []
-        coll = soccer_db["%s_goals" % source]
-        for e in coll.find():
-            if e['date']:
-                e['goal'] = full_name_guesser(e['goal'], get_team(e['team']))
-
-            l.append(e)
-        coll.drop()
-        insert_rows(coll, l)
-
-
-    for source in SOURCES:
-        l = []
-        coll = soccer_db["%s_lineups" % source]
-        for e in coll.find():
-            if e['date']:
-                e['name'] = full_name_guesser(e['name'], get_team(e['team']))
-
-            l.append(e)
-        coll.drop()
-        insert_rows(coll, l)
-
-
-
-
-def transform_player_names():
-    """
-    Generate full names from rosters, player stats.
-    """
-
-    full_name_guesser = make_player_name_guesser()
-
-    for source in SOURCES:
-        l = []
-        coll = soccer_db["%s_goals" % source]
-        for e in coll.find():
-            if e['date']:
-                e['goal'] = full_name_guesser(e['goal'], get_team(e['team']))
-
-            l.append(e)
-        coll.drop()
-        insert_rows(coll, l)
-
-
-    for source in SOURCES:
-        l = []
-        coll = soccer_db["%s_lineups" % source]
-        for e in coll.find():
-            if e['date']:
-                e['name'] = full_name_guesser(e['name'], get_team(e['team']))
-
-            l.append(e)
-        coll.drop()
-        insert_rows(coll, l)
-
-
-
