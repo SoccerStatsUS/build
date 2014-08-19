@@ -14,7 +14,7 @@ from smid.settings import ROOT_DIR
 
 from foulds.cache import data_cache, set_cache
 
-from donelli.parse import stats, games, standings
+from parse.parse import stats, games, standings
 
 GAMES_DIR = os.path.join(ROOT_DIR, "soccerdata/data/games")
 STANDINGS_DIR = os.path.join(ROOT_DIR, "soccerdata/data/standings")
@@ -140,7 +140,7 @@ def load():
     load_competition_maps()
 
     # short circuit slow bios.
-    load_games(); return 
+    #load_games(); return 
 
     load_bios()
     load_transactions()
@@ -167,9 +167,10 @@ def load_extra():
 
 def load_games():  
     load_domestic()
-    load_women()
-    return
+    #load_women()
     load_outer()
+    return
+
     load_indoor()
     load_amateur()
 
@@ -191,12 +192,13 @@ def load_international():
 
 
 def load_domestic():
-    load_usd1()    
-
+    #load_usd1()    
+    load_us_minor()
     return
+
     load_concacaf()
     load_uefa()
-    load_us_minor()
+
 
 
     load_conmebol()
@@ -218,9 +220,9 @@ def load_usd1():
 
 
 def load_outer():
-    load_ltrack()
-    load_fifa()
-
+    #load_ltrack()
+    #load_fifa()
+    pass
     #load_mediotiempo()    
 
 
@@ -319,14 +321,13 @@ def load_place_data():
 def load_us_cups():
 
     from soccerdata.text import awards
-    from donelli.parse import rosters
+    from parse.parse import rosters
 
     generic_load(soccer_db.us_cups_awards, awards.process_american_cup_awards)
     generic_load(soccer_db.us_cups_awards, awards.process_us_open_cup_awards, delete=False)
     generic_load(soccer_db.us_cups_awards, awards.process_lewis_cup_awards, delete=False)
 
-    rp = os.path.join(CUPS_DIR, "rosters/afa")
-    generic_load(soccer_db.us_cups_rosters, lambda: rosters.process_rosters2(path=rp))
+    generic_load(soccer_db.us_cups_rosters, lambda: rosters.process_rosters2(path=os.path.join(CUPS_DIR, "rosters/afa")))
 
 
     for e in 'afa', 'afa2', 'lewis', 'duffy', 'aafa':
@@ -1065,7 +1066,7 @@ def load_jobs():
 
 
 def load_copa_america():
-    from donelli.parse import rosters
+    from parse.parse import rosters
     from soccerdata.text.cmp import copaamerica
 
     coll = 'conmebol_i'
@@ -1115,7 +1116,7 @@ def load_alpf():
 
 def load_asl2():
     from soccerdata.text import awards, partial
-    from donelli.parse import rosters
+    from parse.parse import rosters
 
     generic_load(soccer_db.us_minor_awards, awards.process_asl2_awards, delete=False)
     generic_load(soccer_db.us_minor_stats, partial.process_asl2_partial)
@@ -1138,7 +1139,7 @@ def load_nasl():
     """
 
     from soccerdata.text import awards
-    from donelli.parse import rosters
+    from parse.parse import rosters
 
     generic_load(soccer_db.nasl_awards, awards.process_nasl_awards)
     generic_load(soccer_db.nasl_awards, awards.process_usa_awards)
@@ -1166,39 +1167,6 @@ def load_nasl():
     generic_load(soccer_db.nasl_lineups, nasl.process_nasl_lineups)
 
 
-def load_apsl():
-    """
-    Load stats and games from the APSL and WSA.
-    """
-    from soccerdata.text import awards, partial
-    from soccerdata.text.cmp import apsl
-
-    print("loading apsl stats")
-    apsl_stats = stats.process_stats("stats/d2/apsl", root=US_MINOR_DIR)
-    generic_load(soccer_db.us_minor_stats, apsl_stats)
-    generic_load(soccer_db.us_minor_rosters, flatten_stats(apsl_stats))
-
-    # lambdas...
-    print("loading apsl partial stats")
-    generic_load(soccer_db.us_minor_stats, partial.process_apsl_partial)
-
-    generic_load(soccer_db.us_minor_awards, awards.process_apsl_awards)
-
-    load_standings_standard('us_minor', 'standings/d2/apsl', root=US_MINOR_DIR)
-
-    # Test these
-    load_standings_standard('us_minor', 'standings/d2/wsa', root=US_MINOR_DIR)
-    load_standings_standard('us_minor', 'standings/minor/lssa', root=US_MINOR_DIR)
-
-    #print("loading apsl scores")
-    #generic_load(soccer_db.us_minor_games, apsl.process_apsl_scores)
-
-    load_games_standard('us_minor', 'games/d2/apsl', root=US_MINOR_DIR)
-    load_games_standard('us_minor', 'games/d3/wsa4', root=US_MINOR_DIR)
-
-    load_games_standard('us_minor', 'games/playoffs/apsl', root=US_MINOR_DIR)
-    load_games_standard('us_minor', 'games/playoffs/wsa', root=US_MINOR_DIR)
-    load_games_standard('us_minor', 'games/apsl_professional', root=CUPS_DIR)
 
 
 def load_indoor():
@@ -1284,48 +1252,33 @@ def load_mls_lineup_db():
     generic_load(soccer_db.mls_lineups, lineupdb.load_all_lineups_scaryice)
 
 
-def load_pdl():
-    from soccerdata.text import awards
-
-    generic_load(soccer_db.us_minor_awards, awards.process_pdl_awards)
-
-    load_standings_standard('us_minor', 'standings/d4/pdl', root=US_MINOR_DIR)
-    load_standings_standard('us_minor', 'standings/d4/pdl_2012', root=US_MINOR_DIR)
-    load_standings_standard('us_minor', 'standings/d4/pdl_2013', root=US_MINOR_DIR)
-
-    # Adapt donelli.games to handle PDL hours correctly.
-    for e in range(2007, 2015):
-        load_games_standard('us_minor', 'games/d4/pdl/%s' % e, root=US_MINOR_DIR)
-
-    generic_load(soccer_db.us_minor_stats, process_pdl_stats)
-
-    generic_load(soccer_db.us_minor_rosters, lambda: flatten_stats(process_pdl_stats()))
 
 
 def load_us_minor():
     """
     Load all-time us minor league stats.
     """
-    load_nafbl()
-    load_usl()
-    load_apsl()
-    load_pdl()
-    load_asl2()
+    #load_nafbl()
+    #load_asl2()
+    load_modern_minor()
+
     #load_city()
 
 
-def load_usl():
+def load_modern_minor():
 
     from foulds.sites import nasl, uslsoccer
-    from soccerdata.text import awards
-    from soccerdata.text.cmp import nasl2
+    from soccerdata.text import awards, partial
+    from soccerdata.text.cmp import nasl2 # remove this file.
+    from soccerdata.text.cmp import apsl # remove this file.
 
-
-    generic_load(soccer_db.us_minor_stats, nasl2.process_stats)
+    from parse.parse import rosters
 
     generic_load(soccer_db.us_minor_awards, awards.process_usl_awards)
     generic_load(soccer_db.us_minor_awards, awards.process_ussf2_awards)
     generic_load(soccer_db.us_minor_awards, awards.process_nasl2_awards)
+    generic_load(soccer_db.us_minor_awards, awards.process_apsl_awards)
+    generic_load(soccer_db.us_minor_awards, awards.process_pdl_awards)
 
     #generic_load(soccer_db['us_lower_games'], uslsoccer.scrape_2013_games) 
     #generic_load(soccer_db['us_lower_goals'], uslsoccer.scrape_2013_goals)
@@ -1335,42 +1288,82 @@ def load_usl():
     #generic_load(soccer_db['us_lower_goals'], nasl.scrape_all_goals)
     #generic_load(soccer_db['us_lower_gstats'], nasl.scrape_all_game_stats)
              
-    # Division 2
-    generic_load(soccer_db.us_minor_stats, process_usl1_stats)
+
+    # early
+    load_standings_standard('us_minor', 'standings/d2/apsl', root=US_MINOR_DIR)
+    load_standings_standard('us_minor', 'standings/d2/wsa', root=US_MINOR_DIR) # missing 1990 wsl standings
+    load_standings_standard('us_minor', 'standings/minor/lssa', root=US_MINOR_DIR)
+
+    # modern
+
+    # d2
+
+    # Missing 1996 USL First Division results (there is no USL1 in 1996?)
 
     load_standings_standard('us_minor', 'standings/d2/usl0', root=US_MINOR_DIR)
     load_standings_standard('us_minor', 'standings/d2/premier', root=US_MINOR_DIR)
     load_standings_standard('us_minor', 'standings/d2/usisl', root=US_MINOR_DIR)
     load_standings_standard('us_minor', 'standings/d2/12', root=US_MINOR_DIR)
-
     load_standings_standard('us_minor', 'standings/d2/ussf2', root=US_MINOR_DIR)
     load_standings_standard('us_minor', 'standings/d2/nasl2', root=US_MINOR_DIR)
 
-    generic_load(soccer_db.us_minor_stats, stats.process_stats("stats/d2/2013", root=US_MINOR_DIR, delimiter=';'))
-
-    #load_games_standard('us_minor', 'games/d2/usl1', root=US_MINOR_DIR)
-    #load_games_standard('us_minor', 'games/d2/ussfd2', root=US_MINOR_DIR)
-
-    #for e in range(1996, 2015):
-    for e in range(2003, 2015):
-        load_games_standard('us_minor', 'games/d2/%s' % e, root=US_MINOR_DIR)
-
-    load_games_standard('us_minor', 'games/playoffs/usl1', root=US_MINOR_DIR)
-    load_games_standard('us_minor', 'games/playoffs/nasl2', root=US_MINOR_DIR)
-
-    # Division
-    generic_load(soccer_db.us_minor_stats, process_usl2_stats)
-
+    # d3
     load_standings_standard('us_minor', 'standings/d3/pro', root=US_MINOR_DIR)
-
     load_standings_standard('us_minor', 'standings/d3/usl_pro', root=US_MINOR_DIR)
     load_standings_standard('us_minor', 'standings/d3/select', root=US_MINOR_DIR)
+ 
+   # d4
+    """
+    load_standings_standard('us_minor', 'standings/d4/pdl', root=US_MINOR_DIR)
+    load_standings_standard('us_minor', 'standings/d4/pdl_2012', root=US_MINOR_DIR)
+    load_standings_standard('us_minor', 'standings/d4/pdl_2013', root=US_MINOR_DIR)
+    """
+
+    # stats
+
+
+    print("loading apsl stats")
+    apsl_stats = stats.process_stats("stats/d2/apsl", root=US_MINOR_DIR)
+    generic_load(soccer_db.us_minor_stats, apsl_stats)
+    print("loading apsl partial stats")
+    generic_load(soccer_db.us_minor_stats, partial.process_apsl_partial)
+
+    generic_load(soccer_db.us_minor_stats, process_usl1_stats)
+
+    for e in range(2011, 2014):
+        generic_load(soccer_db.us_minor_stats, stats.process_stats("stats/d2/%s" % e, root=US_MINOR_DIR, delimiter=';'))
+
+    generic_load(soccer_db.us_minor_stats, process_usl2_stats)
+    #generic_load(soccer_db.us_minor_stats, process_pdl_stats)
+
+
+    generic_load(soccer_db.us_minor_rosters, lambda: rosters.process_rosters3('rosters/d2/2012', root=US_MINOR_DIR))
+
+    generic_load(soccer_db.us_minor_rosters, lambda: rosters.process_rosters3('rosters/d2/2014', root=US_MINOR_DIR))
+
+    generic_load(soccer_db.us_minor_rosters, lambda: flatten_stats(soccer_db.us_minor_stats.find()))
+
+    # games
+    for e in range(1984, 2015):
+        load_games_standard('us_minor', 'games/d2/%s' % e, root=US_MINOR_DIR)
+
+    """
+    for e in range(1985, 1991):
+        load_games_standard('us_minor', 'games/d3/wsa/%s' % e, root=US_MINOR_DIR)
 
     for e in range(2003, 2015):
         load_games_standard('us_minor', 'games/d3/%s' % e, root=US_MINOR_DIR)
 
-    load_games_standard('us_minor', 'games/playoffs/usl2', root=US_MINOR_DIR)
+    # Adapt parse.games to handle PDL hours correctly.
+    for e in range(2007, 2015):
+        load_games_standard('us_minor', 'games/d4/pdl/%s' % e, root=US_MINOR_DIR)
+    """
 
+    load_games_standard('us_minor', 'games/playoffs/apsl', root=US_MINOR_DIR)
+    load_games_standard('us_minor', 'games/playoffs/wsa', root=US_MINOR_DIR)
+    load_games_standard('us_minor', 'games/apsl_professional', root=CUPS_DIR)  # this is a league cup.
+    load_games_standard('us_minor', 'games/playoffs/usl1', root=US_MINOR_DIR)
+    load_games_standard('us_minor', 'games/playoffs/usl2', root=US_MINOR_DIR)
 
 
 def load_afc():
@@ -1699,7 +1692,7 @@ def load_uncaf_international():
 
 def load_world_international():
     from soccerdata.text import awards
-    from donelli.parse import rosters
+    from parse.parse import rosters
 
     generic_load(soccer_db.world_i_awards, awards.process_world_cup_awards)
     generic_load(soccer_db.world_i_awards, awards.process_olympics_awards)
@@ -1737,7 +1730,7 @@ def load_world_international():
 
 def load_isl2():
     from soccerdata.text import awards
-    from donelli.parse import rosters
+    from parse.parse import rosters
 
     h = lambda fn: os.path.join(ISL_DIR, fn)
 
@@ -1749,7 +1742,7 @@ def load_isl2():
 
 def load_world():
     from soccerdata.text import awards
-    from donelli.parse import rosters
+    from parse.parse import rosters
     generic_load(soccer_db.world_awards, awards.process_world_awards)
 
 
@@ -1892,7 +1885,7 @@ def load_concacaf_international():
 
 def load_concacaf():
     from soccerdata.text import awards
-    from donelli.parse import rosters
+    from parse.parse import rosters
 
     for e in range(2008, 2012):
         generic_load(soccer_db.concacaf_rosters, lambda: rosters.process_rosters3('rosters/league/%s' % e, root=CONCACAF_DIR))
