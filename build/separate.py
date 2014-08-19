@@ -24,6 +24,36 @@ def from_seasons(competition, seasons):
 
 sep_names = {
 
+    'Dejair': [
+        ('Dejair Jorge Ferreira', {'team': 'Chivas USA' }),
+        ],
+
+
+    'Denilson': [
+        ('Denílson de Oliveira Araújo', {'team': 'FC Dallas' }),
+        ('Denílson de Oliveira Araújo', {'team': 'Palmeiras' }),
+        ('Denílson de Oliveira Araújo', {'team': 'Real Betis' }),
+        ('Denílson de Oliveira Araújo', {'team': 'Flamengo' }),
+
+        ('Denílson Pereira Neves', {'team': 'Arsenal' }),
+
+        ],
+
+    'Eduardo': [
+        ('Eduardo Adelino da Silva', {'team': 'San Jose Earthquakes' }),
+        ],
+
+    'Erick': [
+        ('Erick Neres da Cruz', {'team': 'FC Dallas', }),
+        ('Erick Neres da Cruz', {'team': 'FC Dallas Reserves', }),
+        ],
+
+    'Jenison': [
+        ('Jenison Brito', {'team': 'Fort Lauderdale Striekrs', }),
+        ],
+
+
+
     'Jorge Flores': [
         ('Jorge Villafaña', {'team': 'Chivas USA' }),
         ('Jorge Villafaña', {'team': 'Chivas USA Reserves' }),
@@ -33,6 +63,45 @@ sep_names = {
         ('Juninho Paulista', {'team': 'Middlesbrough' }),
         ('Juninho Pernambucano', {'team': 'New York Red Bulls' }),
         ('Vitor Gomes Pereira Júnior', {'team': 'LA Galaxy' }),
+        ],
+
+    'Maykon': [
+        ('Maykon Daniel Elias Araújo', {'team': 'Ottawa Fury' }),
+        ],
+
+
+    'Michel': [
+        ('Michel Garbini Pereira', {'team': 'FC Dallas', }),
+        ],
+
+    'Oliver': [
+        ('Oliver Minatel', {'team': 'Ottawa Fury' }),
+        ],
+
+
+    'Pablo Hernandez': [
+        ('Pedro Pablo Hernández', {'team': 'DC United', }),
+        
+        ],
+
+
+
+    'Pablo Campos': [
+        ('Pablo Campos Zamorano', {'team': 'Cruz Azul'}),
+        ],
+
+
+    'Ricardinho': [
+        ('Ricardo Alves Pereira', {'team': 'FC Dallas' }),
+        ('Ricardo Alves Pereira', {'team': 'FC Dallas Reserves' }),
+        ('Ricardo Alves Pereira', {'team': 'FC Tokyo' }),
+        ('Ricardo Alves Pereira', {'team': 'Ponte Preta' }),
+        ],
+
+    'Ronaldo': [
+        ('Cristiano Ronaldo', {'team': 'Manchester United' }),
+        ('Ronaldo Luís Nazário de Lima', {'team': 'AC Milan' }),
+        ('Ronaldo Luís Nazário de Lima', {'team': 'Inter Milan' }),
         ],
 
     'Thiago': [
@@ -56,7 +125,7 @@ sep_teams = {
     'Saint Louis': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Saint Louis University')],
     'Maryland': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Maryland')],
     'West Chester': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'West Chester University')],
-    'Connecticut': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Connecticut')],
+
     'CCNY': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'City College of New York')],
     'Stanford': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Stanford University')],
     'Furman': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Furman University')],
@@ -121,7 +190,7 @@ sep_teams = {
     'St. Francis (Brooklyn)': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'St. Francis College')],
 
     'Fairfield': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Fairfield University')],
-    'Charlotte': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'UNC Charlotte')],
+
 
     'Delaware': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Delaware')],
 
@@ -141,6 +210,16 @@ sep_teams = {
         (from_competition('CONCACAF Cup Winners Cup'), 'CD Aguila'),
         (from_competition('Copa Interclubes UNCAF'), 'CD Aguila'),
         ],
+
+    'Albany': [
+        (from_seasons('American Professional Soccer League', set(['1989', '1990'])), 'Albany Capitals'),
+        ],
+
+    'Albuquerque': [
+        (from_seasons('USL First Division', set(['1997', '1998'])), 'Albuquerque Geckos'),
+        ],
+
+
 
     'Alianza': [
         (from_competition('Salvadoran Primera División'), 'Alianza F.C.'),
@@ -186,6 +265,12 @@ sep_teams = {
     #'Atlanta': [
     #    (from_competition('Argentine Primera División'), 'Racing Club de Avellaneda'),
     #    ],
+
+    'Atlanta': [
+        (from_seasons('USL First Division', set(['1997'])), 'Atlanta Ruckus'),
+        (from_seasons('American Professional Soccer League', set(['1995'])), 'Atlanta Ruckus'),
+        ],
+
 
     'Atlético Nacional': [
         (from_competition('Liga Panameña de Fútbol'), 'Atlético Nacional (Panama)'),
@@ -248,6 +333,7 @@ sep_teams = {
         (from_seasons('American Soccer League (1933-1983)', set(['1934-1935'])), 'Boston Bears'),
         (from_seasons('American Soccer League (1933-1983)', set(['1969'])), 'Boston Astros'),
         (from_competition('North American Soccer League (indoor)'), 'Boston Minutemen'),
+        (from_seasons('American Professional Soccer League', set(['1989', '1990'])), 'Boston Bolts'),
         ],
 
     'Boston SC': [
@@ -314,6 +400,7 @@ sep_teams = {
     'California': [
         (from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of California, Berkeley'),
         (from_competition('North American Soccer League (indoor)'), 'California Surf'),
+        (from_seasons('USL First Division', set(['1997','1998'])), 'California Jaguars'),
         ],
 
 
@@ -321,9 +408,8 @@ sep_teams = {
         (from_competition('Premier League'), 'Cardiff City'),
         ],
 
-
-
     'Carolina': [
+        (from_seasons('USL First Division', set(['1997'])), 'Carolina Dynamo'),
         (from_competition('Continental Indoor Soccer League'), 'Carolina Vipers'),
         ],
 
@@ -344,6 +430,14 @@ sep_teams = {
         (from_competition('Liga de Fútbol Profesional Boliviano'), 'Chaco Petrolero'),
         ],
 
+    'Charleston': [
+        (from_seasons('USL First Division', set(['1997', '1998', '2001', '2002','2003'])), 'Charleston Battery'),
+        ],
+
+    'Charlotte': [
+        (from_competition('NCAA Division I Men\'s Soccer Championship'), 'UNC Charlotte'),
+        (from_seasons('USL First Division', set(['2001','2002'])), 'Charlotte Eagles'),
+        ],
 
     'Chicago': [
         (from_competition('Major League Soccer'), 'Chicago Fire'),
@@ -360,6 +454,11 @@ sep_teams = {
         (from_competition('USL Premier Developmental League'), 'Chicago Fire (PDL)'),
         ],
 
+    'Cincinnati': [
+        (from_seasons('USL First Division', set(['1998'])), 'Cincinnati Riverhawks'),
+        ],
+
+
     'Cleveland': [
         (from_seasons('Major Indoor Soccer League (1978-1992)', set(['1978-1979', '1979-1980', '1980-1981', '1981-1982', '1982-1983', '1983-1984', '1984-1985', '1985-1986', '1986-1987', '1987-1988'])), 'Cleveland Force'),
         (from_seasons('Major Indoor Soccer League (1978-1992)', set(['1989-1990', '1990-1991', '1991-1992'])), 'Cleveland Crunch'),
@@ -368,11 +467,18 @@ sep_teams = {
 
     'Colorado': [
         (from_competition('Major League Soccer'), 'Colorado Rapids'),
+        (from_seasons('USL First Division', set(['1997'])), 'Colorado Foxes'),
+        (from_seasons('American Professional Soccer League', set(['1994', '1995','1996'])), 'Colorado Foxes'),        
         ],
 
 
     'Columbus': [
         (from_competition('Major League Soccer'), 'Columbus Crew'),
+        ],
+
+    'Connecticut': [
+        (from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Connecticut'),
+        (from_seasons('USL First Division', set(['1997','1998'])), 'Connecticut Wolves'),
         ],
 
 
@@ -442,6 +548,9 @@ sep_teams = {
         (from_competition('North American Soccer League (indoor)'), 'Edmonton Drillers'),
         ],
 
+    'El Paso': [
+        (from_seasons('USL First Division', set(['1997','1998','2002'])), 'El Paso Patriots'),
+        ],
 
     'España': [
         (from_competition('Liga Nacional de Honduras'), 'Real C.D. España'),
@@ -473,6 +582,7 @@ sep_teams = {
 
     'Fort Lauderdale': [
         (from_competition('North American Soccer League (indoor)'), 'Fort Lauderdale Strikers'),
+        (from_seasons('American Professional Soccer League', set(['1989', '1990', '1994'])), 'Fort Lauderdale Strikers'),
         ],
 
 
@@ -511,6 +621,11 @@ sep_teams = {
 
         ],
 
+    'Hampton Roads': [
+        (from_seasons('USL First Division', set(['1997','1998'])), 'Hampton Roads Mariners'),
+        ],
+
+
     'Harrison': [
         (from_seasons('American Soccer League (1921-1933)', set(['1921-1922', '1922-1923', '1923-1924'])), 'Harrison SC'),
         ],
@@ -530,6 +645,11 @@ sep_teams = {
         (from_competition('Liga Nacional de Guatemala'), 'Heredia Jaguares de Peten'),
         (from_competition('Primera División de Costa Rica'), 'CS Herediano'),
         ],
+
+    'Hershey': [
+        (from_seasons('USL First Division', set(['1997', '1998', ])), 'Hershey Wildcats'),
+        ],
+
 
     'Hispano': [
         (from_competition('American Soccer League (1933-1983)'), 'Brooklyn Hispano'),
@@ -577,9 +697,9 @@ sep_teams = {
         (from_competition('American Soccer League (1921-1933)'), 'Jersey City (ASL)'),
         ],
 
-
     'Jacksonville': [
         (from_competition('North American Soccer League (indoor)'), 'Jacksonville Tea Men'),
+        (from_seasons('USL First Division', set(['1997', '1998'])), 'Jacksonville Cyclones'),
         ],
 
     'Junior': [
@@ -610,6 +730,11 @@ sep_teams = {
         (from_competition('Russian Premier League'), 'Lokomotiv Moscow'),
         ],
 
+    'Long Island': [
+        (from_seasons('USL First Division', set(['1997','1998'])), 'Long Island Rough Riders'),
+        ],
+
+
     'Los Andes': [
         (from_competition('Argentine Primera División'), 'Los Andes de Lomas de Zamora'),
         ],
@@ -618,6 +743,7 @@ sep_teams = {
         (from_competition('Major Indoor Soccer League (1978-1992)'), 'Los Angeles Lazers'),
         (from_competition('North American Soccer League (indoor)'), 'Los Angeles Aztecs'),
         (from_competition('Continental Indoor Soccer League'), 'Los Angeles United'),
+        (from_seasons('American Professional Soccer League', set(['1994'])), 'Los Angeles Salsa'),
         ],
 
     'Ludlow': [
@@ -633,6 +759,11 @@ sep_teams = {
         (from_competition('Salvadoran Primera División'), 'C.D. Atlético Marte'),
         ],
 
+    'Maryland': [
+        (from_seasons('American Professional Soccer League', set(['1989', '1990'])), 'Maryland Bays'),
+        ],
+
+
     'Memphis': [
         (from_competition('Major Indoor Soccer League (1978-1992)'), 'Memphis Americans'),
         ],
@@ -643,18 +774,22 @@ sep_teams = {
 
     'Miami': [
         (from_competition('North American Soccer League (indoor)'), 'Miami Toros'),
+        (from_seasons('American Professional Soccer League', set(['1989', '1990'])), 'Miami Sharks'),
         ],
 
     'Milwaukee': [
         (from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Wisconsin-Milwaukee'),
         (from_competition('Major Indoor Soccer League (2008-2014)'), 'Milwaukee Wave'),
+        (from_seasons('USL First Division', set(['1997', '1998', '2001', '2002'])), 'Milwaukee Rampage'),
         ],
 
 
     'Minnesota': [
         (from_competition('Major Indoor Soccer League (1978-1992)'), 'Minnesota Strikers'),
         (from_competition('North American Soccer League (indoor)'), 'Minnesota Strikers'),
+        (from_seasons('USL First Division', set(['1997', '1998', '2002', '2003'])), 'Minnesota Thunder'),
         ],
+
 
     'Missouri': [
         (from_competition('Major Indoor Soccer League (2008-2014)'), 'Missouri Comets'),
@@ -674,6 +809,8 @@ sep_teams = {
 
     'Montreal': [
         (from_competition('North American Soccer League (indoor)'), 'Montreal Manic'),
+        (from_seasons('USL First Division', set(['1997', '1998', '2002'])), 'Montreal Impact'),        
+        (from_seasons('American Professional Soccer League', set(['1994', '1995', '1996'])), 'Montreal Impact'),
         ],
 
 
@@ -682,6 +819,11 @@ sep_teams = {
         (from_competition('Categoría Primera A'), 'Atlético Nacional'),
         (from_competition('Liga Panameña de Fútbol'), 'Atlético Nacional (Panama)'),
         ],
+
+    'Nashville': [
+        (from_seasons('USL First Division', set(['1997', '1998', '2001'])), 'Nashville Metros'),
+        ],
+
 
     'Necaxa': [
         (from_competition('Liga Nacional de Honduras'), 'CD Necaxa'),
@@ -705,7 +847,13 @@ sep_teams = {
 
     'New Jersey': [
         (from_competition('Major Indoor Soccer League (1978-1992)'), 'New Jersey Rockets'),
+        (from_seasons('American Professional Soccer League', set(['1989'])), 'New Jersey Eagles'),
         ],
+
+    'New Orleans': [
+        (from_seasons('USL First Division', set(['1997', '1998'])), 'New Orleans Riverboat Gamblers'),
+        ],
+
 
     'New York': [
         (from_seasons('American Soccer League (1921-1933)', set(['1921-1922', '1922-1923', '1923-1924'])), 'New York Field Club'),
@@ -714,6 +862,8 @@ sep_teams = {
         (from_seasons('Major Indoor Soccer League (1978-1992)',  set(['1978-1979', '1979-1980', '1980-1981', '1981-1982', '1982-1983', '1983-1984'])), 'New York Arrows'),
         (from_seasons('Major Indoor Soccer League (1978-1992)',  set(['1984-1985'])), 'New York Cosmos'),
         (from_seasons('Major Indoor Soccer League (1978-1992)',  set(['1986-1987'])), 'New York Express'),
+        (from_seasons('American Professional Soccer League', set(['1995'])), 'New York Centaurs'),
+        (from_seasons('American Professional Soccer League', set(['1996',])), 'New York Fever'),
         ],
 
     'New York Giants': [
@@ -764,7 +914,15 @@ sep_teams = {
     'Omaha': [
         (from_competition('Major Indoor Soccer League (2008-2014)'), 'Omaha Vipers'),
         ],
+    
+    'Orange County': [
+        (from_seasons('USL First Division', set(['1997','1998'])), 'Orange County Blue Star'),
+        ],
 
+    'Orlando': [
+        (from_seasons('American Professional Soccer League', set(['1989', '1990'])), 'Orlando Lions'),
+        (from_seasons('USL First Division', set(['1997'])), 'Orlando Sundogs'),
+        ],
 
     'Paris': [
         (from_competition('Ligue 1'), 'Paris Saint-Germain'),
@@ -788,6 +946,10 @@ sep_teams = {
     'Paysandu': [
         (from_competition('Uruguayan Primera División'), 'Paysandu FC'),
         (from_competition('Copa Libertadores'), 'Paysandu Sport Club')
+        ],
+
+    'Penn-Jersey': [
+        (from_seasons('American Professional Soccer League', set(['1990'])), 'Penn-Jersey Spirit'),
         ],
 
 
@@ -814,6 +976,7 @@ sep_teams = {
         (from_competition('Continental Indoor Soccer League'), 'Pittsburgh Stingers'),
         (from_competition('Major Indoor Soccer League (1978-1992)'), 'Pittsburgh Spirit'),
         (from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Pittsburgh'),
+        (from_seasons('USL First Division', set(['2001',])), 'Pittsburgh Riverhounds'),
         ],
 
 
@@ -822,6 +985,8 @@ sep_teams = {
         (from_competition('Continental Indoor Soccer League'), 'Portland Pride'),
         (from_competition('World Indoor Soccer League'), 'Portland Pythons'),
         (from_competition('North American Soccer League (indoor)'), 'Portland Timbers'),
+        (from_competition('Western Soccer League'), 'Portland Timbers'),
+        (from_seasons('USL First Division', set(['2001','2002',])), 'Portland Timbers'),
         ],
 
 
@@ -859,9 +1024,13 @@ sep_teams = {
         (from_competition('Liguilla Pre-Libertadores de América (Uruguay)'), 'Racing Club de Montevideo'),
         (from_competition('Uruguayan Primera División'), 'Racing Club de Montevideo'),
         (from_competition('Argentine Primera División'), 'Racing Club de Avellaneda'),
-        (from_competition('Campeonato Metropolitano (Argentina)'), 'Racing Club de Avellaneda'),
-        
+        (from_competition('Campeonato Metropolitano (Argentina)'), 'Racing Club de Avellaneda'),        
         ],
+
+    'Raleigh': [
+        (from_seasons('USL First Division', set(['1997','1998'])), 'Raleigh Flyers'),
+        ],
+
 
     'Rangers': [
         (from_competition('Chilean Primera División'), 'Rangers de Talca'),
@@ -879,6 +1048,11 @@ sep_teams = {
         (from_competition('La Liga'), 'Recreativo Huelva'),
         ],
 
+    'Richmond': [
+        (from_seasons('USL First Division', set(['1997', '1998', '2002'])), 'Richmond Kickers'),
+        ],
+
+
 
     'River Plate': [
         (from_competition('Uruguayan Primera División'), 'River Plate (Montevideo)'),
@@ -891,6 +1065,8 @@ sep_teams = {
     'Rochester': [
         (from_competition('North American Soccer League (indoor)'), 'Rochester Lancers'),
         (from_competition('Major Indoor Soccer League (2008-2014)'), 'Rochester Lancers'),
+        (from_seasons('American Professional Soccer League', set(['1996',])), 'Rochester Rhinos'),
+        (from_seasons('USL First Division', set(['1997','1998','2002','2003'])), 'Rochester Rhinos'),
         ],
 
 
@@ -920,6 +1096,7 @@ sep_teams = {
         (from_competition('World Indoor Soccer League'), 'San Diego Sockers'),
         (from_competition('North American Soccer League (indoor)'), 'San Diego Sockers'),
         (from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of San Diego'),
+        (from_seasons('USL First Division', set(['1998','2001','2002',])), 'San Diego Flash'),
         ],
 
     'San Francisco': [
@@ -928,6 +1105,11 @@ sep_teams = {
         (from_competition('Copa Interclubes UNCAF'), 'San Francisco FC'),
         (from_competition('CONCACAF Champions League'), 'San Francisco FC'),
         (from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of San Francisco'),
+        ],
+
+    'San Francisco Bay': [
+        (from_seasons('American Professional Soccer League', set(['1990',])), 'San Francisco Bay Blackhawks'),
+        (from_seasons('USL First Division', set(['1998',])), 'San Francisco Bay Seals'),
         ],
 
     'San Jose': [
@@ -990,6 +1172,8 @@ sep_teams = {
         (from_competition('NCAA Division I Men\'s Soccer Championship'), 'Seattle University'),
         (from_competition('Continental Indoor Soccer League'), 'Seattle SeaDogs'),
         (from_competition('North American Soccer League (indoor)'), 'Seattle Sounders'),
+        (from_seasons('USL First Division', set(['1996', '1997', '1998', '2002', '2003'])), 'Seattle Sounders'),
+        (from_seasons('American Professional Soccer League', set(['1994','1995','1996'])), 'Seattle Sounders'),
         ],
 
 
@@ -1047,10 +1231,14 @@ sep_teams = {
         ],
 
 
-
     'Standard': [
         (from_competition('Belgian Pro League'), 'Standard Liège'),
         ],
+
+    'Staten Island': [
+        (from_seasons('USL First Division', set(['1998'])), 'Staten Island Vipers'),
+        ],
+
 
     'Sturm': [
         (from_competition('Austrian Bundesliga'), 'Sturm Graz'),
@@ -1074,9 +1262,6 @@ sep_teams = {
         (from_competition('Copa Mercosur'), 'Talleres de Córdoba',),
         ],
 
-    'Toronto': [
-        (from_competition('North American Soccer League (indoor)'), 'Toronto Blizzard'),
-        ],
 
     'Tampa': [
         (from_competition('North American Soccer League (indoor)'), 'Tampa Bay Rowdies'),
@@ -1085,6 +1270,7 @@ sep_teams = {
 
     'Tampa Bay': [
         (from_competition('North American Soccer League (indoor)'), 'Tampa Bay Rowdies'),
+        (from_seasons('American Professional Soccer League', set(['1989', '1990'])), 'Tampa Bay Rowdies'),
         ],
 
 
@@ -1092,7 +1278,11 @@ sep_teams = {
         (from_seasons('American Soccer League (1921-1933)', set(['1921-1922'])), 'Todd Shipyards'),
         ],
 
-
+    'Toronto': [
+        (from_competition('North American Soccer League (indoor)'), 'Toronto Blizzard'),
+        (from_seasons('American Professional Soccer League', set(['1994'])), 'Toronto Rockets'),
+        (from_seasons('USL First Division', set(['1997'])), 'Toronto Lynx'),
+        ],
 
     'Tulsa': [
         (from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Tulsa'),
@@ -1143,7 +1333,9 @@ sep_teams = {
     'Vancouver': [
         (from_competition('North American Soccer League (indoor)'), 'Vancouver Whitecaps'),
         (from_competition('Western Soccer League'), 'Vancouver Whitecaps'), # i suspect
-        
+        (from_seasons('USL First Division', set(['1997'])), 'Vancouver 86ers'),        
+        (from_seasons('USL First Division', set(['1998', '2002'])), 'Vancouver Whitecaps'),        
+        (from_seasons('American Professional Soccer League', set(['1994', '1995','1996'])), 'Vancouver Whitecaps'),
         ],
 
 
@@ -1191,6 +1383,10 @@ sep_teams = {
     'Wichita': [
         (from_competition('Major Indoor Soccer League (1978-1992)'), 'Wichita Wings'),
         (from_competition('Major Indoor Soccer League (2008-2014)'), 'Wichita Wings'),
+        ],
+
+    'Worcester': [
+        (from_seasons('USL First Division', set(['1997', '1998'])), 'Worcester Wildfire')
         ],
 
     'YB': [
