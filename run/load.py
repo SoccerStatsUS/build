@@ -11,7 +11,6 @@ from build.alias.teams import check_for_team_loops, get_team
 from build.mongo import generic_load, soccer_db
 from build.settings import ROOT_DIR
 
-from foulds.cache import data_cache, set_cache
 from parse.parse import stats, games, standings
 
 GAMES_DIR = os.path.join(ROOT_DIR, "soccerdata/data/games")
@@ -162,7 +161,7 @@ def load_advanced():
     load_salaries()
 
     # news feee data
-    load_news()
+    #load_news()
 
 
 
@@ -178,9 +177,8 @@ def load_by_subject():
     """
 
     load_domestic()
-
-    load_outer()
     return
+    load_outer()
     load_women()
     load_indoor()
     load_amateur()
@@ -201,16 +199,13 @@ def load_international():
 
 
 def load_domestic():
-    #load_usd1()    
-    load_us_minor()
+    load_conmebol()
     return
 
+    load_usd1()    
+    load_us_minor()
     load_concacaf()
     load_uefa()
-
-
-
-    load_conmebol()
     load_afc()
     load_us_cups()
     load_world()
@@ -291,10 +286,10 @@ def load_bios():
     generic_load(soccer_db.asl_bios, bios.process_asl_bios)
 
     #print("Loading MLSsoccer.com player bios.")
-    generic_load(soccer_db.mls_bios, mlssoccer.scrape_all_bios)
+    #generic_load(soccer_db.mls_bios, mlssoccer.scrape_all_bios)
 
     #generic_load(soccer_db.mls_bios, mlsnet.scrape_2005_bios)
-    generic_load(soccer_db.mls_bios, mlsnet.scrape_2001_bios)
+    #generic_load(soccer_db.mls_bios, mlsnet.scrape_2001_bios)
 
     generic_load(soccer_db.fifa_bios, bios.process_world_cup_bios)
     generic_load(soccer_db.nasl_bios, bios.process_misl_bios)

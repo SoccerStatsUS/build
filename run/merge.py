@@ -1,5 +1,5 @@
-from smid.mongo import generic_load, soccer_db, insert_rows, insert_row
-from smid.settings import SOURCES
+from build.mongo import generic_load, soccer_db, insert_rows, insert_row
+from build.settings import SOURCES
 
 from collections import defaultdict
 import datetime

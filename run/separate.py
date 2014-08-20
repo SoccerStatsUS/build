@@ -1,20 +1,15 @@
 #!/usr/local/bin/env python
 # -*- coding: utf-8 -*-
 
-from smid.alias import get_team
+from build.alias import get_team, get_competition
 
 
 
 
 # Use a partial? memoize?
 def from_competition(competition):
-    from smid.alias import get_competition
 
-    try:
-        c2 = get_competition(competition)
-    except:
-        import pdb; pdb.set_trace()
-
+    c2 = get_competition(competition)
     return lambda d: get_competition(d['competition']) == c2
 
 

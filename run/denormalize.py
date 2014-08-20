@@ -2,8 +2,8 @@ from collections import defaultdict
 import datetime
 import os
 
-from smid.alias import get_team
-from smid.mongo import soccer_db, insert_rows, generic_load
+from build.alias import get_team
+from build.mongo import soccer_db, insert_rows, generic_load
 
 def denormalize():
     """
@@ -28,7 +28,7 @@ def denormalize():
     denormalize_stats()
 
     
-def denormalize_games()
+def denormalize_games():
 
     l = []
     for e in soccer_db.games.find():

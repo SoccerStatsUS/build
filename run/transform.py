@@ -1,7 +1,7 @@
 from collections import defaultdict
 
-from smid.mongo import generic_load, soccer_db, insert_rows, insert_row
-from smid.alias import get_team
+from build.mongo import generic_load, soccer_db, insert_rows, insert_row
+from build.alias import get_team
 
 from settings import SOURCES
 

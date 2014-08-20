@@ -1,4 +1,4 @@
-from smid import mongo
+from build import mongo
 
 import datetime
 

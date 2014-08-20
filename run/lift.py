@@ -1,6 +1,6 @@
 from settings import SOURCES
 
-from smid.mongo import generic_load, soccer_db, insert_rows, insert_row, soccer_db
+from build.mongo import generic_load, soccer_db, insert_rows, insert_row, soccer_db
 
 # This is where I convert data like
 # Stark (Bethlehem Steel, ASL, 1924-1925) -> Archie Stark

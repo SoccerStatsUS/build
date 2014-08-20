@@ -1,6 +1,6 @@
 from collections import defaultdict
 
-from smid.mongo import soccer_db, insert_rows, generic_load
+from build.mongo import soccer_db, insert_rows, generic_load
 from standings import get_standings
 
 # I think I should just generate standings directly from soccer_db.games.
@@ -32,7 +32,7 @@ def stadiums_to_teams():
     # Used to infer home teams given a stadium.
 
     from soccerdata.text import stadiummap
-    from smid.alias import get_stadium, get_team
+    from build.alias import get_stadium, get_team
 
     d = defaultdict(set)
 
@@ -53,7 +53,7 @@ def make_stadium_getter():
     # Not sure how to extract.
     
     from soccerdata.text import stadiummap
-    from smid.alias import get_stadium, get_team
+    from build.alias import get_stadium, get_team
 
     d = defaultdict(list)
     for x in stadiummap.load():

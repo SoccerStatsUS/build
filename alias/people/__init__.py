@@ -1,13 +1,11 @@
 #!/usr/local/bin/env python
 # -*- coding: utf-8 -*-
 
-#from django.template.defaultfilters import slugify
-
-from smid.alias.people.partial import partial
-from smid.alias.people.last import last_names
-from smid.alias.people.nonpeople import nonpeople
-from smid.alias.people.usmnt import usmnt
-from smid.alias.people.basic import basic
+from build.alias.people.partial import partial
+from build.alias.people.last import last_names
+from build.alias.people.nonpeople import nonpeople
+from build.alias.people.usmnt import usmnt
+from build.alias.people.basic import basic
 
 def get_name(name):
     # Add last name normalize option?
