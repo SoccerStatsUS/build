@@ -9,6 +9,7 @@ sudo apt-get install git-core python3-pip mongodb-org emacs
 
 emacs .bashrc 
 # add equivalent to `export PYTHONPATH=$PYTHONPATH:/home/chris/bin:/home/chris/www:/home/chris/repos:/home/chris/soccer`
+source .bashrc
 
 mkdir soccer/
 cd soccer/
