@@ -4,6 +4,7 @@
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
 sudo apt-get update
+sudo apt-get upgrade
 
 # sudo apt-get install git-core mongodb-org emacs python3-pip  # python3-pip not in ubuntu 12.04
 sudo apt-get install git-core mongodb-org emacs python3-setuptools
@@ -17,10 +18,11 @@ mkdir soccer/
 cd soccer/
 git clone https://github.com/Soccerstats/parse.git
 git clone https://github.com/Soccerstats/metadata.git
-git clone https://github.com/Soccerstats/build.git
 git clone https://github.com/Soccerstats/nwsl-data.git
+git clone https://github.com/Soccerstats/build.git
+
 
 cd build/
 sudo pip3 install -r requirements3.txt 
 
-python3 run/b.py 
+python3 run/main.py 
