@@ -1,0 +1,139 @@
+Schema for data forms from mongo.
+
+Source
+ -name
+ -author
+ -base_url
+
+Place
+
+Competition
+ -name
+ -abbreviation
+ -code
+ -internatinal
+ -ctype
+ -level
+ -scope
+ -area
+
+Bio
+ -name
+ -birthdate
+ -birthplace
+ -deathdate
+ -deathplace
+ -sources
+
+
+Team
+ -name
+ -city
+ -founded
+ -dissolved
+
+Game
+ - gid
+ - competition
+ - season
+ - round
+ - group
+ - stage
+
+ - date
+
+
+ - team1
+ - team2
+ - home_team
+ - neutral
+
+ - result_unknown
+ - not_played
+ - forfeit
+
+ - team1_score
+ - team2_score
+ - team1_result
+ - team2_result
+ - shootout_winner
+
+ - location
+ - referee
+ - linesmen
+ - attendance
+ - minigame
+
+ - sources
+ - notes
+ - video
+ - minutes
+
+
+Goal
+ - gid #game id
+ - date
+ - competition
+ - season       
+ - goal
+ - assists
+ - minute
+
+ - team
+ - opponent
+
+* distinction between appearance and substitute needs to be clarified.
+Appearance
+ -player       
+ -on
+ -off
+ -order
+
+GameStat
+ - 
+
+
+Stat
+ -competition
+ -season
+ -team
+ -name
+
+ -games_played
+ -games_started
+ -minutes
+ -goals
+ -assists
+ -red_cards
+ -yellow_cards
+ -fouls_committed
+ -fouls_suffered
+
+
+
+Standing
+ -competition
+ -season
+ -team
+
+ -games
+ -wins
+ -ties
+ -losses
+ -shootout_wins
+ -shootout_losses
+ -points
+ -goals_for
+ -goals_against
+
+
+Roster
+ -competition
+ -season
+ -team
+ -name
+
+
+
+
+Mappings
