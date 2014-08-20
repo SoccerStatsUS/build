@@ -231,7 +231,7 @@ def load_outer():
 
 
 def load_mediotiempo():
-    from foulds.sites import mediotiempo
+    #from foulds.sites import mediotiempo
 
     games = mediotiempo.scrape_games(range(2000, 49000)) 
 
@@ -280,7 +280,7 @@ def load_news():
 def load_bios():
 
     from soccerdata.text import bios
-    from foulds.sites import mlsnet, mlssoccer
+    #from foulds.sites import mlsnet, mlssoccer
 
     print("Loading ASL Bios")
     generic_load(soccer_db.asl_bios, bios.process_asl_bios)
@@ -887,7 +887,7 @@ def load_women_domestic():
 
 
 def load_mlssoccer_season(url, competition):
-    from foulds.sites.mlssoccer import scrape_competition
+    #from foulds.sites.mlssoccer import scrape_competition
 
     games, goals, lineups = scrape_competition(url, competition)
 
@@ -923,12 +923,14 @@ def load_mls():
     generic_load(soccer_db.mls_stats, stats.process_stats("data/stats/mls/2012", source='MLSSoccer.com', root=USD1_DIR))
     generic_load(soccer_db.mls_stats, stats.process_stats("data/stats/mls/2013", source='MLSSoccer.com', root=USD1_DIR))
 
+    """
     u = 'http://www.mlssoccer.com/schedule?month=all&year=%s&club=all&competition_type=%s&broadcast_type=all&op=Search&form_id=mls_schedule_form'
 
     for year in (2011, 2012, 2013):
         load_mlssoccer_season(u % (year, 46), 'Major League Soccer')
         load_mlssoccer_season(u % (year, 45), 'MLS Cup Playoffs')
         load_mlssoccer_season(u % (year, 44), 'MLS Cup Playoffs')
+    """
 
     
 
