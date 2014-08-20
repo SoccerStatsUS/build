@@ -1,3 +1,5 @@
+# for building the website / postgres db
+
 sudo apt-get install python-pip python-dev postgresql-server-dev-all 
 sudo apt-get install postgresql
 

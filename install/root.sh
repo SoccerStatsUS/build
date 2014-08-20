@@ -1,3 +1,5 @@
+# for performing first, as root.
+
 echo "oscar" > /etc/hostname
 hostname -F /etc/hostname
 nano /etc/hosts
