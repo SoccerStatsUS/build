@@ -124,7 +124,8 @@ def load():
 
     load_metadata()
     load_by_subject()
-    load_advanced()
+    
+    #load_advanced()
 
 
 
@@ -146,7 +147,7 @@ def load_metadata():
 
 
 def load_advanced():
-    from soccerdata.text import drafts
+    from metadata.parse import drafts
 
     # drafts
 
@@ -246,7 +247,7 @@ def load_name_maps():
     Map team names to appropriate aliases
     eg FC Dallas -> Dallas Burn for 1996-2004
     """
-    from soccerdata.text import namemap
+    from metadata.parse import namemap
     generic_load(soccer_db.name_maps, namemap.load)
 
 
@@ -255,7 +256,7 @@ def load_competition_maps():
     Competition aliases.
     eg A-League / USL 1
     """
-    from soccerdata.text import competitionnamemap
+    from metadata.parse import competitionnamemap
     generic_load(soccer_db.competition_maps, competitionnamemap.load)    
 
 
@@ -264,12 +265,12 @@ def load_stadium_maps():
     Team to stadium mappings
     eg FC Dallas -> Dragon Stadium, 2003, 2003
     """
-    from soccerdata.text import stadiummap
+    from metadata.parse import stadiummap
     generic_load(soccer_db.stadium_maps, stadiummap.load)
 
 
 def load_sources():
-    from soccerdata.text import sources
+    from metadata.parse import sources
     generic_load(soccer_db.sources, sources.load)
 
 
@@ -280,7 +281,7 @@ def load_news():
 
 def load_bios():
 
-    from soccerdata.text import bios
+    from metadata.parse import bios
     #from foulds.sites import mlsnet, mlssoccer
 
     print("Loading ASL Bios")
@@ -315,7 +316,7 @@ def load_place_data():
     """
     Load place data.
     """
-    from soccerdata.text import places
+    from metadata.parse import places
 
     generic_load(soccer_db.countries, places.load_countries)
     generic_load(soccer_db.states, places.load_states)
@@ -325,7 +326,7 @@ def load_place_data():
 
 def load_us_cups():
 
-    from soccerdata.text import awards
+    from metadata.parse import awards
     from parse.parse import rosters
 
     generic_load(soccer_db.us_cups_awards, awards.process_american_cup_awards)
@@ -348,7 +349,7 @@ def load_us_cups():
 
 
 def load_canada():
-    from soccerdata.text import awards, partial
+    from metadata.parse import awards, partial
 
     load_standings_standard('canada', 'standings/canada/csl1', root=CONCACAF_DIR)
     load_standings_standard('canada', 'standings/canada/cnsl', root=CONCACAF_DIR)
@@ -369,7 +370,7 @@ def load_canada():
 
 
 def load_uncaf():
-    from soccerdata.text import awards
+    from metadata.parse import awards
 
     generic_load(soccer_db.concacaf_awards, awards.process_uncaf_awards)
 
@@ -430,7 +431,7 @@ def load_uefa():
 
 
 def load_uefa_leagues():
-    from soccerdata.text import awards
+    from metadata.parse import awards
 
     generic_load(soccer_db.uefa_awards, awards.process_uefa_awards)
     generic_load(soccer_db.uefa_awards, awards.process_england_awards)
@@ -442,7 +443,7 @@ def load_uefa_leagues():
 
 
 def load_caf():
-    from soccerdata.text import awards
+    from metadata.parse import awards
 
     #generic_load(soccer_db.uefa_awards, awards.process_caf_awards)
 
@@ -708,7 +709,7 @@ def load_conmebol_leagues():
 
 def load_conmebol_minor():
 
-    from soccerdata.text import awards
+    from metadata.parse import awards
 
     generic_load(soccer_db.conmebol_awards, awards.process_conmebol_league_awards)
 
@@ -755,7 +756,7 @@ def load_conmebol_minor():
 
 
 def load_argentina():
-    from soccerdata.text import awards
+    from metadata.parse import awards
 
     generic_load(soccer_db.conmebol_awards, awards.process_argentina_awards)
     
@@ -773,7 +774,7 @@ def load_argentina():
 
 
 def load_brazil():
-    from soccerdata.text import awards
+    from metadata.parse import awards
 
     load_standings_standard('conmebol', 'standings/brazil', root=CONMEBOL_DIR)
 
@@ -833,7 +834,7 @@ def load_women_international():
 
 
 def load_women_domestic():
-    from soccerdata.text import awards
+    from metadata.parse import awards
 
     generic_load(soccer_db.women_awards, awards.process_women_awards)
 
@@ -898,7 +899,7 @@ def load_mlssoccer_season(url, competition):
 
 
 def load_mls():
-    from soccerdata.text import awards
+    from metadata.parse import awards
 
     generic_load(soccer_db.mls_awards, awards.process_mls_awards)
 
@@ -939,7 +940,7 @@ def load_mls():
 
 
 def load_nafbl():
-    from soccerdata.text import awards
+    from metadata.parse import awards
 
     # Also loading ALPF and SNESL
     generic_load(soccer_db.asl_awards, awards.process_nafbl_awards, delete=False)
@@ -958,7 +959,7 @@ def load_nafbl():
 
 
 def load_city():
-    from soccerdata.text import awards
+    from metadata.parse import awards
 
     load_new_york()
     load_st_louis()
@@ -968,7 +969,7 @@ def load_city():
 
 
 def load_new_york():
-    from soccerdata.text import awards
+    from metadata.parse import awards
 
     #load_games_standard('state', 'domestic/country/usa/leagues/regional/metropolitan')
     #load_games_standard('state', 'domestic/country/usa/friendly/1900_ny')
@@ -1024,7 +1025,7 @@ def load_modern_friendly():
 
 
 def load_competitions():
-    from soccerdata.text import confederations, competitions, seasons
+    from metadata.parse import confederations, competitions, seasons
     print("Loading competitions.")
 
     soccer_db.confederations.drop()
@@ -1038,7 +1039,7 @@ def load_competitions():
 
 
 def load_teams():
-    from soccerdata.text import teams
+    from metadata.parse import teams
     print("Loading teams.")
     generic_load(soccer_db.teams, teams.load)
 
@@ -1095,7 +1096,7 @@ def load_copa_america():
     
 def load_asl():
     from usd1.parse import asl
-    from soccerdata.text import awards
+    from metadata.parse import awards
 
     generic_load(soccer_db.asl_awards, awards.process_asl_awards, delete=False)
     generic_load(soccer_db.asl_awards, awards.process_esl_awards, delete=False)
@@ -1127,7 +1128,8 @@ def load_alpf():
 
 
 def load_asl2():
-    from soccerdata.text import awards, partial
+    from metadata.parse import awards
+    from soccerdata.text import partial
     from parse.parse import rosters
 
     generic_load(soccer_db.us_minor_awards, awards.process_asl2_awards, delete=False)
@@ -1150,7 +1152,7 @@ def load_nasl():
     Load stats from the old nasl and misl.
     """
 
-    from soccerdata.text import awards
+    from metadata.parse import awards
     from parse.parse import rosters
 
     generic_load(soccer_db.nasl_awards, awards.process_nasl_awards)
@@ -1186,7 +1188,7 @@ def load_indoor():
     Load stats and games from the MISL, standings from MISL, APSL and WSA.
     """
 
-    from soccerdata.text import awards
+    from metadata.parse import awards
 
     generic_load(soccer_db.indoor_awards, awards.process_indoor_awards)
 
@@ -1280,7 +1282,8 @@ def load_us_minor():
 def load_modern_minor():
 
     from foulds.sites import nasl, uslsoccer
-    from soccerdata.text import awards, partial
+    from metadata.parse import awards
+    from soccerdata.text import  partial
     from soccerdata.text.cmp import nasl2 # remove this file.
     from soccerdata.text.cmp import apsl # remove this file.
 

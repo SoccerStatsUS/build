@@ -31,7 +31,7 @@ def stadiums_to_teams():
     """
     # Used to infer home teams given a stadium.
 
-    from soccerdata.text import stadiummap
+    from metadata.parse import stadiummap
     from build.alias import get_stadium, get_team
 
     d = defaultdict(set)
@@ -52,7 +52,7 @@ def make_stadium_getter():
     # This code is duplicated in sdev.
     # Not sure how to extract.
     
-    from soccerdata.text import stadiummap
+    from metadata.parse import stadiummap
     from build.alias import get_stadium, get_team
 
     d = defaultdict(list)

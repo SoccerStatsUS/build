@@ -125,7 +125,7 @@ def make_reverse_stadium_getter():
     # Unfinished since this seems ill-conceived.
     # Should return a list? This can be a little ambiguous.
     
-    from soccerdata.text import stadiummap
+    from metadata.parse import stadiummap
 
     d = defaultdict(list)
     for x in stadiummap.load():
@@ -162,7 +162,7 @@ def make_team_name_ungetter():
     """
     Given a canonical name, eg FC Dallas, return the time-specific name, e.g. Dallas Burn.
     """
-    from soccerdata.text import namemap
+    from metadata.parse import namemap
 
     d = defaultdict(list)
     for x in namemap.load():
@@ -204,7 +204,7 @@ def make_competition_name_ungetter():
     """
     Given a canonical name, eg US Open Cup, return the time-specific name, e.g. National Challenge Cup
     """
-    from soccerdata.text import competitionnamemap
+    from metadata.parse import competitionnamemap
 
     d = defaultdict(list)
     for x in namemap.load():
