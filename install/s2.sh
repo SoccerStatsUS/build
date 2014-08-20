@@ -2,6 +2,7 @@
 
 sudo apt-get install python-pip python-dev postgresql-server-dev-all 
 sudo apt-get install postgresql
+sudo apt-get install python3-psycopg2
 
 # Geodjango
 # sudo apt-get install binutils libproj-dev gdal-bin libxml2-dev
