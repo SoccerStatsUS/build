@@ -8,14 +8,14 @@ After that, create canonical lists that can be used for viewing or
 imported into socceroutsider.com for better relationships, etc.
 """
 
-from load import load
-from generate import generate
-from check import check
-from merge import merge
-from normalize import normalize
-from denormalize import denormalize
-from transform import transform
-from lift import lift
+from run.load import load
+from run.generate import generate
+from run.check import check
+from run.merge import merge
+from run.normalize import normalize
+from run.denormalize import denormalize
+from run.transform import transform
+from run.lift import lift
 
 # Load all possible games into various collections.
 # Try to merge all of those into a single games database.

@@ -1,16 +1,16 @@
 #!/usr/local/bin/env python
 # -*- coding: utf-8 -*-
 
-from smid.mongo import soccer_db
+from build.mongo import soccer_db
 
-from smid.alias.teams.international import international
-from smid.alias.teams.college import college
-from smid.alias.teams.generic import generic
-from smid.alias.teams.allstar import allstar
-from smid.alias.teams.mls import mls_abbreviations
-from smid.alias.teams.usl import usl_abbreviations
-from smid.alias.teams.usa import usa
-from smid.alias.teams.world import world
+from alias.teams.international import international
+from alias.teams.college import college
+from alias.teams.generic import generic
+from alias.teams.allstar import allstar
+from alias.teams.mls import mls_abbreviations
+from alias.teams.usl import usl_abbreviations
+from alias.teams.usa import usa
+from alias.teams.world import world
 
 teams = {}
 

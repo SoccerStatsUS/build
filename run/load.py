@@ -6,14 +6,12 @@
 import functools
 import os
 
-from smid.alias.people import check_for_name_loops
-from smid.alias.teams import check_for_team_loops, get_team
-from smid.mongo import generic_load, soccer_db
-
-from smid.settings import ROOT_DIR
+from build.alias.people import check_for_name_loops
+from build.alias.teams import check_for_team_loops, get_team
+from build.mongo import generic_load, soccer_db
+from build.settings import ROOT_DIR
 
 from foulds.cache import data_cache, set_cache
-
 from parse.parse import stats, games, standings
 
 GAMES_DIR = os.path.join(ROOT_DIR, "soccerdata/data/games")
@@ -48,7 +46,7 @@ def clear_all():
     """
     Clear all relevant mongo tables.
     """
-    from smid.settings import STAT_TABLES, SOURCES, SINGLE_SOURCES
+    from build.settings import STAT_TABLES, SOURCES, SINGLE_SOURCES
     for e in STAT_TABLES:
         soccer_db['%s' % e].drop()
 
