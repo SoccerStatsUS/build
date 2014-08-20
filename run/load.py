@@ -176,10 +176,11 @@ def load_by_subject():
     friendly: US friendly data
     """
 
-    load_domestic()
-    return
-    load_outer()
     load_women()
+    return
+    load_domestic()
+    load_outer()
+
     load_indoor()
     load_amateur()
     load_international()

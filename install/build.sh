@@ -16,8 +16,9 @@ cd soccer/
 git clone https://github.com/Soccerstats/build.git
 git clone https://github.com/Soccerstats/parse.git
 git clone https://github.com/Soccerstats/soccerdata.git
-git clone https://github.com/Soccerstats/conmebol-data.git
+git clone https://github.com/Soccerstats/nwsl-data.git
 
 cd build/
 sudo pip3 install -r requirements3.txt 
 
+python3 run/b.py 
