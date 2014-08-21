@@ -1101,10 +1101,7 @@ def load_transactions():
 
 def load_copa_america():
     from parse.parse import rosters
-    # Abort!
-    return    
-
-    #from soccerdata.text.cmp import copaamerica
+    from metadata.parse.cmp import copaamerica
 
     coll = 'conmebol_i'
     games, goals, fouls, lineups = copaamerica.process_copa_files()
@@ -1306,8 +1303,6 @@ def load_modern_minor():
     #from foulds.sites import nasl, uslsoccer
     from metadata.parse import awards
     #from soccerdata.text import  partial
-    #from soccerdata.text.cmp import nasl2 # remove this file.
-    #from soccerdata.text.cmp import apsl # remove this file.
 
     from parse.parse import rosters
 
