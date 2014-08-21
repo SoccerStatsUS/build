@@ -134,6 +134,27 @@ Roster
  -name
 
 
+Transaction
+ - date
+ - competition
+ - season
+ - person
+ - ttype: transaction type 
+ - team_to
+ - team_from
+
+
+transaction types: 
+ - sign, re-sign, weighted lottery, pick up option, draft pick
+ - decline option, waive, release, terminate, 
+ - loan, recall, 
+ - trade
+ - transfer
+ - retire
 
 
 Mappings
+ - team -> stadium
+ - team -> name
+ - competition -> name
+ - stadium -> name
