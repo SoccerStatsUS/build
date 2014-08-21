@@ -1,10 +1,55 @@
 # build code for soccerstats.us
 ### transform text data to structured data
 
-### build steps
+### how to build the database yourself on Ubuntu 14.02
 
-the build process consists of a series of steps
+# add mongo sources
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
 
+# update apt
+sudo apt-get update
+sudo apt-get upgrade
+
+# Install dependencies
+sudo apt-get install git-core mongodb-org emacs python3-setuptools
+sudo easy_install3 pip
+
+# Add to pythonpath
+
+emacs .bashrc 
+# add to .bashrc
+# export PYTHONPATH=$PYTHONPATH:/home/chris/bin:/home/chris/www:/home/chris/repos:/home/chris/soccer
+source .bashrc
+
+# Clone repositories
+
+mkdir soccer/
+cd soccer/
+git clone https://github.com/Soccerstats/parse.git
+git clone https://github.com/Soccerstats/metadata.git
+git clone https://github.com/Soccerstats/build.git
+git clone https://github.com/Soccerstats/nwsl-data.git
+
+# Install
+
+cd build/
+sudo pip3 install -r requirements3.txt 
+
+python3 run/main.py 
+
+
+
+
+# What is going on here?
+
+The creating and normalizing a database consists of a series of steps.
+
+The data is loaded first, then names and structures are regularized and transformed.
+
+Then, data is merged, and finally additional data is generated.
+
+Finally, data is denormalized (time and location-specific names) and (optionally) checked for accuracy.
 
 
 #### load
