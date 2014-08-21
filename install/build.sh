@@ -16,10 +16,10 @@ source .bashrc
 
 mkdir soccer/
 cd soccer/
-git clone https://github.com/Soccerstats/parse.git
-git clone https://github.com/Soccerstats/metadata.git
-git clone https://github.com/Soccerstats/nwsl-data.git
-git clone https://github.com/Soccerstats/build.git
+git clone https://github.com/SoccerstatsUS/parse.git
+git clone https://github.com/SoccerstatsUS/metadata.git
+git clone https://github.com/SoccerstatsUS/nwsl-data.git
+git clone https://github.com/SoccerstatsUS/build.git
 
 
 cd build/

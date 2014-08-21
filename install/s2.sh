@@ -19,7 +19,7 @@ sudo emacs /etc/postgresql/9.3/main/pg_hba.conf
 sudo service postgresql restart
 
 cd ~/soccer
-git clone https://github.com/Soccerstats/s2.git
+git clone https://github.com/SoccerstatsUS/s2.git
 cd s2
 
 # Add DEBUG, PROJECT_DIRNAME to custom_settings
