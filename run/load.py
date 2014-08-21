@@ -13,9 +13,6 @@ from build.settings import ROOT_DIR
 
 from parse.parse import stats, games, standings
 
-GAMES_DIR = os.path.join(ROOT_DIR, "soccerdata/data/games")
-STANDINGS_DIR = os.path.join(ROOT_DIR, "soccerdata/data/standings")
-
 
 USD1_DIR = os.path.join(ROOT_DIR, 'usd1_data')
 ASL2_DIR = os.path.join(ROOT_DIR, 'asl2-data')
@@ -28,10 +25,11 @@ CONMEBOL_DIR = os.path.join(ROOT_DIR, 'conmebol-data')
 CONCACAF_DIR = os.path.join(ROOT_DIR, 'concacaf-data')
 AFC_DIR = os.path.join(ROOT_DIR, 'afc-data')
 CAF_DIR = os.path.join(ROOT_DIR, 'caf-data')
+WORLD_DIR = os.path.join(ROOT_DIR, 'world-data')
 
 NCAA_DIR = os.path.join(ROOT_DIR, 'ncaa-data')
 NWSL_DIR = os.path.join(ROOT_DIR, 'nwsl_data')
-CUPS_DIR = os.path.join(ROOT_DIR, 'us-cups')
+CUPS_DIR = os.path.join(ROOT_DIR, 'us-cups-data')
 ISL_DIR = os.path.join(ROOT_DIR, 'isl-data')
 
 SIDEKICKS_DIR = os.path.join(ROOT_DIR, 'sidekicks')
@@ -57,7 +55,7 @@ def clear_all():
         soccer_db[e].drop()
 
 
-def load_games_standard(coll, fn, games_only=False, root=GAMES_DIR):
+def load_games_standard(coll, fn, root, games_only=False):
     """
     Load standard data from a standard games file.
     """
@@ -76,14 +74,14 @@ def load_games_standard(coll, fn, games_only=False, root=GAMES_DIR):
         generic_load(soccer_db['%s_rosters' % coll], lambda: rosters, delete=False)
 
 
-def load_standings_standard(coll, filename, delimiter=';', root=STANDINGS_DIR):
+def load_standings_standard(coll, filename, root, delimiter=';'):
     """Load standard standings."""
 
     print(filename)
     generic_load(soccer_db['%s_standings' % coll], lambda: standings.process_standings_file(os.path.join(root, filename), delimiter))
 
 
-def load_stats_standard(coll, filename, delimiter=';', root=STANDINGS_DIR):
+def load_stats_standard(coll, filename, root, delimiter=';'):
     """Load standard stats """
     print(filename)
     generic_load(soccer_db['%s_stats' % coll], lambda: stats.process_stats(os.path.join(root, filename), delimiter))
@@ -180,9 +178,10 @@ def load_by_subject():
     #load_women()
     load_domestic()
     #load_indoor()
-    load_international()
+    #load_international()
+    #load_outer()
     return
-    load_outer()
+
     load_amateur()
 
     load_friendly()
@@ -201,20 +200,19 @@ def load_international():
 
 
 def load_domestic():
-    #load_usd1()    
+    load_usd1()    
     #load_us_minor()
     #load_concacaf()
     #load_conmebol()
-
-
-
-    load_uefa()
-
-    load_world()
-
+    #load_uefa()
+    #load_world()
 
     return
+
     load_us_cups()
+
+
+
     load_caf()
     load_ofc()
     load_afc()
@@ -224,15 +222,15 @@ def load_domestic():
 
 
 def load_usd1():
-    load_mls()
-    return
     load_asl()
+    load_mls()
+
     load_alpf()
     load_nasl()
 
 
 def load_outer():
-    #load_ltrack()
+    load_ltrack()
     #load_fifa()
     pass
     #load_mediotiempo()    
@@ -953,9 +951,9 @@ def load_nafbl():
     generic_load(soccer_db.asl_awards, awards.process_nafbl_awards, delete=False)
     generic_load(soccer_db.asl_awards, awards.process_snesl_awards, delete=False)
 
-    load_standings_standard('us_minor', 'domestic/country/usa/nafbl')
-    load_standings_standard('us_minor', 'domestic/country/usa/snesl')
-    load_standings_standard('us_minor', 'domestic/country/usa/nasfl')
+    #load_standings_standard('us_minor', 'domestic/country/usa/nafbl')
+    #load_standings_standard('us_minor', 'domestic/country/usa/snesl')
+    #load_standings_standard('us_minor', 'domestic/country/usa/nasfl')
 
     load_games_standard('us_minor', 'games/regional/nafbl1', root=US_MINOR_DIR)
     load_games_standard('us_minor', 'games/regional/nafbl2', root=US_MINOR_DIR)
@@ -1087,10 +1085,10 @@ def load_transactions():
 
 def load_copa_america():
     from parse.parse import rosters
-    from soccerdata.text.cmp import copaamerica
-
     # Abort!
-    return
+    return    
+
+    #from soccerdata.text.cmp import copaamerica
 
     coll = 'conmebol_i'
     games, goals, fouls, lineups = copaamerica.process_copa_files()
@@ -1113,7 +1111,7 @@ def load_asl():
 
     DIR = os.path.join(ROOT_DIR, 'usd1_data/data')
 
-    load_standings_standard('asl', 'standings/asl', root=DIR)
+    load_standings_standard('asl', 'standings/asl', DIR)
 
     # Colin Jose data
     #generic_load(soccer_db.asl_goals, asl.process_asl_goals)
@@ -1121,20 +1119,19 @@ def load_asl():
     generic_load(soccer_db.asl_stats, asl.process_stats)
 
     for e in range(1921, 1932):
-        load_games_standard('asl', os.path.join(DIR, 'games/league/jose/a/%s' % e))
+        load_games_standard('asl', 'data/games/league/jose/a/%s' % e, USD1_DIR)
 
     for e in range(1921, 1934):
-        load_games_standard('asl', os.path.join(DIR, 'games/league/simple/asl/%s' % e))
+        load_games_standard('asl', 'data/games/league/simple/asl/%s' % e, USD1_DIR)
 
-
-    load_games_standard('asl', os.path.join(DIR, 'games/league/simple/esl'))
+    load_games_standard('asl', 'data/games/league/simple/esl', USD1_DIR)
 
     generic_load(soccer_db.asl_rosters, lambda: flatten_stats(soccer_db.asl_stats.find()))
 
 
 def load_alpf():
-    load_games_standard('alpf', os.path.join(ROOT_DIR, 'usd1_data/data/games/league/simple/alpf'))
-    load_standings_standard('alpf', 'alpf', root=os.path.join(ROOT_DIR, 'usd1_data/data/standings'))
+    load_games_standard('alpf', 'data/games/league/simple/alpf', USD1_DIR)
+    load_standings_standard('alpf', 'alpf', os.path.join(ROOT_DIR, 'usd1_data/data/standings'))
 
 
 def load_asl2():
@@ -1145,7 +1142,7 @@ def load_asl2():
     generic_load(soccer_db.us_minor_awards, awards.process_asl2_awards, delete=False)
     #generic_load(soccer_db.us_minor_stats, partial.process_asl2_partial)
 
-    load_standings_standard('us_minor', 'standings/asl2', root=ASL2_DIR)
+    load_standings_standard('us_minor', 'standings/asl2', ASL2_DIR)
 
     generic_load(soccer_db.us_minor_rosters, lambda: rosters.process_rosters2(path=os.path.join(ASL2_DIR, "rosters/asl2")))
 
@@ -1164,6 +1161,7 @@ def load_nasl():
 
     from metadata.parse import awards
     from parse.parse import rosters
+    from usd1_data.parse import nasl
 
     generic_load(soccer_db.nasl_awards, awards.process_nasl_awards)
     generic_load(soccer_db.nasl_awards, awards.process_usa_awards)
@@ -1173,17 +1171,15 @@ def load_nasl():
     generic_load(soccer_db.nasl_stats, stats.process_stats("data/stats/nasl", source='nasljerseys.com', root=USD1_DIR))
 
 
-    from usd1.parse import nasl
-
     print("Loading NASL data.")
-    load_standings_standard('nasl', 'data/standings/nasl', root=USD1_DIR)
-    load_standings_standard('nasl', 'data/standings/nasl0', root=USD1_DIR)
+    load_standings_standard('nasl', 'data/standings/nasl', USD1_DIR)
+    load_standings_standard('nasl', 'data/standings/nasl0', USD1_DIR)
 
-    load_games_standard('nasl', 'data/games/playoffs/nasl', root=USD1_DIR)
+    load_games_standard('nasl', 'data/games/playoffs/nasl', USD1_DIR)
 
     generic_load(soccer_db.nasl_games, nasl.process_npsl_games)
     generic_load(soccer_db.nasl_goals, nasl.process_npsl_goals)
-    load_games_standard('nasl', 'data/games/league/simple/usa', root=USD1_DIR)
+    load_games_standard('nasl', 'data/games/league/simple/usa', USD1_DIR)
 
     # Need to work some integrity issues on games.
     generic_load(soccer_db.nasl_games, nasl.process_nasl_games)
@@ -1600,12 +1596,12 @@ def load_africa_international():
 
 def load_mixed_confederation():
 
-    load_games_standard('world', 'domestic/confederation/mixed/panpacific')
-    load_games_standard('world', 'domestic/confederation/mixed/interamerican')
-    load_games_standard('world', 'domestic/confederation/mixed/suruga')
+    load_games_standard('world', 'games/confederation/mixed/panpacific', root=WORLD_DIR)
+    load_games_standard('world', 'games/confederation/mixed/interamerican', root=WORLD_DIR)
+    load_games_standard('world', 'games/confederation/mixed/suruga', root=WORLD_DIR)
 
     for e in [1960, 1970, 1980, 1990, 2000]:
-        load_games_standard('world', 'domestic/confederation/mixed/intercontinental/%s' % e)
+        load_games_standard('world', 'games/confederation/mixed/intercontinental/%s' % e, root=WORLD_DIR)
 
 
 
@@ -1759,8 +1755,8 @@ def load_isl2():
 
     h = lambda fn: os.path.join(ISL_DIR, fn)
 
-    load_games_standard('world', h('games'))
-    load_standings_standard('world', h('standings'))
+    load_games_standard('world', h('games'), ISL_DIR)
+    load_standings_standard('world', h('standings'), ISL_DIR)
     generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(h('rosters')))
     generic_load(soccer_db.world_awards, awards.process_isl_awards) # isl et al.
 
@@ -1770,20 +1766,18 @@ def load_world():
     from parse.parse import rosters
     generic_load(soccer_db.world_awards, awards.process_world_awards)
 
-
-
     load_mixed_confederation()
 
     # Club World Cup
     for e in [2000, 2001] + list(range(2005, 2014)):
-        load_games_standard('world', 'domestic/world/club_world_cup/%s' % e)
+        load_games_standard('world', 'games/world/club_world_cup/%s' % e, WORLD_DIR)
 
                       
     # International friendly club tournaments - ISL, Parmalat Cup, Copa Rio, etc.
     # Also existed in Brazil / Argentina / Colombia?
-    generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(ROOT_DIR, 'soccerdata/data/rosters/domestic/club_world_cup')))
 
-    generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(ROOT_DIR, 'soccerdata/data/rosters/domestic/copita')))
+    #generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(ROOT_DIR, 'soccerdata/data/rosters/domestic/club_world_cup')))
+    #generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(ROOT_DIR, 'soccerdata/data/rosters/domestic/copita')))
 
     load_isl2()
 
@@ -1987,18 +1981,18 @@ def load_fifa_competition(competition):
 
 def load_ltrack():
 
-    import ltrack.parse
+    import ltrack_data.parse
 
-    p = os.path.join(ROOT_DIR, 'ltrack/data')
+    p = os.path.join(ROOT_DIR, 'ltrack_data/data')
 
     print("processing ltrack goals")
-    generic_load(soccer_db.ltrack_goals, lambda: ltrack.parse.process_goals(p))
+    generic_load(soccer_db.ltrack_goals, lambda: ltrack_data.parse.process_goals(p))
 
     print("processing ltrack games")
-    generic_load(soccer_db.ltrack_games, lambda: ltrack.parse.process_games(p))
+    generic_load(soccer_db.ltrack_games, lambda: ltrack_data.parse.process_games(p))
 
     print("processing ltrack lineups")
-    generic_load(soccer_db.ltrack_lineups, lambda: ltrack.parse.process_lineups(p))
+    generic_load(soccer_db.ltrack_lineups, lambda: ltrack_data.parse.process_lineups(p))
 
 
 def flatten_stats(stats):
