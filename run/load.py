@@ -11,7 +11,7 @@ from build.alias.teams import check_for_team_loops, get_team
 from build.mongo import generic_load, soccer_db
 from build.settings import ROOT_DIR
 
-from parse.parse import stats, games, standings
+from parse.parse import stats, games, standings, transactions
 
 
 USD1_DIR = os.path.join(ROOT_DIR, 'usd1_data')
@@ -53,6 +53,15 @@ def clear_all():
 
     for e in SINGLE_SOURCES:
         soccer_db[e].drop()
+
+
+def load_transactions_standard(coll, fn, root):
+
+    print(fn)
+    tx = transactions.process_transactions(fn, root)
+    generic_load(soccer_db['%s_transactions' % coll], lambda: tx, delete=False)
+
+
 
 
 def load_games_standard(coll, fn, root, games_only=False):
@@ -222,8 +231,10 @@ def load_domestic():
 
 
 def load_usd1():
-    load_asl()
     load_mls()
+
+    load_asl()
+
 
     load_alpf()
     load_nasl()
@@ -908,6 +919,10 @@ def load_mls():
 
     generic_load(soccer_db.mls_awards, awards.process_mls_awards)
 
+    for e in range(2012, 2015):
+        load_transactions_standard('mls', 'data/transactions/mls/%s' % e, USD1_DIR)
+
+
     load_standings_standard('mls', 'data/standings/mls', root=USD1_DIR)
 
     # Add rsssf games.
@@ -929,6 +944,7 @@ def load_mls():
     # 2012 is actually 1996-2012.
     generic_load(soccer_db.mls_stats, stats.process_stats("data/stats/mls/2012", source='MLSSoccer.com', root=USD1_DIR))
     generic_load(soccer_db.mls_stats, stats.process_stats("data/stats/mls/2013", source='MLSSoccer.com', root=USD1_DIR))
+
 
     """
     u = 'http://www.mlssoccer.com/schedule?month=all&year=%s&club=all&competition_type=%s&broadcast_type=all&op=Search&form_id=mls_schedule_form'
