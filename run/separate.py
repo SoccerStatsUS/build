@@ -1,7 +1,7 @@
 #!/usr/local/bin/env python
 # -*- coding: utf-8 -*-
 
-from build.alias import get_team, get_competition
+from metadata.alias import get_team, get_competition
 
 
 

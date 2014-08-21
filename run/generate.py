@@ -32,7 +32,7 @@ def stadiums_to_teams():
     # Used to infer home teams given a stadium.
 
     from metadata.parse import stadiummap
-    from build.alias import get_stadium, get_team
+    from metadata.alias import get_stadium, get_team
 
     d = defaultdict(set)
 
@@ -53,7 +53,7 @@ def make_stadium_getter():
     # Not sure how to extract.
     
     from metadata.parse import stadiummap
-    from build.alias import get_stadium, get_team
+    from metadata.alias import get_stadium, get_team
 
     d = defaultdict(list)
     for x in stadiummap.load():

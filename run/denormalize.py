@@ -2,7 +2,7 @@ from collections import defaultdict
 import datetime
 import os
 
-from build.alias import get_team
+from metadata.alias import get_team
 from build.mongo import soccer_db, insert_rows, generic_load
 
 def denormalize():

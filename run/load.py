@@ -6,8 +6,8 @@
 import functools
 import os
 
-from build.alias.people import check_for_name_loops
-from build.alias.teams import check_for_team_loops, get_team
+from metadata.alias.people import check_for_name_loops
+from metadata.alias.teams import check_for_team_loops, get_team
 from build.mongo import generic_load, soccer_db
 from build.settings import ROOT_DIR
 
