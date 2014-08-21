@@ -18,8 +18,8 @@ mkdir soccer/
 cd soccer/
 git clone https://github.com/Soccerstats/parse.git
 git clone https://github.com/Soccerstats/metadata.git
-git clone https://github.com/Soccerstats/nwsl-data.git
 git clone https://github.com/Soccerstats/build.git
+git clone https://github.com/Soccerstats/nwsl_data.git
 
 
 cd build/
