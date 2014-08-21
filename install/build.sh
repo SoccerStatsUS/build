@@ -16,6 +16,7 @@ source .bashrc
 
 mkdir soccer/
 cd soccer/
+
 git clone https://github.com/SoccerstatsUS/parse.git
 git clone https://github.com/SoccerstatsUS/metadata.git
 git clone https://github.com/SoccerstatsUS/nwsl-data.git
