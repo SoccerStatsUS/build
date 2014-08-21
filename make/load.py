@@ -15,26 +15,26 @@ from parse.parse import stats, games, standings, transactions
 
 
 USD1_DIR = os.path.join(ROOT_DIR, 'usd1_data')
-ASL2_DIR = os.path.join(ROOT_DIR, 'asl2-data')
-INDOOR_DIR = os.path.join(ROOT_DIR, 'indoor-data')
+ASL2_DIR = os.path.join(ROOT_DIR, 'asl2_data')
+INDOOR_DIR = os.path.join(ROOT_DIR, 'indoor_data')
 
-US_MINOR_DIR = os.path.join(ROOT_DIR, 'us-minor-data')
+US_MINOR_DIR = os.path.join(ROOT_DIR, 'us_minor_data')
 
-UEFA_DIR = os.path.join(ROOT_DIR, 'uefa-data')
-CONMEBOL_DIR = os.path.join(ROOT_DIR, 'conmebol-data')
-CONCACAF_DIR = os.path.join(ROOT_DIR, 'concacaf-data')
-AFC_DIR = os.path.join(ROOT_DIR, 'afc-data')
-CAF_DIR = os.path.join(ROOT_DIR, 'caf-data')
-WORLD_DIR = os.path.join(ROOT_DIR, 'world-data')
+UEFA_DIR = os.path.join(ROOT_DIR, 'uefa_data')
+CONMEBOL_DIR = os.path.join(ROOT_DIR, 'conmebol_data')
+CONCACAF_DIR = os.path.join(ROOT_DIR, 'concacaf_data')
+AFC_DIR = os.path.join(ROOT_DIR, 'afc_data')
+CAF_DIR = os.path.join(ROOT_DIR, 'caf_data')
+WORLD_DIR = os.path.join(ROOT_DIR, 'world_data')
 
-NCAA_DIR = os.path.join(ROOT_DIR, 'ncaa-data')
+NCAA_DIR = os.path.join(ROOT_DIR, 'ncaa_data')
 NWSL_DIR = os.path.join(ROOT_DIR, 'nwsl_data')
-CUPS_DIR = os.path.join(ROOT_DIR, 'us-cups-data')
-ISL_DIR = os.path.join(ROOT_DIR, 'isl-data')
+CUPS_DIR = os.path.join(ROOT_DIR, 'us_cup_data')
+ISL_DIR = os.path.join(ROOT_DIR, 'isl_data')
 
-SIDEKICKS_DIR = os.path.join(ROOT_DIR, 'sidekicks')
+SIDEKICKS_DIR = os.path.join(ROOT_DIR, 'sidekicks_data')
 
-INTERNATIONAL_DIR = os.path.join(ROOT_DIR, 'international-data')
+INTERNATIONAL_DIR = os.path.join(ROOT_DIR, 'international_data')
 
 #STATS_DIR = os.path.join(ROOT_DIR, "soccerdata/data/stats")
 
@@ -183,8 +183,8 @@ def load_by_subject():
     international: USMNT, FIFA international, countries
     friendly: US friendly data
     """
-
-    #load_women()
+    
+    load_women()
     load_domestic()
     #load_indoor()
     #load_international()
@@ -209,15 +209,15 @@ def load_international():
 
 
 def load_domestic():
-    load_usd1()    
+
     #load_us_minor()
     #load_concacaf()
     #load_conmebol()
     #load_uefa()
-    #load_world()
+    load_world()
 
     return
-
+    load_usd1()    
     load_us_cups()
 
 
@@ -1790,7 +1790,7 @@ def load_world():
     #generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(ROOT_DIR, 'soccerdata/data/rosters/domestic/club_world_cup')))
     #generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(ROOT_DIR, 'soccerdata/data/rosters/domestic/copita')))
 
-    load_isl2()
+    #load_isl2()
 
     #load_games_standard('world', 'domestic/country/mexico/friendly/palmares')
 
