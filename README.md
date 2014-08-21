@@ -3,40 +3,40 @@
 
 ### how to build the database yourself on Ubuntu 14.02
 
-# add mongo sources
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
+   # add mongo sources
+   sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+   echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
 
-# update apt
-sudo apt-get update
-sudo apt-get upgrade
+   # update apt
+   sudo apt-get update
+   sudo apt-get upgrade
 
-# Install dependencies
-sudo apt-get install git-core mongodb-org emacs python3-setuptools
-sudo easy_install3 pip
+   # Install dependencies
+   sudo apt-get install git-core mongodb-org emacs python3-setuptools
+   sudo easy_install3 pip
 
-# Add to pythonpath
+   # Add to pythonpath
 
-emacs .bashrc 
-# add to .bashrc
-# export PYTHONPATH=$PYTHONPATH:/home/chris/bin:/home/chris/www:/home/chris/repos:/home/chris/soccer
-source .bashrc
+   emacs .bashrc 
+   # add to .bashrc
+   # export PYTHONPATH=$PYTHONPATH:/home/chris/bin:/home/chris/www:/home/chris/repos:/home/chris/soccer
+   source .bashrc
 
-# Clone repositories
+   # Clone repositories
 
-mkdir soccer/
-cd soccer/
-git clone https://github.com/Soccerstats/parse.git
-git clone https://github.com/Soccerstats/metadata.git
-git clone https://github.com/Soccerstats/build.git
-git clone https://github.com/Soccerstats/nwsl-data.git
+   mkdir soccer/
+   cd soccer/
+   git clone https://github.com/Soccerstats/parse.git
+   git clone https://github.com/Soccerstats/metadata.git
+   git clone https://github.com/Soccerstats/build.git
+   git clone https://github.com/Soccerstats/nwsl-data.git
 
-# Install
+   # Install
 
-cd build/
-sudo pip3 install -r requirements3.txt 
+   cd build/
+   sudo pip3 install -r requirements3.txt 
 
-python3 run/main.py 
+   python3 run/main.py 
 
 
 
@@ -60,66 +60,64 @@ load all data from text files
 
 convert data into canonical forms and normalize formatting differences
 
-player names: Damarcus Beasley -> DaMarcus Beasley
-team names: Dallas Burn -> FC Dallas
-place names: New York City -> New York, NY
+* player names: Damarcus Beasley -> DaMarcus Beasley
+* team names: Dallas Burn -> FC Dallas
+* place names: New York City -> New York, NY
 
 #### lift
 
-convert abbreviated player names using roster data into full names
+* convert abbreviated player names using roster data into full names
 
-Lift('Henry', ['Thierry Henry', 'Patrick Vieira']) -> Thierry Henry
+    Lift('Henry', ['Thierry Henry', 'Patrick Vieira']) -> Thierry Henry
 
 #### transform
 
-some random stuff
+* some random stuff
 
 #### merge
 
-merge data from various sources into a single representation
+* merge data from various sources into a single representation
 
-Merge([{'date': datetime.datetime(1996, 7, 1), 'team1': 'San Jose Earthquakes', 'team1_score': 1, 'team2': 'DC United', 'team2_score': 0 }, 
+   Merge([{'date': datetime.datetime(1996, 7, 1), 'team1': 'San Jose Earthquakes', 'team1_score': 1, 'team2': 'DC United', 'team2_score': 0 }, 
        {'date': datetime.datetime(1996, 7, 1), 'team1': 'San Jose Earthquakes', 'team1_score': None, 'team2': 'DC United', 'team2_score': None, 'location': 'San Jose, CA' }] -> 
        {'date': datetime.datetime(1996, 7, 1), 'team1': 'San Jose Earthquakes', 'team1_score': 1, 'team2': 'DC United', 'team2_score': 0, 'location': 'San Jose, CA' })
 
 
 #### generate
 
-generate secondary data from known data
+* generate secondary data from known data
 
-Generated data includes:
-1. various stats - GameStat, standard Stat, TeamStat, CompetitionStat, CareerStat, etc.
-2. various standings - 
-3. 
+* Generated data includes:
+  1. various stats - GameStat, standard Stat, TeamStat, CompetitionStat, CareerStat, etc.
+  2. various standings - 
 
 #### denormalize
 
-add time-specific data to canonical representations
-
-give time-specific team names, player names
+* add time-specific data to canonical representations
+* give time-specific team names, player names
 
 
 
 #### build steps
 
-check aliases for loops
-clear all database data
-load metadata (place, source, competition, team, player data, mappings (team->name,team->stadium,competition->name))
-load game data (game results, stats, rosters, standings, awards)
-load extra data (drafts, transactions, salaries, news [disabled])
+* check aliases for loops
+* clear all database data
+* load metadata (place, source, competition, team, player data, mappings (team->name,team->stadium,competition->name))
+* load game data (game results, stats, rosters, standings, awards)
+* load extra data (drafts, transactions, salaries, news [disabled])
 
-normalize metadata (seasons, stadiums, teams, player data, mappings)
-normalize game data (games, goals, lineups, game stats, stats, game stats, rosters, stats, standings
-normalize extra data (drafts, transactions, positions, awards)
+* normalize metadata (seasons, stadiums, teams, player data, mappings)
+* normalize game data (games, goals, lineups, game stats, stats, game stats, rosters, stats, standings
+* normalize extra data (drafts, transactions, positions, awards)
 
-lift player names (use roster data to convert abbreviated names into full names)
-transform team names for given competitions - mostly Youth competitions
+* lift player names (use roster data to convert abbreviated names into full names)
+* transform team names for given competitions - mostly Youth competitions
 
-merge data (metadata, game data, extra data)
+* merge data (metadata, game data, extra data)
 
-generate game data - infer location / home team using metadata
-generate game stats
-generate competition standings, competition statistics
+* generate game data - infer location / home team using metadata
+* generate game stats
+* generate competition standings, competition statistics
 
 
 
