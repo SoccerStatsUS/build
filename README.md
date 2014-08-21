@@ -44,7 +44,7 @@ The end!
 
 
 
-# What is going on here?
+#### What is going on here?
 
 The creating and normalizing a database consists of a series of steps.
 
@@ -53,6 +53,39 @@ The data is loaded first, then names and structures are regularized and transfor
 Then, data is merged, and finally additional data is generated.
 
 Finally, data is denormalized (time and location-specific names) and (optionally) checked for accuracy.
+
+
+#### Data repositories
+
+
+* usd1_data
+* us_minor_data
+* nwsl_data
+* us_cup_data
+* asl2_data
+* ncaa_data
+
+* world_data
+* afc_data
+* caf_data
+* concacaf_data
+* conmebol_data
+* ofc_data
+* uefa_data
+
+* international_data
+* usmnt_data
+* indoor_data
+* friendly_data
+* isl_data
+* ltrack_data
+
+* sidekicks_data
+* spalding_data
+* bethlehem_data
+
+* metadata
+* soccerdata
 
 
 #### load
