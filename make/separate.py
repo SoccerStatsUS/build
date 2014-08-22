@@ -19,6 +19,39 @@ def from_seasons(competition, seasons):
 
 sep_names = {
 
+    'Alex': [
+        ('Alex Monteiro de Lima', {'team': 'Chicago Fire' }),
+        ('Alex Monteiro de Lima', {'team': 'Chicago Fire Reserves' }),
+
+        ('Alex Raphael Meschini', {'team': 'Corinthians', 'season': '2012'}),
+        ('Alex Raphael Meschini', {'team': 'Corinthians', 'season': '2011'}),
+        ('Alex Raphael Meschini', {'team': 'Internacional', 'season': '2006'}),
+        ('Alex Raphael Meschini', {'team': 'Internacional', 'season': '2007'}),
+        ('Alex Raphael Meschini', {'team': 'Internacional', 'season': '2008'}),
+
+        ('Alex Terra', {'team': 'Melbourne Heart'}),
+        ('Alex Terra', {'team': 'Fluminense', 'season': '2005'}),
+        ('Alex Terra', {'team': 'Fluminense', 'season': '2004'}),
+
+        ('Alex Rodrigo Dias da Costa', {'team': 'Chelsea'}),
+        ('Alex Rodrigo Dias da Costa', {'team': 'PSV Eindhoven'}),
+        ('Alex Rodrigo Dias da Costa', {'team': 'Santos FC'}),
+
+        ],
+
+
+    'Cassio': [
+        ('Cássio Oliveira', {'team': 'New England Revolution' }),
+        ('Cássio Oliveira', {'team': 'New England Revolution Reserves' }),
+        ('Cássio Oliveira', {'team': 'Adelaide United' }),
+
+        ('Cássio Ramos', {'team': 'Corinthians'}),
+
+        ('Cássio Alessandro de Souza', {'team': 'Fluminense'}),
+        ('Cássio Alessandro de Souza', {'team': 'Avai FC'}),
+        ],
+
+
     'Dejair': [
         ('Dejair Jorge Ferreira', {'team': 'Chivas USA' }),
         ],
@@ -43,11 +76,51 @@ sep_names = {
         ('Erick Neres da Cruz', {'team': 'FC Dallas Reserves', }),
         ],
 
-    'Jenison': [
-        ('Jenison Brito', {'team': 'Fort Lauderdale Striekrs', }),
+    'Felipe': [
+        ('Felipe Jorge Loureiro', {'team': 'Vasco da Gama', }),
+        ],
+
+    'Fred': [
+        ('Frederico Chaves Guedes', {'team': 'Fluminense'}),
+        ('Frederico Chaves Guedes', {'team': 'Cruzeiro'}),
+        ('Frederico Chaves Guedes', {'team': 'Atletico Mineiro'}),
+
+        ('Fred Carreiro': {'team': 'DC United' }),
+        ('Fred Carreiro': {'team': 'Philadelphia Union' }),
+
+        ('Frederico Rodrigues de Paula Santos', {'team': 'Internacional'}),
+
+        ],
+
+    #'Geovanni': [
+    #    ('Geovanni Deiberson Maurício', {'team': 'San Jose Earthquakes'}),
+    #    ('Geovanni Deiberson Maurício', {'team': 'Hull City'}),
+    ##    ('Geovanni Deiberson Maurício', {'team': 'SL Benfica'}),
+    #    ('Geovanni Deiberson Maurício', {'team': 'Cruzeiro'}),
+    #    ],
+
+
+    'Gilmar': [
+        ('Gilmar Antônio Batista', {'team': 'Tampa Bay Mutiny': }),
+        ('Gilmar Antônio Batista', {'team': 'Metrostars': }),
+
+        ('Gylmar dos Santos Neves': {'team': 'Santos FC'}),
+        #('Gylmar dos Santos Neves': {'team': 'Corinthians'}),
+
+        ('Gilmar Lobato da Rocha', {'team': 'Varzim' }),
+        ('Gilmar Lobato da Rocha', {'team': 'Deportes Naval' }),
+        ],
+
+    'Jackson': [
+        ('Jackson Henrique Gonçalves Pereira', {'team': 'FC Dallas', }),
+        ('Jackson Henrique Gonçalves Pereira', {'team': 'Toronto FC', }),
         ],
 
 
+
+    'Jenison': [
+        ('Jenison Brito', {'team': 'Fort Lauderdale Strikers', }),
+        ],
 
     'Jorge Flores': [
         ('Jorge Villafaña', {'team': 'Chivas USA' }),
@@ -60,6 +133,17 @@ sep_names = {
         ('Vitor Gomes Pereira Júnior', {'team': 'LA Galaxy' }),
         ],
 
+    # Also marquinhos...
+    'Marquinho': [
+        ('Marco Antônio de Mattos Filho', {'team': 'Fluminense'}),
+        ('Marco Antônio de Mattos Filho', {'team': 'Figueirense'}),
+
+        ('Marco Antônio dos Santos', {'team': 'Colorado Rapids' }),
+        ('Marco Antônio dos Santos', {'team': 'Sport Boys' }),
+        ('Marco Antônio dos Santos', {'team': 'Sporting Cristal' }),
+        
+        ],
+
     'Maykon': [
         ('Maykon Daniel Elias Araújo', {'team': 'Ottawa Fury' }),
         ],
@@ -69,14 +153,44 @@ sep_names = {
         ('Michel Garbini Pereira', {'team': 'FC Dallas', }),
         ],
 
+    'Naldo': [
+        ('Ednaldo da Conceição', {'team': 'LA Galaxy'}),
+        ('Ednaldo da Conceição', {'team': 'Los Angeles Galaxy Reserves'}),
+        ('Ednaldo da Conceição', {'team': 'California Cougars'}),
+
+        ('Ronaldo Aparecido Rodrigues', {'team': 'Werder Bremen'}),
+        ('Ronaldo Aparecido Rodrigues', {'team': 'EC Juventude'}),
+        
+        ],
+
     'Oliver': [
         ('Oliver Minatel', {'team': 'Ottawa Fury' }),
+        ],
+
+    'Oscar': [
+        ('José Oscar Bernardi', {'team': 'Ponte Preta', 'season': '1977' }),
+        ('José Oscar Bernardi', {'team': 'New York Cosmos' }),
+        ('José Oscar Bernardi', {'team': 'Sao Paulo FC', 'season': '1984' }),
+        ('José Oscar Bernardi', {'team': 'Sao Paulo FC', 'season': '1985' }),
+        ('José Oscar Bernardi', {'team': 'Sao Paulo FC', 'season': '1986' }),
+
+        ('Óscar García Junyent', {'team': 'FC Barcelona'}),
+        ('Óscar García Junyent', {'team': 'Valencia'}),
+        ('Óscar García Junyent', {'team': 'RCD Espanyol'}),
+
+        ('Óscar González Marcos', {'team': 'Real Valladolid'}),
+        ('Óscar González Marcos', {'team': 'Real Zaragoza'}),
+
+        ('Oscar dos Santos Emboaba Júnior', {'team': 'Internacional'}),
+
+
+        
+
         ],
 
 
     'Pablo Hernandez': [
         ('Pedro Pablo Hernández', {'team': 'DC United', }),
-        
         ],
 
 
@@ -99,10 +213,51 @@ sep_names = {
         ('Ronaldo Luís Nazário de Lima', {'team': 'Inter Milan' }),
         ],
 
+    'Tiago': [
+        ('Tiago Calvano', {'team': 'Minnesota United FC' }),
+
+        ('Tiago Jorge Honório', {'team': 'Shenzhen Ruby'}),
+        ('Tiago Jorge Honório', {'team': 'Shanghai United FC'}),
+        ('Tiago Jorge Honório', {'team': 'Beijing Guoan'}),
+
+        ('Tiago Mendes', {'team': 'Chelsea'}),
+        ('Tiago Mendes', {'team': 'SL Benfica'}),
+        ('Tiago Mendes', {'team': 'Braga'}),
+        ],
+
     'Thiago': [
         ('Thiago de Souza', {'team': 'LA Galaxy' }),
         ('Thiago da Rosa Correa', {'team': 'Chicago Fire' }),
         ('Thiago da Rosa Correa', {'team': 'Chicago Fire Reserves' }),
+        ],
+
+
+    'Washington': [
+
+        ('Washington Cerqueira', {'team': 'Sao Paulo FC', 'season': '2010',}),
+        ('Washington Cerqueira', {'team': 'Sao Paulo FC', 'season': '2009',}),
+        ('Washington Cerqueira', {'team': 'Fluminense', 'season': '2008',}),
+        ('Washington Cerqueira', {'team': 'Urawa Red Diamonds', 'season': '2007',}),
+        ('Washington Cerqueira', {'team': 'Ponte Preta', 'season': '2001',}),
+        ('Washington Cerqueira', {'team': 'Ponte Preta', 'season': '2000',}),
+
+        ('Washington Luiz Mascarenhas Silva', {'team': 'Ceara', 'season': '2011'}),
+        ('Washington Luiz Mascarenhas Silva', {'team': 'Ceara', 'season': '2010'}),
+        ('Washington Luiz Mascarenhas Silva', {'team': 'Portuguesa', 'season': '2008'}),
+        ('Washington Luiz Mascarenhas Silva', {'team': 'SC Recife', 'season': '2007'}),
+        ('Washington Luiz Mascarenhas Silva', {'team': 'Palmeiras', 'season': '2006'}),
+        ('Washington Luiz Mascarenhas Silva', {'team': 'Palmeiras', 'season': '2005'}),
+        
+        ('Washington César Santos', {'team': 'Botafogo', 'season': '1990',}),
+        ('Washington César Santos', {'team': 'Club Guarani', 'season': '1989',}),
+        ('Washington César Santos', {'team': 'Fluminense', 'season': '1988',}),
+        ('Washington César Santos', {'team': 'Fluminense', 'season': '1987',}),
+        ('Washington César Santos', {'team': 'Fluminense', 'season': '1986',}),
+        ('Washington César Santos', {'team': 'Fluminense', 'season': '1985',}),
+        ('Washington César Santos', {'team': 'Fluminense', 'season': '1984',}),
+        ('Washington César Santos', {'team': 'Atletico Paranaense', 'season': '1983',}),
+        ('Washington César Santos', {'team': 'Galicia', 'season': '1981',}),
+
         ],
 
     'Chris Brown': [
