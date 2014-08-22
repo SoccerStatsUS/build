@@ -183,13 +183,14 @@ def load_by_subject():
     international: USMNT, FIFA international, countries
     friendly: US friendly data
     """
-    
+
     load_women()
     load_domestic()
+    return
     #load_indoor()
     #load_international()
     #load_outer()
-    return
+
 
     load_amateur()
 
@@ -219,15 +220,13 @@ def load_domestic():
     return
     load_usd1()    
     load_us_cups()
-
-
-
+    load_us_minor()
+    load_concacaf()
+    load_conmebol()
+    load_uefa()
     load_caf()
     load_ofc()
     load_afc()
-
-
-
 
 
 def load_usd1():
