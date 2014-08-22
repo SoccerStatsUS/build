@@ -100,10 +100,11 @@ sep_names = {
         ('Frederico Chaves Guedes', {'team': 'Cruzeiro'}),
         ('Frederico Chaves Guedes', {'team': 'Atletico Mineiro'}),
 
-        ('Fred Carreiro': {'team': 'DC United' }),
-        ('Fred Carreiro': {'team': 'Philadelphia Union' }),
+        ('Fred Carreiro', {'team': 'DC United' }),
+        ('Fred Carreiro', {'team': 'Philadelphia Union' }),
 
         ('Frederico Rodrigues de Paula Santos', {'team': 'Internacional'}),
+        ],
 
 
     'Indio': [
@@ -127,11 +128,11 @@ sep_names = {
 
 
     'Gilmar': [
-        ('Gilmar Antônio Batista', {'team': 'Tampa Bay Mutiny': }),
-        ('Gilmar Antônio Batista', {'team': 'Metrostars': }),
+        ('Gilmar Antônio Batista', {'team': 'Tampa Bay Mutiny' }),
+        ('Gilmar Antônio Batista', {'team': 'Metrostars' }),
 
-        ('Gylmar dos Santos Neves': {'team': 'Santos FC'}),
-        #('Gylmar dos Santos Neves': {'team': 'Corinthians'}),
+        ('Gylmar dos Santos Neves', {'team': 'Santos FC'}),
+        #('Gylmar dos Santos Neves', {'team': 'Corinthians'}),
 
         ('Gilmar Lobato da Rocha', {'team': 'Varzim' }),
         ('Gilmar Lobato da Rocha', {'team': 'Deportes Naval' }),

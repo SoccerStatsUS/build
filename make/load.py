@@ -15,7 +15,6 @@ from parse.parse import stats, games, standings, transactions
 
 
 USD1_DIR = os.path.join(ROOT_DIR, 'usd1_data')
-ASL2_DIR = os.path.join(ROOT_DIR, 'asl2_data')
 INDOOR_DIR = os.path.join(ROOT_DIR, 'indoor_data')
 
 US_MINOR_DIR = os.path.join(ROOT_DIR, 'us_minor_data')
@@ -32,7 +31,9 @@ NWSL_DIR = os.path.join(ROOT_DIR, 'nwsl_data')
 CUPS_DIR = os.path.join(ROOT_DIR, 'us_cup_data')
 ISL_DIR = os.path.join(ROOT_DIR, 'isl_data')
 
-SIDEKICKS_DIR = os.path.join(ROOT_DIR, 'sidekicks_data')
+TEAM_DIR = os.path.join(ROOT_DIR, 'team_data')
+SIDEKICKS_DIR = os.path.join(TEAM_DIR, 'sidekicks')
+BETHLEHEM_DIR = os.path.join(TEAM_DIR, 'bethlehem')
 
 INTERNATIONAL_DIR = os.path.join(ROOT_DIR, 'international_data')
 
@@ -211,7 +212,8 @@ def load_international():
 
 def load_domestic():
 
-    #load_us_minor()
+    load_us_minor()
+    return
     load_concacaf()
     load_conmebol()
     #load_uefa()
@@ -220,7 +222,6 @@ def load_domestic():
     return
     load_usd1()    
     load_us_cups()
-    load_us_minor()
     load_concacaf()
     load_conmebol()
     load_uefa()
@@ -1154,15 +1155,15 @@ def load_asl2():
     generic_load(soccer_db.us_minor_awards, awards.process_asl2_awards, delete=False)
     #generic_load(soccer_db.us_minor_stats, partial.process_asl2_partial)
 
-    load_standings_standard('us_minor', 'standings/asl2', ASL2_DIR)
+    load_standings_standard('us_minor', 'standings/d2/asl2', US_MINOR_DIR)
 
-    generic_load(soccer_db.us_minor_rosters, lambda: rosters.process_rosters2(path=os.path.join(ASL2_DIR, "rosters/asl2")))
+    generic_load(soccer_db.us_minor_rosters, lambda: rosters.process_rosters2(path=os.path.join(US_MINOR_DIR, "rosters/asl2")))
 
     for e in range(1933, 1951):
-        load_games_standard('us_minor', 'games/allaway/%s' % e, root=ASL2_DIR)
+        load_games_standard('us_minor', 'games/d2/asl2/allaway/%s' % e, root=US_MINOR_DIR)
 
     for e in range(1933, 1984):
-        load_games_standard('us_minor', 'games/sd/%s' % e, games_only=True, root=ASL2_DIR)
+        load_games_standard('us_minor', 'games/d2/asl2/sd/%s' % e, games_only=True, root=US_MINOR_DIR)
 
 
 
@@ -1290,10 +1291,11 @@ def load_us_minor():
     """
     Load all-time us minor league stats.
     """
-    #load_nafbl()
-    #load_asl2()
+
+    load_asl2()
     load_modern_minor()
 
+    #load_nafbl()
     #load_city()
 
 
