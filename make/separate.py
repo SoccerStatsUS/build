@@ -229,6 +229,23 @@ sep_names = {
         
         ],
 
+    'Nene': [
+        ('Fábio Camilo de Brito', {'team': 'Urawa Red Diamonds' }),
+
+        ('Anderson Luiz de Carvalho', {'team': 'Monaco' }),
+        ('Anderson Luiz de Carvalho', {'team': 'Celta Vigo' }),
+        ('Anderson Luiz de Carvalho', {'team': 'Deportivo Alaves' }),
+        ('Anderson Luiz de Carvalho', {'team': 'Mallorca' }),
+        ('Anderson Luiz de Carvalho', {'team': 'Santos FC', 'season': '2002', }),
+        ('Anderson Luiz de Carvalho', {'team': 'Palmeiras','season': '2001', }),
+
+        ('Ânderson Miguel da Silva', {'team': 'Cagliari'}),
+        ('Ânderson Miguel da Silva', {'team': 'CD Nacional'}),
+        ('Ânderson Miguel da Silva', {'team': 'Cruzeiro'}),
+        ('Ânderson Miguel da Silva', {'team': 'Santa Cruz'}),
+        
+        ],
+
     'Oliver': [
         ('Oliver Minatel', {'team': 'Ottawa Fury' }),
         ],
@@ -281,6 +298,13 @@ sep_names = {
 
         ],
 
+    'Reinaldo': [
+        ('Reinaldo de Souza', {'team': 'Botafogo'}),
+
+        ('José Reinaldo de Lima', {'team': 'Atletico Mineiro'}), # there is a second reinaldo for mineiro
+
+        ],
+
 
     'Ricardinho': [
         ('Ricardo Alves Pereira', {'team': 'FC Dallas' }),
@@ -311,6 +335,15 @@ sep_names = {
         ('Thiago de Souza', {'team': 'LA Galaxy' }),
         ('Thiago da Rosa Correa', {'team': 'Chicago Fire' }),
         ('Thiago da Rosa Correa', {'team': 'Chicago Fire Reserves' }),
+        ],
+
+    'Silvinho': [
+        ('Silvio Paiva', {'team': 'Internacional', 'season': '1985' }),
+        ('Silvio Paiva', {'team': 'Internacional', 'season': '1984' }),
+        ('Silvio Paiva', {'team': 'Internacional', 'season': '1983' }),
+        ('Silvio Paiva', {'team': 'Internacional', 'season': '1982' }),
+        ('Silvio Paiva', {'team': 'Internacional', 'season': '1981' }),
+
         ],
 
 
@@ -1042,6 +1075,7 @@ sep_teams = {
         (from_competition('Paraguayan Primera División'), 'Club Nacional'),
         (from_competition('Categoría Primera A'), 'Atlético Nacional'),
         (from_competition('Liga Panameña de Fútbol'), 'Atlético Nacional (Panama)'),
+        (from_competition('Primeira Liga'), 'CD Nacional'),
         ],
 
     'Nashville': [
