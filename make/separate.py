@@ -19,6 +19,7 @@ def from_seasons(competition, seasons):
 
 sep_names = {
 
+
     'Alex': [
         ('Alex Monteiro de Lima', {'team': 'Chicago Fire' }),
         ('Alex Monteiro de Lima', {'team': 'Chicago Fire Reserves' }),
@@ -52,10 +53,20 @@ sep_names = {
         ],
 
 
+
+
+    'Chris Brown': [
+        ('Chris Brown (1971)', {'team': 'FC Dallas' }),
+        ('Chris Brown (1971)', {'team': 'Richmond Kickers' }),
+        ('Chris Brown (1971)', {'team': 'Tampa Bay Terror' }),
+        ('Chris Brown (1971)', {'team': 'New Orleans Riverboat Gamblers' }),
+        ('Chris Brown (1971)', {'team': 'Maryland Mania' }),
+        ],
+
+
     'Dejair': [
         ('Dejair Jorge Ferreira', {'team': 'Chivas USA' }),
         ],
-
 
     'Denilson': [
         ('Denílson de Oliveira Araújo', {'team': 'FC Dallas' }),
@@ -64,6 +75,9 @@ sep_names = {
         ('Denílson de Oliveira Araújo', {'team': 'Flamengo' }),
 
         ('Denílson Pereira Neves', {'team': 'Arsenal' }),
+
+        ('Denílson Martins Nascimento', {'team': 'Pohang Steelers'}),
+        ('Denílson Martins Nascimento', {'team': 'Mogi Mirim'}),
 
         ],
 
@@ -75,6 +89,7 @@ sep_names = {
         ('Erick Neres da Cruz', {'team': 'FC Dallas', }),
         ('Erick Neres da Cruz', {'team': 'FC Dallas Reserves', }),
         ],
+
 
     'Felipe': [
         ('Felipe Jorge Loureiro', {'team': 'Vasco da Gama', }),
@@ -90,6 +105,17 @@ sep_names = {
 
         ('Frederico Rodrigues de Paula Santos', {'team': 'Internacional'}),
 
+
+    'Indio': [
+        ('Marcos Antônio de Lima', {'team': 'Internacional' }),
+        ('Marcos Antônio de Lima', {'team': 'EC Juventude', 'season': '2004', }),
+        ('Marcos Antônio de Lima', {'team': 'EC Juventude', 'season': '2003', }),
+        ('Marcos Antônio de Lima', {'team': 'EC Juventude', 'season': '2002', }),
+
+        ],
+
+    'Jenison': [
+        ('Jenison Brito', {'team': 'Fort Lauderdale Striekrs', }),
         ],
 
     #'Geovanni': [
@@ -129,9 +155,34 @@ sep_names = {
 
     'Juninho': [
         ('Juninho Paulista', {'team': 'Middlesbrough' }),
+        ('Juninho Paulista', {'team': 'Sao Paulo FC', 'season': 1993 }),
+        ('Juninho Paulista', {'team': 'Sao Paulo FC', 'season': 1994 }),
+        ('Juninho Paulista', {'team': 'Sao Paulo FC', 'season': 1995 }),
+
         ('Juninho Pernambucano', {'team': 'New York Red Bulls' }),
+        ('Juninho Pernambucano', {'team': 'Vasco da Gama' }), #
+
         ('Vitor Gomes Pereira Júnior', {'team': 'LA Galaxy' }),
+
+        ('Carlos Alberto Carvalho dos Anjos Junior', {'team': 'Kashima Antlers' }),
+        ('Carlos Alberto Carvalho dos Anjos Junior', {'team': 'Palmeiras', 'season': '2002' }),
+        ('Carlos Alberto Carvalho dos Anjos Junior', {'team': 'Palmeiras', 'season': '2000' }),
         ],
+
+    'Kleber': [
+        ('Kléber de Carvalho Corrêa', {'team': 'Corinthians',}),
+        ('Kléber de Carvalho Corrêa', {'team': 'Internacional'}),
+
+        ('Kléber Pereira', {'team': 'Atlético Paranaense'}),
+        ('Kléber Pereira', {'team': 'Santos FC'}),
+        ('Kléber Pereira', {'team': 'Necaxa'}),
+        ('Kléber Pereira', {'team': 'Veracruz'}),
+        ('Kléber Pereira', {'team': 'Club America'}),
+        ('Kléber Pereira', {'team': 'UANL'}),
+
+        ('Kléber de Souza Freitas', {'team': 'Gremio'}),
+        ],
+
 
     # Also marquinhos...
     'Marquinho': [
@@ -144,13 +195,28 @@ sep_names = {
         
         ],
 
+
+    'Luizao': [
+        ('Luiz Bombonato Goulart', {'team': 'Hertha BSC',}),
+        ('Luiz Bombonato Goulart', {'team': 'Gremio', 'season': '2002'}),
+        ('Luiz Bombonato Goulart', {'team': 'Corinthians'}),
+        ('Luiz Bombonato Goulart', {'team': 'Vasco da Gama'}),
+        ('Luiz Bombonato Goulart', {'team': 'Club Guarani'}),
+        ],
+
+
+
     'Maykon': [
         ('Maykon Daniel Elias Araújo', {'team': 'Ottawa Fury' }),
         ],
 
-
     'Michel': [
         ('Michel Garbini Pereira', {'team': 'FC Dallas', }),
+        ('Michel Garbini Pereira', {'team': 'Atletico Paranaense', 'season': '2007'}),
+        ('Michel Garbini Pereira', {'team': 'Atletico Paranaense', 'season': '2006'}),
+        ('Michel Garbini Pereira', {'team': 'Atletico Mineiro', 'season': '2003'}),
+        ('Michel Garbini Pereira', {'team': 'Atletico Mineiro', 'season': '2002'}),
+
         ],
 
     'Naldo': [
@@ -166,6 +232,7 @@ sep_names = {
     'Oliver': [
         ('Oliver Minatel', {'team': 'Ottawa Fury' }),
         ],
+
 
     'Oscar': [
         ('José Oscar Bernardi', {'team': 'Ponte Preta', 'season': '1977' }),
@@ -193,10 +260,25 @@ sep_names = {
         ('Pedro Pablo Hernández', {'team': 'DC United', }),
         ],
 
-
-
     'Pablo Campos': [
         ('Pablo Campos Zamorano', {'team': 'Cruz Azul'}),
+        ],
+
+    'Ramon': [
+        ('Ramon Menezes Hubner', {'team': 'Cruzeiro', 'season': '1988'}),
+        ('Ramon Menezes Hubner', {'team': 'Cruzeiro', 'season': '1989'}),
+        ('Ramon Menezes Hubner', {'team': 'Cruzeiro', 'season': '1990'}),
+        ('Ramon Menezes Hubner', {'team': 'Cruzeiro', 'season': '1991'}),
+        ('Ramon Menezes Hubner', {'team': 'EC Vitoria', 'season': '1994'}),
+        ('Ramon Menezes Hubner', {'team': 'Vasco da Gama', 'season': '1996'}),
+        ('Ramon Menezes Hubner', {'team': 'Vasco da Gama', 'season': '1997'}),
+        ('Ramon Menezes Hubner', {'team': 'Vasco da Gama', 'season': '1998'}),
+        ('Ramon Menezes Hubner', {'team': 'Vasco da Gama', 'season': '1999'}),
+        ('Ramon Menezes Hubner', {'team': 'Vasco da Gama', 'season': '2000'}),
+        ('Ramon Menezes Hubner', {'team': 'Atletico Mineiro', 'season': '2001'}),
+        ('Ramon Menezes Hubner', {'team': 'Atletico Paranaense', 'season': '2007'}),
+        ('Ramon Menezes Hubner', {'team': 'EC Vitoria', 'season': '2010'}),
+
         ],
 
 
@@ -260,14 +342,6 @@ sep_names = {
 
         ],
 
-    'Chris Brown': [
-        ('Chris Brown (1971)', {'team': 'FC Dallas' }),
-        ('Chris Brown (1971)', {'team': 'Richmond Kickers' }),
-        ('Chris Brown (1971)', {'team': 'Tampa Bay Terror' }),
-        ('Chris Brown (1971)', {'team': 'New Orleans Riverboat Gamblers' }),
-        ('Chris Brown (1971)', {'team': 'Maryland Mania' }),
-
-        ],
     }
 
 
