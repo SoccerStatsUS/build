@@ -592,6 +592,7 @@ sep_teams = {
         (from_seasons('American Soccer League (1933-1983)', set(['1969'])), 'Boston Astros'),
         (from_competition('North American Soccer League (indoor)'), 'Boston Minutemen'),
         (from_seasons('American Professional Soccer League', set(['1989', '1990'])), 'Boston Bolts'),
+        (from_seasons('USL First Division', set(['1999',])), 'Boston Bulldogs'),
         ],
 
     'Boston SC': [
@@ -689,7 +690,7 @@ sep_teams = {
         ],
 
     'Charleston': [
-        (from_seasons('USL First Division', set(['1997', '1998', '2001', '2002','2003'])), 'Charleston Battery'),
+        (from_seasons('USL First Division', set(['1997', '1998', '1999','2001', '2002','2003'])), 'Charleston Battery'),
         ],
 
     'Charlotte': [
@@ -713,7 +714,7 @@ sep_teams = {
         ],
 
     'Cincinnati': [
-        (from_seasons('USL First Division', set(['1998'])), 'Cincinnati Riverhawks'),
+        (from_seasons('USL First Division', set(['1998','1999',])), 'Cincinnati Riverhawks'),
         ],
 
 
@@ -736,7 +737,7 @@ sep_teams = {
 
     'Connecticut': [
         (from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Connecticut'),
-        (from_seasons('USL First Division', set(['1997','1998'])), 'Connecticut Wolves'),
+        (from_seasons('USL First Division', set(['1997','1998','1999'])), 'Connecticut Wolves'),
         ],
 
 
@@ -807,7 +808,7 @@ sep_teams = {
         ],
 
     'El Paso': [
-        (from_seasons('USL First Division', set(['1997','1998','2002'])), 'El Paso Patriots'),
+        (from_seasons('USL First Division', set(['1997','1998','1999', '2000', '2001', '2002'])), 'El Paso Patriots'),
         ],
 
     'España': [
@@ -880,7 +881,7 @@ sep_teams = {
         ],
 
     'Hampton Roads': [
-        (from_seasons('USL First Division', set(['1997','1998'])), 'Hampton Roads Mariners'),
+        (from_seasons('USL First Division', set(['1997','1998','1999'])), 'Hampton Roads Mariners'),
         ],
 
 
@@ -905,7 +906,7 @@ sep_teams = {
         ],
 
     'Hershey': [
-        (from_seasons('USL First Division', set(['1997', '1998', ])), 'Hershey Wildcats'),
+        (from_seasons('USL First Division', set(['1997', '1998','1999' ])), 'Hershey Wildcats'),
         ],
 
 
@@ -941,6 +942,7 @@ sep_teams = {
         (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1926-1927'])), 'Indiana Flooring'),
         (from_competition('Continental Indoor Soccer League'), 'Indiana Twisters'),
         (from_competition('NCAA Division I Men\'s Soccer Championship'), 'Indiana University'),
+        (from_seasons('USL First Division', set(['1999',])), 'Indiana Blast'),
         ],
 
     'Indianapolis': [
@@ -957,7 +959,7 @@ sep_teams = {
 
     'Jacksonville': [
         (from_competition('North American Soccer League (indoor)'), 'Jacksonville Tea Men'),
-        (from_seasons('USL First Division', set(['1997', '1998'])), 'Jacksonville Cyclones'),
+        (from_seasons('USL First Division', set(['1997', '1998', '1999'])), 'Jacksonville Cyclones'),
         ],
 
     'Junior': [
@@ -980,6 +982,12 @@ sep_teams = {
         ],
 
 
+    'Lehigh Valley': [
+        (from_seasons('USL First Division', set(['1999',])), 'Lehigh Valley Steam'),
+        ],
+
+
+
     'Liverpool': [
         (from_competition('Uruguayan Primera División'), 'Liverpool (Montevideo)'),
         ],
@@ -989,7 +997,7 @@ sep_teams = {
         ],
 
     'Long Island': [
-        (from_seasons('USL First Division', set(['1997','1998'])), 'Long Island Rough Riders'),
+        (from_seasons('USL First Division', set(['1997','1998','1999'])), 'Long Island Rough Riders'),
         ],
 
 
@@ -1019,6 +1027,7 @@ sep_teams = {
 
     'Maryland': [
         (from_seasons('American Professional Soccer League', set(['1989', '1990'])), 'Maryland Bays'),
+        (from_seasons('USL First Division', set(['1999'])), 'Maryland Mania'),
         ],
 
 
@@ -1038,14 +1047,14 @@ sep_teams = {
     'Milwaukee': [
         (from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Wisconsin-Milwaukee'),
         (from_competition('Major Indoor Soccer League (2008-2014)'), 'Milwaukee Wave'),
-        (from_seasons('USL First Division', set(['1997', '1998', '2001', '2002'])), 'Milwaukee Rampage'),
+        (from_seasons('USL First Division', set(['1997', '1998', '1999', '2000', '2001', '2002'])), 'Milwaukee Rampage'),
         ],
 
 
     'Minnesota': [
         (from_competition('Major Indoor Soccer League (1978-1992)'), 'Minnesota Strikers'),
         (from_competition('North American Soccer League (indoor)'), 'Minnesota Strikers'),
-        (from_seasons('USL First Division', set(['1997', '1998', '2002', '2003'])), 'Minnesota Thunder'),
+        (from_seasons('USL First Division', set(['1997', '1998', '1999', '2000', '2001', '2002', '2003'])), 'Minnesota Thunder'),
         ],
 
 
@@ -1110,7 +1119,7 @@ sep_teams = {
         ],
 
     'New Orleans': [
-        (from_seasons('USL First Division', set(['1997', '1998'])), 'New Orleans Riverboat Gamblers'),
+        (from_seasons('USL First Division', set(['1997', '1998','1999'])), 'New Orleans Riverboat Gamblers'),
         ],
 
 
@@ -1175,7 +1184,7 @@ sep_teams = {
         ],
     
     'Orange County': [
-        (from_seasons('USL First Division', set(['1997','1998'])), 'Orange County Blue Star'),
+        (from_seasons('USL First Division', set(['1997','1998','1999'])), 'Orange County Blue Star'),
         ],
 
     'Orlando': [
@@ -1235,7 +1244,7 @@ sep_teams = {
         (from_competition('Continental Indoor Soccer League'), 'Pittsburgh Stingers'),
         (from_competition('Major Indoor Soccer League (1978-1992)'), 'Pittsburgh Spirit'),
         (from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Pittsburgh'),
-        (from_seasons('USL First Division', set(['2001',])), 'Pittsburgh Riverhounds'),
+        (from_seasons('USL First Division', set(['1999', '2000', '2001',])), 'Pittsburgh Riverhounds'),
         ],
 
 
@@ -1287,7 +1296,7 @@ sep_teams = {
         ],
 
     'Raleigh': [
-        (from_seasons('USL First Division', set(['1997','1998'])), 'Raleigh Flyers'),
+        (from_seasons('USL First Division', set(['1997','1998','1999'])), 'Raleigh Flyers'),
         ],
 
 
@@ -1308,7 +1317,7 @@ sep_teams = {
         ],
 
     'Richmond': [
-        (from_seasons('USL First Division', set(['1997', '1998', '2002'])), 'Richmond Kickers'),
+        (from_seasons('USL First Division', set(['1997', '1998', '1999','2002'])), 'Richmond Kickers'),
         ],
 
 
@@ -1325,7 +1334,7 @@ sep_teams = {
         (from_competition('North American Soccer League (indoor)'), 'Rochester Lancers'),
         (from_competition('Major Indoor Soccer League (2008-2014)'), 'Rochester Lancers'),
         (from_seasons('American Professional Soccer League', set(['1996',])), 'Rochester Rhinos'),
-        (from_seasons('USL First Division', set(['1997','1998','2002','2003'])), 'Rochester Rhinos'),
+        (from_seasons('USL First Division', set(['1997','1998','1999','2000','2001','2002','2003'])), 'Rochester Rhinos'),
         ],
 
 
@@ -1342,6 +1351,7 @@ sep_teams = {
     'Sacramento': [
         (from_competition('Continental Indoor Soccer League'), 'Sacramento Knights'),
         (from_competition('World Indoor Soccer League'), 'Sacramento Knights'),
+        (from_seasons('USL First Division', set(['1999'])), 'Sacramento Geckos'),
         ],
 
 
@@ -1355,7 +1365,7 @@ sep_teams = {
         (from_competition('World Indoor Soccer League'), 'San Diego Sockers'),
         (from_competition('North American Soccer League (indoor)'), 'San Diego Sockers'),
         (from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of San Diego'),
-        (from_seasons('USL First Division', set(['1998','2001','2002',])), 'San Diego Flash'),
+        (from_seasons('USL First Division', set(['1998','1999','2001','2002',])), 'San Diego Flash'),
         ],
 
     'San Francisco': [
@@ -1368,7 +1378,7 @@ sep_teams = {
 
     'San Francisco Bay': [
         (from_seasons('American Professional Soccer League', set(['1990',])), 'San Francisco Bay Blackhawks'),
-        (from_seasons('USL First Division', set(['1998',])), 'San Francisco Bay Seals'),
+        (from_seasons('USL First Division', set(['1998','1999'])), 'San Francisco Bay Seals'),
         ],
 
     'San Jose': [
@@ -1431,7 +1441,7 @@ sep_teams = {
         (from_competition('NCAA Division I Men\'s Soccer Championship'), 'Seattle University'),
         (from_competition('Continental Indoor Soccer League'), 'Seattle SeaDogs'),
         (from_competition('North American Soccer League (indoor)'), 'Seattle Sounders'),
-        (from_seasons('USL First Division', set(['1996', '1997', '1998', '2002', '2003'])), 'Seattle Sounders'),
+        (from_seasons('USL First Division', set(['1996', '1997', '1998', '1999', '2000', '2001', '2002', '2003'])), 'Seattle Sounders'),
         (from_seasons('American Professional Soccer League', set(['1994','1995','1996'])), 'Seattle Sounders'),
         ],
 
@@ -1495,7 +1505,7 @@ sep_teams = {
         ],
 
     'Staten Island': [
-        (from_seasons('USL First Division', set(['1998'])), 'Staten Island Vipers'),
+        (from_seasons('USL First Division', set(['1998','1999',])), 'Staten Island Vipers'),
         ],
 
 
@@ -1532,6 +1542,9 @@ sep_teams = {
         (from_seasons('American Professional Soccer League', set(['1989', '1990'])), 'Tampa Bay Rowdies'),
         ],
 
+    'Tennessee': [
+        (from_seasons('USL First Division', set(['1999'])), 'Tennessee Rhythm'),
+        ],
 
     'Todd': [
         (from_seasons('American Soccer League (1921-1933)', set(['1921-1922'])), 'Todd Shipyards'),
@@ -1540,7 +1553,7 @@ sep_teams = {
     'Toronto': [
         (from_competition('North American Soccer League (indoor)'), 'Toronto Blizzard'),
         (from_seasons('American Professional Soccer League', set(['1994'])), 'Toronto Rockets'),
-        (from_seasons('USL First Division', set(['1997'])), 'Toronto Lynx'),
+        (from_seasons('USL First Division', set(['1997', '1998', '1999'])), 'Toronto Lynx'),
         ],
 
     'Tulsa': [
@@ -1593,7 +1606,7 @@ sep_teams = {
         (from_competition('North American Soccer League (indoor)'), 'Vancouver Whitecaps'),
         (from_competition('Western Soccer League'), 'Vancouver Whitecaps'), # i suspect
         (from_seasons('USL First Division', set(['1997'])), 'Vancouver 86ers'),        
-        (from_seasons('USL First Division', set(['1998', '2002'])), 'Vancouver Whitecaps'),        
+        (from_seasons('USL First Division', set(['1998', '1999', '2000', '2001', '2002'])), 'Vancouver Whitecaps'),        
         (from_seasons('American Professional Soccer League', set(['1994', '1995','1996'])), 'Vancouver Whitecaps'),
         ],
 

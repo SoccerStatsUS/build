@@ -32,8 +32,6 @@ CUPS_DIR = os.path.join(ROOT_DIR, 'us_cup_data')
 ISL_DIR = os.path.join(ROOT_DIR, 'isl_data')
 
 TEAM_DIR = os.path.join(ROOT_DIR, 'team_data')
-SIDEKICKS_DIR = os.path.join(TEAM_DIR, 'sidekicks')
-BETHLEHEM_DIR = os.path.join(TEAM_DIR, 'bethlehem')
 
 INTERNATIONAL_DIR = os.path.join(ROOT_DIR, 'international_data')
 
@@ -185,12 +183,13 @@ def load_by_subject():
     friendly: US friendly data
     """
 
-    load_women()
+    #load_women()
     load_domestic()
+    load_outer()
     return
     #load_indoor()
     #load_international()
-    #load_outer()
+
 
 
     load_amateur()
@@ -854,54 +853,51 @@ def load_women_domestic():
 
     generic_load(soccer_db.women_awards, awards.process_women_awards)
 
-    WOMEN_ROOT = os.path.join(NWSL_DIR, 'data/games')
+    load_games_standard('women', 'games/usa/wusa/wusa', root=NWSL_DIR)
+    load_games_standard('women', 'games/usa/wps/wps', root=NWSL_DIR)
+    load_games_standard('women', 'games/usa/nwsl/2013', root=NWSL_DIR)
+    load_games_standard('women', 'games/usa/nwsl/2014', root=NWSL_DIR)
 
-    load_games_standard('women', 'usa/wusa/wusa', root=WOMEN_ROOT)
-    load_games_standard('women', 'usa/wps/wps', root=WOMEN_ROOT)
-    load_games_standard('women', 'usa/nwsl/2013', root=WOMEN_ROOT)
-    load_games_standard('women', 'usa/nwsl/2014', root=WOMEN_ROOT)
-
-    load_games_standard('women', 'usa/wpsl/elite', root=WOMEN_ROOT)
+    load_games_standard('women', 'games/usa/wpsl/elite', root=NWSL_DIR)
 
     #for e in range(2007, 2013):
     #    load_games_standard('women', 'domestic/country/usa/leagues/women/wpsl/%s' % e)
 
-    nwsl_dir = os.path.join(ROOT_DIR, 'nwsl_data/data/stats')
-    nwsl_stats = stats.process_stats("nwsl/2013", root=nwsl_dir, delimiter=';')
+    nwsl_stats = stats.process_stats("nwsl/2013", root=os.path.join(NWSL_DIR, 'stats'), delimiter=';')
     generic_load(soccer_db.women_stats, nwsl_stats)
 
     for e in ['wusa', 'wps', 'wpsl_elite', 'nwsl', 'wsl']:
-        load_standings_standard('women', 'data/standings/usa/%s' % e, root=NWSL_DIR)
+        load_standings_standard('women', 'standings/usa/%s' % e, root=NWSL_DIR)
 
     return
 
-    load_standings_standard('data/standings/sweden', e, root=NWSL_DIR)
-    load_standings_standard('data/standings/france', e, root=NWSL_DIR)
+    load_standings_standard('standings/sweden', e, root=NWSL_DIR)
+    load_standings_standard('standings/france', e, root=NWSL_DIR)
 
     generic_load(soccer_db.women_rosters, lambda: flatten_lineups(soccer_db.women_lineups.find({'competition': 'Women\'s United Soccer Association'})))
     generic_load(soccer_db.women_rosters, lambda: flatten_lineups(soccer_db.women_lineups.find({'competition': 'National Women\'s Soccer League'})))
 
 
     for e in range(2012, 2013):
-        load_games_standard('women', 'argentina/%s' % e, root=WOMEN_ROOT)
+        load_games_standard('women', 'games/argentina/%s' % e, root=NWSL_DIR)
 
     for e in range(2008, 2013):
-        load_games_standard('women', 'australia/%s' % e, root=WOMEN_ROOT)
+        load_games_standard('women', 'games/australia/%s' % e, root=NWSL_DIR)
 
     # Europe
 
 
     for e in range(2000, 2005):
-        load_games_standard('women', 'england/1/%s' % e, root=WOMEN_ROOT)
+        load_games_standard('women', 'games/england/1/%s' % e, root=NWSL_DIR)
 
     for e in range(2000, 2011): # through 2010.
-        load_games_standard('women', 'france/1/%s' % e, root=WOMEN_ROOT)
+        load_games_standard('women', 'games/france/1/%s' % e, root=NWSL_DIR)
 
     for e in range(2000, 2011):
-        load_games_standard('women', 'germany/%s' % e, root=WOMEN_ROOT)
+        load_games_standard('women', 'games/germany/%s' % e, root=NWSL_DIR)
 
     for e in range(2000, 2006):
-        load_games_standard('women', 'sweden/1/%s' % e, root=WOMEN_ROOT)
+        load_games_standard('women', 'games/sweden/1/%s' % e, root=NWSL_DIR)
 
 
 def load_mlssoccer_season(url, competition):
@@ -1251,7 +1247,7 @@ def load_indoor():
     # Team-specific
 
     #for e in range(1984, 2002):
-    #    load_games_standard('indoor', 'data/games/%s' % e, root=SIDEKICKS_DIR)
+    #    load_games_standard('indoor', 'sidekicks/data/games/%s' % e, root=TEAM_DIR)
 
 
     #for e in range(2013, 2013):
@@ -1292,7 +1288,7 @@ def load_us_minor():
     Load all-time us minor league stats.
     """
 
-    load_asl2()
+    #load_asl2()
     load_modern_minor()
 
     #load_nafbl()
@@ -1788,8 +1784,8 @@ def load_world():
     # International friendly club tournaments - ISL, Parmalat Cup, Copa Rio, etc.
     # Also existed in Brazil / Argentina / Colombia?
 
-    #generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(ROOT_DIR, 'soccerdata/data/rosters/domestic/club_world_cup')))
-    #generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(ROOT_DIR, 'soccerdata/data/rosters/domestic/copita')))
+    generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(WORLD_DIR, 'rosters/club_world_cup')))
+    generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(WORLD_DIR, 'rosters/copita')))
 
     #load_isl2()
 
