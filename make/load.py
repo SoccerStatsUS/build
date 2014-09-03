@@ -1960,6 +1960,9 @@ def load_ncaa():
     for year in range(2011, 2014):
         load_games_standard('ncaa', 'games/championship/%s' % year, root=NCAA_DIR)
 
+    load_standings_standard('ncaa', 'standings/ncaa2', root=NCAA_DIR)
+
+
 
 
 def load_fifa():
