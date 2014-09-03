@@ -20,6 +20,41 @@ def from_seasons(competition, seasons):
 sep_names = {
 
 
+    'Alex': [
+        ('Alex Monteiro de Lima', {'team': 'Chicago Fire' }),
+        ('Alex Monteiro de Lima', {'team': 'Chicago Fire Reserves' }),
+
+        ('Alex Raphael Meschini', {'team': 'Corinthians', 'season': '2012'}),
+        ('Alex Raphael Meschini', {'team': 'Corinthians', 'season': '2011'}),
+        ('Alex Raphael Meschini', {'team': 'Internacional', 'season': '2006'}),
+        ('Alex Raphael Meschini', {'team': 'Internacional', 'season': '2007'}),
+        ('Alex Raphael Meschini', {'team': 'Internacional', 'season': '2008'}),
+
+        ('Alex Terra', {'team': 'Melbourne Heart'}),
+        ('Alex Terra', {'team': 'Fluminense', 'season': '2005'}),
+        ('Alex Terra', {'team': 'Fluminense', 'season': '2004'}),
+
+        ('Alex Rodrigo Dias da Costa', {'team': 'Chelsea'}),
+        ('Alex Rodrigo Dias da Costa', {'team': 'PSV Eindhoven'}),
+        ('Alex Rodrigo Dias da Costa', {'team': 'Santos FC'}),
+
+        ],
+
+
+    'Cassio': [
+        ('Cássio Oliveira', {'team': 'New England Revolution' }),
+        ('Cássio Oliveira', {'team': 'New England Revolution Reserves' }),
+        ('Cássio Oliveira', {'team': 'Adelaide United' }),
+
+        ('Cássio Ramos', {'team': 'Corinthians'}),
+
+        ('Cássio Alessandro de Souza', {'team': 'Fluminense'}),
+        ('Cássio Alessandro de Souza', {'team': 'Avai FC'}),
+        ],
+
+
+
+
     'Chris Brown': [
         ('Chris Brown (1971)', {'team': 'FC Dallas' }),
         ('Chris Brown (1971)', {'team': 'Richmond Kickers' }),
@@ -27,6 +62,7 @@ sep_names = {
         ('Chris Brown (1971)', {'team': 'New Orleans Riverboat Gamblers' }),
         ('Chris Brown (1971)', {'team': 'Maryland Mania' }),
         ],
+
 
     'Dejair': [
         ('Dejair Jorge Ferreira', {'team': 'Chivas USA' }),
@@ -54,6 +90,23 @@ sep_names = {
         ('Erick Neres da Cruz', {'team': 'FC Dallas Reserves', }),
         ],
 
+
+    'Felipe': [
+        ('Felipe Jorge Loureiro', {'team': 'Vasco da Gama', }),
+        ],
+
+    'Fred': [
+        ('Frederico Chaves Guedes', {'team': 'Fluminense'}),
+        ('Frederico Chaves Guedes', {'team': 'Cruzeiro'}),
+        ('Frederico Chaves Guedes', {'team': 'Atletico Mineiro'}),
+
+        ('Fred Carreiro', {'team': 'DC United' }),
+        ('Fred Carreiro', {'team': 'Philadelphia Union' }),
+
+        ('Frederico Rodrigues de Paula Santos', {'team': 'Internacional'}),
+        ],
+
+
     'Indio': [
         ('Marcos Antônio de Lima', {'team': 'Internacional' }),
         ('Marcos Antônio de Lima', {'team': 'EC Juventude', 'season': '2004', }),
@@ -66,7 +119,35 @@ sep_names = {
         ('Jenison Brito', {'team': 'Fort Lauderdale Striekrs', }),
         ],
 
+    #'Geovanni': [
+    #    ('Geovanni Deiberson Maurício', {'team': 'San Jose Earthquakes'}),
+    #    ('Geovanni Deiberson Maurício', {'team': 'Hull City'}),
+    ##    ('Geovanni Deiberson Maurício', {'team': 'SL Benfica'}),
+    #    ('Geovanni Deiberson Maurício', {'team': 'Cruzeiro'}),
+    #    ],
 
+
+    'Gilmar': [
+        ('Gilmar Antônio Batista', {'team': 'Tampa Bay Mutiny' }),
+        ('Gilmar Antônio Batista', {'team': 'Metrostars' }),
+
+        ('Gylmar dos Santos Neves', {'team': 'Santos FC'}),
+        #('Gylmar dos Santos Neves', {'team': 'Corinthians'}),
+
+        ('Gilmar Lobato da Rocha', {'team': 'Varzim' }),
+        ('Gilmar Lobato da Rocha', {'team': 'Deportes Naval' }),
+        ],
+
+    'Jackson': [
+        ('Jackson Henrique Gonçalves Pereira', {'team': 'FC Dallas', }),
+        ('Jackson Henrique Gonçalves Pereira', {'team': 'Toronto FC', }),
+        ],
+
+
+
+    'Jenison': [
+        ('Jenison Brito', {'team': 'Fort Lauderdale Strikers', }),
+        ],
 
     'Jorge Flores': [
         ('Jorge Villafaña', {'team': 'Chivas USA' }),
@@ -103,6 +184,19 @@ sep_names = {
         ('Kléber de Souza Freitas', {'team': 'Gremio'}),
         ],
 
+
+    # Also marquinhos...
+    'Marquinho': [
+        ('Marco Antônio de Mattos Filho', {'team': 'Fluminense'}),
+        ('Marco Antônio de Mattos Filho', {'team': 'Figueirense'}),
+
+        ('Marco Antônio dos Santos', {'team': 'Colorado Rapids' }),
+        ('Marco Antônio dos Santos', {'team': 'Sport Boys' }),
+        ('Marco Antônio dos Santos', {'team': 'Sporting Cristal' }),
+        
+        ],
+
+
     'Luizao': [
         ('Luiz Bombonato Goulart', {'team': 'Hertha BSC',}),
         ('Luiz Bombonato Goulart', {'team': 'Gremio', 'season': '2002'}),
@@ -110,6 +204,7 @@ sep_names = {
         ('Luiz Bombonato Goulart', {'team': 'Vasco da Gama'}),
         ('Luiz Bombonato Goulart', {'team': 'Club Guarani'}),
         ],
+
 
 
     'Maykon': [
@@ -125,9 +220,59 @@ sep_names = {
 
         ],
 
+    'Naldo': [
+        ('Ednaldo da Conceição', {'team': 'LA Galaxy'}),
+        ('Ednaldo da Conceição', {'team': 'Los Angeles Galaxy Reserves'}),
+        ('Ednaldo da Conceição', {'team': 'California Cougars'}),
+
+        ('Ronaldo Aparecido Rodrigues', {'team': 'Werder Bremen'}),
+        ('Ronaldo Aparecido Rodrigues', {'team': 'EC Juventude'}),
+        
+        ],
+
+    'Nene': [
+        ('Fábio Camilo de Brito', {'team': 'Urawa Red Diamonds' }),
+
+        ('Anderson Luiz de Carvalho', {'team': 'Monaco' }),
+        ('Anderson Luiz de Carvalho', {'team': 'Celta Vigo' }),
+        ('Anderson Luiz de Carvalho', {'team': 'Deportivo Alaves' }),
+        ('Anderson Luiz de Carvalho', {'team': 'Mallorca' }),
+        ('Anderson Luiz de Carvalho', {'team': 'Santos FC', 'season': '2002', }),
+        ('Anderson Luiz de Carvalho', {'team': 'Palmeiras','season': '2001', }),
+
+        ('Ânderson Miguel da Silva', {'team': 'Cagliari'}),
+        ('Ânderson Miguel da Silva', {'team': 'CD Nacional'}),
+        ('Ânderson Miguel da Silva', {'team': 'Cruzeiro'}),
+        ('Ânderson Miguel da Silva', {'team': 'Santa Cruz'}),
+        
+        ],
+
     'Oliver': [
         ('Oliver Minatel', {'team': 'Ottawa Fury' }),
         ],
+
+
+    'Oscar': [
+        ('José Oscar Bernardi', {'team': 'Ponte Preta', 'season': '1977' }),
+        ('José Oscar Bernardi', {'team': 'New York Cosmos' }),
+        ('José Oscar Bernardi', {'team': 'Sao Paulo FC', 'season': '1984' }),
+        ('José Oscar Bernardi', {'team': 'Sao Paulo FC', 'season': '1985' }),
+        ('José Oscar Bernardi', {'team': 'Sao Paulo FC', 'season': '1986' }),
+
+        ('Óscar García Junyent', {'team': 'FC Barcelona'}),
+        ('Óscar García Junyent', {'team': 'Valencia'}),
+        ('Óscar García Junyent', {'team': 'RCD Espanyol'}),
+
+        ('Óscar González Marcos', {'team': 'Real Valladolid'}),
+        ('Óscar González Marcos', {'team': 'Real Zaragoza'}),
+
+        ('Oscar dos Santos Emboaba Júnior', {'team': 'Internacional'}),
+
+
+        
+
+        ],
+
 
     'Pablo Hernandez': [
         ('Pedro Pablo Hernández', {'team': 'DC United', }),
@@ -154,6 +299,13 @@ sep_names = {
 
         ],
 
+    'Reinaldo': [
+        ('Reinaldo de Souza', {'team': 'Botafogo'}),
+
+        ('José Reinaldo de Lima', {'team': 'Atletico Mineiro'}), # there is a second reinaldo for mineiro
+
+        ],
+
 
     'Ricardinho': [
         ('Ricardo Alves Pereira', {'team': 'FC Dallas' }),
@@ -168,28 +320,61 @@ sep_names = {
         ('Ronaldo Luís Nazário de Lima', {'team': 'Inter Milan' }),
         ],
 
+    'Tiago': [
+        ('Tiago Calvano', {'team': 'Minnesota United FC' }),
+
+        ('Tiago Jorge Honório', {'team': 'Shenzhen Ruby'}),
+        ('Tiago Jorge Honório', {'team': 'Shanghai United FC'}),
+        ('Tiago Jorge Honório', {'team': 'Beijing Guoan'}),
+
+        ('Tiago Mendes', {'team': 'Chelsea'}),
+        ('Tiago Mendes', {'team': 'SL Benfica'}),
+        ('Tiago Mendes', {'team': 'Braga'}),
+        ],
+
     'Thiago': [
         ('Thiago de Souza', {'team': 'LA Galaxy' }),
         ('Thiago da Rosa Correa', {'team': 'Chicago Fire' }),
         ('Thiago da Rosa Correa', {'team': 'Chicago Fire Reserves' }),
         ],
 
-    'Washington': [
-        ('Washington Stecanela Cerqueira', {'team': 'Urawa Red Diamonds'}),
-        ('Washington Stecanela Cerqueira', {'team': 'Fluminense', 'season': '2008'}),
-        ('Washington Stecanela Cerqueira', {'team': 'Sao Paulo FC', 'season': '2009'}),
-        ('Washington Stecanela Cerqueira', {'team': 'Sao Paulo FC', 'season': '2010'}),
+    'Silvinho': [
+        ('Silvio Paiva', {'team': 'Internacional', 'season': '1985' }),
+        ('Silvio Paiva', {'team': 'Internacional', 'season': '1984' }),
+        ('Silvio Paiva', {'team': 'Internacional', 'season': '1983' }),
+        ('Silvio Paiva', {'team': 'Internacional', 'season': '1982' }),
+        ('Silvio Paiva', {'team': 'Internacional', 'season': '1981' }),
 
-        ('Washington César Santos', {'team': 'Atletico Paranaense', 'season': '1983'}),
-        ('Washington César Santos', {'team': 'Fluminense', 'season': '1984'}),
-        ('Washington César Santos', {'team': 'Fluminense', 'season': '1985'}),
-        ('Washington César Santos', {'team': 'Fluminense', 'season': '1986'}),
-        ('Washington César Santos', {'team': 'Fluminense', 'season': '1987'}),
-        ('Washington César Santos', {'team': 'Fluminense', 'season': '1988'}),
-        ('Washington César Santos', {'team': 'Club Guarani', 'season': '1989'}),
-        ('Washington César Santos', {'team': 'Botafogo', 'season': '1990'}),
         ],
 
+
+    'Washington': [
+
+        ('Washington Cerqueira', {'team': 'Sao Paulo FC', 'season': '2010',}),
+        ('Washington Cerqueira', {'team': 'Sao Paulo FC', 'season': '2009',}),
+        ('Washington Cerqueira', {'team': 'Fluminense', 'season': '2008',}),
+        ('Washington Cerqueira', {'team': 'Urawa Red Diamonds', 'season': '2007',}),
+        ('Washington Cerqueira', {'team': 'Ponte Preta', 'season': '2001',}),
+        ('Washington Cerqueira', {'team': 'Ponte Preta', 'season': '2000',}),
+
+        ('Washington Luiz Mascarenhas Silva', {'team': 'Ceara', 'season': '2011'}),
+        ('Washington Luiz Mascarenhas Silva', {'team': 'Ceara', 'season': '2010'}),
+        ('Washington Luiz Mascarenhas Silva', {'team': 'Portuguesa', 'season': '2008'}),
+        ('Washington Luiz Mascarenhas Silva', {'team': 'SC Recife', 'season': '2007'}),
+        ('Washington Luiz Mascarenhas Silva', {'team': 'Palmeiras', 'season': '2006'}),
+        ('Washington Luiz Mascarenhas Silva', {'team': 'Palmeiras', 'season': '2005'}),
+        
+        ('Washington César Santos', {'team': 'Botafogo', 'season': '1990',}),
+        ('Washington César Santos', {'team': 'Club Guarani', 'season': '1989',}),
+        ('Washington César Santos', {'team': 'Fluminense', 'season': '1988',}),
+        ('Washington César Santos', {'team': 'Fluminense', 'season': '1987',}),
+        ('Washington César Santos', {'team': 'Fluminense', 'season': '1986',}),
+        ('Washington César Santos', {'team': 'Fluminense', 'season': '1985',}),
+        ('Washington César Santos', {'team': 'Fluminense', 'season': '1984',}),
+        ('Washington César Santos', {'team': 'Atletico Paranaense', 'season': '1983',}),
+        ('Washington César Santos', {'team': 'Galicia', 'season': '1981',}),
+
+        ],
 
     }
 
@@ -407,6 +592,7 @@ sep_teams = {
         (from_seasons('American Soccer League (1933-1983)', set(['1969'])), 'Boston Astros'),
         (from_competition('North American Soccer League (indoor)'), 'Boston Minutemen'),
         (from_seasons('American Professional Soccer League', set(['1989', '1990'])), 'Boston Bolts'),
+        (from_seasons('USL First Division', set(['1999',])), 'Boston Bulldogs'),
         ],
 
     'Boston SC': [
@@ -504,7 +690,7 @@ sep_teams = {
         ],
 
     'Charleston': [
-        (from_seasons('USL First Division', set(['1997', '1998', '2001', '2002','2003'])), 'Charleston Battery'),
+        (from_seasons('USL First Division', set(['1997', '1998', '1999','2001', '2002','2003'])), 'Charleston Battery'),
         ],
 
     'Charlotte': [
@@ -528,7 +714,7 @@ sep_teams = {
         ],
 
     'Cincinnati': [
-        (from_seasons('USL First Division', set(['1998'])), 'Cincinnati Riverhawks'),
+        (from_seasons('USL First Division', set(['1998','1999',])), 'Cincinnati Riverhawks'),
         ],
 
 
@@ -551,7 +737,7 @@ sep_teams = {
 
     'Connecticut': [
         (from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Connecticut'),
-        (from_seasons('USL First Division', set(['1997','1998'])), 'Connecticut Wolves'),
+        (from_seasons('USL First Division', set(['1997','1998','1999'])), 'Connecticut Wolves'),
         ],
 
 
@@ -622,7 +808,7 @@ sep_teams = {
         ],
 
     'El Paso': [
-        (from_seasons('USL First Division', set(['1997','1998','2002'])), 'El Paso Patriots'),
+        (from_seasons('USL First Division', set(['1997','1998','1999', '2000', '2001', '2002'])), 'El Paso Patriots'),
         ],
 
     'España': [
@@ -695,7 +881,7 @@ sep_teams = {
         ],
 
     'Hampton Roads': [
-        (from_seasons('USL First Division', set(['1997','1998'])), 'Hampton Roads Mariners'),
+        (from_seasons('USL First Division', set(['1997','1998','1999'])), 'Hampton Roads Mariners'),
         ],
 
 
@@ -720,7 +906,7 @@ sep_teams = {
         ],
 
     'Hershey': [
-        (from_seasons('USL First Division', set(['1997', '1998', ])), 'Hershey Wildcats'),
+        (from_seasons('USL First Division', set(['1997', '1998','1999' ])), 'Hershey Wildcats'),
         ],
 
 
@@ -756,6 +942,7 @@ sep_teams = {
         (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1926-1927'])), 'Indiana Flooring'),
         (from_competition('Continental Indoor Soccer League'), 'Indiana Twisters'),
         (from_competition('NCAA Division I Men\'s Soccer Championship'), 'Indiana University'),
+        (from_seasons('USL First Division', set(['1999',])), 'Indiana Blast'),
         ],
 
     'Indianapolis': [
@@ -772,7 +959,7 @@ sep_teams = {
 
     'Jacksonville': [
         (from_competition('North American Soccer League (indoor)'), 'Jacksonville Tea Men'),
-        (from_seasons('USL First Division', set(['1997', '1998'])), 'Jacksonville Cyclones'),
+        (from_seasons('USL First Division', set(['1997', '1998', '1999'])), 'Jacksonville Cyclones'),
         ],
 
     'Junior': [
@@ -795,6 +982,12 @@ sep_teams = {
         ],
 
 
+    'Lehigh Valley': [
+        (from_seasons('USL First Division', set(['1999',])), 'Lehigh Valley Steam'),
+        ],
+
+
+
     'Liverpool': [
         (from_competition('Uruguayan Primera División'), 'Liverpool (Montevideo)'),
         ],
@@ -804,7 +997,7 @@ sep_teams = {
         ],
 
     'Long Island': [
-        (from_seasons('USL First Division', set(['1997','1998'])), 'Long Island Rough Riders'),
+        (from_seasons('USL First Division', set(['1997','1998','1999'])), 'Long Island Rough Riders'),
         ],
 
 
@@ -834,6 +1027,7 @@ sep_teams = {
 
     'Maryland': [
         (from_seasons('American Professional Soccer League', set(['1989', '1990'])), 'Maryland Bays'),
+        (from_seasons('USL First Division', set(['1999'])), 'Maryland Mania'),
         ],
 
 
@@ -853,14 +1047,14 @@ sep_teams = {
     'Milwaukee': [
         (from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Wisconsin-Milwaukee'),
         (from_competition('Major Indoor Soccer League (2008-2014)'), 'Milwaukee Wave'),
-        (from_seasons('USL First Division', set(['1997', '1998', '2001', '2002'])), 'Milwaukee Rampage'),
+        (from_seasons('USL First Division', set(['1997', '1998', '1999', '2000', '2001', '2002'])), 'Milwaukee Rampage'),
         ],
 
 
     'Minnesota': [
         (from_competition('Major Indoor Soccer League (1978-1992)'), 'Minnesota Strikers'),
         (from_competition('North American Soccer League (indoor)'), 'Minnesota Strikers'),
-        (from_seasons('USL First Division', set(['1997', '1998', '2002', '2003'])), 'Minnesota Thunder'),
+        (from_seasons('USL First Division', set(['1997', '1998', '1999', '2000', '2001', '2002', '2003'])), 'Minnesota Thunder'),
         ],
 
 
@@ -891,6 +1085,7 @@ sep_teams = {
         (from_competition('Paraguayan Primera División'), 'Club Nacional'),
         (from_competition('Categoría Primera A'), 'Atlético Nacional'),
         (from_competition('Liga Panameña de Fútbol'), 'Atlético Nacional (Panama)'),
+        (from_competition('Primeira Liga'), 'CD Nacional'),
         ],
 
     'Nashville': [
@@ -924,7 +1119,7 @@ sep_teams = {
         ],
 
     'New Orleans': [
-        (from_seasons('USL First Division', set(['1997', '1998'])), 'New Orleans Riverboat Gamblers'),
+        (from_seasons('USL First Division', set(['1997', '1998','1999'])), 'New Orleans Riverboat Gamblers'),
         ],
 
 
@@ -989,7 +1184,7 @@ sep_teams = {
         ],
     
     'Orange County': [
-        (from_seasons('USL First Division', set(['1997','1998'])), 'Orange County Blue Star'),
+        (from_seasons('USL First Division', set(['1997','1998','1999'])), 'Orange County Blue Star'),
         ],
 
     'Orlando': [
@@ -1049,7 +1244,7 @@ sep_teams = {
         (from_competition('Continental Indoor Soccer League'), 'Pittsburgh Stingers'),
         (from_competition('Major Indoor Soccer League (1978-1992)'), 'Pittsburgh Spirit'),
         (from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Pittsburgh'),
-        (from_seasons('USL First Division', set(['2001',])), 'Pittsburgh Riverhounds'),
+        (from_seasons('USL First Division', set(['1999', '2000', '2001',])), 'Pittsburgh Riverhounds'),
         ],
 
 
@@ -1101,7 +1296,7 @@ sep_teams = {
         ],
 
     'Raleigh': [
-        (from_seasons('USL First Division', set(['1997','1998'])), 'Raleigh Flyers'),
+        (from_seasons('USL First Division', set(['1997','1998','1999'])), 'Raleigh Flyers'),
         ],
 
 
@@ -1122,7 +1317,7 @@ sep_teams = {
         ],
 
     'Richmond': [
-        (from_seasons('USL First Division', set(['1997', '1998', '2002'])), 'Richmond Kickers'),
+        (from_seasons('USL First Division', set(['1997', '1998', '1999','2002'])), 'Richmond Kickers'),
         ],
 
 
@@ -1139,7 +1334,7 @@ sep_teams = {
         (from_competition('North American Soccer League (indoor)'), 'Rochester Lancers'),
         (from_competition('Major Indoor Soccer League (2008-2014)'), 'Rochester Lancers'),
         (from_seasons('American Professional Soccer League', set(['1996',])), 'Rochester Rhinos'),
-        (from_seasons('USL First Division', set(['1997','1998','2002','2003'])), 'Rochester Rhinos'),
+        (from_seasons('USL First Division', set(['1997','1998','1999','2000','2001','2002','2003'])), 'Rochester Rhinos'),
         ],
 
 
@@ -1156,6 +1351,7 @@ sep_teams = {
     'Sacramento': [
         (from_competition('Continental Indoor Soccer League'), 'Sacramento Knights'),
         (from_competition('World Indoor Soccer League'), 'Sacramento Knights'),
+        (from_seasons('USL First Division', set(['1999'])), 'Sacramento Geckos'),
         ],
 
 
@@ -1169,7 +1365,7 @@ sep_teams = {
         (from_competition('World Indoor Soccer League'), 'San Diego Sockers'),
         (from_competition('North American Soccer League (indoor)'), 'San Diego Sockers'),
         (from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of San Diego'),
-        (from_seasons('USL First Division', set(['1998','2001','2002',])), 'San Diego Flash'),
+        (from_seasons('USL First Division', set(['1998','1999','2001','2002',])), 'San Diego Flash'),
         ],
 
     'San Francisco': [
@@ -1182,7 +1378,7 @@ sep_teams = {
 
     'San Francisco Bay': [
         (from_seasons('American Professional Soccer League', set(['1990',])), 'San Francisco Bay Blackhawks'),
-        (from_seasons('USL First Division', set(['1998',])), 'San Francisco Bay Seals'),
+        (from_seasons('USL First Division', set(['1998','1999'])), 'San Francisco Bay Seals'),
         ],
 
     'San Jose': [
@@ -1245,7 +1441,7 @@ sep_teams = {
         (from_competition('NCAA Division I Men\'s Soccer Championship'), 'Seattle University'),
         (from_competition('Continental Indoor Soccer League'), 'Seattle SeaDogs'),
         (from_competition('North American Soccer League (indoor)'), 'Seattle Sounders'),
-        (from_seasons('USL First Division', set(['1996', '1997', '1998', '2002', '2003'])), 'Seattle Sounders'),
+        (from_seasons('USL First Division', set(['1996', '1997', '1998', '1999', '2000', '2001', '2002', '2003'])), 'Seattle Sounders'),
         (from_seasons('American Professional Soccer League', set(['1994','1995','1996'])), 'Seattle Sounders'),
         ],
 
@@ -1309,7 +1505,7 @@ sep_teams = {
         ],
 
     'Staten Island': [
-        (from_seasons('USL First Division', set(['1998'])), 'Staten Island Vipers'),
+        (from_seasons('USL First Division', set(['1998','1999',])), 'Staten Island Vipers'),
         ],
 
 
@@ -1346,6 +1542,9 @@ sep_teams = {
         (from_seasons('American Professional Soccer League', set(['1989', '1990'])), 'Tampa Bay Rowdies'),
         ],
 
+    'Tennessee': [
+        (from_seasons('USL First Division', set(['1999'])), 'Tennessee Rhythm'),
+        ],
 
     'Todd': [
         (from_seasons('American Soccer League (1921-1933)', set(['1921-1922'])), 'Todd Shipyards'),
@@ -1354,7 +1553,7 @@ sep_teams = {
     'Toronto': [
         (from_competition('North American Soccer League (indoor)'), 'Toronto Blizzard'),
         (from_seasons('American Professional Soccer League', set(['1994'])), 'Toronto Rockets'),
-        (from_seasons('USL First Division', set(['1997'])), 'Toronto Lynx'),
+        (from_seasons('USL First Division', set(['1997', '1998', '1999'])), 'Toronto Lynx'),
         ],
 
     'Tulsa': [
@@ -1407,7 +1606,7 @@ sep_teams = {
         (from_competition('North American Soccer League (indoor)'), 'Vancouver Whitecaps'),
         (from_competition('Western Soccer League'), 'Vancouver Whitecaps'), # i suspect
         (from_seasons('USL First Division', set(['1997'])), 'Vancouver 86ers'),        
-        (from_seasons('USL First Division', set(['1998', '2002'])), 'Vancouver Whitecaps'),        
+        (from_seasons('USL First Division', set(['1998', '1999', '2000', '2001', '2002'])), 'Vancouver Whitecaps'),        
         (from_seasons('American Professional Soccer League', set(['1994', '1995','1996'])), 'Vancouver Whitecaps'),
         ],
 
