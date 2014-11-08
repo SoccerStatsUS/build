@@ -47,6 +47,8 @@ def normalize():
     normalize_multiple_colls('stats', normalize_stat)
     normalize_multiple_colls('standings', normalize_standing)
 
+    normalize_multiple_colls('transactions', normalize_transaction)
+
 
     # Advanced
     normalize_single_coll(soccer_db.salaries, normalize_salary)
@@ -191,8 +193,21 @@ def calculate_game_results(d):
 def normalize_season(e):
     #e['competition'] = get_competition(e['competition'])
     e['name'] = get_season(e['name'])
+    return e
+
+
+def normalize_transaction(e):
+    #e['name'] = get_season(e['name'])
+    e['ttype'] = e['ttype'].strip()
+    e['person'] = get_name(e['person'])
+
+    if e.get('team_to'):
+        e['team_to'] = get_team(e['team_to'])
+    if e.get('team_from'):
+        e['team_from'] = get_team(e['team_from'])
 
     return e
+
 
 def normalize_game_stat(e):
     e['team'] = get_team(e['team'])
@@ -508,12 +523,20 @@ def normalize_standing(e):
 
     e['team'] = separate_team(e['team'], e)
 
-    if 'games' not in e:
-        import pdb; pdb.set_trace()
+        #import pdb; pdb.set_trace()
 
     for key in ['shootout_wins', 'shootout_losses', 'ties']:
         if key not in e:
             e[key] = None
+
+    # Calculate games if they do not exist.
+    if 'games' not in e:
+        k = lambda s: e[s] or 0
+        e['games'] = sum([k(e) for e in ['wins', 'ties', 'losses', 'shootout_wins', 'shootout_losses']])
+
+    if e['wins'] is None or e['losses'] is None:
+        import pdb; pdb.set_trace()
+
 
     return e
 

@@ -24,6 +24,8 @@ def merge():
     merge_all_stats()
     merge_standings()
 
+    merge_transactions()
+
     # Merge extra data
     merge_awards()
 
@@ -106,6 +108,10 @@ def merge_standings():
 
 def merge_awards():
     standard_merge('awards')
+
+
+def merge_transactions():
+    standard_merge('transactions')
     
 
 def merge_goals():

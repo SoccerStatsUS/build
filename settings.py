@@ -24,6 +24,7 @@ STAT_TABLES = [
     'stats', 
     'gstats',
     'standings', 
+    'transactions',
 
     'rosters',
     'gen_rosters',

@@ -58,6 +58,7 @@ def load_transactions_standard(coll, fn, root):
 
     print(fn)
     tx = transactions.process_transactions(fn, root)
+
     generic_load(soccer_db['%s_transactions' % coll], lambda: tx, delete=False)
 
 
@@ -129,9 +130,10 @@ def load():
     clear_all()
 
     load_metadata()
+
     load_by_subject()
     
-    #load_advanced()
+    load_advanced()
 
 
 
@@ -167,7 +169,7 @@ def load_advanced():
     # money data
     load_salaries()
 
-    # news feee data
+    # news feed data
     #load_news()
 
 
@@ -183,16 +185,18 @@ def load_by_subject():
     friendly: US friendly data
     """
 
-    #load_women()
+    load_women()
+
     load_domestic()
-    load_outer()
     return
-    #load_indoor()
-    #load_international()
-
-
-
+    load_indoor()
     load_amateur()
+    load_outer()
+    load_international()
+
+
+
+
 
     load_friendly()
 
@@ -210,17 +214,22 @@ def load_international():
 
 
 def load_domestic():
+    load_usd1()    
 
-    load_us_minor()
     return
-    load_concacaf()
-    load_conmebol()
-    #load_uefa()
+    load_us_minor()
+
+    load_us_cups()
     load_world()
 
+
+    load_concacaf()
+
+
     return
-    load_usd1()    
-    load_us_cups()
+    #load_uefa()
+    load_conmebol()
+
     load_concacaf()
     load_conmebol()
     load_uefa()
@@ -231,12 +240,12 @@ def load_domestic():
 
 def load_usd1():
     load_mls()
-
+    return
     load_asl()
 
-
-    load_alpf()
     load_nasl()
+    load_alpf()
+
 
 
 def load_outer():
@@ -350,8 +359,13 @@ def load_us_cups():
     generic_load(soccer_db.us_cups_rosters, lambda: rosters.process_rosters2(path=os.path.join(CUPS_DIR, "rosters/afa")))
 
 
-    for e in 'afa', 'afa2', 'lewis', 'duffy', 'aafa':
-        load_games_standard('us_cups', 'games/%s' % e, root=CUPS_DIR)
+
+    load_games_standard('us_cups', 'games/open/afa' , root=CUPS_DIR)
+    load_games_standard('us_cups', 'games/open/afa2' , root=CUPS_DIR)
+    load_games_standard('us_cups', 'games/league/lewis' , root=CUPS_DIR)
+    load_games_standard('us_cups', 'games/league/duffy' , root=CUPS_DIR)
+    load_games_standard('us_cups', 'games/amateur/aafa' , root=CUPS_DIR)
+
 
     for e in range(191, 202):
         load_games_standard('us_cups', 'games/open/%s0' % e, root=CUPS_DIR)#, games_only=True)
@@ -396,11 +410,11 @@ def load_uncaf():
     generic_load(soccer_db.concacaf_awards, awards.process_panama_awards)
     generic_load(soccer_db.concacaf_awards, awards.process_nicaragua_awards)
 
-    load_standings_standard('concacaf', 'standings/guatemala3', root=CONCACAF_DIR)
-    load_standings_standard('concacaf', 'standings/elsalvador2', root=CONCACAF_DIR)
+    load_standings_standard('concacaf', 'standings/guatemala/3', root=CONCACAF_DIR)
+    load_standings_standard('concacaf', 'standings/elsalvador/2', root=CONCACAF_DIR)
     load_standings_standard('concacaf', 'standings/honduras', root=CONCACAF_DIR)
-    load_standings_standard('concacaf', 'standings/costarica2', root=CONCACAF_DIR)
-    load_standings_standard('concacaf', 'standings/costarica3', root=CONCACAF_DIR)
+    load_standings_standard('concacaf', 'standings/costarica/2', root=CONCACAF_DIR)
+    load_standings_standard('concacaf', 'standings/costarica/3', root=CONCACAF_DIR)
     load_standings_standard('concacaf', 'standings/panama', root=CONCACAF_DIR)
     load_standings_standard('concacaf', 'standings/nicaragua', root=CONCACAF_DIR)
     #load_standings_standard('concacaf', 'standings/belize', root=CONCACAF_DIR)
@@ -915,7 +929,7 @@ def load_mls():
 
     generic_load(soccer_db.mls_awards, awards.process_mls_awards)
 
-    for e in range(2012, 2015):
+    for e in range(1996, 2015):
         load_transactions_standard('mls', 'data/transactions/mls/%s' % e, USD1_DIR)
 
 
@@ -1088,11 +1102,6 @@ def load_jobs():
     #generic_load(soccer_db.positions, positions.process_positions)
     generic_load(soccer_db.positions, f1)
     generic_load(soccer_db.positions, f2)
-
-
-def load_transactions():
-    pass
-
 
 
 def load_copa_america():
@@ -1288,9 +1297,10 @@ def load_us_minor():
     Load all-time us minor league stats.
     """
 
-    #load_asl2()
+
     load_modern_minor()
 
+    #load_asl2()
     #load_nafbl()
     #load_city()
 
@@ -1784,8 +1794,8 @@ def load_world():
     # International friendly club tournaments - ISL, Parmalat Cup, Copa Rio, etc.
     # Also existed in Brazil / Argentina / Colombia?
 
-    generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(WORLD_DIR, 'rosters/club_world_cup')))
-    generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(WORLD_DIR, 'rosters/copita')))
+    generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(WORLD_DIR, 'rosters/domestic/club_world_cup')))
+    generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(WORLD_DIR, 'rosters/domestic/copita')))
 
     #load_isl2()
 
@@ -1948,9 +1958,13 @@ def load_ncaa():
     from metadata.parse import awards
     generic_load(soccer_db.ncaa_awards, awards.process_ncaa_awards)
 
-    #load_games_standard('ncaa', 'domestic/country/usa/college')
+    load_standings_standard('ncaa', 'standings/ncaa2', root=NCAA_DIR)
+
+    #import pdb; pdb.set_trace()
 
     generic_load(soccer_db.ncaa_stats, process_ncaa_stats)
+
+    #load_games_standard('ncaa', 'domestic/country/usa/college')
 
     for year in range(1959, 1963):
         load_games_standard('ncaa', 'games/championship/%s' % year, NCAA_DIR)
@@ -1958,7 +1972,6 @@ def load_ncaa():
     for year in range(2011, 2014):
         load_games_standard('ncaa', 'games/championship/%s' % year, NCAA_DIR)
 
-    load_standings_standard('ncaa', 'standings/ncaa2', root=NCAA_DIR)
 
 
 
@@ -2034,8 +2047,6 @@ def flatten_lineups(lineups):
 
 def process_ncaa_stats():
 
-    NCAA_DIR = os.path.join(ROOT_DIR, 'ncaa-data')
-
     l = []
     for e in [
         'akron', 
@@ -2044,7 +2055,7 @@ def process_ncaa_stats():
         'charlotte',
         #'chico',
         'clemson',
-        #'coastal_carolina',
+        'coastal_carolina',
         'conn',
 
         #'fairleigh_dickinson',
