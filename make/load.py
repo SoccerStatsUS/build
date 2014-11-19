@@ -131,10 +131,39 @@ def load():
 
     load_metadata()
 
-    load_by_subject()
+    load_soccerstatsus()
+    #load_socceroutsider()
     
     load_advanced()
 
+
+
+
+def load_soccerstatsus():
+    """
+    Load all main data by subject
+    domestic: FIFA Club World Cup, Champions League, MLS, US minor, etc.
+    women: US, Sweden, England
+    indoor: US indoor 1975-2014)
+    amateur: NCAA, amateur cup (?)
+    international: USMNT, FIFA international, countries
+    friendly: US friendly data
+    """
+
+    load_women()
+    load_domestic()
+    load_indoor()
+    load_amateur()
+    load_outer()
+    load_international()
+    load_friendly()
+
+
+
+def load_socceroutsider():
+    load_usd1()    
+    load_us_minor()
+    load_world()
 
 
 
@@ -158,9 +187,7 @@ def load_advanced():
     from metadata.parse import drafts
 
     # drafts
-
-    generic_load(soccer_db.drafts, drafts.load_drafts)
-    generic_load(soccer_db.picks, drafts.load_picks)
+    load_drafts()
 
     # jobs
     load_jobs()
@@ -169,36 +196,12 @@ def load_advanced():
     # money data
     load_salaries()
 
-    # news feed data
+    # news feeds
     #load_news()
 
 
 
-def load_by_subject():  
-    """
-    Load all main data by subject
-    domestic: FIFA Club World Cup, Champions League, MLS, US minor, etc.
-    women: US, Sweden, England
-    indoor: US indoor 1975-2014)
-    amateur: NCAA, amateur cup (?)
-    international: USMNT, FIFA international, countries
-    friendly: US friendly data
-    """
 
-    load_women()
-
-    load_domestic()
-    return
-    load_indoor()
-    load_amateur()
-    load_outer()
-    load_international()
-
-
-
-
-
-    load_friendly()
 
 
 def load_international():
@@ -215,9 +218,10 @@ def load_international():
 
 def load_domestic():
     load_usd1()    
-
-    return
     load_us_minor()
+    load_world()
+    return
+
 
     load_us_cups()
     load_world()
@@ -1079,6 +1083,11 @@ def load_salaries():
     from soccerdata.text import salaries
 
     generic_load(soccer_db.salaries, salaries.load_salaries)
+
+
+def load_drafts():
+    generic_load(soccer_db.drafts, drafts.load_drafts)
+    generic_load(soccer_db.picks, drafts.load_picks)
 
 
 def load_jobs():
