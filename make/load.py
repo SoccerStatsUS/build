@@ -166,6 +166,9 @@ def load_socceroutsider():
     load_world()
 
 
+def load_usmntstats():
+    load_usmnt()
+    
 
 def load_metadata():
     """
