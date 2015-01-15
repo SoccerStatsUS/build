@@ -231,7 +231,6 @@ def load_domestic():
 
 
     return
-    #load_uefa()
     load_conmebol()
 
     load_concacaf()
@@ -473,6 +472,8 @@ def load_uefa_leagues():
     load_uefa_mid()
     load_uefa_minor()
 
+    load_uefa_friendly()
+
 
 
 def load_caf():
@@ -579,11 +580,8 @@ def load_uefa_major():
     for year in range(1992, 2014):
         load_games_standard('uefa', 'games/country/england/%s' % year, root=UEFA_DIR)
 
-    for year in range(1999, 2014):
+    for year in range(1996, 2014):
         load_games_standard('uefa', 'games/country/germany/men/%s' % year, root=UEFA_DIR)
-
-    for year in range(1998, 2014):
-        load_games_standard('uefa', 'games/country/france/%s' % year, root=UEFA_DIR)
 
     for year in range(1997, 2014):
         load_games_standard('uefa', 'games/country/spain/%s' % year, root=UEFA_DIR)
@@ -591,9 +589,11 @@ def load_uefa_major():
     for year in range(1996, 2014):
         load_games_standard('uefa', 'games/country/italy/%s' % year, root=UEFA_DIR)
 
-    return
+    for year in range(1998, 2014):
+        load_games_standard('uefa', 'games/country/france/%s' % year, root=UEFA_DIR)
 
-    load_games_standard('uefa', 'games/spain/friendly/madrid')
+
+
 
 
 
@@ -685,13 +685,13 @@ def load_uefa_minor():
     for year in range(1996, 2014):
         load_games_standard('uefa', 'games/country/poland/%s' % year, root=UEFA_DIR)
 
-    for year in range(1998, 2014):
+    for year in range(1996, 2014):
         load_games_standard('uefa', 'games/country/scotland/%s' % year, root=UEFA_DIR)
 
-    for year in range(1997, 2014):
+    for year in range(1996, 2014):
         load_games_standard('uefa', 'games/country/switzerland/%s' % year, root=UEFA_DIR)
 
-    for year in range(1998, 2014):
+    for year in range(1996, 2014):
         load_games_standard('uefa', 'games/country/austria/%s' % year, root=UEFA_DIR)
 
     for year in range(2000, 2014):
@@ -706,31 +706,36 @@ def load_uefa_minor():
     for year in range(1998, 2013):
         load_games_standard('uefa', 'games/country/hungary/%s' % year, root=UEFA_DIR)
 
-    for year in range(2005, 2012):
+    for year in range(1995, 2013):
+        load_games_standard('uefa', 'games/country/cyprus/%s' % year, root=UEFA_DIR)
+
+    for year in range(2004, 2012):
         load_games_standard('uefa', 'games/country/greece/%s' % year, root=UEFA_DIR)
 
     for year in range(2008, 2011):
         load_games_standard('uefa', 'games/country/serbia/%s' % year, root=UEFA_DIR)
 
-    for year in range(2012, 2013):
+    for year in range(2008, 2013):
         load_games_standard('uefa', 'games/country/croatia/%s' % year, root=UEFA_DIR)
 
-    for year in range(2012, 2013):
-        load_games_standard('uefa', 'games/country/cyprus/%s' % year, root=UEFA_DIR)
-
-    for year in range(2013, 2013):
+    for year in range(2010, 2013):
         load_games_standard('uefa', 'games/country/bosnia/%s' % year, root=UEFA_DIR)
 
-    return
-
-    for year in range(2012, 2013):
+    for year in range(2011, 2013):
         load_games_standard('uefa', 'games/country/slovenia/%s' % year, root=UEFA_DIR)
+
+    return
 
     for year in range(2012, 2013):
         load_games_standard('uefa', 'games/country/slovakia/%s' % year, root=UEFA_DIR)
 
     for year in range(2012, 2012):
         load_games_standard('uefa', 'games/country/bulgaria/%s' % year, root=UEFA_DIR)
+
+
+def load_uefa_friendly():
+    load_games_standard('uefa', 'games/spain/friendly/madrid')
+
 
 
 def load_conmebol_leagues():
