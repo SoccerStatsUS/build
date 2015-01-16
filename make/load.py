@@ -131,8 +131,9 @@ def load():
 
     load_metadata()
 
-    load_soccerstatsus()
+    #load_soccerstatsus()
     #load_socceroutsider()
+    load_usmntstats()
     
     load_advanced()
 
@@ -187,7 +188,7 @@ def load_metadata():
 
 
 def load_advanced():
-    from metadata.parse import drafts
+
 
     # drafts
     load_drafts()
@@ -1089,8 +1090,14 @@ def load_salaries():
 
 
 def load_drafts():
+    from metadata.parse import drafts
+
     generic_load(soccer_db.drafts, drafts.load_drafts)
     generic_load(soccer_db.picks, drafts.load_picks)
+
+
+def load_transactions():
+    pass
 
 
 def load_jobs():
@@ -1871,7 +1878,7 @@ def load_usmnt():
     generic_load(soccer_db.usa_awards, awards.load_hall_of_fame)
 
                       
-    root = os.path.join(ROOT_DIR, 'usmnt-data')
+    root = os.path.join(ROOT_DIR, 'usmnt_data')
 
     for e in range(1910, 2020, 10):
         load_games_standard('usa', 'games/years/%s' % e, root)
