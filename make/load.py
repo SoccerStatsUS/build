@@ -1886,11 +1886,11 @@ def load_usmnt():
     root = os.path.join(ROOT_DIR, 'usmnt_data')
 
     for e in range(1910, 2020, 10):
-        load_games_standard('usa', 'games/years/%s' % e, root)
+        load_games_standard('usa', 'games/%s' % e, root)
 
-    load_games_standard('usa', 'games/fifa/world_cup', root)
-    load_games_standard('usa', 'games/friendly/us_cup', root)
-    load_games_standard('usa', 'games/friendly/friendly', root)
+    load_games_standard('usa', 'games/world_cup', root)
+    load_games_standard('usa', 'games/unofficial/us_cup', root)
+    load_games_standard('usa', 'games/unofficial/friendly', root)
 
     
 def load_concacaf_international():
