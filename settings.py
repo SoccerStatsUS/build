@@ -9,10 +9,12 @@ roots = {
     'agni': '/Users/chris/soccer',
     'bert': '/home/chris/www',
     'oscar': '/home/chris/soccer',
+    'li1014-58': '/home/chris/soccer',
+    'jason': '/home/chris/soccer',
     }
 
-ROOT_DIR = roots[host]
 
+ROOT_DIR = roots[host]
 
 
 # What items are shown on the dashboard
