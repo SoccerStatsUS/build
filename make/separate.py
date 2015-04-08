@@ -407,8 +407,8 @@ sep_teams = {
     'Penn': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Pennsylvania')],
 
     'Pennsylvania': [
-        (from_competition('Intercollegiate Association Football League'), 'University of Pennsylvania')
-        (from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Pennsylvania')
+        (from_competition('Intercollegiate Association Football League'), 'University of Pennsylvania'),
+        (from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Pennsylvania'),
     ],
 
 
@@ -444,9 +444,10 @@ sep_teams = {
     'Kentucky': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Kentucky')],
 
     'Cornell': [
-        (from_competition('NCAA Division I Men\'s Soccer Championship'), 'Cornell University')
-        (from_competition('Intercollegiate Association Football League'), 'Cornell University')
+        (from_competition('NCAA Division I Men\'s Soccer Championship'), 'Cornell University'),
+        (from_competition('Intercollegiate Association Football League'), 'Cornell University'),
     ],
+
     'Niagara': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Niagara University')],
     'Winthrop': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Winthrop University')],
     'Drexel': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Drexel University')],
@@ -632,6 +633,10 @@ sep_teams = {
         ],
 
 
+    'British-American': [
+        (from_competition('Schmelzer Cup'), 'British-American (Kansas City)'),
+        ],
+
 
     'Brooklyn': [
         (from_seasons('American Soccer League (1921-1933)', set(['1922-1923', '1923-1924', '1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1929 Fall', '1929-1930', '1930 Fall', '1931 Spring',])), 'Brooklyn Wanderers'),
@@ -760,6 +765,7 @@ sep_teams = {
 
     'Columbia': [
         (from_competition('New York State League'), 'Columbia Oval'),
+        (from_competition('NCAA Division I Men\'s Soccer Championship'), 'Columbia University'),
         ],
 
 
@@ -915,6 +921,11 @@ sep_teams = {
 
     'Harrison': [
         (from_seasons('American Soccer League (1921-1933)', set(['1921-1922', '1922-1923', '1923-1924'])), 'Harrison SC'),
+        ],
+
+
+    'Harrisville': [
+        (from_competition('Times Cup'), 'Harrisvile (RI)'),
         ],
 
 
@@ -1482,6 +1493,15 @@ sep_teams = {
         (from_competition('K League'), 'FC Seoul'),
         ],
 
+
+    'Shamrocks': [
+        (from_competition('Western Missouri-Kansas Soccer Football Association'), 'Shamrock FC (Kansas City)'),
+        ],
+
+    'Shamrock FC': [
+        (from_competition('Schmelzer Cup'), 'Shamrock FC (Kansas City)'),
+        ],
+
     'Shawsheen': [
         (from_competition('American Soccer League (1921-1933)'), 'Shawsheen Indians'),
         ],
@@ -1539,7 +1559,19 @@ sep_teams = {
 
     'Staten Island': [
         (from_seasons('USL First Division', set(['1998','1999',])), 'Staten Island Vipers'),
-        (from_competition('Field Club League'), 'Staten Island C&TC'),
+        (from_competition('Field Club Soccer League'), 'Staten Island C&TC'),
+        ],
+
+    'Staten Island FC': [
+        (from_competition('Field Club Soccer League'), 'Staten Island C&TC'),
+        ],
+
+    'St. George\'s': [
+        (from_competition('Western Missouri-Kansas Soccer Football Association'), 'St. George FC (Kansas City)'),
+        ],
+
+    'St. George F.C.': [
+        (from_competition('Schmelzer Cup'), 'St. George FC (Kansas City)'),
         ],
 
 
@@ -1579,6 +1611,16 @@ sep_teams = {
     'Tennessee': [
         (from_seasons('USL First Division', set(['1999'])), 'Tennessee Rhythm'),
         ],
+
+
+    'Tigers': [
+        (from_competition('Western Missouri-Kansas Soccer Football Association'), 'Shamrock FC (Kansas City)'),
+        ],
+
+    'Tiger FC': [
+        (from_competition('Schmelzer Cup'), 'Tiger FC (Kansas City)'),
+        ],
+
 
     'Todd': [
         (from_seasons('American Soccer League (1921-1933)', set(['1921-1922'])), 'Todd Shipyards'),
@@ -1677,6 +1719,7 @@ sep_teams = {
     'Wanderers': [
         (from_competition('Uruguayan Primera División'), 'Montevideo Wanderers'),
         (from_competition('Chilean Primera División'), 'Santiago Wanderers'),
+        (from_competition('Chicago Foot Ball Association'), 'Chicago Wanderers'),
         ],
 
     'Washington': [

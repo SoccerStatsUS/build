@@ -138,7 +138,7 @@ def load():
 
 
     load_spalding()
-    load_early()
+    #load_early()
     #load_socceroutsider()
     #load_usmntstats()
 
@@ -215,10 +215,10 @@ def load_advanced():
 def load_early():
     #load_us_cups()
     #load_asl()
+
     load_nafbl()
 
-    for e in [1910, 1920]:
-        load_games_standard('us_cups', 'games/open/%s' % e, root=CUPS_DIR)
+    #load_games_standard('us_cups', 'games/open/1910', root=CUPS_DIR)
 
     #load_early_friendly()
     
@@ -582,7 +582,8 @@ def load_premier_league():
 
 def load_spalding():
 
-    for year in ['1904','1906','1909','1911','1912','1913','1914','1916','1917','1918','1919','1921','1922', '1923']:
+    #for year in ['1904','1906','1909','1911','1912','1913','1914','1916','1917','1918','1919','1921','1922', '1923']:
+    for year in ['1921']:
         load_standings_standard('uefa', 'standings/%s' % year, root=SPALDING_DIR)
         load_games_standard('uefa', 'games/%s' % year, root=SPALDING_DIR)
 
