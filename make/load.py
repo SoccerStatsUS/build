@@ -137,8 +137,8 @@ def load():
     #load_soccerstatsus()
 
 
-    load_spalding()
-    #load_early()
+
+    load_early()
     #load_socceroutsider()
     #load_usmntstats()
 
@@ -213,14 +213,20 @@ def load_advanced():
 
 
 def load_early():
+
+    load_spalding()
+
+    load_early_friendly()
+
     #load_us_cups()
-    #load_asl()
+    load_games_standard('us_cups', 'games/open/1910', root=CUPS_DIR)
 
     load_nafbl()
+    #load_asl()
 
-    #load_games_standard('us_cups', 'games/open/1910', root=CUPS_DIR)
 
-    #load_early_friendly()
+
+
     
 
 
@@ -582,8 +588,7 @@ def load_premier_league():
 
 def load_spalding():
 
-    #for year in ['1904','1906','1909','1911','1912','1913','1914','1916','1917','1918','1919','1921','1922', '1923']:
-    for year in ['1921']:
+    for year in ['1904','1906','1909','1911','1912','1913','1914','1916','1917','1918','1919','1921','1922', '1923']:
         load_standings_standard('uefa', 'standings/%s' % year, root=SPALDING_DIR)
         load_games_standard('uefa', 'games/%s' % year, root=SPALDING_DIR)
 
@@ -1051,40 +1056,39 @@ def load_friendly():
 
 def load_early_friendly():
 
-    for e in range(1865, 1891, 5):
-        load_games_standard('us_friendly', 'domestic/country/usa/friendly/%s' % e, root=FRIENDLY_DIR)
+    #for e in range(1865, 1891, 5):
+    #    load_games_standard('us_friendly', 'games/friendly/%s' % e, root=FRIENDLY_DIR)
 
-    for e in range(1900, 1951, 10):
-        load_games_standard('us_friendly', 'domestic/country/usa/friendly/%s' % e, root=FRIENDLY_DIR)
+    #for e in range(1900, 1951, 10):
+    for e in range(1900, 1921, 10):
+        load_games_standard('us_friendly', 'games/friendly/%s' % e, root=FRIENDLY_DIR)
 
 
 def load_modern_friendly():
 
     #load_games_standard('us_friendly', 'games/misc/bicentennial', root=INTERNATIONAL_DIR)
 
-    load_games_standard('us_friendly', 'domestic/country/usa/friendly/1960')
-    load_games_standard('us_friendly', 'domestic/country/usa/friendly/1967')
-    load_games_standard('us_friendly', 'domestic/country/usa/friendly/1970')
-    load_games_standard('us_friendly', 'domestic/country/usa/friendly/1980')
-    load_games_standard('us_friendly', 'domestic/country/usa/friendly/tours/1970')
-    load_games_standard('us_friendly', 'domestic/country/usa/friendly/tours/1980')
-    load_games_standard('us_friendly', 'domestic/country/usa/friendly/1990')
-    load_games_standard('us_friendly', 'domestic/country/usa/friendly/2000')
-    load_games_standard('us_friendly', 'domestic/country/usa/friendly/2010')
+    load_games_standard('us_friendly', 'games/friendly/1960')
+    load_games_standard('us_friendly', 'games/friendly/1967')
+    load_games_standard('us_friendly', 'games/friendly/1970')
+    load_games_standard('us_friendly', 'games/friendly/1980')
+    load_games_standard('us_friendly', 'games/friendly/tours/1970')
+    load_games_standard('us_friendly', 'games/friendly/tours/1980')
+    load_games_standard('us_friendly', 'games/friendly/1990')
+    load_games_standard('us_friendly', 'games/friendly/2000')
+    load_games_standard('us_friendly', 'games/friendly/2010')
 
     # All-Star game.
-    load_games_standard('us_friendly', 'domestic/country/usa/friendly/mls_all_star')
+    load_games_standard('us_friendly', 'games/friendly/mls_all_star')
 
     # Premium tournaments (superclubs)
-    #load_games_standard('us_friendly', 'domestic/country/usa/friendly/wfc')
-    #load_games_standard('us_friendly', 'domestic/country/usa/friendly/icc')
+    #load_games_standard('us_friendly', 'games/friendly/wfc')
+    #load_games_standard('us_friendly', 'games/friendly/icc')
 
     for e in ['arizona', 'canada', 'carolina', 'coliseo', 'desert', 'disney', 'dynamo', 'europac', 'festival_of_americas', 'hawaii',
               'icc', 'los_angeles_nations', 'miami', 'mls_all_star', 'mls_combine', 'pegaso', 'super_cup', 'tecate', 'wfc',
               ]: #'los_angeles', 'miami_cup', 'women',
-        load_games_standard('us_friendly', 'domestic/country/usa/friendly/%s' % e)
-        
-
+        load_games_standard('us_friendly', 'games/friendly/%s' % e)
 
 
 def load_competitions():

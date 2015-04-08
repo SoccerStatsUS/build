@@ -551,6 +551,12 @@ sep_teams = {
         (from_competition('La Liga'), 'Atletico Madrid'),
         ],
 
+
+    'Athletics': [
+        (from_competition('North Texas Soccer Football League'), 'Dallas Athletics'),
+        ],
+
+
     'Atletico': [
         (from_competition('La Liga'), 'Atletico Madrid'),
         (from_competition('Brasileirão'), 'Atlético Paranaense'),
@@ -964,6 +970,12 @@ sep_teams = {
         ],
 
 
+
+    'Hollywood': [
+        (from_competition('New York Amateur League'), 'Hollywood Inn'),
+        ],
+
+
     'Houston': [
         (from_competition('Major Indoor Soccer League (1978-1992)'), 'Houston Summit'),
         (from_competition('Continental Indoor Soccer League'), 'Houston Hotshots'),
@@ -1192,6 +1204,11 @@ sep_teams = {
 
     'New York Soccer Club': [
         (from_seasons('American Soccer League (1921-1933)', set(['1923-1924','1930 Fall'])), 'New York Giants (1923-1930)'),
+        ],
+
+
+    'Nomads': [
+        (from_competition('North Texas Soccer Football League'), 'Dallas Nomads'),
         ],
 
 
@@ -1521,6 +1538,11 @@ sep_teams = {
         (from_competition('La Liga'), 'Real Sociedad'),
         ],
 
+    'Sons of St. George': [
+        (from_competition('Southern California Soccer League'), 'Los Angeles Sons of St. George'),
+        ],
+
+
     'Sparta': [
         (from_competition('Illinois State Football Association 3rd Division'), 'Chicago Sparta'),
         (from_competition('Eredivisie'), 'Sparta Rotterdam'),
@@ -1720,6 +1742,7 @@ sep_teams = {
         (from_competition('Uruguayan Primera División'), 'Montevideo Wanderers'),
         (from_competition('Chilean Primera División'), 'Santiago Wanderers'),
         (from_competition('Chicago Foot Ball Association'), 'Chicago Wanderers'),
+        (from_competition('Southern California Soccer League'), 'Los Angeles Wanderers'),
         ],
 
     'Washington': [
