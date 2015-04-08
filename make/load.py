@@ -14,6 +14,8 @@ from build.settings import ROOT_DIR
 from parse.parse import stats, games, standings, transactions
 
 
+SPALDING_DIR = os.path.join(ROOT_DIR, 'spalding_data')
+
 USD1_DIR = os.path.join(ROOT_DIR, 'usd1_data')
 INDOOR_DIR = os.path.join(ROOT_DIR, 'indoor_data')
 
@@ -133,7 +135,8 @@ def load():
 
     #load_soccerstatsus()
     #load_socceroutsider()
-    load_usmntstats()
+    #load_usmntstats()
+    load_spalding()
     
     load_advanced()
 
@@ -567,6 +570,13 @@ def load_southern_africa():
 def load_premier_league():
     from foulds.sites import premierleague
     generic_load(soccer_db.epl_games, premierleague.scrape_calendars)
+
+
+def load_spalding():
+
+    for year in ['1904','1906','1909','1911','1912','1913','1914','1916','1917','1918','1919','1921','1922', '1923']:
+        load_standings_standard('uefa', 'standings/%s' % year, root=SPALDING_DIR)
+        load_games_standard('uefa', 'games/%s' % year, root=SPALDING_DIR)
 
 
 def load_uefa_major():
