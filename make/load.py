@@ -14,6 +14,9 @@ from build.settings import ROOT_DIR
 from parse.parse import stats, games, standings, transactions
 
 
+SPALDING_DIR = os.path.join(ROOT_DIR, 'spalding_data')
+FRIENDLY_DIR = os.path.join(ROOT_DIR, 'friendly_data')
+
 USD1_DIR = os.path.join(ROOT_DIR, 'usd1_data')
 INDOOR_DIR = os.path.join(ROOT_DIR, 'indoor_data')
 
@@ -131,10 +134,14 @@ def load():
 
     load_metadata()
 
-    load_soccerstatsus()
+    #load_soccerstatsus()
+
+
+    load_spalding()
+    load_early()
     #load_socceroutsider()
     #load_usmntstats()
-    
+
     load_advanced()
 
 
@@ -162,7 +169,7 @@ def load_soccerstatsus():
 
 
 def load_socceroutsider():
-    load_us_minor()
+    #load_us_minor()
     load_usd1()    
 
     load_world()
@@ -192,7 +199,7 @@ def load_advanced():
 
 
     # drafts
-    load_drafts()
+    #load_drafts()
 
     # jobs
     load_jobs()
@@ -205,7 +212,16 @@ def load_advanced():
     #load_news()
 
 
+def load_early():
+    #load_us_cups()
+    #load_asl()
+    load_nafbl()
 
+    for e in [1910, 1920]:
+        load_games_standard('us_cups', 'games/open/%s' % e, root=CUPS_DIR)
+
+    #load_early_friendly()
+    
 
 
 
@@ -241,8 +257,9 @@ def load_domestic():
 
 def load_usd1():
     load_mls()
-    return
     load_asl()
+    return
+
 
     load_nasl()
     load_alpf()
@@ -561,6 +578,13 @@ def load_southern_africa():
 def load_premier_league():
     from foulds.sites import premierleague
     generic_load(soccer_db.epl_games, premierleague.scrape_calendars)
+
+
+def load_spalding():
+
+    for year in ['1904','1906','1909','1911','1912','1913','1914','1916','1917','1918','1919','1921','1922', '1923']:
+        load_standings_standard('uefa', 'standings/%s' % year, root=SPALDING_DIR)
+        load_games_standard('uefa', 'games/%s' % year, root=SPALDING_DIR)
 
 
 def load_uefa_major():
@@ -1027,15 +1051,15 @@ def load_friendly():
 def load_early_friendly():
 
     for e in range(1865, 1891, 5):
-        load_games_standard('us_friendly', 'domestic/country/usa/friendly/%s' % e)
+        load_games_standard('us_friendly', 'domestic/country/usa/friendly/%s' % e, root=FRIENDLY_DIR)
 
     for e in range(1900, 1951, 10):
-        load_games_standard('us_friendly', 'domestic/country/usa/friendly/%s' % e)
+        load_games_standard('us_friendly', 'domestic/country/usa/friendly/%s' % e, root=FRIENDLY_DIR)
 
 
 def load_modern_friendly():
 
-    load_games_standard('us_friendly', 'games/misc/bicentennial', root=INTERNATIONAL_DIR)
+    #load_games_standard('us_friendly', 'games/misc/bicentennial', root=INTERNATIONAL_DIR)
 
     load_games_standard('us_friendly', 'domestic/country/usa/friendly/1960')
     load_games_standard('us_friendly', 'domestic/country/usa/friendly/1967')
@@ -1161,12 +1185,12 @@ def load_asl():
     generic_load(soccer_db.asl_stats, asl.process_stats)
 
     for e in range(1921, 1932):
-        load_games_standard('asl', 'data/games/league/jose/a/%s' % e, USD1_DIR)
+        load_games_standard('asl', 'data/games/asl/jose/a/%s' % e, USD1_DIR)
 
     for e in range(1921, 1934):
-        load_games_standard('asl', 'data/games/league/simple/asl/%s' % e, USD1_DIR)
+        load_games_standard('asl', 'data/games/asl/%s' % e, USD1_DIR)
 
-    load_games_standard('asl', 'data/games/league/simple/esl', USD1_DIR)
+    load_games_standard('asl', 'data/games/asl/esl', USD1_DIR)
 
     generic_load(soccer_db.asl_rosters, lambda: flatten_stats(soccer_db.asl_stats.find()))
 

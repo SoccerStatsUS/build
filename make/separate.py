@@ -405,6 +405,15 @@ sep_teams = {
     'VCU': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Virginia Commonwealth University')],
     'George Mason': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'George Mason University')],
     'Penn': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Pennsylvania')],
+
+    'Pennsylvania': [
+        (from_competition('Intercollegiate Association Football League'), 'University of Pennsylvania')
+        (from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Pennsylvania')
+    ],
+
+
+
+
     'UVA': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Virginia')],
     'CSU Northridge': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'California State University, Northridge')],
     'Brockport State': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'SUNY Brockport')],
@@ -434,7 +443,10 @@ sep_teams = {
 
     'Kentucky': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Kentucky')],
 
-    'Cornell': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Cornell University')],
+    'Cornell': [
+        (from_competition('NCAA Division I Men\'s Soccer Championship'), 'Cornell University')
+        (from_competition('Intercollegiate Association Football League'), 'Cornell University')
+    ],
     'Niagara': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Niagara University')],
     'Winthrop': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Winthrop University')],
     'Drexel': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Drexel University')],
@@ -577,10 +589,21 @@ sep_teams = {
         (from_competition('1. Bundesliga'), 'Hertha BSC Berlin'),
         ],
 
+    'Bensonhurst': [
+        (from_competition('Field Club League'), 'Bensonhurst CFC'),
+        ],
+
 
     'Bethlehem': [
+        (from_competition('Allied American Foot Ball Association'), 'Bethlehem Steel'),
+        (from_competition('American League (Philadelphia)'), 'Bethlehem Steel'),
         (from_competition('American Soccer League (1921-1933)'), 'Bethlehem Steel'),
         (from_seasons('American Soccer League (1933-1983)', set(['1938-1939'])), 'Bethlehem Hungarian'),
+        ],
+
+    'Bethlehem': [
+        (from_competition('U.S. Open Cup'), 'Bethlehem Steel'),
+        (from_competition('Friendly'), 'Bethlehem Steel'),
         ],
 
 
@@ -734,6 +757,11 @@ sep_teams = {
     'Columbus': [
         (from_competition('Major League Soccer'), 'Columbus Crew'),
         ],
+
+    'Columbia': [
+        (from_competition('New York State League'), 'Columbia Oval'),
+        ],
+
 
     'Connecticut': [
         (from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Connecticut'),
@@ -1161,6 +1189,10 @@ sep_teams = {
         ],
 
 
+    'Olympia': [
+        (from_competition('Illinois State Football Association 2nd Division'), 'Chicago Olympia'),
+        ],
+
 
     'Olimpia': [
         (from_competition('CONCACAF Champions League'), 'CD Olimpia'),
@@ -1470,6 +1502,7 @@ sep_teams = {
         ],
 
     'Sparta': [
+        (from_competition('Illinois State Football Association 3rd Division'), 'Chicago Sparta'),
         (from_competition('Eredivisie'), 'Sparta Rotterdam'),
         (from_competition('Gambrinus Liga'), 'Sparta Prague'),
         ],
@@ -1506,6 +1539,7 @@ sep_teams = {
 
     'Staten Island': [
         (from_seasons('USL First Division', set(['1998','1999',])), 'Staten Island Vipers'),
+        (from_competition('Field Club League'), 'Staten Island C&TC'),
         ],
 
 
