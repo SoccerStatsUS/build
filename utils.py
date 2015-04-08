@@ -26,8 +26,12 @@ def import_path(p):
     #iname = "%s.%s.%s" % (istub, region, xn)
     #m = importlib.import_module(iname)
 
+    try:
+        return __import__(p, fromlist=["dummy value"]) # __import requires non-empty fromlist to import submodules (foo.bar.baz)
+    except:
+        import pdb; pdb.set_trace()
 
-    return __import__(p, fromlist=["dummy value"]) # __import requires non-empty fromlist to import submodules (foo.bar.baz)
+    x = 5
         
 
 def pounds_to_kg(pounds):

@@ -134,9 +134,11 @@ def load():
     load_metadata()
 
     #load_soccerstatsus()
-    #load_socceroutsider()
-    #load_usmntstats()
+
+
     load_spalding()
+    load_socceroutsider()
+    load_usmntstats()
     
     load_advanced()
 
@@ -165,8 +167,9 @@ def load_soccerstatsus():
 
 
 def load_socceroutsider():
-    load_usd1()    
     load_us_minor()
+    load_usd1()    
+
     load_world()
 
 
@@ -224,24 +227,15 @@ def load_international():
 
 
 def load_domestic():
+
     load_usd1()    
     load_us_minor()
     load_world()
+    load_concacaf()
+    load_conmebol()
+
     return
-
-
     load_us_cups()
-    load_world()
-
-
-    load_concacaf()
-
-
-    return
-    load_conmebol()
-
-    load_concacaf()
-    load_conmebol()
     load_uefa()
     load_caf()
     load_ofc()
@@ -952,27 +946,27 @@ def load_mls():
 
     generic_load(soccer_db.mls_awards, awards.process_mls_awards)
 
-    for e in range(1996, 2015):
+    for e in range(1996, 2016):
         load_transactions_standard('mls', 'data/transactions/mls/%s' % e, USD1_DIR)
 
 
     load_standings_standard('mls', 'data/standings/mls', root=USD1_DIR)
 
     # Add rsssf games.
-    for e in range(2001, 2001):
-        r = os.path.join(ROOT_DIR, 'usd1_data/data/games/league/rsssf/%s' % e)
-        load_games_standard('mls3', str(e), root=r)
+    #for e in range(2001, 2001):
+    #    r = os.path.join(ROOT_DIR, 'usd1_data/data/games/mls/sources/rsssf/%s' % e)
+    #    load_games_standard('mls3', str(e), root=r)
 
-    for e in ['1996.2010', '2011', '2012', '2013', '2014']:
-        load_games_standard('mls', 'data/games/league/simple/mls/%s' % e, root=USD1_DIR)
+    for e in range(1996, 2016):
+        load_games_standard('mls', 'data/games/mls/%s' % e, root=USD1_DIR)
 
     load_mls_lineup_db()
 
     print("Loading MLS reserves data.")
     for e in [2005, 2006, 2007, 2008, 2011, 2012, 2013, 2014]:
-        load_games_standard('mls', 'data/games/league/simple/reserve/mls/%s' % e, root=USD1_DIR)
+        load_games_standard('mls', 'data/games/mls/reserve/mls/%s' % e, root=USD1_DIR)
 
-    load_games_standard('mls', 'data/games/playoffs/mls', root=USD1_DIR)
+    load_games_standard('mls', 'data/games/mls/playoffs', root=USD1_DIR)
 
     # 2012 is actually 1996-2012.
     generic_load(soccer_db.mls_stats, stats.process_stats("data/stats/mls/2012", source='MLSSoccer.com', root=USD1_DIR))
@@ -1120,22 +1114,28 @@ def load_jobs():
     print("Loading positions.")
 
     jobs = os.path.join(ROOT_DIR, 'soccerdata/data/jobs/')
+
+    # This is messed up. 
+    # Terribly.
+    # Need to address badly.
+
+    # Or merge into transactions?
     
 
-    f1 = lambda: p2.process_file(os.path.join(jobs, 'world/england'), 'Head Coach')
+    #f1 = lambda: p2.process_file(os.path.join(jobs, 'world/england'), 'Head Coach')
     #f1 = lambda: p2.process_file(os.path.join(jobs, 'world/argentina'), 'Head Coach')
 
-    f2 = lambda: p2.process_file(os.path.join(jobs, 'usa/d1/mls/head'), 'Head Coach', delimiter=';')
-    f2 = lambda: p2.process_file(os.path.join(jobs, 'usa/d1/nasl/head'), 'Head Coach', delimiter=';')
+    #f2 = lambda: p2.process_file(os.path.join(jobs, 'usa/d1/mls/head'), 'Head Coach', delimiter=';')
+    #f2 = lambda: p2.process_file(os.path.join(jobs, 'usa/d1/nasl/head'), 'Head Coach', delimiter=';')
     #f2 = lambda: p2.process_file(os.path.join(jobs, 'usa/d1/asl/head'), 'Head Coach', delimiter=';')
 
-    f2 = lambda: p2.process_file(os.path.join(jobs, 'usa/d2/nasl/head'), 'Head Coach', delimiter=';')
-    f2 = lambda: p2.process_file(os.path.join(jobs, 'usa/d2/ussfd2'), 'Head Coach', delimiter=';')
-    f2 = lambda: p2.process_file(os.path.join(jobs, 'usa/d3/uslpro'), 'Head Coach', delimiter=';')
+    #f2 = lambda: p2.process_file(os.path.join(jobs, 'usa/d2/nasl/head'), 'Head Coach', delimiter=';')
+    #f2 = lambda: p2.process_file(os.path.join(jobs, 'usa/d2/ussfd2'), 'Head Coach', delimiter=';')
+    #f2 = lambda: p2.process_file(os.path.join(jobs, 'usa/d3/uslpro'), 'Head Coach', delimiter=';')
 
     #generic_load(soccer_db.positions, positions.process_positions)
-    generic_load(soccer_db.positions, f1)
-    generic_load(soccer_db.positions, f2)
+    #generic_load(soccer_db.positions, f1)
+    #generic_load(soccer_db.positions, f2)
 
 
 def load_copa_america():
@@ -1403,6 +1403,7 @@ def load_modern_minor():
 
     generic_load(soccer_db.us_minor_stats, process_usl1_stats)
 
+    #for e in range(2011, 2016):
     for e in range(2011, 2014):
         generic_load(soccer_db.us_minor_stats, stats.process_stats("stats/d2/%s" % e, root=US_MINOR_DIR, delimiter=';'))
 
@@ -1417,7 +1418,7 @@ def load_modern_minor():
     generic_load(soccer_db.us_minor_rosters, lambda: flatten_stats(soccer_db.us_minor_stats.find()))
 
     # games
-    for e in range(1984, 2015):
+    for e in range(1984, 2016):
         load_games_standard('us_minor', 'games/d2/%s' % e, root=US_MINOR_DIR)
 
     """
@@ -1828,8 +1829,8 @@ def load_world():
     # International friendly club tournaments - ISL, Parmalat Cup, Copa Rio, etc.
     # Also existed in Brazil / Argentina / Colombia?
 
-    generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(WORLD_DIR, 'rosters/domestic/club_world_cup')))
-    generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(WORLD_DIR, 'rosters/domestic/copita')))
+    #generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(WORLD_DIR, 'rosters/domestic/cwc/2014')))
+    #generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(WORLD_DIR, 'rosters/domestic/copita')))
 
     #load_isl2()
 

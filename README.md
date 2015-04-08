@@ -1,6 +1,8 @@
 # build code for soccerstats.us
 ### transform text data to structured data
 
+For how to set up a new server see new.md
+
 ### how to build the database yourself on Ubuntu 14.02
 
 This is how to build the database
