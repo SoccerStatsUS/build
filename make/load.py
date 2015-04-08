@@ -131,9 +131,9 @@ def load():
 
     load_metadata()
 
-    #load_soccerstatsus()
-    load_socceroutsider()
-    load_usmntstats()
+    load_soccerstatsus()
+    #load_socceroutsider()
+    #load_usmntstats()
     
     load_advanced()
 
@@ -154,10 +154,10 @@ def load_soccerstatsus():
     load_women()
     load_domestic()
     load_indoor()
-    load_amateur()
-    load_outer()
+    #load_amateur()
+    #load_outer()
     load_international()
-    load_friendly()
+    #load_friendly()
 
 
 
@@ -226,12 +226,14 @@ def load_domestic():
     load_usd1()    
     load_us_minor()
     load_world()
-    load_concacaf()
-    load_conmebol()
+    load_us_cups()
 
     return
-    load_us_cups()
+
+    load_concacaf()
+    load_conmebol()
     load_uefa()
+
     load_caf()
     load_ofc()
     load_afc()
