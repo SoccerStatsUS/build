@@ -163,14 +163,14 @@ def load_soccerstatsus():
     load_indoor()
     #load_amateur()
     #load_outer()
-    load_international()
+    #load_international()
     #load_friendly()
 
 
 
 def load_socceroutsider():
-    #load_us_minor()
-    load_usd1()    
+    load_us_minor()
+    #load_usd1()    
 
     load_world()
 
@@ -213,21 +213,11 @@ def load_advanced():
 
 
 def load_early():
-
-    load_spalding()
-
-    load_early_friendly()
-
-    #load_us_cups()
-    load_games_standard('us_cups', 'games/open/1910', root=CUPS_DIR)
+    #load_early_friendly()
 
     load_nafbl()
-    #load_asl()
-
-
-
-
-    
+    load_spalding()
+    load_us_cups()
 
 
 
@@ -327,11 +317,11 @@ def load_news():
 
 
 def load_bios():
+    print('loading bios')
 
     from metadata.parse import bios
     #from foulds.sites import mlsnet, mlssoccer
 
-    print("Loading ASL Bios")
     generic_load(soccer_db.asl_bios, bios.process_asl_bios)
 
     #print("Loading MLSsoccer.com player bios.")
@@ -376,26 +366,32 @@ def load_us_cups():
     from metadata.parse import awards
     from parse.parse import rosters
 
+    # AFA
+
     generic_load(soccer_db.us_cups_awards, awards.process_american_cup_awards)
-    generic_load(soccer_db.us_cups_awards, awards.process_us_open_cup_awards, delete=False)
-    generic_load(soccer_db.us_cups_awards, awards.process_lewis_cup_awards, delete=False)
-
-    generic_load(soccer_db.us_cups_rosters, lambda: rosters.process_rosters2(path=os.path.join(CUPS_DIR, "rosters/afa")))
-
-
-
+    generic_load(soccer_db.us_cups_rosters, lambda: rosters.process_rosters2(path=os.path.join(CUPS_DIR, "rosters/afa"))
+)
     load_games_standard('us_cups', 'games/open/afa' , root=CUPS_DIR)
     load_games_standard('us_cups', 'games/open/afa2' , root=CUPS_DIR)
-    load_games_standard('us_cups', 'games/league/lewis' , root=CUPS_DIR)
-    load_games_standard('us_cups', 'games/league/duffy' , root=CUPS_DIR)
-    load_games_standard('us_cups', 'games/amateur/aafa' , root=CUPS_DIR)
 
+    # Open
+
+    generic_load(soccer_db.us_cups_awards, awards.process_us_open_cup_awards, delete=False)
 
     for e in range(191, 202):
         load_games_standard('us_cups', 'games/open/%s0' % e, root=CUPS_DIR)#, games_only=True)
 
     for e in range(2011, 2015):
         load_games_standard('us_cups', 'games/open/%s' % e, root=CUPS_DIR)#, games_only=True)
+
+    # Other
+
+    generic_load(soccer_db.us_cups_awards, awards.process_lewis_cup_awards, delete=False)
+
+    load_games_standard('us_cups', 'games/league/lewis' , root=CUPS_DIR)
+    load_games_standard('us_cups', 'games/league/duffy' , root=CUPS_DIR)
+    load_games_standard('us_cups', 'games/amateur/aafa' , root=CUPS_DIR)
+
 
     #load_games_standard('us_cups', 'games/amateur', root=CUPS_DIR)
 
@@ -1056,11 +1052,10 @@ def load_friendly():
 
 def load_early_friendly():
 
-    #for e in range(1865, 1891, 5):
-    #    load_games_standard('us_friendly', 'games/friendly/%s' % e, root=FRIENDLY_DIR)
+    for e in range(1865, 1891, 5):
+        load_games_standard('us_friendly', 'games/friendly/%s' % e, root=FRIENDLY_DIR)
 
-    #for e in range(1900, 1951, 10):
-    for e in range(1900, 1921, 10):
+    for e in range(1900, 1951, 10):
         load_games_standard('us_friendly', 'games/friendly/%s' % e, root=FRIENDLY_DIR)
 
 
@@ -1130,7 +1125,7 @@ def load_transactions():
 
 def load_jobs():
     from soccerdata.text import positions, p2
-    print("Loading positions.")
+    #print("Loading jobs.")
 
     jobs = os.path.join(ROOT_DIR, 'soccerdata/data/jobs/')
 
@@ -1190,7 +1185,7 @@ def load_asl():
     generic_load(soccer_db.asl_stats, asl.process_stats)
 
     for e in range(1921, 1932):
-        load_games_standard('asl', 'data/games/asl/jose/a/%s' % e, USD1_DIR)
+        load_games_standard('asl', 'data/games/asl/jose/%s' % e, USD1_DIR)
 
     for e in range(1921, 1934):
         load_games_standard('asl', 'data/games/asl/%s' % e, USD1_DIR)
@@ -1417,7 +1412,6 @@ def load_modern_minor():
     print("loading apsl stats")
     apsl_stats = stats.process_stats("stats/d2/apsl", root=US_MINOR_DIR)
     generic_load(soccer_db.us_minor_stats, apsl_stats)
-    #print("loading apsl partial stats")
     #generic_load(soccer_db.us_minor_stats, partial.process_apsl_partial)
 
     generic_load(soccer_db.us_minor_stats, process_usl1_stats)
@@ -1440,12 +1434,14 @@ def load_modern_minor():
     for e in range(1984, 2016):
         load_games_standard('us_minor', 'games/d2/%s' % e, root=US_MINOR_DIR)
 
+    for e in range(2003, 2016):
+        load_games_standard('us_minor', 'games/d3/%s' % e, root=US_MINOR_DIR)
+
+
     """
     for e in range(1985, 1991):
         load_games_standard('us_minor', 'games/d3/wsa/%s' % e, root=US_MINOR_DIR)
 
-    for e in range(2003, 2015):
-        load_games_standard('us_minor', 'games/d3/%s' % e, root=US_MINOR_DIR)
 
     # Adapt parse.games to handle PDL hours correctly.
     for e in range(2007, 2015):

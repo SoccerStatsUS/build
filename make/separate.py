@@ -606,13 +606,10 @@ sep_teams = {
         (from_competition('American League (Philadelphia)'), 'Bethlehem Steel'),
         (from_competition('American Soccer League (1921-1933)'), 'Bethlehem Steel'),
         (from_seasons('American Soccer League (1933-1983)', set(['1938-1939'])), 'Bethlehem Hungarian'),
-        ],
-
-    'Bethlehem': [
         (from_competition('U.S. Open Cup'), 'Bethlehem Steel'),
         (from_competition('Friendly'), 'Bethlehem Steel'),
-        ],
 
+        ],
 
     'Boston': [
         (from_seasons('American Soccer League (1921-1933)', set(['1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1929 Fall'])), 'Boston Wonder Workers'),
@@ -870,7 +867,7 @@ sep_teams = {
 
     'Fall River': [
         (from_seasons('American Soccer League (1921-1933)', set(['1922-1923', '1923-1924', '1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1929-1930', '1929 Fall', '1930 Spring', '1930 Fall'])), 'Fall River Marksmen'),
-        (from_seasons('American Soccer League (1921-1933)', set(['1931 Spring', '1932 Fall'])), 'Fall River FC'), # 1932 Fall?
+        (from_seasons('American Soccer League (1921-1933)', set(['1931 Spring', '1932 Fall'])), 'Fall River FC'), 
         (from_seasons('American Soccer League (1921-1933)', set(['1921-1922'])), 'Fall River Rovers'),
         (from_seasons('American Soccer League (1933-1983)', set(['1959-1960', '1960-1961', '1961-1962', '1962-1963', '1963-1964',])), 'Fall River SC'),
         ],
@@ -980,6 +977,7 @@ sep_teams = {
         (from_competition('Major Indoor Soccer League (1978-1992)'), 'Houston Summit'),
         (from_competition('Continental Indoor Soccer League'), 'Houston Hotshots'),
         (from_competition('World Indoor Soccer League'), 'Houston Hotshots'),
+        (from_competition('Major League Soccer'), 'Houston Dynamo'),
         ],
 
     'Hungaria': [
@@ -1126,6 +1124,7 @@ sep_teams = {
         ],
 
     'Montreal': [
+        (from_competition('Major League Soccer'), 'Montreal Impact'),
         (from_competition('North American Soccer League (indoor)'), 'Montreal Manic'),
         (from_seasons('USL First Division', set(['1997', '1998', '2002'])), 'Montreal Impact'),        
         (from_seasons('American Professional Soccer League', set(['1994', '1995', '1996'])), 'Montreal Impact'),
@@ -1161,6 +1160,7 @@ sep_teams = {
 
     'New England': [
         (from_competition('North American Soccer League (indoor)'), 'New England Tea Men'),
+        (from_competition('Major League Soccer'), 'New England Revolution'),
         ],
 
 
@@ -1184,6 +1184,11 @@ sep_teams = {
         (from_seasons('American Professional Soccer League', set(['1995'])), 'New York Centaurs'),
         (from_seasons('American Professional Soccer League', set(['1996',])), 'New York Fever'),
         ],
+
+    'New York City': [
+        (from_competition('Major League Soccer'), 'New York City FC'),
+        ],
+
 
     'New York Giants': [
         (from_competition('Eastern Soccer League (1928-1929)'), 'New York Giants (1923-1930)'),
@@ -1250,6 +1255,7 @@ sep_teams = {
     'Orlando': [
         (from_seasons('American Professional Soccer League', set(['1989', '1990'])), 'Orlando Lions'),
         (from_seasons('USL First Division', set(['1997'])), 'Orlando Sundogs'),
+        (from_competition('Major League Soccer'), 'Orlando City FC'),
         ],
 
     'Paris': [
@@ -1286,6 +1292,7 @@ sep_teams = {
         (from_competition('Major Indoor Soccer League (1978-1992)'), 'Philadelphia Fever'),
         (from_seasons('North American Soccer League (indoor)',  set(['1975', ])), 'Philadelphia Atoms'),
         (from_competition('Major Indoor Soccer League (2008-2014)'), 'Philadelphia KiXX'),
+        (from_competition('Major League Soccer'), 'Philadelphia Union'),
         ],
 
     'Phoenix': [
@@ -1315,6 +1322,7 @@ sep_teams = {
         (from_competition('North American Soccer League (indoor)'), 'Portland Timbers'),
         (from_competition('Western Soccer League'), 'Portland Timbers'),
         (from_seasons('USL First Division', set(['2001','2002',])), 'Portland Timbers'),
+        (from_competition('Major League Soccer'), 'Portland Timbers'),
         ],
 
 
@@ -1444,7 +1452,8 @@ sep_teams = {
     'San Jose': [
         (from_competition('Liga de Fútbol Profesional Boliviano'), 'CD San José',),
         (from_competition('Continental Indoor Soccer League'), 'San Jose Grizzlies'),
-        (from_competition('North American Soccer League (indoor)'), 'San Jose Earthquakes')
+        (from_competition('North American Soccer League (indoor)'), 'San Jose Earthquakes'),
+        (from_competition('Major League Soccer'), 'San Jose Earthquakes'),
         ],
 
     'San Jose Earthqukaes': [
@@ -1498,11 +1507,13 @@ sep_teams = {
 
 
     'Seattle': [
+        (from_competition('Major League Soccer'), 'Seattle Sounders'),
         (from_competition('NCAA Division I Men\'s Soccer Championship'), 'Seattle University'),
         (from_competition('Continental Indoor Soccer League'), 'Seattle SeaDogs'),
         (from_competition('North American Soccer League (indoor)'), 'Seattle Sounders'),
         (from_seasons('USL First Division', set(['1996', '1997', '1998', '1999', '2000', '2001', '2002', '2003'])), 'Seattle Sounders'),
         (from_seasons('American Professional Soccer League', set(['1994','1995','1996'])), 'Seattle Sounders'),
+
         ],
 
 
@@ -1701,6 +1712,7 @@ sep_teams = {
         ],
 
     'Vancouver': [
+        (from_competition('Major League Soccer'), 'Vancouver Whitecaps'),
         (from_competition('North American Soccer League (indoor)'), 'Vancouver Whitecaps'),
         (from_competition('Western Soccer League'), 'Vancouver Whitecaps'), # i suspect
         (from_seasons('USL First Division', set(['1997'])), 'Vancouver 86ers'),        
