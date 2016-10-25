@@ -134,17 +134,20 @@ def load():
 
     load_metadata()
 
+    #load_usmntstats()
     #load_soccerstatsus()
 
+    load_garberbucks()
 
-
-    load_early()
+    #load_early()
     #load_socceroutsider()
-    #load_usmntstats()
+    
+    #load_advanced()
 
-    load_advanced()
 
 
+def load_garberbucks():
+    load_domestic()
 
 
 def load_soccerstatsus():
@@ -158,9 +161,9 @@ def load_soccerstatsus():
     friendly: US friendly data
     """
 
-    load_women()
+    #load_women()
     load_domestic()
-    load_indoor()
+    #load_indoor()
     #load_amateur()
     #load_outer()
     #load_international()
@@ -170,7 +173,7 @@ def load_soccerstatsus():
 
 def load_socceroutsider():
     load_us_minor()
-    #load_usd1()    
+    load_usd1()    
 
     load_world()
 
@@ -236,6 +239,7 @@ def load_international():
 def load_domestic():
 
     load_usd1()    
+    return
     load_us_minor()
     load_world()
     load_us_cups()
@@ -968,12 +972,16 @@ def load_mls():
 
     load_standings_standard('mls', 'data/standings/mls', root=USD1_DIR)
 
+    for e in range(2012, 2017):
+        generic_load(soccer_db.mls_stats, stats.process_stats("data/stats/mls/" + str(e), source='MLSSoccer.com', root=USD1_DIR))
+
+
     # Add rsssf games.
     #for e in range(2001, 2001):
     #    r = os.path.join(ROOT_DIR, 'usd1_data/data/games/mls/sources/rsssf/%s' % e)
     #    load_games_standard('mls3', str(e), root=r)
 
-    for e in range(1996, 2016):
+    for e in range(1996, 2017):
         load_games_standard('mls', 'data/games/mls/%s' % e, root=USD1_DIR)
 
     load_mls_lineup_db()
@@ -985,8 +993,10 @@ def load_mls():
     load_games_standard('mls', 'data/games/mls/playoffs', root=USD1_DIR)
 
     # 2012 is actually 1996-2012.
-    generic_load(soccer_db.mls_stats, stats.process_stats("data/stats/mls/2012", source='MLSSoccer.com', root=USD1_DIR))
-    generic_load(soccer_db.mls_stats, stats.process_stats("data/stats/mls/2013", source='MLSSoccer.com', root=USD1_DIR))
+
+
+    #generic_load(soccer_db.mls_stats, stats.process_stats("data/stats/mls/2012", source='MLSSoccer.com', root=USD1_DIR))
+    #generic_load(soccer_db.mls_stats, stats.process_stats("data/stats/mls/2013", source='MLSSoccer.com', root=USD1_DIR))
 
 
     """
@@ -1432,7 +1442,7 @@ def load_modern_minor():
 
     # games
     for e in range(1984, 2016):
-        load_games_standard('us_minor', 'games/d2/%s' % e, root=US_MINOR_DIR)
+        load_games_standard('us_minor', 'games/d2/modern/%s' % e, root=US_MINOR_DIR)
 
     for e in range(2003, 2016):
         load_games_standard('us_minor', 'games/d3/%s' % e, root=US_MINOR_DIR)
