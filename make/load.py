@@ -147,9 +147,12 @@ def load():
 
 
 def load_garberbucks():
+    load_concacaf()
+    load_drafts()
     load_mls()
-    #load_us_cups()
-    #load_concacaf()
+    load_us_cups()
+
+
 
 
 def load_soccerstatsus():
@@ -204,7 +207,7 @@ def load_advanced():
 
 
     # drafts
-    #load_drafts()
+    load_drafts()
 
     # jobs
     load_jobs()
@@ -2016,6 +2019,10 @@ def load_concacaf():
 
 
     generic_load(soccer_db.concacaf_awards, awards.process_concacaf_awards)
+
+    load_games_standard('concacaf', 'games/confederation/champions/league/2015', CONCACAF_DIR)
+    
+    return
 
     for e in range(2008, 2014):
         load_games_standard('concacaf', 'games/confederation/champions/league/%s' % e, CONCACAF_DIR)

@@ -47,6 +47,8 @@ def normalize():
     normalize_multiple_colls('stats', normalize_stat)
     normalize_multiple_colls('standings', normalize_standing)
 
+    normalize_multiple_colls('events', normalize_event)
+
     normalize_multiple_colls('transactions', normalize_transaction)
 
 
@@ -198,6 +200,7 @@ def normalize_season(e):
 
 def normalize_transaction(e):
     #e['name'] = get_season(e['name'])
+
     e['ttype'] = e['ttype'].strip()
     e['person'] = get_name(e['person'])
 
@@ -436,8 +439,20 @@ def normalize_foul(e):
     e['season'] = get_season(e['season'])
 
     e['team'] = get_team(e['team'])
-    e['name'] = get_name(e['name'])
+    #e['name'] = get_name(e['name'])
     return e
+
+
+
+def normalize_event(e):
+    e['competition'] = get_competition(e['competition'])
+    e['season'] = get_season(e['season'])
+
+    e['team'] = separate_team(e['team'], e)
+    e['name'] = separate_name(e['name'], e)
+
+    return e
+
 
 def normalize_stat(e):
     e['competition'] = get_competition(e['competition'])

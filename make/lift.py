@@ -50,6 +50,19 @@ def transform_names_from_rosters():
                 e['assists'] = [rg(a, e['team'], e['competition'], e['season']) for a in e['assists']]
                 g.append(e)
 
+
+            """
+            f = []
+            coll = soccer_db["%s_fouls" % source]
+            for e in coll.find():
+
+                e['goal'] = rg(e['goal'], e['team'], e['competition'], e['season'])
+                e['assists'] = [rg(a, e['team'], e['competition'], e['season']) for a in e['assists']]
+                g.append(e)
+            """
+
+
+
             coll.drop()
             insert_rows(coll, g)
 
