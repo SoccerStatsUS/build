@@ -981,54 +981,41 @@ def load_mls():
 
     generic_load(soccer_db.mls_rosters, lambda: flatten_stats(soccer_db.mls_stats.find()))
 
-    for e in range(2014, 2017):
-        generic_load(soccer_db.mls_rosters, lambda: rosters.process_rosters3('data/rosters/mls/' + str(e), root=USD1_DIR), delete=False)
-        generic_load(soccer_db.mls_bios, lambda: rosters.process_rosters3('data/rosters/mls/' + str(e), root=USD1_DIR), delete=False)
-
-
-    """
-    generic_load(soccer_db.mls_rosters, lambda: rosters.process_rosters3('data/rosters/mls/2016b', root=USD1_DIR), delete=False)
-    generic_load(soccer_db.mls_rosters, lambda: rosters.process_rosters3('data/rosters/mls/2015', root=USD1_DIR), delete=False)
-    generic_load(soccer_db.mls_rosters, lambda: rosters.process_rosters3('data/rosters/mls/2014', root=USD1_DIR), delete=False)
-
-    generic_load(soccer_db.mls_bios, lambda: rosters.process_rosters3('data/rosters/mls/2016b', root=USD1_DIR), delete=False)
-    generic_load(soccer_db.mls_bios, lambda: rosters.process_rosters3('data/rosters/mls/2015', root=USD1_DIR), delete=False)
-    generic_load(soccer_db.mls_bios, lambda: rosters.process_rosters3('data/rosters/mls/2014', root=USD1_DIR), delete=False)
-    """
+    load_standings_standard('mls', 'data/standings/mls', root=USD1_DIR)
 
     for e in range(1996, 2017):
         load_transactions_standard('mls', 'data/transactions/mls/%s' % e, USD1_DIR)
 
-
-    load_standings_standard('mls', 'data/standings/mls', root=USD1_DIR)
+    for e in range(2014, 2017):
+        generic_load(soccer_db.mls_rosters, lambda: rosters.process_rosters3('data/rosters/mls/' + str(e), root=USD1_DIR), delete=False)
+        generic_load(soccer_db.mls_bios, lambda: rosters.process_rosters3('data/rosters/mls/' + str(e), root=USD1_DIR), delete=False)
 
     for e in range(2012, 2017):
         generic_load(soccer_db.mls_stats, stats.process_stats("data/stats/mls/" + str(e), source='MLSSoccer.com', root=USD1_DIR))
+
+    load_games_standard('mls', 'data/games/mls/playoffs', root=USD1_DIR)
+
+    for e in range(1996, 2017):
+        load_games_standard('mls', 'data/games/mls/%s' % e, root=USD1_DIR)
+
+    return
+
+    load_mls_lineup_db()
 
     # Add rsssf games.
     #for e in range(2001, 2001):
     #    r = os.path.join(ROOT_DIR, 'usd1_data/data/games/mls/sources/rsssf/%s' % e)
     #    load_games_standard('mls3', str(e), root=r)
 
-    for e in range(1996, 2017):
-        load_games_standard('mls', 'data/games/mls/%s' % e, root=USD1_DIR)
-
-    load_mls_lineup_db()
 
     print("Loading MLS reserves data.")
     for e in [2005, 2006, 2007, 2008, 2011, 2012, 2013, 2014]:
         load_games_standard('mls', 'data/games/mls/reserve/mls/%s' % e, root=USD1_DIR)
 
-    #generic_load(soccer_db.asl_rosters, lambda: flatten_stats(soccer_db.asl_stats.find()))
-
-    load_games_standard('mls', 'data/games/mls/playoffs', root=USD1_DIR)
-
     # 2012 is actually 1996-2012.
-
 
     #generic_load(soccer_db.mls_stats, stats.process_stats("data/stats/mls/2012", source='MLSSoccer.com', root=USD1_DIR))
     #generic_load(soccer_db.mls_stats, stats.process_stats("data/stats/mls/2013", source='MLSSoccer.com', root=USD1_DIR))
-
 
     """
     u = 'http://www.mlssoccer.com/schedule?month=all&year=%s&club=all&competition_type=%s&broadcast_type=all&op=Search&form_id=mls_schedule_form'
@@ -1038,9 +1025,6 @@ def load_mls():
         load_mlssoccer_season(u % (year, 45), 'MLS Cup Playoffs')
         load_mlssoccer_season(u % (year, 44), 'MLS Cup Playoffs')
     """
-
-    
-
 
 
 def load_nafbl():
