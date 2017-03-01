@@ -2,7 +2,8 @@
 
 import pymongo
 
-connection = pymongo.Connection()
+connection = pymongo.MongoClient()
+# connection = pymongo.Connection()
 soccer_db = connection.soccer
 
 def insert_row(collection, row):

@@ -1,10 +1,10 @@
-# Source
-# https://www.linode.com/docs/security/securing-your-server
+Setting up a new server, more generally. (So I remember how to do this)
+
+## Ssh into the new server
 
 * Update ~/.ssh/config
 
-
-# Add the user
+##  Add the user
 
 * adduser chris # Set password, user info interactively
 * usermod -a -G sudo chris # Add chris to sudo group
@@ -13,7 +13,7 @@
 * ssh chris@put.your.ip.here
 
 
-# ssh
+## ssh
 
 * ssh-keygen # Where do I run this? Locally or remotely? 
 * scp ~/.ssh/id_rsa.pub chris@put.your.ip.here: # Seems local, but I probably have a key already.
@@ -25,5 +25,6 @@ chmod 700 .ssh
 chmod 600 .ssh/authorized_keys
 
 
+## Sources
 
-
+* https://www.linode.com/docs/security/securing-your-server

@@ -11,6 +11,7 @@ roots = {
     'oscar': '/home/chris/soccer',
     'li1014-58': '/home/chris/soccer',
     'jason': '/home/chris/soccer',
+    'ubuntu': '/home/chris/soccer', # Need to fix.
     }
 
 

@@ -39,13 +39,17 @@ def normalize():
 
     # Game data
     normalize_multiple_colls('games', normalize_game)
-    normalize_multiple_colls('goals', normalize_goal)
-    normalize_multiple_colls('misconduct', normalize_foul)
     normalize_multiple_colls('lineups', normalize_lineup)
     normalize_multiple_colls('gstats', normalize_game_stat)
     normalize_multiple_colls('rosters', normalize_roster)
     normalize_multiple_colls('stats', normalize_stat)
     normalize_multiple_colls('standings', normalize_standing)
+
+    normalize_multiple_colls('goals', normalize_goal)
+
+    # Remove one of these.
+    normalize_multiple_colls('misconduct', normalize_event)
+    normalize_multiple_colls('fouls', normalize_event)
 
     normalize_multiple_colls('transactions', normalize_transaction)
 
@@ -198,6 +202,7 @@ def normalize_season(e):
 
 def normalize_transaction(e):
     #e['name'] = get_season(e['name'])
+
     e['ttype'] = e['ttype'].strip()
     e['person'] = get_name(e['person'])
 
@@ -429,15 +434,15 @@ def normalize_goal(e):
     return e
 
 
-
-
-def normalize_foul(e):
+def normalize_event(e):
     e['competition'] = get_competition(e['competition'])
     e['season'] = get_season(e['season'])
 
-    e['team'] = get_team(e['team'])
-    e['name'] = get_name(e['name'])
+    e['team'] = separate_team(e['team'], e)
+    e['name'] = separate_name(e['name'], e)
+
     return e
+
 
 def normalize_stat(e):
     e['competition'] = get_competition(e['competition'])

@@ -764,6 +764,7 @@ sep_teams = {
 
     'Columbus': [
         (from_competition('Major League Soccer'), 'Columbus Crew'),
+        (from_competition('MLS Cup Playoffs'), 'Columbus Crew'),
         ],
 
     'Columbia': [
@@ -1125,6 +1126,7 @@ sep_teams = {
 
     'Montreal': [
         (from_competition('Major League Soccer'), 'Montreal Impact'),
+        (from_competition('MLS Cup Playoffs'), 'Montreal Impact'),
         (from_competition('North American Soccer League (indoor)'), 'Montreal Manic'),
         (from_seasons('USL First Division', set(['1997', '1998', '2002'])), 'Montreal Impact'),        
         (from_seasons('American Professional Soccer League', set(['1994', '1995', '1996'])), 'Montreal Impact'),
@@ -1161,10 +1163,12 @@ sep_teams = {
     'New England': [
         (from_competition('North American Soccer League (indoor)'), 'New England Tea Men'),
         (from_competition('Major League Soccer'), 'New England Revolution'),
+        (from_competition('MLS Cup Playoffs'), 'New England Revolution'),
+
         ],
 
 
-    'New Jersey': [
+    'New Jerseyf': [
         (from_competition('Major Indoor Soccer League (1978-1992)'), 'New Jersey Rockets'),
         (from_seasons('American Professional Soccer League', set(['1989'])), 'New Jersey Eagles'),
         ],
@@ -1323,6 +1327,7 @@ sep_teams = {
         (from_competition('Western Soccer League'), 'Portland Timbers'),
         (from_seasons('USL First Division', set(['2001','2002',])), 'Portland Timbers'),
         (from_competition('Major League Soccer'), 'Portland Timbers'),
+        (from_competition('MLS Cup Playoffs'), 'Portland Timbers'),
         ],
 
 
@@ -1508,6 +1513,7 @@ sep_teams = {
 
     'Seattle': [
         (from_competition('Major League Soccer'), 'Seattle Sounders'),
+        (from_competition('MLS Cup Playoffs'), 'Seattle Sounders'),
         (from_competition('NCAA Division I Men\'s Soccer Championship'), 'Seattle University'),
         (from_competition('Continental Indoor Soccer League'), 'Seattle SeaDogs'),
         (from_competition('North American Soccer League (indoor)'), 'Seattle Sounders'),
@@ -1713,6 +1719,7 @@ sep_teams = {
 
     'Vancouver': [
         (from_competition('Major League Soccer'), 'Vancouver Whitecaps'),
+        (from_competition('MLS Cup Playoffs'), 'Vancouver Whitecaps'),
         (from_competition('North American Soccer League (indoor)'), 'Vancouver Whitecaps'),
         (from_competition('Western Soccer League'), 'Vancouver Whitecaps'), # i suspect
         (from_seasons('USL First Division', set(['1997'])), 'Vancouver 86ers'),        
