@@ -1,15 +1,16 @@
 # build code for soccerstats.us
+
 ### transform text data to structured data
 
 For how to set up a new server see new.md
 
-### how to build the database yourself on Ubuntu 14.02
+### how to build the database yourself on Ubuntu 16.04
 
 This is how to build the database
 
     # add mongo sources
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-    echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+    echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
 
     # update apt
     sudo apt-get update
@@ -18,6 +19,24 @@ This is how to build the database
     # Install dependencies
     sudo apt-get install git-core mongodb-org emacs python3-setuptools
     sudo easy_install3 pip
+
+    # A little more mongo.
+    * Add /etc/systemd/system/mongodb.service from https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubuntu-16-04
+    * sudo systemctl start mongodb
+    * sudo systemctl status mongodb
+
+    # Postgresql
+    # (this could be done later, but probably best now.)
+    * sudo apt-get install postgresql
+    * sudo -u postgres -i
+    * createuser -d soccerstats
+    * sudo emacs /etc/postgresql/9.5/main/pg_hba.conf
+    * Change:
+    # local   all             all peer
+    # local   all             all trust
+    # (I know this is terribly dangerous...)
+
+
 
     # Add to pythonpath
 
@@ -30,17 +49,25 @@ This is how to build the database
 
     mkdir soccer/
     cd soccer/
-    git clone https://github.com/Soccerstats/parse.git
-    git clone https://github.com/Soccerstats/metadata.git
-    git clone https://github.com/Soccerstats/build.git
-    git clone https://github.com/Soccerstats/nwsl-data.git
+    git clone https://github.com/SoccerstatsUS/parse.git
+    git clone https://github.com/SoccerstatsUS/metadata.git
+    git clone https://github.com/SoccerstatsUS/build.git
+    git clone https://github.com/SoccerstatsUS/usd1_data.git
+    git clone https://github.com/SoccerStatsUS/soccerdata.git
+
+    # git clone https://github.com/SoccerstatsUS/nwsl_data.git
 
     # Install
 
     cd build/
-    sudo pip3 install -r requirements3.txt 
+    sudo pip3 install -r requirements3.txt
 
-    python3 run/main.py 
+    sudo pip3 install django psycopg2
+
+    python3 make/
+    # Fix this problem:  ROOT_DIR = roots[host] KeyError: 'ubuntu'
+    # Also fix the problem that this is duplicated in metadata.
+
 
 The end!
 
