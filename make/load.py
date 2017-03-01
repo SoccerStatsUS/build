@@ -147,10 +147,10 @@ def load():
 
 
 def load_garberbucks():
-    load_concacaf()
+    #load_concacaf()
     load_drafts()
     load_mls()
-    load_us_cups()
+    #load_us_cups()
 
 
 

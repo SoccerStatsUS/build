@@ -1,8 +1,6 @@
-# Source
-# https://www.linode.com/docs/security/securing-your-server
+Setting up a new server, more generally. (So I remember how to do this)
 
-
-# Add the user
+##  Add the user
 
 adduser chris
 usermod -a -G sudo chris
@@ -11,7 +9,7 @@ logout
 ssh chris@put.your.ip.here
 
 
-# ssh
+## ssh
 
 ssh-keygen
 scp ~/.ssh/id_rsa.pub chris@123.456.78.90:
@@ -23,5 +21,6 @@ chmod 700 .ssh
 chmod 600 .ssh/authorized_keys
 
 
+## Sources
 
-
+* https://www.linode.com/docs/security/securing-your-server
