@@ -21,22 +21,24 @@ This is how to build the database
     sudo easy_install3 pip
 
     # A little more mongo.
-    * Add /etc/systemd/system/mongodb.service from https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubuntu-16-04
-    * sudo systemctl start mongodb
-    * sudo systemctl status mongodb
+    # This isn't really working right now. Right? 
+    Add /etc/systemd/system/mongodb.service from https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubuntu-16-04
+    
+    sudo systemctl start mongodb
+    sudo systemctl status mongodb # SHOULD SAY WHAT?
 
     # Postgresql
     # (this could be done later, but probably best now.)
     * sudo apt-get install postgresql
     * sudo -u postgres -i
     * createuser -d soccerstats
+
+    # NEED TO KNOW POSTGRES PASSWORD HERE
     * sudo emacs /etc/postgresql/9.5/main/pg_hba.conf
     * Change:
     # local   all             all peer
     # local   all             all trust
     # (I know this is terribly dangerous...)
-
-
 
     # Add to pythonpath
 
@@ -69,8 +71,7 @@ This is how to build the database
     # Also fix the problem that this is duplicated in metadata.
 
 
-The end!
-
+The end. With luck you should have a functioning install now. 
 
 
 #### What is going on here?
