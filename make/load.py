@@ -983,8 +983,9 @@ def load_mls():
 
     load_standings_standard('mls', 'data/standings/mls', root=USD1_DIR)
 
-    for e in range(1996, 2017):
-        load_transactions_standard('mls', 'data/transactions/mls/%s' % e, USD1_DIR)
+    for e in sorted(os.listdir(os.path.join(USD1_DIR, 'data/transactions/mls/date'))):
+        if e.isdigit():
+            load_transactions_standard('mls', 'data/transactions/mls/date/%s' % e, USD1_DIR)
 
     for e in range(2014, 2017):
         generic_load(soccer_db.mls_rosters, lambda: rosters.process_rosters3('data/rosters/mls/' + str(e), root=USD1_DIR), delete=False)
