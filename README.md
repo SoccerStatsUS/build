@@ -2,76 +2,33 @@
 
 ### transform text data to structured data
 
-For how to set up a new server see new.md
+The build runs locally (macOS); production (bert) only serves the result.
+The full flow is: data repos -> mongo (this repo) -> postgres (s2 repo) -> ship to bert.
 
-### how to build the database yourself on Ubuntu 16.04
+### how to build the database
 
-This is how to build the database
+    # mongo (macOS)
+    brew tap mongodb/brew && brew install mongodb-community
+    brew services start mongodb-community
 
-    # add mongo sources
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
-    echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+    # clone this repo, metadata, parse, and the data repos as siblings in ~/soccer/
+    # (usd1_data, us_minor_data, world_data, ... see the list in make/load.py)
 
-    # update apt
-    sudo apt-get update
-    sudo apt-get upgrade
+    # python environment
+    cd ~/soccer/build
+    uv venv --python 3.12
+    uv pip install -p .venv/bin/python -r requirements3.txt
 
-    # Install dependencies
-    sudo apt-get install git-core mongodb-org emacs python3-setuptools
-    sudo easy_install3 pip
+    # your hostname must be in the roots dict of settings.py (and metadata/settings.py)
 
-    # A little more mongo.
-    # This isn't really working right now. Right? 
-    Add /etc/systemd/system/mongodb.service from https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubuntu-16-04
-    
-    sudo systemctl start mongodb
-    sudo systemctl status mongodb # SHOULD SAY WHAT?
+    # build: load -> normalize -> lift -> transform -> merge -> generate -> denormalize
+    PYTHONPATH=~/soccer:~/soccer/build .venv/bin/python make/
 
-    # Postgresql
-    # (this could be done later, but probably best now.)
-    * sudo apt-get install postgresql
-    * sudo -u postgres -i
-    * createuser -d soccerstats
+Then load postgres and ship (see the s2 repo):
 
-    # NEED TO KNOW POSTGRES PASSWORD HERE
-    * sudo emacs /etc/postgresql/9.5/main/pg_hba.conf
-    * Change:
-    # local   all             all peer
-    # local   all             all trust
-    # (I know this is terribly dangerous...)
-
-    # Add to pythonpath
-
-    emacs .bashrc 
-    # add to .bashrc
-    # export PYTHONPATH=$PYTHONPATH:/home/chris/bin:/home/chris/www:/home/chris/repos:/home/chris/soccer
-    source .bashrc
-
-    # Clone repositories
-
-    mkdir soccer/
-    cd soccer/
-    git clone https://github.com/SoccerstatsUS/parse.git
-    git clone https://github.com/SoccerstatsUS/metadata.git
-    git clone https://github.com/SoccerstatsUS/build.git
-    git clone https://github.com/SoccerstatsUS/usd1_data.git
-    git clone https://github.com/SoccerStatsUS/soccerdata.git
-
-    # git clone https://github.com/SoccerstatsUS/nwsl_data.git
-
-    # Install
-
-    cd build/
-    sudo pip3 install -r requirements3.txt
-
-    sudo pip3 install django psycopg2
-
-    python3 make/
-    # Fix this problem:  ROOT_DIR = roots[host] KeyError: 'ubuntu'
-    # Also fix the problem that this is duplicated in metadata.
-
-
-The end. With luck you should have a functioning install now. 
+    cd ../s2
+    ./build.sh     # mongo -> postgres
+    ./upload.sh    # pg_dump -> bert
 
 
 #### What is going on here?
