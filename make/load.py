@@ -977,8 +977,6 @@ def load_mls():
 
     generic_load(soccer_db.mls_awards, awards.process_mls_awards)
 
-    generic_load(soccer_db.mls_rosters, lambda: flatten_stats(soccer_db.mls_stats.find()))
-
     load_standings_standard('mls', 'data/standings/mls', root=USD1_DIR)
 
     for e in sorted(os.listdir(os.path.join(USD1_DIR, 'data/transactions/mls/date'))):
@@ -991,6 +989,9 @@ def load_mls():
 
     for e in range(2012, 2017):
         generic_load(soccer_db.mls_stats, stats.process_stats("data/stats/mls/" + str(e), source='MLSSoccer.com', root=USD1_DIR))
+
+    # Must come after the stats loads: rosters are derived from the stats.
+    generic_load(soccer_db.mls_rosters, lambda: flatten_stats(soccer_db.mls_stats.find()))
 
     load_games_standard('mls', 'data/games/mls/playoffs', root=USD1_DIR)
 

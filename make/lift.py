@@ -136,16 +136,22 @@ def get_name_from_fragment(fragment, candidates):
 
 def make_roster_guesser(db):
     d = defaultdict(set)
+    by_team_season = defaultdict(set)
     for e in db.find():
         key = (e['team'], e['competition'], e['season'])
         #d[key].add(e['name'])
         d[key].add((e['ascii_name'], e['name']))
+        by_team_season[(e['team'], e['season'])].add((e['ascii_name'], e['name']))
 
     def getter(name, team, competition, season):
         key = (team, competition, season)
         candidates = d[key]
+        if not candidates:
+            # No roster for this exact competition (e.g. playoff games);
+            # fall back to the team's rosters from that season.
+            candidates = by_team_season[(team, season)]
         return get_name_from_fragment(name, candidates)
-    
+
     #getter.d = d # for debugging
 
     return getter
