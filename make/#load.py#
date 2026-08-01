@@ -150,7 +150,7 @@ def load_garberbucks():
     #load_concacaf()
     load_drafts()
     load_usd1()
-    load_early_friendly()
+    load_friendly()
     #load_us_cups()
 
 
@@ -1106,7 +1106,7 @@ def load_modern_friendly():
     for e in ['arizona', 'canada', 'carolina', 'coliseo', 'desert', 'disney', 'dynamo', 'europac', 'festival_of_americas', 'hawaii',
               'icc', 'los_angeles_nations', 'miami', 'mls_all_star', 'mls_combine', 'pegaso', 'super_cup', 'tecate', 'wfc',
               ]: #'los_angeles', 'miami_cup', 'women',
-        load_games_standard('us_friendly', 'games/friendly/%s' % e, root=FRIENDLY_DIR)
+        load_games_standard('us_friendly', 'games/friendly/%s' % e)
 
 
 def load_competitions():
