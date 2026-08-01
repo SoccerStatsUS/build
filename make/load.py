@@ -149,7 +149,7 @@ def load():
 def load_garberbucks():
     #load_concacaf()
     load_drafts()
-    load_mls()
+    load_usd1()
     #load_us_cups()
 
 
@@ -262,8 +262,6 @@ def load_domestic():
 
 def load_usd1():
     load_mls()
-
-    return
     load_alpf()
     load_asl()
     load_nasl()
@@ -1266,11 +1264,11 @@ def load_nasl():
     load_standings_standard('nasl', 'data/standings/nasl', USD1_DIR)
     load_standings_standard('nasl', 'data/standings/nasl0', USD1_DIR)
 
-    load_games_standard('nasl', 'data/games/playoffs/nasl', USD1_DIR)
+    load_games_standard('nasl', 'data/games/nasl/playoffs', USD1_DIR)
 
     generic_load(soccer_db.nasl_games, nasl.process_npsl_games)
     generic_load(soccer_db.nasl_goals, nasl.process_npsl_goals)
-    load_games_standard('nasl', 'data/games/league/simple/usa', USD1_DIR)
+    load_games_standard('nasl', 'data/games/nasl/usa', USD1_DIR)
 
     # Need to work some integrity issues on games.
     generic_load(soccer_db.nasl_games, nasl.process_nasl_games)
