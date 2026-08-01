@@ -7,7 +7,7 @@ connection = pymongo.MongoClient()
 soccer_db = connection.soccer
 
 def insert_row(collection, row):
-    collection.insert(row)
+    collection.insert_one(row)
 
 def insert_rows(collection, rows):
     for row in rows:

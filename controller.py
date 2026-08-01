@@ -40,17 +40,17 @@ def dashboard():
 
     def process_scraper(scraper):
         table_names = ['%s_%s' % (scraper, table) for table in STAT_TABLES]
-        return [(table_name, soccer_db[table_name].count()) for table_name in table_names]
+        return [(table_name, soccer_db[table_name].estimated_document_count()) for table_name in table_names]
 
 
 
     # Main is named a little differently. Should probably change this.
-    data = [('main', [(table_name, soccer_db[table_name].count()) for table_name in STAT_TABLES]),]
+    data = [('main', [(table_name, soccer_db[table_name].estimated_document_count()) for table_name in STAT_TABLES]),]
     for e in SOURCES:
         t = (e, process_scraper(e))
         data.append(t)
 
-    small_data = [(coll_name, soccer_db[coll_name].count()) for coll_name in SINGLE_SOURCES]
+    small_data = [(coll_name, soccer_db[coll_name].estimated_document_count()) for coll_name in SINGLE_SOURCES]
 
     ctx = {
         'data': data,
@@ -71,7 +71,7 @@ def data():
     collection_name = request.args['c']
     collection = soccer_db[collection_name]
 
-    if collection.count():
+    if collection.estimated_document_count():
         keys = sorted(collection.find()[0].keys())
         keys.remove("_id")
 

@@ -23,7 +23,7 @@ def transform_names_from_rosters():
 
         rdb = soccer_db['%s_rosters' % source]
 
-        if rdb.count():
+        if rdb.estimated_document_count():
 
             rg = make_roster_guesser(rdb)
 
