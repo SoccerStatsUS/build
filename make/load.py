@@ -997,8 +997,6 @@ def load_mls():
     for e in range(1996, 2017):
         load_games_standard('mls', 'data/games/mls/%s' % e, root=USD1_DIR)
 
-    return
-
     load_mls_lineup_db()
 
     # Add rsssf games.
