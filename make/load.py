@@ -134,7 +134,7 @@ def load():
 
     load_metadata()
 
-    #load_usmntstats()
+    load_usmntstats()
     #load_soccerstatsus()
 
     load_garberbucks()
