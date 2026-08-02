@@ -151,7 +151,7 @@ def load_garberbucks():
     load_drafts()
     load_usd1()
     load_early_friendly()
-    #load_us_cups()
+    load_us_cups()
 
 
 
@@ -379,11 +379,8 @@ def load_us_cups():
     generic_load(soccer_db.us_cups_awards, awards.process_us_open_cup_awards, delete=False)
 
 
-    for e in range(2011, 2015):
+    for e in range(2011, 2021):
         load_games_standard('us_cups', 'games/open/%s' % e, root=CUPS_DIR)#, games_only=True)
-
-
-    return
 
     for e in range(191, 202):
         load_games_standard('us_cups', 'games/open/%s0' % e, root=CUPS_DIR)#, games_only=True)
