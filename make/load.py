@@ -134,25 +134,13 @@ def load():
 
     load_metadata()
 
-    load_usmntstats()
-    #load_soccerstatsus()
+    load_soccerstatsus()
 
-    load_garberbucks()
+    load_early()    
+    load_usmnt()
+    load_advanced()
 
-    #load_early()
-    #load_socceroutsider()
-    
-    #load_advanced()
-
-
-
-def load_garberbucks():
-    #load_concacaf()
-    load_drafts()
-    load_usd1()
-    load_early_friendly()
-    load_us_cups()
-
+    #load_concacaf()    
 
 
 
@@ -167,26 +155,16 @@ def load_soccerstatsus():
     friendly: US friendly data
     """
 
-    #load_women()
+    load_women()
     load_domestic()
+    load_outer()
+    
     #load_indoor()
     #load_amateur()
-    #load_outer()
+
     #load_international()
     #load_friendly()
 
-
-
-def load_socceroutsider():
-    load_us_minor()
-    load_usd1()    
-
-    load_world()
-
-
-def load_usmntstats():
-    load_usmnt()
-    
 
 def load_metadata():
     """
@@ -222,12 +200,9 @@ def load_advanced():
 
 
 def load_early():
-    #load_early_friendly()
-
+    load_early_friendly()
     load_nafbl()
     load_spalding()
-    load_us_cups()
-
 
 
 def load_international():
@@ -244,11 +219,12 @@ def load_international():
 
 def load_domestic():
 
-    load_usd1()    
+    load_usd1()
+    load_us_cups()    
+
     return
     load_us_minor()
     load_world()
-    load_us_cups()
 
     return
 
@@ -273,7 +249,6 @@ def load_usd1():
 def load_outer():
     load_ltrack()
     #load_fifa()
-    pass
     #load_mediotiempo()    
 
 
@@ -898,7 +873,7 @@ def load_brazil_international():
 
 
 def load_women():
-    load_women_international()
+    #load_women_international()
     load_women_domestic()
 
 
@@ -2048,9 +2023,6 @@ def load_ncaa():
 
     for year in range(2011, 2014):
         load_games_standard('ncaa', 'games/championship/%s' % year, NCAA_DIR)
-
-
-
 
 
 def load_fifa():
