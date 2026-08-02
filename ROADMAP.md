@@ -9,15 +9,16 @@ denormalize (see `README.md`). Items below are grouped by the stage they affect.
 
 ## Name Mapping
 
-- [ ] ASL team names produce a large number of errors — the highest-value fix here,
-  described in the old README as "easy but producing a lot of errors." The
-  competition/season-scoped splits live in `make/separate.py`; `Brooklyn Hakoah`
-  (`make/separate.py:658`) and `Hakoah` (`make/separate.py:913`) are the known-bad
-  entries, and `notes/timelines:27` records the underlying history: Hakoah All-Stars
-  renamed New York Hakoah c. 1929, then Brooklyn Hakoah merged with New York Hakoah
-  in Spring 1930. Accurate names for each period still need to be established.
-- [ ] Audit the remaining ASL name mappings once Hakoah is settled — the same
-  merge/rename pattern likely affects other clubs of the era.
+- [ ] Giant ASL team name bug — described in the old README as "easy but producing a
+  lot of errors," which makes it the highest-value item here. The competition- and
+  season-scoped splits live in `make/separate.py`.
+- [ ] Fix the Brooklyn Hakoah name mapping — `Brooklyn Hakoah` (`make/separate.py:658`)
+  and `Hakoah` (`make/separate.py:913`) are the bad entries, and `notes/timelines:27`
+  records the underlying history: Hakoah All-Stars renamed New York Hakoah c. 1929,
+  then Brooklyn Hakoah merged with New York Hakoah in Spring 1930. Accurate names for
+  each period still need to be established.
+- [ ] Audit the remaining ASL name mappings — the same merge/rename pattern likely
+  affects other clubs of the era.
 
 ## Data Formats
 
