@@ -1157,7 +1157,7 @@ def load_copa_america():
     generic_load(soccer_db['%s_fouls' % coll], lambda: fouls, delete=False)
     generic_load(soccer_db['%s_goals' % coll], lambda: goals, delete=False)
 
-    generic_load(soccer_db.conmebol_i_rosters, lambda: rosters.process_rosters('rosters/copa_america', root=INTERNATIONAL_DIR))
+    # generic_load(soccer_db.conmebol_i_rosters, lambda: rosters.process_rosters3('rosters/copa_america', root=INTERNATIONAL_DIR))
     load_games_standard('conmebol_i', 'games/confederation/conmebol/copa_america/stadia',  root=INTERNATIONAL_DIR)
 
     
@@ -1779,7 +1779,7 @@ def load_world_international():
     generic_load(soccer_db.world_i_awards, awards.process_world_cup_awards)
     generic_load(soccer_db.world_i_awards, awards.process_olympics_awards)
 
-    #generic_load(soccer_db.world_i_rosters, lambda: rosters.process_rosters(olympics'))
+    generic_load(soccer_db.world_i_rosters, lambda: rosters.process_rosters3('rosters/olympics', root=INTERNATIONAL_DIR))
     #generic_load(soccer_db.world_i_rosters, lambda: rosters.process_rosters2(os.path.join('soccerdata/data/rosters/international/confederations')))
 
     confed = [1992, 1995, 1997, 1999, 2001, 2003, 2005, 2009, 2013]
