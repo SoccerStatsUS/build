@@ -242,9 +242,8 @@ def load_usd1():
     load_alpf()
     load_asl()
     load_nasl()
-
-
-
+    load_isl2()
+    
 
 def load_outer():
     load_ltrack()
@@ -1005,15 +1004,14 @@ def load_nafbl():
     generic_load(soccer_db.asl_awards, awards.process_nafbl_awards, delete=False)
     generic_load(soccer_db.asl_awards, awards.process_snesl_awards, delete=False)
 
-    #load_standings_standard('us_minor', 'domestic/country/usa/nafbl')
-    #load_standings_standard('us_minor', 'domestic/country/usa/snesl')
-    #load_standings_standard('us_minor', 'domestic/country/usa/nasfl')
+    load_standings_standard('us_minor', 'domestic/country/usa/nafbl')
+    load_standings_standard('us_minor', 'domestic/country/usa/snesl')
+    load_standings_standard('us_minor', 'domestic/country/usa/nasfl')
 
     load_games_standard('us_minor', 'games/regional/nafbl1', root=US_MINOR_DIR)
     load_games_standard('us_minor', 'games/regional/nafbl2', root=US_MINOR_DIR)
     load_games_standard('us_minor', 'games/regional/snesl', root=US_MINOR_DIR)
     load_games_standard('us_minor', 'games/regional/nasfl', root=US_MINOR_DIR)
-    #load_games_standard('us_minor', 'games/misc/isl', root=US_MINOR_DIR)
 
 
 
@@ -1842,7 +1840,7 @@ def load_world():
     #generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(WORLD_DIR, 'rosters/domestic/cwc/2014')))
     #generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(WORLD_DIR, 'rosters/domestic/copita')))
 
-    #load_isl2()
+    
 
     #load_games_standard('world', 'domestic/country/mexico/friendly/palmares')
 
