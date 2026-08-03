@@ -1,7 +1,6 @@
 from collections import defaultdict
 
 from build.mongo import soccer_db, insert_rows, generic_load
-from standings import get_standings
 
 # I think I should just generate standings directly from soccer_db.games.
 # And then check those against downloaded standings.

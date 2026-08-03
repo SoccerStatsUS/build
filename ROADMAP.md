@@ -64,13 +64,6 @@ Missing or thin source data. Roughly ordered by how much is missing.
   reverted (`git show d2c1531`) — it worked, but its payoff only arrives when a
   disabled source is switched back on, and until then it makes 119 call sites
   mean something other than what they say.
-- [ ] Decide what to do with `make/standings.py`. Nothing calls it: `generate.py`
-  imports `get_standings` and never uses it, generating standings from its own
-  rolling `Standing` class (`make/generate.py:470`) instead. The module has been
-  fixed and covered by `tests/test_standings.py`, so it is now a correct
-  season-table builder looking for a caller — the obvious one being the
-  loaded-vs-generated comparison below. Otherwise delete it and the dead import.
-
 - [ ] Fix two loaded standings whose records do not add up, found by `check_standings`
   once `check_games` stopped crashing. Both are off by three games:
   - Sporting Kansas City, MLS 2011 — `games=34` but 16-9-12 sums to 37.
@@ -81,7 +74,10 @@ Missing or thin source data. Roughly ordered by how much is missing.
 
 - [ ] Expand checking beyond standings validity and game fields (`make/check.py`).
   The comment at `make/generate.py:6` sketches the intended next step: generate
-  standings from games, then check those against the loaded standings.
+  standings from games, then check those against the loaded standings. Build the
+  season table from the rolling `Standing` in `make/generate.py:470`, which is
+  what actually produces standings today. (A second, unused table builder lived
+  in `make/standings.py` until it was deleted — `git log -- make/standings.py`.)
 
 - [ ] Run `check()` as part of the build. It is not in `build()`, so the checks only
   run if invoked by hand, which is why the two standings above went unnoticed.
