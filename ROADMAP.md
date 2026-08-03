@@ -64,27 +64,27 @@ Missing or thin source data. Roughly ordered by how much is missing.
   reverted (`git show d2c1531`) — it worked, but its payoff only arrives when a
   disabled source is switched back on, and until then it makes 119 call sites
   mean something other than what they say.
-- [ ] `check_games` can never report anything (`make/check.py:60`). Its warning is
-  `print("% missing fields from game %s" % game)` — `%` where it needs `%s`, so the
-  format raises `ValueError`, the bare `except` catches it, and the row drops into
-  `pdb.set_trace()`. Every game with a missing field takes this path. Pinned by
-  `tests/test_check.py::test_missing_field_falls_through_to_pdb`; the xfail beside
-  it asserts what the check should say.
+- [ ] Decide what to do with `make/standings.py`. Nothing calls it: `generate.py`
+  imports `get_standings` and never uses it, generating standings from its own
+  rolling `Standing` class (`make/generate.py:470`) instead. The module has been
+  fixed and covered by `tests/test_standings.py`, so it is now a correct
+  season-table builder looking for a caller — the obvious one being the
+  loaded-vs-generated comparison below. Otherwise delete it and the dead import.
 
-- [ ] Winless teams are dropped from generated standings (`make/standings.py:85`).
-  `Standing.standings()` iterates `sorted(self.wins.keys())`, and `wins` only has
-  teams that won at least once — so a team that went winless never appears, and a
-  round where every game was drawn produces an empty table. Fixing it means
-  iterating the union of teams instead; note this changes what the build emits.
-  Pinned by the xfails in `tests/test_standings.py`.
+- [ ] Fix two loaded standings whose records do not add up, found by `check_standings`
+  once `check_games` stopped crashing. Both are off by three games:
+  - Sporting Kansas City, MLS 2011 — `games=34` but 16-9-12 sums to 37.
+  - FC Dallas, MLS 2003 — `games=30` but 6-16-5 sums to 27.
 
-- [ ] `Standing` re-walks `games` once per column (`make/standings.py:17-22`), eight
-  times in all. Harmless for the lists `generate.py` passes, but the class comment
-  says "Games is probably a cursor object!" — if one is ever passed it is exhausted
-  after the first pass and the result is a `KeyError`. Compute the columns in one
-  pass.
+  `check_games` reports nothing against the current database, so every game row
+  has its seven required fields.
 
 - [ ] Expand checking beyond standings validity and game fields (`make/check.py`).
+  The comment at `make/generate.py:6` sketches the intended next step: generate
+  standings from games, then check those against the loaded standings.
+
+- [ ] Run `check()` as part of the build. It is not in `build()`, so the checks only
+  run if invoked by hand, which is why the two standings above went unnoticed.
 - [ ] Draw a graph of seasons — a visualization to surface gaps and overlaps in the
   season/competition structure.
 

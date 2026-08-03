@@ -33,8 +33,8 @@ No mongo needed: the stages that talk to it are given an in-memory stand-in
 (`tests/fakedb.py`). `pytest.ini` puts `make/` on the path so tests import the
 stage modules flat, the same way the build does.
 
-Tests marked `xfail` are known bugs, pinned so they announce themselves when
-fixed rather than being silently forgotten. See ROADMAP.md.
+Any test marked `xfail` is a known bug, pinned so it announces itself when fixed
+rather than being silently forgotten. See ROADMAP.md.
 
 Then load postgres and ship (see the s2 repo):
 
