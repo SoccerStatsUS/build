@@ -12,15 +12,29 @@ denormalize (see `README.md`). Items below are grouped by the stage they affect.
 `rejects.install()` reassigns `pdb.set_trace`, so a call site that reads as
 "drop into the debugger" instead writes a JSON record. That is deliberate and it
 is scaffolding, not a design. It buys one thing: an inventory of which of the
-~119 `set_trace` sites across `parse`, `build` and `metadata` actually fire,
-without editing 119 call sites across three repos to find out.
+119 `set_trace` sites across `parse`, `build` and `metadata` actually fire,
+without editing 119 call sites across three repos to find out. The payoff only
+arrives when a new source is switched on; until then it is a documented wart
+with no benefit, and reverting it costs one commit.
 
-- [ ] Run a full load and count the distinct sites in `logs/rejects.jsonl`. That
-  number decides the rest of this section. The bet behind the patch is that most
-  sites are dead — accumulated around data that no longer arrives. If most of
-  them fire, the patch was the wrong call and the conversion below should happen
-  wholesale instead.
-- [ ] Convert the sites that fire to explicit `rejects.record(...)` calls.
+The inventory does not need a full build, and should not wait for one. Today's
+MLS-only build already runs every `build/make` stage, all of `parse`, and
+`load_metadata`, and produces zero records — so those sites are quiet at least
+for MLS-shaped input. The 119 break down as: 20 in always-run build stages, 39
+in `parse`, 40 in `metadata` (19 of them in the competition-specific
+`cmp/copaamerica.py`, `cmp/pdl.py` and `cmp/asl.py`, which only run behind
+disabled loaders), and 20 in `s2/build`, which uses its own stub that raises.
+
+- [ ] Collect the inventory incrementally: each time a source is enabled in
+  `load.py`, read `logs/rejects.jsonl` before committing. That is the same rhythm
+  the loaders already came back on in, it scopes each batch of records to one
+  source, and it never requires a big run.
+- [ ] Convert the sites that fire to explicit `rejects.record(...)` calls, source
+  by source, as they turn up.
+- [ ] Backstop, so this cannot linger: the patch is earning nothing while
+  `rejects.jsonl` is empty. If no source has been enabled by the next time this
+  repo's loaders are touched, revert it — `rejects.record()` can stay as a plain
+  function, and the `set_trace` stub goes back to the print it replaced.
 - [ ] Give `parse` its own answer. It is otherwise standalone — only
   `parse/rosters.py` reaches into `metadata`, which is its own layering wart — so
   it must not import `build.rejects`. Its sites should return rejects or take a
