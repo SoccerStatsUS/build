@@ -7,46 +7,6 @@ denormalize (see `README.md`). Items below are grouped by the stage they affect.
 
 ---
 
-## Remove the pdb monkeypatch (do this first)
-
-`rejects.install()` reassigns `pdb.set_trace`, so a call site that reads as
-"drop into the debugger" instead writes a JSON record. That is deliberate and it
-is scaffolding, not a design. It buys one thing: an inventory of which of the
-119 `set_trace` sites across `parse`, `build` and `metadata` actually fire,
-without editing 119 call sites across three repos to find out. The payoff only
-arrives when a new source is switched on; until then it is a documented wart
-with no benefit, and reverting it costs one commit.
-
-The inventory does not need a full build, and should not wait for one. Today's
-MLS-only build already runs every `build/make` stage, all of `parse`, and
-`load_metadata`, and produces zero records — so those sites are quiet at least
-for MLS-shaped input. The 119 break down as: 20 in always-run build stages, 39
-in `parse`, 40 in `metadata` (19 of them in the competition-specific
-`cmp/copaamerica.py`, `cmp/pdl.py` and `cmp/asl.py`, which only run behind
-disabled loaders), and 20 in `s2/build`, which uses its own stub that raises.
-
-- [ ] Collect the inventory incrementally: each time a source is enabled in
-  `load.py`, read `logs/rejects.jsonl` before committing. That is the same rhythm
-  the loaders already came back on in, it scopes each batch of records to one
-  source, and it never requires a big run.
-- [ ] Convert the sites that fire to explicit `rejects.record(...)` calls, source
-  by source, as they turn up.
-- [ ] Backstop, so this cannot linger: the patch is earning nothing while
-  `rejects.jsonl` is empty. If no source has been enabled by the next time this
-  repo's loaders are touched, revert it — `rejects.record()` can stay as a plain
-  function, and the `set_trace` stub goes back to the print it replaced.
-- [ ] Give `parse` its own answer. It is otherwise standalone — only
-  `parse/rosters.py` reaches into `metadata`, which is its own layering wart — so
-  it must not import `build.rejects`. Its sites should return rejects or take a
-  collector.
-- [ ] Delete `install()` and `_record_set_trace`, and restore whatever
-  `pdb.set_trace` should mean in a batch run (probably: raise, as `s2/build`
-  already does).
-
-Until that last box is ticked, `pdb.set_trace()` in this codebase does not mean
-what it says. The patch also depends on every live site being spelled exactly
-`import pdb; pdb.set_trace()`; nothing enforces that, and a miss would be silent.
-
 ## Name Mapping
 
 - [ ] Giant ASL team name bug — described in the old README as "easy but producing a
@@ -93,6 +53,17 @@ Missing or thin source data. Roughly ordered by how much is missing.
 
 ## Error Detection
 
+- [ ] Bad data signals itself with `pdb.set_trace()` — 119 live sites across
+  `parse`, `build` and `metadata`, plus ~100 bare `except:`. In a batch run
+  `make/__main__.py` stubs `set_trace` out to a print of file and line, which
+  says where the code was standing and never which row was bad. The sites need to
+  become explicit rejects that record the offending row. Note that `parse` is
+  otherwise standalone and must not import from `build`, so its sites should
+  return rejects or take a collector rather than call a global sink.
+  A recorder that captured this by monkeypatching `set_trace` was built and
+  reverted (`git show d2c1531`) — it worked, but its payoff only arrives when a
+  disabled source is switched back on, and until then it makes 119 call sites
+  mean something other than what they say.
 - [ ] Expand checking beyond standings validity and game fields (`make/check.py`).
 - [ ] Draw a graph of seasons — a visualization to surface gaps and overlaps in the
   season/competition structure.
