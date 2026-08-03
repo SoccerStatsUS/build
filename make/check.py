@@ -53,15 +53,8 @@ def check_games():
 
     for game in mongo.soccer_db.games.find():
         for field in game_fields:
-            try:
-                assert field in game
-            except:
-                try:
-                    print("% missing fields from game %s" % game)
-                except:
-                    import pdb; pdb.set_trace()
-                    x = 5
-                continue
+            if field not in game:
+                print("%s missing from game %s" % (field, game))
             
 
 

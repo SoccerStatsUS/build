@@ -111,33 +111,43 @@ GAME_FIELDS = [
 
 
 @pytest.mark.parametrize('missing', GAME_FIELDS)
-def test_missing_field_falls_through_to_pdb(db, capsys, pdb_hits, missing):
-    # Current behaviour, and a concrete instance of the ROADMAP's "bad data
-    # signals itself with pdb.set_trace()" item. check_games() means to print a
-    # warning, but its format string is "% missing fields..." where it needs
-    # "%s", so the print raises ValueError and the bare except drops into pdb.
-    game = full_game()
-    del game[missing]
-    db.games.rows = [game]
-
-    check.check_games()
-
-    assert capsys.readouterr().out == ''
-    assert len(pdb_hits) == 1
-    assert pdb_hits[0][2] == 'check_games'
-
-
-@pytest.mark.parametrize('missing', GAME_FIELDS)
-@pytest.mark.xfail(strict=True, reason="'%' should be '%s'; the print raises ValueError and nothing is reported")
 def test_missing_field_is_named_in_the_report(db, capsys, pdb_hits, missing):
-    # What the check should do: say which field was missing, and from which row.
     game = full_game()
     del game[missing]
     db.games.rows = [game]
 
     check.check_games()
 
-    assert missing in capsys.readouterr().out
+    out = capsys.readouterr().out
+    assert missing in out
+    assert pdb_hits == []
+
+
+def test_report_identifies_the_offending_row(db, capsys, pdb_hits):
+    # Naming the field is only half of it; the row has to be identifiable too.
+    game = full_game()
+    del game['date']
+    db.games.rows = [game]
+
+    check.check_games()
+
+    out = capsys.readouterr().out
+    assert 'FC Dallas' in out
+    assert 'Colorado Rapids' in out
+
+
+def test_each_missing_field_is_reported_separately(db, capsys, pdb_hits):
+    game = full_game()
+    del game['date']
+    del game['season']
+    db.games.rows = [game]
+
+    check.check_games()
+
+    out = capsys.readouterr().out
+    assert 'date missing' in out
+    assert 'season missing' in out
+    assert pdb_hits == []
 
 
 def test_a_complete_game_never_reaches_pdb(db, capsys, pdb_hits):
