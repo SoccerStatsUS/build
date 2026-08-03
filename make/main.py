@@ -8,6 +8,8 @@ After that, create canonical lists that can be used for viewing or
 imported into socceroutsider.com for better relationships, etc.
 """
 
+from build import rejects
+
 from load import load
 from generate import generate
 from check import check
@@ -74,6 +76,7 @@ def build():
         #check
         ]:
         print(func.__name__)
+        rejects.set_stage(func.__name__)
         timer(func)()
     
     return
