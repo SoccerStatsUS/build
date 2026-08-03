@@ -51,6 +51,16 @@ Missing or thin source data. Roughly ordered by how much is missing.
 - [ ] MLS 2012 season data
 - [ ] 2010 World Cup
 
+## Build Setup
+
+- [ ] The tests only run on a machine listed in `settings.py`. `ROOT_DIR = roots[host]`
+  (`settings.py:20`) is a bare dict lookup on hostname, so an unlisted machine raises
+  `KeyError` on import. `merge`, `lift`, `normalize` and `transform` all import
+  `settings`, so everything except `tests/test_check.py` fails to collect — 68 of the
+  85 tests. `metadata/settings.py` has the same pattern. A fallback (env var, or
+  derive the root from the repo location) would make the suite portable and open the
+  door to CI. Not urgent while the build is one-machine and local.
+
 ## Error Detection
 
 - [ ] Bad data signals itself with `pdb.set_trace()` — 119 live sites across

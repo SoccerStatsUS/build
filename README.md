@@ -29,6 +29,9 @@ The full flow is: data repos -> mongo (this repo) -> postgres (s2 repo) -> ship 
     cd ~/soccer/build
     .venv/bin/python -m pytest
 
+`build.sh` runs them first and stops if any fail, so a broken build is caught
+before it spends 75 seconds. `SKIP_TESTS=1 ./build.sh` builds anyway.
+
 No mongo needed: the stages that talk to it are given an in-memory stand-in
 (`tests/fakedb.py`). `pytest.ini` puts `make/` on the path so tests import the
 stage modules flat, the same way the build does.
