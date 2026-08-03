@@ -134,6 +134,10 @@ def load():
 
     load_metadata()
 
+    load_mls()
+
+    return
+
     load_soccerstatsus()
 
     load_early()    
@@ -184,19 +188,17 @@ def load_metadata():
 
 def load_advanced():
 
-
     # drafts
     load_drafts()
 
     # jobs
     load_jobs()
-    load_transactions()
 
     # money data
     load_salaries()
 
     # news feeds
-    #load_news()
+    # load_news()
 
 
 def load_early():
@@ -247,18 +249,6 @@ def load_usd1():
 
 def load_outer():
     load_ltrack()
-    #load_fifa()
-    #load_mediotiempo()    
-
-
-def load_mediotiempo():
-    #from foulds.sites import mediotiempo
-
-    games = mediotiempo.scrape_games(range(2000, 49000)) 
-
-    generic_load(soccer_db['mediotiempo_games'], lambda: [e for e in games if e not in [{}, None]])
-    #generic_load(soccer_db['mls2_goals'], lambda: [e for e in goals if e not in [{}, None]])
-    #generic_load(soccer_db['mls2_lineups'], lambda: [e for e in lineups if e not in [{}, None]])
 
 
 def load_name_maps():
@@ -302,15 +292,8 @@ def load_bios():
     print('loading bios')
 
     from metadata.parse import bios
-    #from foulds.sites import mlsnet, mlssoccer
 
     generic_load(soccer_db.asl_bios, bios.process_asl_bios)
-
-    #print("Loading MLSsoccer.com player bios.")
-    #generic_load(soccer_db.mls_bios, mlssoccer.scrape_all_bios)
-
-    #generic_load(soccer_db.mls_bios, mlsnet.scrape_2005_bios)
-    #generic_load(soccer_db.mls_bios, mlsnet.scrape_2001_bios)
 
     generic_load(soccer_db.fifa_bios, bios.process_world_cup_bios)
     generic_load(soccer_db.nasl_bios, bios.process_misl_bios)
@@ -562,9 +545,6 @@ def load_southern_africa():
         load_games_standard('uefa', 'games/zambia/%s' % year, root=CAF_DIR)
 
 
-def load_premier_league():
-    from foulds.sites import premierleague
-    generic_load(soccer_db.epl_games, premierleague.scrape_calendars)
 
 
 def load_spalding():
@@ -932,14 +912,6 @@ def load_women_domestic():
         load_games_standard('women', 'games/sweden/1/%s' % e, root=NWSL_DIR)
 
 
-def load_mlssoccer_season(url, competition):
-    #from foulds.sites.mlssoccer import scrape_competition
-
-    games, goals, lineups = scrape_competition(url, competition)
-
-    generic_load(soccer_db['mls2_games'], lambda: [e for e in games if e not in [{}, None]])
-    generic_load(soccer_db['mls2_goals'], lambda: [e for e in goals if e not in [{}, None]])
-    generic_load(soccer_db['mls2_lineups'], lambda: [e for e in lineups if e not in [{}, None]])
 
 
 def load_mls():
@@ -959,7 +931,7 @@ def load_mls():
         generic_load(soccer_db.mls_rosters, lambda: rosters.process_rosters3('data/rosters/mls/' + str(e), root=USD1_DIR), delete=False)
         generic_load(soccer_db.mls_bios, lambda: rosters.process_rosters3('data/rosters/mls/' + str(e), root=USD1_DIR), delete=False)
 
-    for e in range(2012, 2017):
+    for e in range(2012, 2019):
         generic_load(soccer_db.mls_stats, stats.process_stats("data/stats/mls/" + str(e), source='MLSSoccer.com', root=USD1_DIR))
 
     # Must come after the stats loads: rosters are derived from the stats.
@@ -973,28 +945,14 @@ def load_mls():
     load_mls_lineup_db()
 
     # Add rsssf games.
-    #for e in range(2001, 2001):
-    #    r = os.path.join(ROOT_DIR, 'usd1_data/data/games/mls/sources/rsssf/%s' % e)
-    #    load_games_standard('mls3', str(e), root=r)
+    for e in range(1996, 2014):
+        r = os.path.join(ROOT_DIR, 'usd1_data/data/games/mls/sources/rsssf/')
+        load_games_standard('mls3', str(e), root=r)
 
 
     print("Loading MLS reserves data.")
     for e in [2005, 2006, 2007, 2008, 2011, 2012, 2013, 2014]:
         load_games_standard('mls', 'data/games/mls/reserve/mls/%s' % e, root=USD1_DIR)
-
-    # 2012 is actually 1996-2012.
-
-    #generic_load(soccer_db.mls_stats, stats.process_stats("data/stats/mls/2012", source='MLSSoccer.com', root=USD1_DIR))
-    #generic_load(soccer_db.mls_stats, stats.process_stats("data/stats/mls/2013", source='MLSSoccer.com', root=USD1_DIR))
-
-    """
-    u = 'http://www.mlssoccer.com/schedule?month=all&year=%s&club=all&competition_type=%s&broadcast_type=all&op=Search&form_id=mls_schedule_form'
-
-    for year in (2011, 2012, 2013):
-        load_mlssoccer_season(u % (year, 46), 'Major League Soccer')
-        load_mlssoccer_season(u % (year, 45), 'MLS Cup Playoffs')
-        load_mlssoccer_season(u % (year, 44), 'MLS Cup Playoffs')
-    """
 
 
 def load_nafbl():
@@ -1111,9 +1069,6 @@ def load_drafts():
     generic_load(soccer_db.drafts, drafts.load_drafts)
     generic_load(soccer_db.picks, drafts.load_picks)
 
-
-def load_transactions():
-    pass
 
 
 def load_jobs():
@@ -1348,7 +1303,7 @@ def load_us_minor():
 
 def load_modern_minor():
 
-    #from foulds.sites import nasl, uslsoccer
+
     from metadata.parse import awards
     #from soccerdata.text import  partial
 
@@ -1359,15 +1314,6 @@ def load_modern_minor():
     generic_load(soccer_db.us_minor_awards, awards.process_nasl2_awards)
     generic_load(soccer_db.us_minor_awards, awards.process_apsl_awards)
     generic_load(soccer_db.us_minor_awards, awards.process_pdl_awards)
-
-    #generic_load(soccer_db['us_lower_games'], uslsoccer.scrape_2013_games) 
-    #generic_load(soccer_db['us_lower_goals'], uslsoccer.scrape_2013_goals)
-    #generic_load(soccer_db['us_lower_gstats'], uslsoccer.scrape_2013_game_stats) # Fix stat generation
-
-    #generic_load(soccer_db['us_lower_games'], nasl.scrape_all_games)
-    #generic_load(soccer_db['us_lower_goals'], nasl.scrape_all_goals)
-    #generic_load(soccer_db['us_lower_gstats'], nasl.scrape_all_game_stats)
-             
 
     # early
     load_standings_standard('us_minor', 'standings/d2/apsl', root=US_MINOR_DIR)
@@ -1529,15 +1475,6 @@ def load_australia():
         load_games_standard('afc', 'games/australia/league/%s' % season, root=AFC_DIR)
 
     #load_games_standard('afc', 'games/australia/playoffs', root=AFC_DIR)
-
-    return
-
-    from foulds.sites.australia import scrape_aleague
-
-    games, goals, lineups = scrape_aleague()
-    generic_load(soccer_db['afc_games'], lambda: [e for e in games if e not in [{}, None]])
-    generic_load(soccer_db['afc_goals'], lambda: [e for e in goals if e not in [{}, None]])
-    generic_load(soccer_db['afc_lineups'], lambda: [e for e in lineups if e not in [{}, None]])
 
 
 
@@ -2025,12 +1962,6 @@ def load_ncaa():
 
 def load_fifa():
 
-    from foulds.sites import fifa
-
-    generic_load(soccer_db.fifa_games, fifa.scrape_all_world_cup_games)
-    generic_load(soccer_db.fifa_goals, fifa.scrape_all_world_cup_goals)
-    generic_load(soccer_db.fifa_lineups, fifa.scrape_all_world_cup_lineups)
-
     load_fifa_competition('FIFA U-20 World Cup')
     load_fifa_competition('FIFA U-17 World Cup')
     load_fifa_competition('FIFA Confederations Cup')
@@ -2038,16 +1969,6 @@ def load_fifa():
 
     #load_fifa_competition('FIFA Club World Cup')
     
-
-def load_fifa_competition(competition):
-    from foulds.sites import fifa
-    games, goals, lineups = fifa.scrape_everything(competition)
-    generic_load(soccer_db.fifa_games, lambda: games)
-    generic_load(soccer_db.fifa_goals, lambda: goals)
-    generic_load(soccer_db.fifa_lineups, lambda: lineups)
-
-
-
 
 
 def load_ltrack():
