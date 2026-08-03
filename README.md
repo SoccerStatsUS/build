@@ -24,6 +24,18 @@ The full flow is: data repos -> mongo (this repo) -> postgres (s2 repo) -> ship 
     # build: load -> normalize -> lift -> transform -> merge -> generate -> denormalize
     PYTHONPATH=~/soccer:~/soccer/build .venv/bin/python make/
 
+#### how to run the tests
+
+    cd ~/soccer/build
+    .venv/bin/python -m pytest
+
+No mongo needed: the stages that talk to it are given an in-memory stand-in
+(`tests/fakedb.py`). `pytest.ini` puts `make/` on the path so tests import the
+stage modules flat, the same way the build does.
+
+Tests marked `xfail` are known bugs, pinned so they announce themselves when
+fixed rather than being silently forgotten. See ROADMAP.md.
+
 Then load postgres and ship (see the s2 repo):
 
     cd ../s2

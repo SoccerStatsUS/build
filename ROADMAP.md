@@ -64,6 +64,26 @@ Missing or thin source data. Roughly ordered by how much is missing.
   reverted (`git show d2c1531`) — it worked, but its payoff only arrives when a
   disabled source is switched back on, and until then it makes 119 call sites
   mean something other than what they say.
+- [ ] `check_games` can never report anything (`make/check.py:60`). Its warning is
+  `print("% missing fields from game %s" % game)` — `%` where it needs `%s`, so the
+  format raises `ValueError`, the bare `except` catches it, and the row drops into
+  `pdb.set_trace()`. Every game with a missing field takes this path. Pinned by
+  `tests/test_check.py::test_missing_field_falls_through_to_pdb`; the xfail beside
+  it asserts what the check should say.
+
+- [ ] Winless teams are dropped from generated standings (`make/standings.py:85`).
+  `Standing.standings()` iterates `sorted(self.wins.keys())`, and `wins` only has
+  teams that won at least once — so a team that went winless never appears, and a
+  round where every game was drawn produces an empty table. Fixing it means
+  iterating the union of teams instead; note this changes what the build emits.
+  Pinned by the xfails in `tests/test_standings.py`.
+
+- [ ] `Standing` re-walks `games` once per column (`make/standings.py:17-22`), eight
+  times in all. Harmless for the lists `generate.py` passes, but the class comment
+  says "Games is probably a cursor object!" — if one is ever passed it is exhausted
+  after the first pass and the result is a `KeyError`. Compute the columns in one
+  pass.
+
 - [ ] Expand checking beyond standings validity and game fields (`make/check.py`).
 - [ ] Draw a graph of seasons — a visualization to surface gaps and overlaps in the
   season/competition structure.
