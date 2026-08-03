@@ -7,6 +7,32 @@ denormalize (see `README.md`). Items below are grouped by the stage they affect.
 
 ---
 
+## Remove the pdb monkeypatch (do this first)
+
+`rejects.install()` reassigns `pdb.set_trace`, so a call site that reads as
+"drop into the debugger" instead writes a JSON record. That is deliberate and it
+is scaffolding, not a design. It buys one thing: an inventory of which of the
+~119 `set_trace` sites across `parse`, `build` and `metadata` actually fire,
+without editing 119 call sites across three repos to find out.
+
+- [ ] Run a full load and count the distinct sites in `logs/rejects.jsonl`. That
+  number decides the rest of this section. The bet behind the patch is that most
+  sites are dead — accumulated around data that no longer arrives. If most of
+  them fire, the patch was the wrong call and the conversion below should happen
+  wholesale instead.
+- [ ] Convert the sites that fire to explicit `rejects.record(...)` calls.
+- [ ] Give `parse` its own answer. It is otherwise standalone — only
+  `parse/rosters.py` reaches into `metadata`, which is its own layering wart — so
+  it must not import `build.rejects`. Its sites should return rejects or take a
+  collector.
+- [ ] Delete `install()` and `_record_set_trace`, and restore whatever
+  `pdb.set_trace` should mean in a batch run (probably: raise, as `s2/build`
+  already does).
+
+Until that last box is ticked, `pdb.set_trace()` in this codebase does not mean
+what it says. The patch also depends on every live site being spelled exactly
+`import pdb; pdb.set_trace()`; nothing enforces that, and a miss would be silent.
+
 ## Name Mapping
 
 - [ ] Giant ASL team name bug — described in the old README as "easy but producing a

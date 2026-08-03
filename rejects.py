@@ -9,6 +9,21 @@ which row was bad instead of only where the code was standing.
 
 Records are written as JSON lines to logs/rejects.jsonl. Nothing is raised;
 the build continues exactly as it did before.
+
+THE MONKEYPATCH IS TEMPORARY. It exists to inventory the ~119 set_trace sites
+across parse, build and metadata, so that only the ones that actually fire get
+converted to explicit reject() calls. Once they are converted, install() and
+_record_set_trace go away. Until then this file makes pdb.set_trace() mean
+something other than what it says, which is a tax on whoever reads a call site
+next. Two things to know while it stands:
+
+  - It works only because every live site is spelled exactly
+    `import pdb; pdb.set_trace()`. Nothing enforces that. A module that binds
+    the name before install() runs would slip past without an error.
+
+  - parse/ is the awkward case. It is otherwise standalone, so it cannot import
+    this module without inverting the dependency. Its sites should end up
+    returning rejects, or taking a collector, rather than calling a global sink.
 """
 
 import datetime
