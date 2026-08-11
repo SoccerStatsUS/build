@@ -122,10 +122,19 @@ Missing or thin source data. Roughly ordered by how much is missing.
     `mlssoccer_data` starts at 2017 and `espn_data` at 2020. The archives begin the
     year the build stops. The espn scraper already reaches back to 2013 for NWSL, so
     pointing it at MLS before 2020 is a scraper config change, not a data problem.
-  - NWSL overlaps on 2013-2014 only, because `make/load.py:870-871` hardcodes those
-    two seasons — `nwsl_data/games/usa/nwsl/` has 2015, 2016, 2017, 2018 and 2019
-    sitting on disk unloaded. Loading them takes the surface from two seasons to
-    seven, which is the cheapest unblock available here.
+  - NWSL now loads 2013-2019, but the seasons are nothing like equivalent. Parsing the
+    files directly gives rows / rows-with-scores / goals / lineups:
+
+        2013   92 / 91  / 246 / 2437      2017  123 / 123 /   7 /    0
+        2014  112 / 111 / 356 / 3000      2018  110 / 105 / 145 / 1519
+        2015   93 /  26 /  48 /  326      2019  108 /  11 /  28 /  246
+        2016  103 / 103 / 188 / 1930
+
+    2019 is about a tenth transcribed and 2015 about a quarter, so the surface roughly
+    tripled rather than quintupling — 368 newly scored games against 202. 2017 is the
+    odd one: every score present, seven goals, no lineups at all. Any per-source
+    coverage descriptor has to be per season and per field; one attached to
+    `nwsl_data` as a whole would be meaningless.
   - Watch out for false corroboration: the hand-edited NWSL files carry
     `BlockSource: http://www.nwslsoccer.com/...`, so `nwsl_data` and
     `nwslsoccer_data` were transcribed from the same upstream. Agreement between them
@@ -134,6 +143,38 @@ Missing or thin source data. Roughly ordered by how much is missing.
   - Note also that external sources can only ever verify the thin slice they share
     with the hand-edited data — scores, dates, sometimes attendance. Nothing external
     verifies the lineups, assists and misconduct that make `nwsl_data` worth having.
+- [ ] Find strays by counting how many sources recorded a game. Most of this already
+  exists and is simply not read: `merge_games` sets `d['merges'] = 0`
+  (`make/merge.py:351`) and increments it on every merge (`:399`), so `merges == 0`
+  already means "exactly one source record produced this game". Nothing consumes it
+  outside `tests/test_merge.py:83,91`. A report of `merges == 0` grouped by
+  competition and season needs no new data and is the cheapest version of the
+  per-competition error list.
+
+  Two things to sort out first, and both argue for starting with a read-only report
+  rather than touching the merge:
+
+  - `sources` counts but does not name. It accumulates at `make/merge.py:400-401`,
+    but the parser fills it from the data files themselves — per-game `Source:` lines
+    (`parse/parse/games.py:333`) and `BlockSource:` (`:344`). So it holds citation
+    URLs a transcriber wrote down, not the identity of the contributing collection,
+    and it stays empty for any source whose files carry no `Source:` line. Naming
+    contributors is a small change — `merge_all_games` (`make/merge.py:79`) builds
+    `['%s_games' % coll for coll in SOURCES]` and then passes only the cursors into
+    `merge_games`, dropping the name — but see the warning below.
+  - `merges == 0` will over-report. The keys at `make/merge.py:337-345` are
+    `(teams, date, season, round)` and `(teams, competition, date)`. The comment at
+    `:317` says the first is "teams, competition, season, round - no date", but the
+    code puts `date` in it, so a game one source dated and another left undated
+    matches on neither key and survives as two games, each claiming a single source.
+    Given how much of `nwsl_data` is partially transcribed, this will fire a lot.
+    Separately, a record with neither `round` nor `date` is discarded outright at
+    `:347` — no counter, no message.
+
+  Be careful here. `merge_games` produces every game in the database, so changing the
+  keys or the record shape moves everything downstream with it. Read first, change
+  second.
+
 - [ ] Run `check()` as part of the build. It is not in `build()`, so the checks only
   run if invoked by hand, which is why the two standings above went unnoticed.
 - [ ] Draw a graph of seasons — a visualization to surface gaps and overlaps in the
