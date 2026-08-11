@@ -89,6 +89,51 @@ Missing or thin source data. Roughly ordered by how much is missing.
   what actually produces standings today. (A second, unused table builder lived
   in `make/standings.py` until it was deleted — `git log -- make/standings.py`.)
 
+- [ ] Act on what `make/reconcile.py` found. It compares two independent scrapes of
+  the same competition against each other — espn vs mlssoccer for MLS (2024-2026),
+  espn vs nwslsoccer for NWSL (2016-2026) — and reports unmatched games and
+  field-level disagreements. It is standalone: it reads the `*_data/parsed/*.jsonl`
+  archives directly, is not called from `build()` or `check()`, and deliberately does
+  not reuse `metadata.alias.get_team`, which imports `build.mongo` and would drag a
+  live database in behind it. Folding it into `check()` only makes sense once the
+  build actually loads these sources. Open findings, worst first:
+  - nwslsoccer's 2022 goal lists are broken — 58 of 137 games carry the correct score
+    but an incomplete goal list (Portland 6-0 Orlando on 2022-06-19 lists one goal of
+    six). 2018 has 25 more. espn's NWSL events are fine where they exist.
+  - espn has NWSL 2017-06-18 FC Kansas City vs Seattle Reign as 1-1 with no goals
+    recorded; nwslsoccer has 2-2 with four named scorers. espn is wrong.
+  - espn carries ghost fixtures: each 2015-2016 Western New York Flash game appears
+    twice under two game ids, once as a real result under the franchise's *later*
+    name (North Carolina Courage) and once as an unplayed 0-0 under the name it
+    actually played under. `reconcile.py` drops the unplayed copies, but this is a
+    warning about trusting espn team names on historical seasons at all.
+  - nwslsoccer cannot distinguish playoffs from regular season — every row is
+    competition `NWSL` with a null `round`. This is why a few games a season show up
+    as nwslsoccer-only.
+  - mlssoccer's goal lists come up short of the score on 3 MLS 2025 games.
+  - Attendance (499) and venue (389) disagree constantly and are counted, not listed;
+    neither source looks authoritative and no one has picked a winner.
+
+- [ ] Widen the verification surface. `reconcile.py` compares two external scrapes to
+  each other; checking the build's own hand-edited data against an external source is
+  the thing that would let a competition be called canonical, and today it is barely
+  possible at all.
+  - MLS has *no* overlap. The build loads games for 1996-2016 (`make/load.py:942`),
+    `mlssoccer_data` starts at 2017 and `espn_data` at 2020. The archives begin the
+    year the build stops. The espn scraper already reaches back to 2013 for NWSL, so
+    pointing it at MLS before 2020 is a scraper config change, not a data problem.
+  - NWSL overlaps on 2013-2014 only, because `make/load.py:870-871` hardcodes those
+    two seasons — `nwsl_data/games/usa/nwsl/` has 2015, 2016, 2017, 2018 and 2019
+    sitting on disk unloaded. Loading them takes the surface from two seasons to
+    seven, which is the cheapest unblock available here.
+  - Watch out for false corroboration: the hand-edited NWSL files carry
+    `BlockSource: http://www.nwslsoccer.com/...`, so `nwsl_data` and
+    `nwslsoccer_data` were transcribed from the same upstream. Agreement between them
+    is common origin, not independent confirmation. espn is the only genuinely
+    independent NWSL witness we hold.
+  - Note also that external sources can only ever verify the thin slice they share
+    with the hand-edited data — scores, dates, sometimes attendance. Nothing external
+    verifies the lineups, assists and misconduct that make `nwsl_data` worth having.
 - [ ] Run `check()` as part of the build. It is not in `build()`, so the checks only
   run if invoked by hand, which is why the two standings above went unnoticed.
 - [ ] Draw a graph of seasons — a visualization to surface gaps and overlaps in the
