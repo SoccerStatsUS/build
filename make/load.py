@@ -135,6 +135,7 @@ def load():
     load_metadata()
 
     load_mls()
+    load_women_domestic()
 
     return
 
@@ -852,8 +853,9 @@ def load_brazil_international():
 
 
 def load_women():
-    #load_women_international()
     load_women_domestic()
+    
+    load_women_international() # inactive
 
 
 def load_women_international():
@@ -867,8 +869,9 @@ def load_women_domestic():
 
     load_games_standard('women', 'games/usa/wusa/wusa', root=NWSL_DIR)
     load_games_standard('women', 'games/usa/wps/wps', root=NWSL_DIR)
-    load_games_standard('women', 'games/usa/nwsl/2013', root=NWSL_DIR)
-    load_games_standard('women', 'games/usa/nwsl/2014', root=NWSL_DIR)
+
+    for e in range(2013, 2020):
+        load_games_standard('women', 'games/usa/nwsl/%s' % e, root=NWSL_DIR)
 
     load_games_standard('women', 'games/usa/wpsl/elite', root=NWSL_DIR)
 
@@ -881,22 +884,14 @@ def load_women_domestic():
     for e in ['wusa', 'wps', 'wpsl_elite', 'nwsl', 'wsl']:
         load_standings_standard('women', 'standings/usa/%s' % e, root=NWSL_DIR)
 
-    return
+
+def load_women_europe_etc():
 
     load_standings_standard('standings/sweden', e, root=NWSL_DIR)
     load_standings_standard('standings/france', e, root=NWSL_DIR)
 
     generic_load(soccer_db.women_rosters, lambda: flatten_lineups(soccer_db.women_lineups.find({'competition': 'Women\'s United Soccer Association'})))
     generic_load(soccer_db.women_rosters, lambda: flatten_lineups(soccer_db.women_lineups.find({'competition': 'National Women\'s Soccer League'})))
-
-
-    for e in range(2012, 2013):
-        load_games_standard('women', 'games/argentina/%s' % e, root=NWSL_DIR)
-
-    for e in range(2008, 2013):
-        load_games_standard('women', 'games/australia/%s' % e, root=NWSL_DIR)
-
-    # Europe
 
 
     for e in range(2000, 2005):
@@ -910,6 +905,16 @@ def load_women_domestic():
 
     for e in range(2000, 2006):
         load_games_standard('women', 'games/sweden/1/%s' % e, root=NWSL_DIR)
+
+
+    for e in range(2012, 2013):
+        load_games_standard('women', 'games/argentina/%s' % e, root=NWSL_DIR)
+
+    for e in range(2008, 2013):
+        load_games_standard('women', 'games/australia/%s' % e, root=NWSL_DIR)
+
+    # Europe
+        
 
 
 
@@ -945,9 +950,12 @@ def load_mls():
     load_mls_lineup_db()
 
     # Add rsssf games.
-    for e in range(1996, 2014):
+    # half-assed formatting by me, presumably
+    """
+    for e in range(1996, 2009): 
         r = os.path.join(ROOT_DIR, 'usd1_data/data/games/mls/sources/rsssf/')
         load_games_standard('mls3', str(e), root=r)
+    """
 
 
     print("Loading MLS reserves data.")

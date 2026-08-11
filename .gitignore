@@ -9,3 +9,5 @@ run/
 
 py3env/
 .venv/
+
+build.log
