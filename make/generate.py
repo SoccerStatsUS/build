@@ -689,8 +689,7 @@ def generate_cities():
     for e in soccer_db.stadiums.find():
         cities.add(e['location'])
 
-    if None in cities:
-        cities.remove(None)
+    cities -= {None, ''}
 
     city_dicts = [{'name': city} for city in sorted(cities)]
     
