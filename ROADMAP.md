@@ -24,8 +24,11 @@ denormalize (see `README.md`). Items below are grouped by the stage they affect.
 
 - [ ] Parser and data formats are not properly specified — the text formats consumed by
   `make/load.py` are defined only by what the parser happens to accept.
-- [ ] Convert bios to YAML — bios are currently loaded per-source and merged in
-  `make/merge.py:265` (`merge_bios`), normalized as a group in `make/normalize.py:37`.
+- [ ] Load the scraped bios — `mlssoccer_data/parsed/bios.jsonl` and
+  `nwslsoccer_data/parsed/bios.jsonl` (3,861 rows) are read by nothing in `make/load.py`.
+- [ ] Merge bios on stable ids — `merge_bios` (`make/merge.py:265`) keys on name only and
+  over-merges by its own admission; the scraped bios carry `player_id`/`provider_id`,
+  so key on those where present and fall back to name.
 - [ ] Consider moving aliases into the data repos — aliases live in `metadata.alias`
   and are imported across `make/load.py`, `make/normalize.py`, `make/separate.py`,
   `make/transform.py`, `make/generate.py`, and `make/denormalize.py`.
