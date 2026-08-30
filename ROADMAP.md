@@ -9,6 +9,13 @@ denormalize (see `README.md`). Items below are grouped by the stage they affect.
 
 ## Name Mapping
 
+- [ ] Franchise renames the site still files under the old name: Sky Blue FC (Gotham FC
+  since 2021), Montreal Impact (CF Montréal since 2021), Chicago Red Stars (Chicago Stars
+  since 2025). The convention elsewhere is the current name as canonical with a
+  `mappings/team_name` entry for the old period (Kansas City Wizards → Sporting Kansas
+  City), but renaming these changes the team slugs, so s2 needs redirects first. Until
+  then the new names are aliased to the old ones in `metadata/alias/teams/usa.py`;
+  "Chicago Stars" goes through `separate.py` because the all-star alias claims it.
 - [ ] Giant ASL team name bug — described in the old README as "easy but producing a
   lot of errors," which makes it the highest-value item here. The competition- and
   season-scoped splits live in `make/separate.py`.
@@ -52,10 +59,22 @@ Missing or thin source data. Roughly ordered by how much is missing.
 - [ ] Gold Cup — champions; non-US results/goals/lineups
 - [ ] United States — game locations; scattered unknown-opponent lineups
 - [ ] MLS 2012 season data
+- [ ] MLS 2020–2023 — not scraped; `scrapers/mlssoccer/scrape.py <year>` is ~70 minutes a
+  season at the request policy. The build now loads `mlssoccer_data` (2017–2019, 2024–)
+  so these four seasons are the only hole since 1996.
+- [ ] NWSL 2015 loads 98 games against 93 in the feed, 2019 114 against 111: hand rows
+  in `nwsl_data` that disagree with `nwslsoccer_data` on date or teams and so escape the
+  merge. `merges == 0` (Error Detection below) would list them.
 - [ ] 2010 World Cup
 
 ## Build Setup
 
+- [ ] `load()` returns after `load_mls`, `load_women_domestic` and `load_scraped_cups`
+  (`make/load.py`, since 95f9719 on 2026-08-02). Every other source — the hand-transcribed
+  Open Cup 1914–2020, CONCACAF, Canada, NASL, ASL, US minor leagues, international,
+  USMNT — is loaded by nothing, and production has the same shape (5,715 games before
+  this change, all MLS). Decide whether that gate is the intended scope or a leftover
+  from the migration.
 - [ ] The tests only run on a machine listed in `settings.py`. `ROOT_DIR = roots[host]`
   (`settings.py:20`) is a bare dict lookup on hostname, so an unlisted machine raises
   `KeyError` on import. `merge`, `lift`, `normalize` and `transform` all import

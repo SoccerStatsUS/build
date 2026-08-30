@@ -31,6 +31,8 @@ WORLD_DIR = os.path.join(ROOT_DIR, 'world_data')
 
 NCAA_DIR = os.path.join(ROOT_DIR, 'ncaa_data')
 NWSL_DIR = os.path.join(ROOT_DIR, 'nwsl_data')
+MLSSOCCER_DIR = os.path.join(ROOT_DIR, 'mlssoccer_data')
+NWSLSOCCER_DIR = os.path.join(ROOT_DIR, 'nwslsoccer_data')
 CUPS_DIR = os.path.join(ROOT_DIR, 'us_cup_data')
 ISL_DIR = os.path.join(ROOT_DIR, 'isl_data')
 
@@ -86,6 +88,14 @@ def load_games_standard(coll, fn, root, games_only=False):
         generic_load(soccer_db['%s_rosters' % coll], lambda: rosters, delete=False)
 
 
+def load_games_dir(coll, subdir, root):
+    """
+    Load every season file the scrapers converted into a directory.
+    """
+    for e in sorted(os.listdir(os.path.join(root, subdir))):
+        load_games_standard(coll, '%s/%s' % (subdir, e), root=root)
+
+
 def load_standings_standard(coll, filename, root, delimiter=';'):
     """Load standard standings."""
 
@@ -136,6 +146,7 @@ def load():
 
     load_mls()
     load_women_domestic()
+    load_scraped_cups()
 
     return
 
@@ -325,6 +336,17 @@ def load_place_data():
     generic_load(soccer_db.states, places.load_states)
     generic_load(soccer_db.state_populations, places.load_state_populations)
     generic_load(soccer_db.stadiums, places.load_stadiums)
+
+
+def load_scraped_cups():
+    """
+    The cups mlssoccer.com covers, 2024 on. The hand-transcribed cup files are
+    behind the return in load() with everything else.
+    """
+    load_games_dir('us_cups', 'open_cup', MLSSOCCER_DIR)
+    load_games_dir('canada', 'canadian_championship', MLSSOCCER_DIR)
+    load_games_dir('concacaf', 'concacaf_champions_cup', MLSSOCCER_DIR)
+    load_games_dir('concacaf', 'leagues_cup', MLSSOCCER_DIR)
 
 
 def load_us_cups():
@@ -873,6 +895,8 @@ def load_women_domestic():
     for e in range(2013, 2020):
         load_games_standard('women', 'games/usa/nwsl/%s' % e, root=NWSL_DIR)
 
+    load_games_dir('women', 'nwsl', NWSLSOCCER_DIR)
+
     load_games_standard('women', 'games/usa/wpsl/elite', root=NWSL_DIR)
 
     #for e in range(2007, 2013):
@@ -946,6 +970,9 @@ def load_mls():
 
     for e in range(1996, 2017):
         load_games_standard('mls', 'data/games/mls/%s' % e, root=USD1_DIR)
+
+    load_games_dir('mls', 'mls', MLSSOCCER_DIR)
+    load_games_dir('mls', 'mls_playoffs', MLSSOCCER_DIR)
 
     load_mls_lineup_db()
 

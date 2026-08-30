@@ -729,6 +729,10 @@ sep_teams = {
         (from_seasons('USL First Division', set(['2001','2002'])), 'Charlotte Eagles'),
         ],
 
+    'Chicago XI': [
+        (from_competition("National Women's Soccer League"), 'Chicago Red Stars'),
+        ],
+
     'Chicago': [
         (from_competition('Major League Soccer'), 'Chicago Fire'),
         (from_competition('North American Soccer League (indoor)'), 'Chicago Sting'),
