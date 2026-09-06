@@ -260,14 +260,23 @@ def generate_game_stats():
 
 
 
+def generate_missing_stats(competition):
+    """
+    Sum season stats from the game records for the seasons of a competition
+    that have no stats from a source. Seasons that do keep what was loaded:
+    since 2026-09-06 the MLS stats API covers the playoffs and cups this
+    step was written for, and summing lineups alongside it doubled every row.
+    """
+    loaded = {e['season'] for e in soccer_db.stats.find({'competition': competition})}
+    gstats = [e for e in soccer_db.gstats.find({'competition': competition})
+              if e['season'] not in loaded]
+    x = generate_stats(gstats)
+    generic_load(soccer_db.stats, lambda: x.values())
+
+
 def generate_competition_stats():
 
-    def competition_generate(competition):
-        x = generate_stats(soccer_db.gstats.find({'competition': competition}))
-        #import pdb; pdb.set_trace()
-        generic_load(soccer_db.stats, lambda: x.values())
-        #import pdb; pdb.set_trace()
-        y = 5
+    competition_generate = generate_missing_stats
 
     # Move this out into a global variable.
     l = [
