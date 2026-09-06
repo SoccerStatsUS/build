@@ -345,6 +345,11 @@ def load_scraped_cups():
     behind the return in load() with everything else.
     """
     load_games_dir('us_cups', 'open_cup', MLSSOCCER_DIR)
+    # thecup.us covers 2011-2019 and 2022 onward; the MLS feed has 2024 onward,
+    # and 2021 was cancelled, so these two seasons are the ones it adds. The
+    # us_cup_data seasons through 2020 sit in load_us_cups, behind load()'s gate.
+    for e in (2022, 2023):
+        load_games_standard('us_cups', 'open/%s' % e, root=THECUP_DIR)
     load_games_dir('canada', 'canadian_championship', MLSSOCCER_DIR)
     load_games_dir('concacaf', 'concacaf_champions_cup', MLSSOCCER_DIR)
     load_games_dir('concacaf', 'leagues_cup', MLSSOCCER_DIR)
@@ -362,12 +367,6 @@ def load_us_cups():
 
     for e in range(2011, 2021):
         load_games_standard('us_cups', 'games/open/%s' % e, root=CUPS_DIR)#, games_only=True)
-
-    # thecup.us fills the two seasons between us_cup_data and the MLS feed
-    # (2021 was cancelled). It also covers 2011-2019 and 2024 onward, but those
-    # come from the sources above and below.
-    for e in (2022, 2023):
-        load_games_standard('us_cups', 'open/%s' % e, root=THECUP_DIR)
 
     for e in range(191, 202):
         load_games_standard('us_cups', 'games/open/%s0' % e, root=CUPS_DIR)#, games_only=True)
