@@ -97,6 +97,17 @@ def load_games_dir(coll, subdir, root):
         load_games_standard(coll, '%s/%s' % (subdir, e), root=root)
 
 
+def load_stats_dir(coll, subdir, root, since=None):
+    """
+    Load every season stats file the scrapers converted into a directory,
+    optionally only from a given season on.
+    """
+    for e in sorted(os.listdir(os.path.join(root, subdir))):
+        if since and e.isdigit() and int(e) < since:
+            continue
+        load_stats_standard(coll, '%s/%s' % (subdir, e), root=root)
+
+
 def load_standings_standard(coll, filename, root, delimiter=';'):
     """Load standard standings."""
 
@@ -359,6 +370,12 @@ def load_scraped_cups():
     load_games_dir('canada', 'canadian_championship', MLSSOCCER_DIR)
     load_games_dir('concacaf', 'concacaf_champions_cup', MLSSOCCER_DIR)
     load_games_dir('concacaf', 'leagues_cup', MLSSOCCER_DIR)
+
+    # Season player stats for the same cups, from the MLS stats API.
+    load_stats_dir('us_cups', 'stats/open_cup', MLSSOCCER_DIR)
+    load_stats_dir('canada', 'stats/canadian_championship', MLSSOCCER_DIR)
+    load_stats_dir('concacaf', 'stats/concacaf_champions_cup', MLSSOCCER_DIR)
+    load_stats_dir('concacaf', 'stats/leagues_cup', MLSSOCCER_DIR)
 
 
 def load_us_cups():
@@ -974,6 +991,11 @@ def load_mls():
 
     for e in range(2012, 2019):
         generic_load(soccer_db.mls_stats, stats.process_stats("data/stats/mls/" + str(e), source='MLSSoccer.com', root=USD1_DIR))
+
+    # Season stats from the MLS stats API: the regular season from 2019, where
+    # the hand-typed files stop, and the playoffs for every year (2026-09-06).
+    load_stats_dir('mls', 'stats/mls', MLSSOCCER_DIR, since=2019)
+    load_stats_dir('mls', 'stats/mls_playoffs', MLSSOCCER_DIR)
 
     # Must come after the stats loads: rosters are derived from the stats.
     generic_load(soccer_db.mls_rosters, lambda: flatten_stats(soccer_db.mls_stats.find()))
