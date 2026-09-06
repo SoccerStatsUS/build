@@ -5,6 +5,8 @@ from collections import defaultdict
 import datetime
 import random
 
+from metadata.utils import person_identity_key, preferred_person_name
+
 # Merge is responsible for removing duplicated elements.
 # All data must be normalized before entering merge.
 # Data is better generated after merge (but either should be ok)
@@ -267,6 +269,18 @@ def merge_bios():
     Merge bios
     """
 
+    bios_lists = []
+    for source in SOURCES:
+        bios_lists.append(soccer_db['%s_bios' % source].find())
+
+    bios = merge_bio_rows(bios_lists)
+    soccer_db.bios.drop()
+    insert_rows(soccer_db.bios, bios)
+
+
+def merge_bio_rows(bios_lists):
+    """Merge bios that share a normalized full-name key."""
+
     bio_dict = {}
 
 
@@ -277,25 +291,24 @@ def merge_bios():
         # -> { 'name': 'John Smith', 'birthdate': datetime.datetime(1900, 1, 1), birthplace': 'Atlannta, Georgia' }
         # Probably want to under-merge, then apply split logic.
         
-        n = d['name']
+        d = dict(d)
+        d.pop('_id', None)
+        n = person_identity_key(d['name'])
         
         if n in bio_dict:
             orig = bio_dict[n]
             for k, v in d.items():
                 if not orig.get(k) and v:
                     orig[k] = v
+            orig['name'] = preferred_person_name(orig['name'], d['name'])
         else:
             bio_dict[n] = d
 
-      
-    for e in SOURCES:
-        c = '%s_bios' % e
-        coll = soccer_db[c]
-        for e in coll.find():
-            update_bio(e)
+    for bios_list in bios_lists:
+        for bio in bios_list:
+            update_bio(bio)
 
-    soccer_db.bios.drop()
-    insert_rows(soccer_db.bios, bio_dict.values())
+    return bio_dict.values()
 
 
 def merge_games(games_lists):
@@ -423,10 +436,13 @@ def merge_rosters(roster_lists):
         if '_id' in d:
             d.pop('_id')
 
-        key = (d['team'], d['season'], d['name'])
+        key = (d['team'], d['season'], person_identity_key(d['name']))
 
         if key not in roster_dict:
             roster_dict[key] = d
+        else:
+            orig = roster_dict[key]
+            orig['name'] = preferred_person_name(orig['name'], d['name'])
 
         
     roster_dict = {}
@@ -447,7 +463,7 @@ def merge_stats(stats_lists):
         if 'team' not in d:
             import pdb; pdb.set_trace()
         try:
-            t = (d['name'], d['team'], d['competition'], d['season'])
+            t = (person_identity_key(d['name']), d['team'], d['competition'], d['season'])
         except:
             import pdb; pdb.set_trace()
 
@@ -456,6 +472,7 @@ def merge_stats(stats_lists):
             for k, v in d.items():
                 if not orig.get(k) and v:
                     orig[k] = v
+            orig['name'] = preferred_person_name(orig['name'], d['name'])
         else:
             stat_dict[t] = d
 

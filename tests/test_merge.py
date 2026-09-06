@@ -1,9 +1,40 @@
 import datetime
 
-from merge import merge_games, merge_rosters, merge_stats
+from merge import merge_bio_rows, merge_games, merge_rosters, merge_stats
 
 JAN1 = datetime.datetime(2012, 1, 1)
 JAN2 = datetime.datetime(2012, 1, 2)
+
+
+def test_bios_merge_across_diacritics_and_keep_the_accented_name():
+    rows = merge_bio_rows([[
+        {'name': 'Josef Martinez', 'birthdate': JAN1},
+        {'name': 'Josef Martínez', 'birthplace': 'Valencia, Venezuela'},
+    ]])
+
+    assert list(rows) == [{
+        'name': 'Josef Martínez',
+        'birthdate': JAN1,
+        'birthplace': 'Valencia, Venezuela',
+    }]
+
+
+def test_bios_merge_across_case_and_nonbreaking_spaces():
+    rows = merge_bio_rows([[
+        {'name': 'John\N{NO-BREAK SPACE}McGuire'},
+        {'name': 'john mcguire', 'birthplace': 'Scotland'},
+    ]])
+
+    assert list(rows) == [{'name': 'John McGuire', 'birthplace': 'Scotland'}]
+
+
+def test_bios_with_different_normalized_names_stay_separate():
+    rows = merge_bio_rows([[
+        {'name': 'Willie Reid'},
+        {'name': 'Mike Reid'},
+    ]])
+
+    assert len(list(rows)) == 2
 
 
 def game(**kw):
@@ -114,6 +145,18 @@ def test_stats_merge_on_name_team_competition_season():
     assert len(merged) == 1
 
 
+def test_stats_merge_names_that_differ_only_by_diacritics():
+    merged = list(merge_stats([[
+        stat(name='Josef Martinez', goals=3),
+        stat(name='Josef Martínez', assists=5),
+    ]]))
+
+    assert len(merged) == 1
+    assert merged[0]['name'] == 'Josef Martínez'
+    assert merged[0]['goals'] == 3
+    assert merged[0]['assists'] == 5
+
+
 def test_stats_merge_keeps_first_nonzero_value():
     # Falsy values lose to later truthy ones; established values are kept.
     merged = list(merge_stats([[stat(goals=3, assists=0), stat(goals=13, assists=5)]]))
@@ -142,6 +185,16 @@ def roster(**kw):
 def test_rosters_merge_on_team_season_name():
     merged = list(merge_rosters([[roster(), roster()]]))
     assert len(merged) == 1
+
+
+def test_rosters_merge_names_that_differ_only_by_case_and_spacing():
+    merged = list(merge_rosters([[
+        roster(name='John\N{NO-BREAK SPACE}McGuire'),
+        roster(name='john mcguire'),
+    ]]))
+
+    assert len(merged) == 1
+    assert merged[0]['name'] == 'John McGuire'
 
 
 def test_rosters_keep_the_first_record_seen():
