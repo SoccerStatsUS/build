@@ -9,6 +9,7 @@ denormalize (see `README.md`). Items below are grouped by the stage they affect.
 
 ## Name Mapping
 
+- [ ] Review the player identity audit (`python -m build.identity`).
 - [ ] **Contextual player identity.** `python -m build.identity` finds four NASL names
   with conflicting birth dates and 117 abbreviated ASL stat rows. Nationality supports
   13 NASL rows, while 10 NASL rows remain ambiguous; team history supports one ASL row,
