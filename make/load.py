@@ -32,6 +32,7 @@ WORLD_DIR = os.path.join(ROOT_DIR, 'world_data')
 NCAA_DIR = os.path.join(ROOT_DIR, 'ncaa_data')
 NWSL_DIR = os.path.join(ROOT_DIR, 'nwsl_data')
 MLSSOCCER_DIR = os.path.join(ROOT_DIR, 'mlssoccer_data')
+THECUP_DIR = os.path.join(ROOT_DIR, 'thecup_data')
 NWSLSOCCER_DIR = os.path.join(ROOT_DIR, 'nwslsoccer_data')
 CUPS_DIR = os.path.join(ROOT_DIR, 'us_cup_data')
 ISL_DIR = os.path.join(ROOT_DIR, 'isl_data')
@@ -361,6 +362,12 @@ def load_us_cups():
 
     for e in range(2011, 2021):
         load_games_standard('us_cups', 'games/open/%s' % e, root=CUPS_DIR)#, games_only=True)
+
+    # thecup.us fills the two seasons between us_cup_data and the MLS feed
+    # (2021 was cancelled). It also covers 2011-2019 and 2024 onward, but those
+    # come from the sources above and below.
+    for e in (2022, 2023):
+        load_games_standard('us_cups', 'open/%s' % e, root=THECUP_DIR)
 
     for e in range(191, 202):
         load_games_standard('us_cups', 'games/open/%s0' % e, root=CUPS_DIR)#, games_only=True)

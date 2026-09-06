@@ -81,6 +81,9 @@ Finally, data is denormalized (time and location-specific names) and (optionally
 * friendly_data
 * isl_data
 * ltrack_data
+* mlssoccer_data
+* nwslsoccer_data
+* thecup_data
 
 * sidekicks_data
 * spalding_data
