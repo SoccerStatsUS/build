@@ -9,13 +9,11 @@ denormalize (see `README.md`). Items below are grouped by the stage they affect.
 
 ## Name Mapping
 
-- [ ] **Player identity across spellings.** 294 pairs of bios differ only by diacritics
-  ("Josef Martinez" / "Josef Martínez"), 138 of them MLS players with stats on both
-  records. Hand-typed files carry no accents; the MLS and NWSL feeds do, and since the
-  feed's season stats load (2026-09-06) a career splits at 2019. Decide the canonical
-  spelling, match names ignoring accents where the build and s2 resolve a name to a bio
-  (`merge_bios`, `make_bio_getter`), and keep the other spelling as an alias so slugs and
-  inbound links survive.
+- [ ] **Contextual player identity.** `python -m build.identity` finds four NASL names
+  with conflicting birth dates and 117 abbreviated ASL stat rows. Nationality supports
+  13 NASL rows, while 10 NASL rows remain ambiguous; team history supports one ASL row,
+  four more have a unique name-only candidate, and 112 remain unresolved. Apply the
+  supported mappings without globally merging the homonyms, then research the remainder.
 - [ ] Franchise renames the site still files under the old name: Sky Blue FC (Gotham FC
   since 2021), Montreal Impact (CF Montréal since 2021), Chicago Red Stars (Chicago Stars
   since 2025). The convention elsewhere is the current name as canonical with a

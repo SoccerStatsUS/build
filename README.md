@@ -39,6 +39,16 @@ stage modules flat, the same way the build does.
 Any test marked `xfail` is a known bug, pinned so it announces itself when fixed
 rather than being silently forgotten. See ROADMAP.md.
 
+#### player identity audit
+
+Run the NASL homonym and ASL abbreviation audit from the sibling-repository root:
+
+    cd ~/soccer
+    build/.venv/bin/python -m build.identity
+
+The default output is Markdown. Use `--format json` for the complete
+machine-readable classifications and source row numbers.
+
 Then load postgres and ship (see the s2 repo):
 
     cd ../s2
