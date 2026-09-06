@@ -149,6 +149,12 @@ def load():
     load_women_domestic()
     load_scraped_cups()
 
+    # The historical first divisions, added back on 2026-09-06. load_usd1
+    # would also pull load_isl2, so they are called directly.
+    load_alpf()
+    load_asl()
+    load_nasl()
+
     return
 
     load_soccerstatsus()
@@ -341,8 +347,8 @@ def load_place_data():
 
 def load_scraped_cups():
     """
-    The cups mlssoccer.com covers, 2024 on. The hand-transcribed cup files are
-    behind the return in load() with everything else.
+    The cups mlssoccer.com covers, 2024 on, plus thecup.us for 2022-2023. The
+    hand-transcribed cup files are behind the return in load().
     """
     load_games_dir('us_cups', 'open_cup', MLSSOCCER_DIR)
     # thecup.us covers 2011-2019 and 2022 onward; the MLS feed has 2024 onward,

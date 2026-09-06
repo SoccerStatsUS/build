@@ -69,12 +69,12 @@ Missing or thin source data. Roughly ordered by how much is missing.
 
 ## Build Setup
 
-- [ ] `load()` returns after `load_mls`, `load_women_domestic` and `load_scraped_cups`
-  (`make/load.py`, since 95f9719 on 2026-08-02). Every other source — the hand-transcribed
-  Open Cup 1914–2020, CONCACAF, Canada, NASL, ASL, US minor leagues, international,
-  USMNT — is loaded by nothing, and production has the same shape (5,715 games before
-  this change, all MLS). Decide whether that gate is the intended scope or a leftover
-  from the migration.
+- [ ] `load()` returns after `load_mls`, `load_women_domestic`, `load_scraped_cups`
+  and, since 2026-09-06, `load_alpf`, `load_asl` and `load_nasl` (`make/load.py`; the
+  gate dates from 95f9719 on 2026-08-02). Every other source — the hand-transcribed
+  Open Cup 1914–2020, ASL2, ISL, CONCACAF, Canada, US minor leagues, indoor,
+  international, USMNT, drafts, jobs, salaries — is loaded by nothing, and production
+  has the same shape. Decide, source by source, what else comes back.
 - [ ] The tests only run on a machine listed in `settings.py`. `ROOT_DIR = roots[host]`
   (`settings.py:20`) is a bare dict lookup on hostname, so an unlisted machine raises
   `KeyError` on import. `merge`, `lift`, `normalize` and `transform` all import
