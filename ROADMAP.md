@@ -59,9 +59,6 @@ Missing or thin source data. Roughly ordered by how much is missing.
 - [ ] Gold Cup — champions; non-US results/goals/lineups
 - [ ] United States — game locations; scattered unknown-opponent lineups
 - [ ] MLS 2012 season data
-- [ ] MLS 2020–2023 — not scraped; `scrapers/mlssoccer/scrape.py <year>` is ~70 minutes a
-  season at the request policy. The build now loads `mlssoccer_data` (2017–2019, 2024–)
-  so these four seasons are the only hole since 1996.
 - [ ] NWSL 2015 loads 98 games against 93 in the feed, 2019 114 against 111: hand rows
   in `nwsl_data` that disagree with `nwslsoccer_data` on date or teams and so escape the
   merge. `merges == 0` (Error Detection below) would list them.
