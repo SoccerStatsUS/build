@@ -159,7 +159,9 @@ def load():
     enabled_loaders = [
         load_mls,
         load_women_domestic,
-        load_scraped_cups,
+        load_scraped_us_cups,
+        load_scraped_canada,
+        load_scraped_concacaf,
         # Historical first divisions. load_usd1 would also pull load_isl2.
         load_alpf,
         load_asl,
@@ -351,24 +353,24 @@ def load_place_data():
     generic_load(soccer_db.stadiums, places.load_stadiums)
 
 
-def load_scraped_cups():
-    """
-    The cups mlssoccer.com covers, 2024 on, plus thecup.us for 2022-2023. The
-    hand-transcribed cup files are behind the return in load().
-    """
+def load_scraped_us_cups():
     load_games_dir('us_cups', 'open_cup', MLSSOCCER_DIR)
     # thecup.us covers 2011-2019 and 2022 onward; the MLS feed has 2024 onward,
     # and 2021 was cancelled, so these two seasons are the ones it adds. The
-    # us_cup_data seasons through 2020 sit in load_us_cups, behind load()'s gate.
+    # us_cup_data seasons through 2020 are loaded by load_us_cups.
     for e in (2022, 2023):
         load_games_standard('us_cups', 'open/%s' % e, root=THECUP_DIR)
+    load_stats_dir('us_cups', 'stats/open_cup', MLSSOCCER_DIR)
+
+
+def load_scraped_canada():
     load_games_dir('canada', 'canadian_championship', MLSSOCCER_DIR)
+    load_stats_dir('canada', 'stats/canadian_championship', MLSSOCCER_DIR)
+
+
+def load_scraped_concacaf():
     load_games_dir('concacaf', 'concacaf_champions_cup', MLSSOCCER_DIR)
     load_games_dir('concacaf', 'leagues_cup', MLSSOCCER_DIR)
-
-    # Season player stats for the same cups, from the MLS stats API.
-    load_stats_dir('us_cups', 'stats/open_cup', MLSSOCCER_DIR)
-    load_stats_dir('canada', 'stats/canadian_championship', MLSSOCCER_DIR)
     load_stats_dir('concacaf', 'stats/concacaf_champions_cup', MLSSOCCER_DIR)
     load_stats_dir('concacaf', 'stats/leagues_cup', MLSSOCCER_DIR)
 
