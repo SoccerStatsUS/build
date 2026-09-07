@@ -131,20 +131,13 @@ def generate_game_data():
                     e['location_inferred'] = True
 
         if home_team is None:
-            # Get home team based on team info.
-            # Fix location/city inconsistencies.
-
-            # If we know about a stadium, try to use the stadium.
-            if 'stadium' in e and e['stadium'] in stadium_mapper:                
-                try:
-                    teams = stadium_mapper[e['stadium']]
-                except:
-                    import pdb; pdb.set_trace()
-
-                if e['team1'] in teams and e['team2'] not in teams:
-                    home_team = e['team1']
-                elif e['team2']:
-                    home_team = e['team2']
+            # No source said who was at home. A stadium that maps to exactly
+            # one of the two clubs settles it; a shared or unmapped venue does not.
+            tenants = stadium_mapper.get(e.get('stadium'), ())
+            at_home = [t for t in (e['team1'], e['team2']) if t in tenants]
+            if len(at_home) == 1:
+                home_team = e['home_team'] = at_home[0]
+                e['home_team_inferred'] = True
 
         # do this again, in case stadium inference failed.
         if home_team is None:
