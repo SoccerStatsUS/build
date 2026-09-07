@@ -55,6 +55,11 @@ Then load postgres and ship (see the s2 repo):
     ./build.sh     # mongo -> postgres
     ./upload.sh    # pg_dump -> bert
 
+Or run the whole pipeline (this repo's build.sh -> s2's build.sh -> upload.sh)
+in one shot from the s2 repo:
+
+    ../s2/deploy.sh
+
 
 #### What is going on here?
 
