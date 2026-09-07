@@ -162,7 +162,7 @@ def load():
         load_scraped_us_cups,
         load_scraped_canada,
         load_scraped_concacaf,
-        # Historical first divisions. load_usd1 would also pull load_isl2.
+        # Historical first divisions; ISL remains disabled.
         load_alpf,
         load_asl,
         load_nasl,
@@ -173,29 +173,6 @@ def load():
     ]
     for loader in enabled_loaders:
         loader()
-
-
-def load_soccerstatsus():
-    """
-    Load all main data by subject
-    domestic: FIFA Club World Cup, Champions League, MLS, US minor, etc.
-    women: US, Sweden, England
-    indoor: US indoor 1975-2014)
-    amateur: NCAA, amateur cup (?)
-    international: USMNT, FIFA international, countries
-    friendly: US friendly data
-    """
-
-    load_women()
-    load_domestic()
-    load_outer()
-    
-    #load_indoor()
-    #load_amateur()
-
-    #load_international()
-    #load_friendly()
-
 
 def load_metadata():
     """
@@ -211,72 +188,6 @@ def load_metadata():
     load_name_maps()
     load_stadium_maps()
     load_competition_maps()
-
-
-def load_advanced():
-
-    # drafts
-    load_drafts()
-
-    # jobs
-    load_jobs()
-
-    # money data
-    load_salaries()
-
-    # news feeds
-    # load_news()
-
-
-def load_early():
-    load_early_friendly()
-    load_nafbl()
-    load_spalding()
-
-
-def load_international():
-
-    load_world_international()
-    load_concacaf_international()
-    load_uefa_international()
-    load_conmebol_international()
-
-    load_oceania_international()
-    load_asia_international()
-    load_africa_international()
-
-
-def load_domestic():
-
-    load_usd1()
-    load_us_cups()    
-
-    return
-    load_us_minor()
-    load_world()
-
-    return
-
-    load_concacaf()
-    load_conmebol()
-    load_uefa()
-
-    load_caf()
-    load_ofc()
-    load_afc()
-
-
-def load_usd1():
-    load_mls()
-    load_alpf()
-    load_asl()
-    load_nasl()
-    load_isl2()
-    
-
-def load_outer():
-    load_ltrack()
-
 
 def load_name_maps():
     """
@@ -897,17 +808,6 @@ def load_brazil_international():
 
     for e in ['1906', '1914', '1923', '1934', '1939']:
         load_games_standard('brazil', 'games/country/brazil/%s' % e, root=INTERNATIONAL_DIR)
-
-
-
-def load_women():
-    load_women_domestic()
-    
-    load_women_international() # inactive
-
-
-def load_women_international():
-    pass
 
 
 def load_women_domestic():
