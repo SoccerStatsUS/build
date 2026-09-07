@@ -157,19 +157,23 @@ def load():
     load_metadata()
 
     enabled_loaders = [
-        load_mls,
-        load_women_domestic,
-        load_scraped_us_cups,
-        load_scraped_canada,
-        load_scraped_concacaf,
         # Historical first divisions; ISL remains disabled.
         load_alpf,
         load_asl,
         load_nasl,
+        load_mls,
+        load_women_domestic,
         # Open Cup 1914-2020, American Cup, Lewis Cup, Duffy Cup and AAFA.
         load_us_cups,
+        load_scraped_us_cups,
+        # Canada
         load_canada,
+        load_scraped_canada,
+        # Concacaf
         load_concacaf,
+        load_scraped_concacaf,
+        # International
+        load_usmnt,
     ]
     for loader in enabled_loaders:
         loader()
@@ -1860,7 +1864,6 @@ def load_concacaf_international():
     # Results by team
     load_uncaf_international()
     load_caribbean_international()
-    load_usmnt()
     load_games_standard('canada', 'games/country/canada/1900', INTERNATIONAL_DIR)
     load_games_standard('canada', 'games/country/canada/2000', INTERNATIONAL_DIR)
     load_games_standard('mexico', 'games/country/mexico/alltime', INTERNATIONAL_DIR)

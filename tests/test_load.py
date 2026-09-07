@@ -14,17 +14,18 @@ def test_load_runs_enabled_loaders_once_in_order(monkeypatch):
         'check_for_team_loops',
         'clear_all',
         'load_metadata',
-        'load_mls',
-        'load_women_domestic',
-        'load_scraped_us_cups',
-        'load_scraped_canada',
-        'load_scraped_concacaf',
         'load_alpf',
         'load_asl',
         'load_nasl',
+        'load_mls',
+        'load_women_domestic',
         'load_us_cups',
+        'load_scraped_us_cups',
         'load_canada',
+        'load_scraped_canada',
         'load_concacaf',
+        'load_scraped_concacaf',
+        'load_usmnt',
     ]
 
     for name in expected:
