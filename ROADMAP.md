@@ -214,3 +214,11 @@ found. Games moved a day for convenience:
 - Hapoel, 1970-06-30
 - Veracruz, 1973-07-11 (Dallas/Atlanta)
 - Hapoel / St. Louis / Washington, 1970-06-28
+
+## Deferred
+
+- WUSA 2001-2003 player statistics — StatsCrew has complete team-season tables with
+  full names, appearances, starts, goals, assists, discipline, shooting and goalkeeper
+  statistics; archived official WUSA team-stat pages can be used for verification.
+  Defer ingestion because the current name-lifting problem can use existing lineup
+  names, and StatsCrew does not publish an explicit open license for its soccer data.
