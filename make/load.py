@@ -156,31 +156,20 @@ def load():
 
     load_metadata()
 
-    load_mls()
-    load_women_domestic()
-    load_scraped_cups()
-
-    # The historical first divisions, added back on 2026-09-06. load_usd1
-    # would also pull load_isl2, so they are called directly.
-    load_alpf()
-    load_asl()
-    load_nasl()
-
-    # The cups, added back on 2026-09-06: Open Cup 1914-2020, American Cup,
-    # Lewis Cup, Duffy Cup and the AAFA. thecup.us 2022-2023 and the MLS feed
-    # from 2024 stay in load_scraped_cups.
-    load_us_cups()
-
-    return
-
-    load_soccerstatsus()
-
-    load_early()    
-    load_usmnt()
-    load_advanced()
-
-    #load_concacaf()    
-
+    enabled_loaders = [
+        load_mls,
+        load_women_domestic,
+        load_scraped_cups,
+        # Historical first divisions. load_usd1 would also pull load_isl2.
+        load_alpf,
+        load_asl,
+        load_nasl,
+        # Open Cup 1914-2020, American Cup, Lewis Cup, Duffy Cup and AAFA.
+        load_us_cups,
+        load_concacaf,
+    ]
+    for loader in enabled_loaders:
+        loader()
 
 
 def load_soccerstatsus():
@@ -1978,6 +1967,8 @@ def load_concacaf():
     from metadata.parse import awards
     from parse.parse import rosters
 
+    load_canada()
+
     for e in range(2008, 2012):
         generic_load(soccer_db.concacaf_rosters, lambda: rosters.process_rosters3('rosters/league/%s' % e, CONCACAF_DIR))
 
@@ -2003,7 +1994,7 @@ def load_concacaf():
 
 
 
-    load_canada()
+
     load_mexico()
     load_cfu()
     load_uncaf()
