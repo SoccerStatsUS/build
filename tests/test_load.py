@@ -21,6 +21,7 @@ def test_load_runs_enabled_loaders_once_in_order(monkeypatch):
         'load_asl',
         'load_nasl',
         'load_us_cups',
+        'load_canada',
         'load_concacaf',
     ]
 

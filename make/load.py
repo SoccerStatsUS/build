@@ -166,6 +166,7 @@ def load():
         load_nasl,
         # Open Cup 1914-2020, American Cup, Lewis Cup, Duffy Cup and AAFA.
         load_us_cups,
+        load_canada,
         load_concacaf,
     ]
     for loader in enabled_loaders:
@@ -1966,8 +1967,6 @@ def load_concacaf_international():
 def load_concacaf():
     from metadata.parse import awards
     from parse.parse import rosters
-
-    load_canada()
 
     for e in range(2008, 2012):
         generic_load(soccer_db.concacaf_rosters, lambda: rosters.process_rosters3('rosters/league/%s' % e, CONCACAF_DIR))
