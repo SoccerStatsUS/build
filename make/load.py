@@ -166,6 +166,11 @@ def load():
     load_asl()
     load_nasl()
 
+    # The cups, added back on 2026-09-06: Open Cup 1914-2020, American Cup,
+    # Lewis Cup, Duffy Cup and the AAFA. thecup.us 2022-2023 and the MLS feed
+    # from 2024 stay in load_scraped_cups.
+    load_us_cups()
+
     return
 
     load_soccerstatsus()
