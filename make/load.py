@@ -835,6 +835,10 @@ def load_women_domestic():
     nwsl_stats = stats.process_stats("nwsl/2013", root=os.path.join(NWSL_DIR, 'stats'), delimiter=';')
     generic_load(soccer_db.women_stats, nwsl_stats)
 
+    # Season-long player stats the nwslsoccer scraper converts from the SDP
+    # stats API (see scrapers/nwslsoccer/stats.py); covers 2015-2019, 2021-.
+    load_stats_dir('women', 'stats/nwsl', NWSLSOCCER_DIR)
+
     for e in ['wusa', 'wps', 'wpsl_elite', 'nwsl', 'wsl']:
         load_standings_standard('women', 'standings/usa/%s' % e, root=NWSL_DIR)
 
