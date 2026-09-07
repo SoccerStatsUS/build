@@ -1978,12 +1978,8 @@ def load_concacaf():
 
     load_games_standard('concacaf', 'games/confederation/champions/league/2015', CONCACAF_DIR)
     
-    return
-
     for e in range(2008, 2014):
         load_games_standard('concacaf', 'games/confederation/champions/league/%s' % e, CONCACAF_DIR)
-
-    return
 
     load_games_standard('concacaf', 'games/confederation/defunct/superliga', CONCACAF_DIR)
     load_games_standard('concacaf', 'games/confederation/defunct/giants', CONCACAF_DIR)
@@ -1992,19 +1988,6 @@ def load_concacaf():
 
     for e in [1960, 1970, 1980, 1990, 2000]:
         load_games_standard('concacaf', 'games/confederation/champions/%s' % e, CONCACAF_DIR)
-
-
-
-
-    load_mexico()
-    load_cfu()
-    load_uncaf()
-
-
-
-def load_amateur():
-    load_ncaa()
-    # Olympics?
 
 
 def load_ncaa():
