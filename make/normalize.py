@@ -87,15 +87,16 @@ def make_location_normalizer():
     # Throw an error.
     # Return a dict with appropriate values.
 
-    stadium_names = set()
+    # Map case-folded stadium names to stadium objects. Folded because an
+    # exact match makes a transcription slip silently invent a place: the 2015
+    # MLS file writes "Stubhub Center" for "StubHub Center", and those sixteen
+    # games became a *city* of that name rather than attaching to the venue.
+    # No two stadiums here differ only by case.
+    # Need to handle multiple stadiums with same name.
     stadium_map = {}
 
-    # Map stadium names to stadium objects; add to set.
-    # Need to handle multiple stadiums with same name.
     for stadium in soccer_db.stadiums.find():
-        name = stadium['name']
-        stadium_names.add(name)
-        stadium_map[name] = stadium
+        stadium_map.setdefault(stadium['name'].strip().lower(), stadium)
     
     def getter(s):
 
@@ -114,8 +115,8 @@ def make_location_normalizer():
         potential_stadium = get_stadium(potential_stadium)
         location_string = get_city(location_string)
 
-        if potential_stadium in stadium_names:
-            sx = stadium_map[potential_stadium]
+        sx = stadium_map.get(potential_stadium.strip().lower())
+        if sx is not None:
             name, city = sx['name'], sx['location']
 
             # Do soft location check here.

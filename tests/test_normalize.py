@@ -1,5 +1,6 @@
 import pytest
 
+from fakedb import FakeDB
 from normalize import (
     calculate_game_results,
     calculate_lineup_result,
@@ -103,3 +104,40 @@ def test_normalize_goal_normalizes_team_alias():
     # Dallas Burn -> FC Dallas, per README.
     e = normalize_goal(goal(team='Dallas Burn'))
     assert e['team'] == 'FC Dallas'
+
+
+# make_location_normalizer
+
+def location_normalizer(monkeypatch, stadiums):
+    """A normalizer built over just these stadiums."""
+    import normalize
+    monkeypatch.setattr(normalize, 'soccer_db',
+                        FakeDB(stadiums=[{'name': n, 'location': loc}
+                                         for n, loc in stadiums]))
+    return normalize.make_location_normalizer()
+
+
+STUBHUB = [('StubHub Center', 'Carson, CA')]
+
+
+def test_a_stadium_is_split_from_its_place(monkeypatch):
+    getter = location_normalizer(monkeypatch, STUBHUB)
+
+    assert getter('StubHub Center, Carson, CA') == ('StubHub Center', 'Carson, CA')
+
+
+def test_case_does_not_decide_whether_a_venue_exists(monkeypatch):
+    """
+    "Stubhub Center" runs through the whole 2015 MLS file. Matched exactly it
+    is not a stadium, and the build quietly turns it into a city of that name.
+    """
+    getter = location_normalizer(monkeypatch, STUBHUB)
+
+    assert getter('Stubhub Center') == ('StubHub Center', 'Carson, CA')
+    assert getter('STUBHUB CENTER') == ('StubHub Center', 'Carson, CA')
+
+
+def test_a_place_that_is_not_a_stadium_stays_a_place(monkeypatch):
+    getter = location_normalizer(monkeypatch, STUBHUB)
+
+    assert getter('Richardson, Texas')[0] is None

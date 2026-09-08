@@ -179,6 +179,48 @@ Missing or thin source data. Roughly ordered by how much is missing.
   little, since none of it was trustworthy. Note `nwsl_data/stats/nwsl/2013` is a
   separate hand-transcribed file and still loads.
 
+- [ ] **An unrecognised venue silently becomes a city.** `location_normalizer`
+  (`make/normalize.py`) matches a game's location against the stadium names in
+  `soccer_db.stadiums`; on a miss the string falls through to `city_getter`
+  (`s2/build/load.py:825-829`), which creates a `City` row for it. Nothing is
+  logged. 567 of the 4,867 rows in `places.City` are venues rather than places
+  — names carrying stadium, estadio, arena, bowl, oval, or a park/field that is
+  nobody's birthplace and no club's home. 1,377 games hang off them.
+
+  Two causes, and neither is a naming variant:
+  - **In `team_stadium`, absent from the stadium list.**
+    `team_stadium/nasl1` maps `Boston Rovers, Manning Bowl`,
+    `Toronto Metros, Lamport Stadium` and `Washington Whips, D.C. Stadium`, and
+    none of the three appears anywhere in `metadata/data/places/stadiums/`. The
+    mapping mints a postgres `Stadium` row through `Stadium.objects.find()`
+    while `normalize` — which reads the stadium list — has never heard of the
+    name, so the games go to a `City` of the same name. Postgres holds 1,497
+    stadium rows against 1,331 names in metadata; **139 of the 166 extra carry
+    no games at all**, which is that signature.
+  - **In the list only under a qualified name.** `Olympic Stadium` is in the
+    stadium files five times and never bare — Montreal, Kiev, Amsterdam, Tokyo,
+    Munich — so a game file writing it plain matches nothing.
+
+  Montreal's Olympic Stadium is the worked example. It is defined once, at
+  `metadata/data/places/stadiums/canada.py:171`, and 2 of its 72 games are
+  attached to it: the Manic's 60 NASL and NASL-indoor games sit on a cityless
+  `Olympic Stadium` row minted by `team_stadium/nasl:35` and `nasl1:136`, and
+  the Impact's 10 MLS games sit on a *city* called Olympic Stadium.
+  `metadata/alias/stadiums.py` already does this job for the others
+  (`Olympisch Stadion`, `Tokyo Olympic Stadium`, `Oaca Spyro Louis`); the bare
+  name has no entry, and claiming it for Montreal is a judgment about a name
+  five cities share.
+
+  The case-folded stadium lookup is in — `Stubhub Center` cost the venue
+  sixteen 2015 MLS games — but that was only 4 of the 567. What is left:
+  - Stop the build inventing places. A location matching no stadium, no city
+    and no country deserves a line in the build log, not a new `City`. Smallest
+    change, and it stops the list growing while the rest is worked.
+  - Add the missing venues to `metadata/data/places/stadiums/`. The
+    `team_stadium` mappings and a name-and-usage scan of `places.City` give the
+    worklist; the scan is a few lines and worth re-running after each pass.
+  - Decide the bare-name aliases, starting with `Olympic Stadium`.
+
 - [ ] Act on what `make/reconcile.py` found. It compares two independent scrapes of
   the same competition against each other — espn vs mlssoccer for MLS (2024-2026),
   espn vs nwslsoccer for NWSL (2016-2026) — and reports unmatched games and
