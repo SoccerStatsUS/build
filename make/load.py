@@ -160,6 +160,7 @@ def load():
         # Historical first divisions; ISL remains disabled.
         load_alpf,
         load_asl,
+        load_asl2,
         load_nasl,
         load_mls,
         load_women_domestic,
@@ -174,6 +175,8 @@ def load():
         load_scraped_concacaf,
         # International
         load_usmnt,
+        # Indoor
+        load_indoor,
     ]
     for loader in enabled_loaders:
         loader()
@@ -1223,15 +1226,6 @@ def load_indoor():
     load_games_standard('indoor', 'data/games/xsl/2008', root=INDOOR_DIR)
 
 
-    # Team-specific
-
-    #for e in range(1984, 2002):
-    #    load_games_standard('indoor', 'sidekicks/data/games/%s' % e, root=TEAM_DIR)
-
-
-    #for e in range(2013, 2013):
-    #    load_games_standard('indoor', 'games/pasl/%s' % e, root=INDOOR_DIR)
-
     # stats
 
     generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/nasl/nasl", root=INDOOR_DIR))
@@ -1242,7 +1236,17 @@ def load_indoor():
     generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/aisa", root=INDOOR_DIR))
     generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/wisl", root=INDOOR_DIR))
     generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/npsl", root=INDOOR_DIR))
+
+    #for e in range(2013, 2013):
+    #    load_games_standard('indoor', 'games/pasl/%s' % e, root=INDOOR_DIR)
+    
     #generic_load(soccer_db.indoor_stats, stats.process_stats("data/stats/pasl", source='nasljerseys.com', root=INDOOR_DIR))
+
+    # Team-specific
+
+    #for e in range(1984, 2002):
+    #    load_games_standard('indoor', 'sidekicks/data/games/%s' % e, root=TEAM_DIR)
+    
 
 
 

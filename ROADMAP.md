@@ -73,11 +73,12 @@ Missing or thin source data. Roughly ordered by how much is missing.
 ## Build Setup
 
 - [ ] `load()` explicitly selects MLS, US women's leagues, US cups, ALPF, ASL,
-  NASL, Canada, CONCACAF and USMNT in `enabled_loaders` (`make/load.py`). Canada
-  and CONCACAF currently load only selected competitions and seasons. Every
-  other source — ASL2, ISL, US minor leagues, indoor, other international data,
-  drafts, jobs and salaries — is loaded by nothing, and production has the same
-  shape. Decide, dataset by dataset, what else comes back.
+  ASL2, NASL, Canada, CONCACAF, USMNT and indoor in `enabled_loaders`
+  (`make/load.py`). Canada and CONCACAF currently load only selected
+  competitions and seasons. Every other source — ISL, US minor leagues, other
+  international data, drafts, jobs and salaries — is loaded by nothing, and
+  production has the same shape. Decide, dataset by dataset, what else comes
+  back.
 - [ ] The tests only run on a machine listed in `settings.py`. `ROOT_DIR = roots[host]`
   (`settings.py:20`) is a bare dict lookup on hostname, so an unlisted machine raises
   `KeyError` on import. `merge`, `lift`, `normalize` and `transform` all import
