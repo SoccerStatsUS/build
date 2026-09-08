@@ -846,7 +846,9 @@ def load_women_domestic():
 
     # Season-long player stats the nwslsoccer scraper converts from the SDP
     # stats API (see scrapers/nwslsoccer/stats.py); covers 2015-2019, 2021-.
-    load_stats_dir('women', 'stats/nwsl', NWSLSOCCER_DIR)
+    # Not loaded: the API attributes each player to their most recent club rather
+    # than the one they played for that season, and drops minutes. See ROADMAP.md.
+    #load_stats_dir('women', 'stats/nwsl', NWSLSOCCER_DIR)
 
     for e in ['wusa', 'wps', 'wpsl_elite', 'nwsl', 'wsl']:
         load_standings_standard('women', 'standings/usa/%s' % e, root=NWSL_DIR)
@@ -1206,7 +1208,8 @@ def load_indoor():
     load_standings_standard('indoor', 'data/standings/misl3', root=INDOOR_DIR)
     load_standings_standard('indoor', 'data/standings/usisl', root=INDOOR_DIR)
     #load_standings_standard('indoor', 'data/standings/usl', root=INDOOR_DIR)
-    load_standings_standard('indoor', 'data/standings/pasl', root=INDOOR_DIR)
+
+    # load_standings_standard('indoor', 'data/standings/pasl', root=INDOOR_DIR)
 
     # games
 

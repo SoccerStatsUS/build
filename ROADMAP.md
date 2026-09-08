@@ -150,6 +150,35 @@ Missing or thin source data. Roughly ordered by how much is missing.
   what actually produces standings today. (A second, unused table builder lived
   in `make/standings.py` until it was deleted — `git log -- make/standings.py`.)
 
+- [ ] **`nwslsoccer_data/stats/nwsl/*` is wrong.** The load is commented out in
+  `make/load.py`; decide whether to fix the source or delete the files. The scraper
+  (`scrapers/nwslsoccer/stats.py`) transcribes the SDP stats API faithfully — the API
+  response itself is bad. Fetching the 2015 `BlockSource` gives:
+  - `team` is the player's *most recent* club, not the club they played for that
+    season. The 2015 response puts Christen Press at Angel City, Vanessa DiBernardo at
+    Kansas City Current and Abby Erceg at Racing Louisville, while
+    `nwsl_data/games/usa/nwsl/2015` has all three in one Chicago Red Stars lineup.
+    Defunct clubs (Boston Breakers, Western New York Flash) survive only where the
+    player's career ended there, and historic franchises get current branding back-
+    applied (Sky Blue -> Gotham FC, Chicago Red Stars -> Chicago Stars). 191 of 212
+    players land on a real 2015 club by coincidence of never having moved.
+  - `minutes-played` is 0 for 128 of the 185 players with `games-played > 0` (69%),
+    including a 20-game, 10-goal Allie Long.
+  - The counting stats are season-scoped in 2015 (max GP 20, exactly the season
+    length) but not in 2021 (max GP 49 against a 24-game season; top five
+    27/30/46/48/49). The season id is not the culprit — `nwslsoccer_data/nwsl/2021`
+    queries the same id and holds genuine 2021 fixtures, so the games endpoint is
+    correctly scoped where the stats endpoint is not. Which years are inflated has
+    not been surveyed.
+  - One `teamId` comes back under two `officialName` strings in a single response
+    (`Chicago Stars`/`Chicago Stars FC`, `Gotham FC`/`NJ/NY Gotham FC`); the alias map
+    papers over this, which is why the parsed files show 16 teams against 18 names.
+
+  Fixing it means finding a per-season, per-team attribution — check whether the API
+  has a team-scoped stats endpoint — or picking a different source. Deleting costs
+  little, since none of it was trustworthy. Note `nwsl_data/stats/nwsl/2013` is a
+  separate hand-transcribed file and still loads.
+
 - [ ] Act on what `make/reconcile.py` found. It compares two independent scrapes of
   the same competition against each other — espn vs mlssoccer for MLS (2024-2026),
   espn vs nwslsoccer for NWSL (2016-2026) — and reports unmatched games and
