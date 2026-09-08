@@ -125,6 +125,7 @@ SINGLE_SOURCES = [
 
     'news',
     'sources',
+    'blurbs',
 
     'awards', 
     'drafts',
