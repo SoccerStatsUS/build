@@ -870,15 +870,13 @@ sep_teams = {
         ],
 
 
+    # One key, not two: a second 'Fall River' entry below this one used to
+    # overwrite the whole block, leaving 1957-1958 as the only rule that ran.
     'Fall River': [
         (from_seasons('American Soccer League (1921-1933)', set(['1922-1923', '1923-1924', '1924-1925', '1925-1926', '1926-1927', '1927-1928', '1928-1929', '1929-1930', '1929 Fall', '1930 Spring', '1930 Fall'])), 'Fall River Marksmen'),
-        (from_seasons('American Soccer League (1921-1933)', set(['1931 Spring', '1932 Fall'])), 'Fall River FC'), 
+        (from_seasons('American Soccer League (1921-1933)', set(['1931 Spring', '1932 Fall'])), 'Fall River FC'),
         (from_seasons('American Soccer League (1921-1933)', set(['1921-1922'])), 'Fall River Rovers'),
-        (from_seasons('American Soccer League (1933-1983)', set(['1959-1960', '1960-1961', '1961-1962', '1962-1963', '1963-1964',])), 'Fall River SC'),
-        ],
-
-    'Fall River': [
-        (from_seasons('American Soccer League (1933-1983)', set(['1957-1958'])), 'Fall River SC'),
+        (from_seasons('American Soccer League (1933-1983)', set(['1957-1958', '1959-1960', '1960-1961', '1961-1962', '1962-1963', '1963-1964',])), 'Fall River SC'),
         ],
 
     'Fort Lauderdale': [

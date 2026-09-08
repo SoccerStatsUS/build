@@ -88,6 +88,41 @@ Missing or thin source data. Roughly ordered by how much is missing.
 
 ## Error Detection
 
+- [ ] Duplicate keys in dict literals silently discard the first value. An AST scan of
+  `build`, `metadata` and `parse` finds 308 repeated string keys; 264 repeat the same
+  value and are harmless, but **44 hold different values, so the earlier one is lost
+  with no error**. `make/separate.py:873` was one: a second `'Fall River'` key seven
+  lines below wiped out four season-scoped rules, leaving the 1922-1931 ASL games
+  split between `Fall River` and `Fall River Marksmen`. That one is fixed; six remain
+  in `separate.py`, three of which need a decision about which club is meant rather
+  than a merge:
+  - `Rapid` — the Liga I → `Rapid Bucureşti` rule is lost, so every "Rapid" resolves
+    to Rapid Vienna.
+  - `Victoria` — the Liga Nacional de Honduras → `CD Victoria` rule is lost, so
+    "Victoria" resolves to `CDS Vida`, a different club.
+  - `Springfield` — two rules for the same competition, `Shawsheen Indians` against
+    `Springfield Babes`; one of them is simply wrong.
+  - `Maryland` loses an NCAA rule; `Jenison` and `Ludlow` are benign (a typo fix and
+    a superset).
+
+  Two outside `separate.py` look like lost data rather than name confusion:
+  `metadata/data/lists/awards/canada.py:111`, where `'Champion'` holds a list of
+  winning teams overwritten by a list of players, and
+  `metadata/data/lists/awards/ncaa.py:3840`, where a block of WCC Player of the Year
+  winners is overwritten by another. The remaining 37 are alias maps whose two
+  spellings disagree, several of them self-cancelling pairs that map a name in both
+  directions.
+
+  Once these are resolved, an AST duplicate-key check belongs in the test suite. It
+  cannot be added first: it fails on every one of the 43 still open.
+
+- [ ] Fill the six Fall River games no rule reaches, now that the block above runs:
+  Lewis Cup 1928, 1930 and 1930 Fall (3 games), U.S. Open Cup 1931 (2), and ASL
+  (1933-1983) 1958-1959 (1). The first five fall inside the Marksmen's run and the
+  last is a hole in an otherwise continuous 1957-58 to 1963-64 list, but each needs a
+  `from_seasons` clause naming its own competition, and which club is meant is a
+  judgment about the record rather than a merge.
+
 - [ ] Bad data signals itself with `pdb.set_trace()` — 119 live sites across
   `parse`, `build` and `metadata`, plus ~100 bare `except:`. In a batch run
   `make/__main__.py` stubs `set_trace` out to a print of file and line, which
