@@ -191,6 +191,7 @@ def load_metadata():
     load_competitions()
     load_teams()
     load_bios()
+    load_blurbs()
 
     load_name_maps()
     load_stadium_maps()
@@ -226,6 +227,11 @@ def load_stadium_maps():
 def load_sources():
     from metadata.parse import sources
     generic_load(soccer_db.sources, sources.load)
+
+
+def load_blurbs():
+    from metadata.parse import blurbs
+    generic_load(soccer_db.blurbs, blurbs.load)
 
 
 def load_news():
