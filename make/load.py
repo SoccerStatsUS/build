@@ -192,6 +192,16 @@ def load_metadata():
     load_teams()
     load_bios()
     load_blurbs()
+    load_drafts()
+
+    # Orphaned with load_drafts when load_advanced went away; both read
+    # soccerdata.text, which has not been checked since.
+    #load_salaries()
+    #load_jobs()
+
+    # Already off inside load_advanced before that went away, and the oneonta
+    # package it imports is not installed.
+    #load_news()
 
     load_name_maps()
     load_stadium_maps()
