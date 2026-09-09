@@ -228,9 +228,9 @@ def load_metadata():
     #load_salaries()
     #load_jobs()
 
-    # Already off inside load_advanced before that went away, and the oneonta
-    # package it imports is not installed.
-    #load_news()
+    # Fetches two feeds over the network; oneonta warns and carries on if
+    # either is down, so an offline build still completes.
+    load_news()
 
     load_name_maps()
     load_stadium_maps()
