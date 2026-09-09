@@ -228,8 +228,8 @@ def load_metadata():
     #load_salaries()
     #load_jobs()
 
-    # Fetches two feeds over the network; oneonta warns and carries on if
-    # either is down, so an offline build still completes.
+    # Reads oneonta's archive; `python -m oneonta.fetch` is what talks to
+    # the network, so the build stays offline.
     load_news()
 
     load_name_maps()
@@ -274,8 +274,8 @@ def load_blurbs():
 
 
 def load_news():
-    from oneonta import feeds
-    generic_load(soccer_db.news, feeds.parse_feeds)
+    from oneonta import archive
+    generic_load(soccer_db.news, archive.load_items)
 
 
 def load_bios():
