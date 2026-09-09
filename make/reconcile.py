@@ -65,7 +65,10 @@ def read(path):
 
 def attendance(value):
     # espn and mlssoccer write 0 for an unrecorded gate; nwslsoccer writes null.
-    return value or None
+    # nwslsoccer also writes the figure as a string where the others write an
+    # int, which compared unequal on every game the two both had a gate for --
+    # 182 of 182 matched NWSL 2025 games, all of them the same number.
+    return int(value) if value else None
 
 
 def game(row, goals, cards):

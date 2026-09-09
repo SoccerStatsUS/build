@@ -385,21 +385,27 @@ def merge_games(games_lists):
         # Need to use priority to adjust which is the merger, which the mergee.
         orig = game_dict[key]
 
-        # Overreaction to a bug that was seriously mangling scores when multiple games records were present.
-        # (Was replacing scores of 0 with the larger score for both games.)
+        # Scores are pulled out of the fill-the-blanks loop below and handled on
+        # their own. A bug once mangled them badly when several records of one
+        # game were present, replacing a score of 0 with the other record's
+        # larger score, so nothing here may overwrite a score already recorded.
+        # Filling one that was never recorded at all is a different thing, and
+        # is what lets a second source supply the result of a game the first
+        # knew only as a fixture.
         t1, t2, t1s, t2s, t1r, t2r = [d.pop(e) for e in ('team1', 'team2', 'team1_score', 'team2_score', 'team1_result', 'team2_result')]
 
+        aligned = False
+
         if t1 == orig['team1'] and t2 == orig['team2']:
-            pass
+            aligned = True
         elif t1 == orig['team2'] and t2 == orig['team1'] and d['date'] is not None: # make allowances for multiple unknown dates...
             t1, t1s, t1r, t2, t2s, t2r = t2, t2s, t2r, t1, t1s, t1r
-            try:
-                assert t1s == orig['team1_score']
-                assert t2s == orig['team2_score']
-                assert t1r == orig['team1_result']
-                assert t1r == orig['team1_result']
-            except:
-                #import pdb; pdb.set_trace()
+            aligned = True
+            # Only a record that has a score of its own can disagree about one.
+            # Where orig has none, this source is filling a blank.
+            if orig['team1_score'] is not None and (
+                    t1s != orig['team1_score'] or t2s != orig['team2_score']
+                    or t1r != orig['team1_result'] or t2r != orig['team2_result']):
                 print("Game information mismatch.")
         else:
             if d['date'] is not None:
@@ -407,7 +413,16 @@ def merge_games(games_lists):
                 print("Game information mismatch.")
                 print(orig)
                 print(d)
-                
+
+        # A game recorded with no score at all takes one from a later source.
+        # `is None` rather than falsiness on purpose: 0 is a score, and treating
+        # it as an empty field is the bug described above.
+        if (aligned and t1s is not None and t2s is not None
+                and orig['team1_score'] is None and orig['team2_score'] is None):
+            orig['team1_score'], orig['team2_score'] = t1s, t2s
+            if t1r and t2r:
+                orig['team1_result'], orig['team2_result'] = t1r, t2r
+
         for k, v in d.items():
             if not orig.get(k) and v:
                 orig[k] = v

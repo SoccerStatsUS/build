@@ -34,6 +34,7 @@ NWSL_DIR = os.path.join(ROOT_DIR, 'nwsl_data')
 MLSSOCCER_DIR = os.path.join(ROOT_DIR, 'mlssoccer_data')
 THECUP_DIR = os.path.join(ROOT_DIR, 'thecup_data')
 NWSLSOCCER_DIR = os.path.join(ROOT_DIR, 'nwslsoccer_data')
+ESPN_DIR = os.path.join(ROOT_DIR, 'espn_data')
 CUPS_DIR = os.path.join(ROOT_DIR, 'us_cup_data')
 ISL_DIR = os.path.join(ROOT_DIR, 'isl_data')
 
@@ -95,6 +96,34 @@ def load_games_dir(coll, subdir, root):
     """
     for e in sorted(os.listdir(os.path.join(root, subdir))):
         load_games_standard(coll, '%s/%s' % (subdir, e), root=root)
+
+
+def load_espn_games(subdir):
+    """
+    espn as a fill-the-blanks second source for leagues that already have their
+    own source here. It sits last in SOURCES, so it never overwrites a league's
+    record of its own game; it supplies the fields that record left empty --
+    chiefly the scores nwslsoccer carries as bare fixtures for 2015 and 2019,
+    and the gates the MLS API returns as 0 for every match before 2023.
+
+    Goals, cards and lineups are not loaded. espn has them, and they would help,
+    but merging events is a different problem from filling a blank field and
+    carries its own duplicate risk.
+
+    Venues are dropped too. espn writes a ground's current name on every season
+    it ever staged a game -- a 2015 Houston Dash game is filed under Shell
+    Energy Stadium, which the ground was not called until 2023 -- and 44 of its
+    71 venue names match no stadium on record. Loading them would invent that
+    many grounds, several of them duplicates of ones already here under the
+    name they had at the time. That wants the stadium aliases done first.
+    """
+    for name in sorted(os.listdir(os.path.join(ESPN_DIR, subdir))):
+        path = os.path.join(ESPN_DIR, subdir, name)
+        print('%s/%s' % (subdir, name))
+        gms = games.process_file(path)[0]
+        for game in gms:
+            game['location'] = ''
+        generic_load(soccer_db.espn_games, lambda: gms, delete=False)
 
 
 def load_stats_dir(coll, subdir, root, since=None):
@@ -846,6 +875,9 @@ def load_women_domestic():
 
     load_games_dir('women', 'nwsl', NWSLSOCCER_DIR)
 
+    # Fills the 2015 and 2019 scores and the 2021-2023 gates. See load_espn_games.
+    load_espn_games('nwsl')
+
     load_games_standard('women', 'games/usa/wpsl/elite', root=NWSL_DIR)
 
     #for e in range(2007, 2013):
@@ -933,6 +965,9 @@ def load_mls():
 
     load_games_dir('mls', 'mls', MLSSOCCER_DIR)
     load_games_dir('mls', 'mls_playoffs', MLSSOCCER_DIR)
+
+    # Fills the 2021 and 2022 gates. See load_espn_games.
+    load_espn_games('mls')
 
     load_mls_lineup_db()
 

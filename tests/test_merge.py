@@ -111,6 +111,76 @@ def test_game_without_date_or_round_is_discarded():
     assert merge_games([[game(date=None, round=None)]]) == []
 
 
+def test_a_game_recorded_without_a_score_takes_one_from_a_later_source():
+    # nwslsoccer carries whole NWSL seasons as fixtures with lineups and no
+    # score; espn has the scores. Normalize runs first, so the scoreless record
+    # arrives with empty results.
+    fixture = game(team1_score=None, team2_score=None,
+                   team1_result='', team2_result='')
+    merged = merge_games([[fixture], [game()]])
+
+    assert len(merged) == 1
+    assert merged[0]['team1_score'] == 2
+    assert merged[0]['team2_score'] == 1
+    assert merged[0]['team1_result'] == 'w'
+    assert merged[0]['team2_result'] == 'l'
+
+
+def test_a_scoreless_record_takes_a_reversed_score_the_right_way_round():
+    fixture = game(team1_score=None, team2_score=None,
+                   team1_result='', team2_result='')
+    flipped = game(team1='Colorado Rapids', team2='FC Dallas',
+                   team1_score=1, team2_score=2,
+                   team1_result='l', team2_result='w')
+    merged = merge_games([[fixture], [flipped]])
+
+    assert len(merged) == 1
+    assert merged[0]['team1'] == 'FC Dallas'
+    assert merged[0]['team1_score'] == 2
+    assert merged[0]['team2_score'] == 1
+    assert merged[0]['team1_result'] == 'w'
+
+
+def test_a_recorded_score_is_never_replaced():
+    merged = merge_games([[game()], [game(team1_score=5, team2_score=0,
+                                          team1_result='w', team2_result='l')]])
+    assert len(merged) == 1
+    assert merged[0]['team1_score'] == 2
+    assert merged[0]['team2_score'] == 1
+
+
+def test_a_recorded_nil_is_a_score_not_a_blank():
+    # The bug the score guard was written against: 0 read as an empty field and
+    # overwritten with the other record's larger score.
+    nil = game(team1_score=0, team2_score=0, team1_result='t', team2_result='t')
+    merged = merge_games([[nil], [game()]])
+
+    assert len(merged) == 1
+    assert merged[0]['team1_score'] == 0
+    assert merged[0]['team2_score'] == 0
+    assert merged[0]['team1_result'] == 't'
+
+
+def test_a_half_recorded_score_does_not_fill_a_blank():
+    fixture = game(team1_score=None, team2_score=None,
+                   team1_result='', team2_result='')
+    half = game(team1_score=3, team2_score=None, team1_result='', team2_result='')
+    merged = merge_games([[fixture], [half]])
+
+    assert len(merged) == 1
+    assert merged[0]['team1_score'] is None
+
+
+def test_a_scoreless_game_stays_scoreless_when_no_source_has_one():
+    fixture = game(team1_score=None, team2_score=None,
+                   team1_result='', team2_result='')
+    merged = merge_games([[fixture], [dict(fixture)]])
+
+    assert len(merged) == 1
+    assert merged[0]['team1_score'] is None
+    assert merged[0]['team1_result'] == ''
+
+
 def test_merges_counter_and_sources_accumulate():
     merged = merge_games([[game(sources=['Imagination']),
                            game(sources=['Hearsay'])]])

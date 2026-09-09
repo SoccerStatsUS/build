@@ -110,6 +110,12 @@ SOURCES = [
     'mediotiempo',
 
     'indoor',
+
+    # espn is a second look at leagues that already have their own source here,
+    # so it sits last: merge_games keeps the first source to record a game and
+    # lets later ones fill only the fields it left empty. espn never overwrites
+    # a league's own record of its own game, it just fills the holes.
+    'espn',
         ]
 
 
