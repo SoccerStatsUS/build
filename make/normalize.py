@@ -403,6 +403,8 @@ def normalize_goal(e):
         e['opponent'] = get_team(e['opponent'])
 
     e['team'] = separate_team(e['team'], e)
+    if 'opponent' in e:
+        e['opponent'] = separate_team(e['opponent'], e)
     e['goal'] = separate_name(e['goal'], e)
 
     #if e['goal'] == 'Juninho':
