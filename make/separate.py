@@ -590,6 +590,7 @@ sep_teams = {
         (from_competition('Jamaica National Premier League'), 'Benfica FC'),
         (from_competition('Primeira Liga'), 'SL Benfica'),
         (from_competition('Intercontinental Cup'), 'SL Benfica'),
+        (from_competition('UEFA Champions League'), 'SL Benfica'),
         ],
 
     'Berlin': [
@@ -1123,6 +1124,7 @@ sep_teams = {
         (from_competition('Copa Libertadores'), 'CF Monterrey'),
         (from_competition('Club World Cup'), 'CF Monterrey'),
         (from_competition('Liga MX'), 'CF Monterrey'),
+        (from_competition('Leagues Cup'), 'CF Monterrey'),
 
         ],
 

@@ -570,6 +570,7 @@ def normalize_award(e):
 
     if e['model'] == 'Team':
         e['recipient'] = get_team(e['recipient'])
+        e['recipient'] = separate_team(e['recipient'], e)
     else:
         e['recipient'] = get_name(e['recipient'])
 
