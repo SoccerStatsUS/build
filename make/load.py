@@ -183,29 +183,63 @@ def load():
     check_for_team_loops()
     clear_all()
 
-    load_metadata()
+    enabled_metadata_loaders = [
+        load_sources,
+        load_place_data,
+        load_competitions,        
 
+        load_teams,
+        load_bios,
+        load_blurbs,        
+
+        load_news,        
+        # load_drafts,
+        # load_salaries,
+        # load_jobs,
+        # load_transactions,
+        load_name_maps,
+        load_stadium_maps,
+        load_competition_maps,
+        ]
+
+    for loader in enabled_metadata_loaders:
+        loader()
+    
     enabled_loaders = [
-        # Historical first divisions; ISL remains disabled.
-        load_alpf,
-        load_asl,
-        load_asl2,
-        load_nasl,
-        load_mls,
-        load_women_domestic,
+        # World
+        # load_world_domestic,
+        # UEFA
+        # load_champions_league_historic,
+        # load_champions_league_modern,        
+        # CONCACAF
+        # load_concacaf_historic
+        # load_concacaf_modern,
+        # load_scraped_concacaf,
+        # Historical first divisions
+        # load_alpf,
+        # load_asl,
+        # load_isl2,
+        # load_nasl,
+        # load_mls,
+        # load_women_usd1,
         # Open Cup 1914-2020, American Cup, Lewis Cup, Duffy Cup and AAFA.
-        load_us_cups,
-        load_scraped_us_cups,
-        # Canada
-        load_canada,
-        load_scraped_canada,
-        # Concacaf
-        load_concacaf,
-        load_scraped_concacaf,
+        # load_us_cups,
+        # load_scraped_us_cups,
+        # Minor
+        # load_historic_minor,
+        # load_asl2,        
+        # load_modern_minor,
+        # CONCACAF domestic
+        # load_canada_historic,        
+        # load_canada_modern,
+        # load_scraped_canada,
+        # load_mexico,
         # International
+        # load_world_cup,
+        # load_concacaf_international,
         load_usmnt,
         # Indoor
-        load_indoor,
+        # load_indoor,
     ]
     for loader in enabled_loaders:
         loader()
@@ -221,7 +255,7 @@ def load_metadata():
     load_teams()
     load_bios()
     load_blurbs()
-    load_drafts()
+    # load_drafts()
 
     # Orphaned with load_drafts when load_advanced went away; both read
     # soccerdata.text, which has not been checked since.
@@ -272,6 +306,15 @@ def load_blurbs():
     from metadata.parse import blurbs
     generic_load(soccer_db.blurbs, blurbs.load)
 
+
+def load_transactions():
+
+    # MLS
+    for e in sorted(os.listdir(os.path.join(USD1_DIR, 'data/transactions/mls/date'))):
+        if e.isdigit():
+            load_transactions_standard('mls', 'data/transactions/mls/date/%s' % e, USD1_DIR)
+
+    
 
 def load_news():
     from oneonta import archive
@@ -376,15 +419,15 @@ def load_us_cups():
     #load_games_standard('us_cups', 'games/amateur', root=CUPS_DIR)
 
 
-def load_canada():
+def load_canada_historic():
     from metadata.parse import awards
-    #, partial
+
+    generic_load(soccer_db.canada_awards, awards.process_csl_awards)        
 
     load_standings_standard('canada', 'standings/canada/csl1', root=CONCACAF_DIR)
     load_standings_standard('canada', 'standings/canada/cnsl', root=CONCACAF_DIR)
     load_standings_standard('canada', 'standings/canada/csl', root=CONCACAF_DIR)
     
-    load_games_standard('canada', 'games/country/canada/cups/championship', root=CONCACAF_DIR)
     load_games_standard('canada', 'games/country/canada/cups/early', root=CONCACAF_DIR)
 
     load_games_standard('canada', 'games/country/canada/friendly/1', root=CONCACAF_DIR)
@@ -394,8 +437,16 @@ def load_canada():
 
     #generic_load(soccer_db.canada_stats, partial.process_csl_partial)
 
-    generic_load(soccer_db.canada_awards, awards.process_csl_awards)
+
+
+def load_canada_modern():
+    from metadata.parse import awards
+
     generic_load(soccer_db.canada_awards, awards.process_canada_awards)
+
+    load_standings_standard('canada', 'standings/canada/cpl', root=CONCACAF_DIR)        
+
+    load_games_standard('canada', 'games/country/canada/cups/championship', root=CONCACAF_DIR)    
 
 
 def load_uncaf():
@@ -447,22 +498,25 @@ def load_uncaf():
     #load_games_standard('concacaf', 'games/el_salvador/torneo', root=CONCACAF_DIR)
 
 
-def load_uefa():
+def load_champions_league_historic():
 
     for e in range(1955, 1992):
         load_games_standard('uefa', 'games/confederation/champions/%s' % e, root=UEFA_DIR)
 
-    load_games_standard('uefa', 'games/confederation/super', root=UEFA_DIR)
+    # load_games_standard('uefa', 'games/confederation/super', root=UEFA_DIR)
 
-    load_uefa_leagues()
 
+def load_champions_league_modern():
+    from metadata.parse import awards
+    
+    generic_load(soccer_db.uefa_awards, awards.process_uefa_confederation_awards)    
 
 
 
 def load_uefa_leagues():
     from metadata.parse import awards
 
-    generic_load(soccer_db.uefa_awards, awards.process_uefa_awards)
+    generic_load(soccer_db.uefa_awards, awards.process_uefa_league_awards)
     generic_load(soccer_db.uefa_awards, awards.process_england_awards)
 
     load_uefa_major()
@@ -862,26 +916,27 @@ def load_brazil_international():
         load_games_standard('brazil', 'games/country/brazil/%s' % e, root=INTERNATIONAL_DIR)
 
 
-def load_women_domestic():
+def load_women_usd1():
     from metadata.parse import awards
 
-    generic_load(soccer_db.women_awards, awards.process_women_awards)
+    generic_load(soccer_db.women_awards, awards.process_nwsl_awards)
 
+    for e in ['wusa',
+              'wps',
+              # 'wpsl_elite',
+              'nwsl',
+              ]:
+        load_standings_standard('women', 'standings/usa/%s' % e, root=NWSL_DIR)
+    
     load_games_standard('women', 'games/usa/wusa/wusa', root=NWSL_DIR)
     load_games_standard('women', 'games/usa/wps/wps', root=NWSL_DIR)
 
     for e in range(2013, 2020):
         load_games_standard('women', 'games/usa/nwsl/%s' % e, root=NWSL_DIR)
 
-    load_games_dir('women', 'nwsl', NWSLSOCCER_DIR)
-
-    # Fills the 2015 and 2019 scores and the 2021-2023 gates. See load_espn_games.
-    load_espn_games('nwsl')
-
-    load_games_standard('women', 'games/usa/wpsl/elite', root=NWSL_DIR)
-
-    #for e in range(2007, 2013):
-    #    load_games_standard('women', 'domestic/country/usa/leagues/women/wpsl/%s' % e)
+    # Scraped
+    # load_games_dir('women', 'nwsl', NWSLSOCCER_DIR)
+    # load_espn_games('nwsl')
 
     nwsl_stats = stats.process_stats("nwsl/2013", root=os.path.join(NWSL_DIR, 'stats'), delimiter=';')
     generic_load(soccer_db.women_stats, nwsl_stats)
@@ -890,14 +945,22 @@ def load_women_domestic():
     # stats API (see scrapers/nwslsoccer/stats.py); covers 2015-2019, 2021-.
     # Not loaded: the API attributes each player to their most recent club rather
     # than the one they played for that season, and drops minutes. See ROADMAP.md.
-    #load_stats_dir('women', 'stats/nwsl', NWSLSOCCER_DIR)
-
-    for e in ['wusa', 'wps', 'wpsl_elite', 'nwsl', 'wsl']:
-        load_standings_standard('women', 'standings/usa/%s' % e, root=NWSL_DIR)
+    #load_stats_dir('women', 'stats/nwsl', NWSLSOCCER_DIR)    
+    
 
 
-def load_women_europe_etc():
+def load_women_us_minor():    
+    # Minor leagues
 
+    load_games_standard('women', 'games/usa/wpsl/elite', root=NWSL_DIR)
+
+    for e in range(2007, 2013):
+        load_games_standard('women', 'domestic/country/usa/leagues/women/wpsl/%s' % e)
+
+
+def load_women_europe():
+
+    load_standings_standard('standings/england', e, root=NWSL_DIR)    
     load_standings_standard('standings/sweden', e, root=NWSL_DIR)
     load_standings_standard('standings/france', e, root=NWSL_DIR)
 
@@ -939,9 +1002,6 @@ def load_mls():
 
     load_standings_standard('mls', 'data/standings/mls', root=USD1_DIR)
 
-    for e in sorted(os.listdir(os.path.join(USD1_DIR, 'data/transactions/mls/date'))):
-        if e.isdigit():
-            load_transactions_standard('mls', 'data/transactions/mls/date/%s' % e, USD1_DIR)
 
     for e in range(2014, 2017):
         generic_load(soccer_db.mls_rosters, lambda: rosters.process_rosters3('data/rosters/mls/' + str(e), root=USD1_DIR), delete=False)
@@ -1320,17 +1380,14 @@ def load_mls_lineup_db():
 
 
 
-def load_us_minor():
+def load_historic_minor():
     """
     Load all-time us minor league stats.
     """
 
-
-    load_modern_minor()
-
-    #load_asl2()
-    #load_nafbl()
-    #load_city()
+    load_asl2()
+    load_nafbl()
+    load_city()
 
 
 def load_modern_minor():
@@ -1345,7 +1402,7 @@ def load_modern_minor():
     generic_load(soccer_db.us_minor_awards, awards.process_ussf2_awards)
     generic_load(soccer_db.us_minor_awards, awards.process_nasl2_awards)
     generic_load(soccer_db.us_minor_awards, awards.process_apsl_awards)
-    generic_load(soccer_db.us_minor_awards, awards.process_pdl_awards)
+    # generic_load(soccer_db.us_minor_awards, awards.process_pdl_awards)
 
     # early
     load_standings_standard('us_minor', 'standings/d2/apsl', root=US_MINOR_DIR)
@@ -1402,12 +1459,15 @@ def load_modern_minor():
     generic_load(soccer_db.us_minor_rosters, lambda: flatten_stats(soccer_db.us_minor_stats.find()))
 
     # games
-    for e in range(1984, 2016):
-        load_games_standard('us_minor', 'games/d2/modern/%s' % e, root=US_MINOR_DIR)
+    # for e in range(1984, 2009):
+    #     load_games_standard('us_minor', 'games/d2/other/%s' % e, root=US_MINOR_DIR)
 
-    for e in range(2003, 2016):
-        load_games_standard('us_minor', 'games/d3/%s' % e, root=US_MINOR_DIR)
+    for e in range(2010, 2016):
+        load_games_standard('us_minor', 'games/d2/nasl2/%s' % e, root=US_MINOR_DIR)
+        
 
+    #for e in range(1999, 2010):
+    #    load_games_standard('us_minor', 'games/d3/%s' % e, root=US_MINOR_DIR)
 
     """
     for e in range(1985, 1991):
@@ -1419,8 +1479,8 @@ def load_modern_minor():
         load_games_standard('us_minor', 'games/d4/pdl/%s' % e, root=US_MINOR_DIR)
     """
 
-    load_games_standard('us_minor', 'games/playoffs/apsl', root=US_MINOR_DIR)
-    load_games_standard('us_minor', 'games/playoffs/wsa', root=US_MINOR_DIR)
+    # load_games_standard('us_minor', 'games/playoffs/apsl', root=US_MINOR_DIR)
+    # load_games_standard('us_minor', 'games/playoffs/wsa', root=US_MINOR_DIR)
     #load_games_standard('us_minor', 'games/apsl_professional', root=CUPS_DIR)  # this is a league cup.
     load_games_standard('us_minor', 'games/playoffs/usl1', root=US_MINOR_DIR)
     load_games_standard('us_minor', 'games/playoffs/usl2', root=US_MINOR_DIR)
@@ -1741,23 +1801,32 @@ def load_uncaf_international():
     load_games_standard('concacaf_i', 'games/country/panama', INTERNATIONAL_DIR)
 
 
-def load_world_international():
+
+def load_world_cup():
     from metadata.parse import awards
     from parse.parse import rosters
 
     generic_load(soccer_db.world_i_awards, awards.process_world_cup_awards)
-    generic_load(soccer_db.world_i_awards, awards.process_olympics_awards)
 
     generic_load(soccer_db.world_i_rosters, lambda: rosters.process_rosters3('rosters/olympics', root=INTERNATIONAL_DIR))
     #generic_load(soccer_db.world_i_rosters, lambda: rosters.process_rosters2(os.path.join('soccerdata/data/rosters/international/confederations')))
+
+    for e in [1930, 1934] + list(range(1950, 2015, 4)):
+        load_games_standard('world_i', 'games/world/world_cup/%s' % e, INTERNATIONAL_DIR)
+    
+    
+
+def load_world_international():
+    from metadata.parse import awards
+    from parse.parse import rosters
+
+    generic_load(soccer_db.world_i_awards, awards.process_olympics_awards)
 
     confed = [1992, 1995, 1997, 1999, 2001, 2003, 2005, 2009, 2013]
 
     for e in confed:
         load_games_standard('world_i', 'games/world/confederations/%s' % e, INTERNATIONAL_DIR)
 
-    for e in [1930, 1934] + list(range(1950, 2015, 4)):
-        load_games_standard('world_i', 'games/world/world_cup/%s' % e, INTERNATIONAL_DIR)
 
     #load_games_standard('world_i', 'international/world/u17')
 
@@ -1791,25 +1860,23 @@ def load_isl2():
     generic_load(soccer_db.world_awards, awards.process_isl_awards) # isl et al.
 
 
-def load_world():
+def load_world_domestic():
     from metadata.parse import awards
     from parse.parse import rosters
-    generic_load(soccer_db.world_awards, awards.process_world_awards)
 
-    load_mixed_confederation()
+    generic_load(soccer_db.world_awards, awards.process_world_awards)
 
     # Club World Cup
     for e in [2000, 2001] + list(range(2005, 2014)):
         load_games_standard('world', 'games/world/club_world_cup/%s' % e, WORLD_DIR)
 
+    # load_mixed_confederation()        
                       
     # International friendly club tournaments - ISL, Parmalat Cup, Copa Rio, etc.
     # Also existed in Brazil / Argentina / Colombia?
 
     #generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(WORLD_DIR, 'rosters/domestic/cwc/2014')))
     #generic_load(soccer_db.world_rosters, lambda: rosters.process_rosters2(os.path.join(WORLD_DIR, 'rosters/domestic/copita')))
-
-    
 
     #load_games_standard('world', 'domestic/country/mexico/friendly/palmares')
 
@@ -1877,37 +1944,27 @@ def load_usmnt():
         load_games_standard('usa', 'games/%s' % e, root)
 
     load_games_standard('usa', 'games/world_cup', root)
-    load_games_standard('usa', 'games/unofficial/us_cup', root)
-    load_games_standard('usa', 'games/unofficial/friendly', root)
+    # load_games_standard('usa', 'games/unofficial/us_cup', root)
+    # load_games_standard('usa', 'games/unofficial/friendly', root)
 
     
 def load_concacaf_international():
     from metadata.parse import awards
-    generic_load(soccer_db.concacaf_i_awards, awards.process_concacaf_international_awards)
+
+    # generic_load(soccer_db.concacaf_i_awards, awards.process_concacaf_international_awards)
 
     # World Cup qualifying
     for year in range(1994, 2015, 4):
         load_games_standard('concacaf_i', 'games/confederation/concacaf/wcq/%s' % year, INTERNATIONAL_DIR)
     load_games_standard('concacaf_i', 'games/confederation/concacaf/wcq/world_cup_qualifying', INTERNATIONAL_DIR)
 
-    # Olympic qualifying
-    for year in range(2000, 2014, 4):
-        load_games_standard('concacaf_i', 'games/confederation/concacaf/olympic/%s' % year, INTERNATIONAL_DIR)
-
-    # U-20 World Cup qualifying
-    for year in [2009, 2011, 2013]:
-        load_games_standard('concacaf_i', 'games/confederation/concacaf/u20/%s' % year, INTERNATIONAL_DIR)
-
-    # U-17 World Cup qualifying (incomplete)
-    for year in [2009, 2011, 2013]:
-        load_games_standard('concacaf_i', 'games/confederation/concacaf/u17/%s' % year, INTERNATIONAL_DIR)
+    return 
 
     # Gold Cup and predecessors
     load_games_standard('concacaf_i', 'games/confederation/concacaf/gold/championship', INTERNATIONAL_DIR)
     load_games_standard('concacaf_i', 'games/confederation/concacaf/gold/cccf', INTERNATIONAL_DIR)
 
-    for e in [1991, 1993, 1996, 1998, 2000, 2002, 2003, 2005, 2007, 2009, 2011, 2013]:
-        load_games_standard('concacaf_i', 'games/confederation/concacaf/gold/%s' % e, INTERNATIONAL_DIR)
+    return
 
     # Miscellaneous
     load_games_standard('concacaf_i', 'games/confederation/concacaf/cacg', INTERNATIONAL_DIR)
@@ -1931,25 +1988,53 @@ def load_concacaf_international():
     load_games_standard('mexico', 'games/country/mexico/alltime', INTERNATIONAL_DIR)
 
 
-def load_concacaf():
+    for e in [1991, 1993, 1996, 1998, 2000, 2002, 2003, 2005, 2007, 2009, 2011, 2013]:
+        load_games_standard('concacaf_i', 'games/confederation/concacaf/gold/%s' % e, INTERNATIONAL_DIR)
+    
+    # Olympic qualifying
+    for year in range(2000, 2014, 4):
+        load_games_standard('concacaf_i', 'games/confederation/concacaf/olympic/%s' % year, INTERNATIONAL_DIR)
+
+    # U-20 World Cup qualifying
+    for year in [2009, 2011, 2013]:
+        load_games_standard('concacaf_i', 'games/confederation/concacaf/u20/%s' % year, INTERNATIONAL_DIR)
+
+    # U-17 World Cup qualifying (incomplete)
+    for year in [2009, 2011, 2013]:
+        load_games_standard('concacaf_i', 'games/confederation/concacaf/u17/%s' % year, INTERNATIONAL_DIR)
+
+
+
+
+
+def load_concacaf_modern():
+
     from metadata.parse import awards
     from parse.parse import rosters
+    
+    generic_load(soccer_db.concacaf_awards, awards.process_concacaf_awards)
 
     for e in range(2008, 2012):
         generic_load(soccer_db.concacaf_rosters, lambda: rosters.process_rosters3('rosters/league/%s' % e, CONCACAF_DIR))
 
-
-    generic_load(soccer_db.concacaf_awards, awards.process_concacaf_awards)
-
-    load_games_standard('concacaf', 'games/confederation/champions/league/2015', CONCACAF_DIR)
-    
+        
     for e in range(2008, 2014):
         load_games_standard('concacaf', 'games/confederation/champions/league/%s' % e, CONCACAF_DIR)
 
-    load_games_standard('concacaf', 'games/confederation/defunct/superliga', CONCACAF_DIR)
-    load_games_standard('concacaf', 'games/confederation/defunct/giants', CONCACAF_DIR)
-    load_games_standard('concacaf', 'games/confederation/defunct/recopa', CONCACAF_DIR)
+    for e in range(2015, 2016):
+        load_games_standard('concacaf', 'games/confederation/champions/league/%s' % e, CONCACAF_DIR)        
 
+    # League cups
+
+    # load_games_standard('concacaf', 'games/confederation/defunct/recopa', CONCACAF_DIR)
+    load_games_standard('concacaf', 'games/confederation/defunct/giants', CONCACAF_DIR)
+    load_games_standard('concacaf', 'games/confederation/defunct/superliga', CONCACAF_DIR)
+
+    for e in range(2019, 2027):
+        load_games_standard('concacaf', 'games/confederation/leagues/%s' % e, CONCACAF_DIR)
+    
+
+def load_concacaf_historic():
 
     for e in [1960, 1970, 1980, 1990, 2000]:
         load_games_standard('concacaf', 'games/confederation/champions/%s' % e, CONCACAF_DIR)
