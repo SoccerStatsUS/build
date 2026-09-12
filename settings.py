@@ -126,6 +126,7 @@ SINGLE_SOURCES = [
     'teams', 
     'stadiums', 
     'cities',
+    'city_coordinates',
     'states',
     'countries',
 

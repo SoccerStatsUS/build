@@ -357,6 +357,7 @@ def load_place_data():
     generic_load(soccer_db.states, places.load_states)
     generic_load(soccer_db.state_populations, places.load_state_populations)
     generic_load(soccer_db.stadiums, places.load_stadiums)
+    generic_load(soccer_db.city_coordinates, places.load_cities)
 
 
 def load_scraped_us_cups():
