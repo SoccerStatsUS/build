@@ -1,4 +1,4 @@
-from build.mongo import generic_load, soccer_db, insert_rows, insert_row
+from build.mongo import generic_load, soccer_db, insert_rows
 from build.settings import SOURCES
 
 from collections import defaultdict

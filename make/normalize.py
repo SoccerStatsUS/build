@@ -2,7 +2,7 @@ import datetime
 from settings import SOURCES
 
 from metadata.alias import get_team, get_name, get_season, get_competition, get_place, get_stadium, get_city, get_round
-from build.mongo import generic_load, soccer_db, insert_rows, insert_row, soccer_db
+from build.mongo import generic_load, soccer_db, insert_rows
 
 from separate import separate_team, separate_name
 

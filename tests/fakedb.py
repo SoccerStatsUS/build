@@ -17,6 +17,9 @@ class FakeCollection:
     def insert_one(self, row):
         self.rows.append(dict(row))
 
+    def insert_many(self, rows, ordered=True):
+        self.rows.extend(dict(r) for r in rows)
+
     def drop(self):
         self.rows = []
 
