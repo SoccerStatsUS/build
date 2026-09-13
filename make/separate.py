@@ -548,7 +548,7 @@ sep_teams = {
         ],
 
     'Athletic': [
-        (from_competition('La Liga'), 'Atletico Madrid'),
+        (from_competition('La Liga'), 'Athletic Bilbao'),
         ],
 
 

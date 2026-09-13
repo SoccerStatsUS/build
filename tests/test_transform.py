@@ -86,3 +86,12 @@ def test_olympic_format_string(db):
 
     games = {g['competition']: g for g in rows(db, 'fifa_games')}
     assert games[U17]['team1'] == 'United States Olympic'
+
+
+def test_athletic_in_la_liga_is_bilbao_not_atletico():
+    # separate.py once sent "Athletic" to Atlético Madrid, so every Athletic
+    # v Atlético fixture from 1997 to 2014 loaded as Atlético against itself.
+    from separate import separate_team
+    game = {'competition': 'La Liga', 'season': '1997-1998'}
+    assert separate_team('Athletic', game) == 'Athletic Bilbao'
+    assert separate_team('Atletico', game) == 'Atlético Madrid'
