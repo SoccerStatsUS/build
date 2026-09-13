@@ -116,6 +116,10 @@ SOURCES = [
     # lets later ones fill only the fields it left empty. espn never overwrites
     # a league's own record of its own game, it just fills the holes.
     'espn',
+
+    # OpenFootball is broad public-domain coverage and an independent check on
+    # the source-specific records above. Keep it last so it only fills gaps.
+    'openfootball',
         ]
 
 

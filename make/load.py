@@ -6,6 +6,8 @@
 import functools
 import os
 
+import openfootball_data
+
 from metadata.alias.people import check_for_name_loops
 from metadata.alias.teams import check_for_team_loops, get_team
 from build.mongo import generic_load, soccer_db
@@ -35,6 +37,7 @@ MLSSOCCER_DIR = os.path.join(ROOT_DIR, 'mlssoccer_data')
 THECUP_DIR = os.path.join(ROOT_DIR, 'thecup_data')
 NWSLSOCCER_DIR = os.path.join(ROOT_DIR, 'nwslsoccer_data')
 ESPN_DIR = os.path.join(ROOT_DIR, 'espn_data')
+OPENFOOTBALL_DIR = os.path.join(ROOT_DIR, 'openfootball')
 CUPS_DIR = os.path.join(ROOT_DIR, 'us_cup_data')
 ISL_DIR = os.path.join(ROOT_DIR, 'isl_data')
 
@@ -255,11 +258,22 @@ def load():
         # Custom sources
         load_spalding,
         load_ltrack,
+
+        # Broad public-domain results, deliberately last in source priority.
+        load_openfootball,
     ]
     # enabled_loaders = [ load_canada_modern, load_nasl, load_uefa_leagues, load_asl, load_women_usd1, load_mexico, load_uncaf]
     
     for loader in enabled_loaders:
         loader()
+
+
+def load_openfootball():
+    generic_load(
+        soccer_db.openfootball_games,
+        lambda: openfootball_data.load(OPENFOOTBALL_DIR),
+        delete=False,
+    )
 
 
 def load_name_maps():

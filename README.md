@@ -14,6 +14,9 @@ The full flow is: data repos -> mongo (this repo) -> postgres (s2 repo) -> ship 
     # clone this repo, metadata, parse, and the data repos as siblings in ~/soccer/
     # (usd1_data, us_minor_data, world_data, ... see the list in make/load.py)
 
+    # clone/update the OpenFootball repositories used by the build
+    ./build/install/of.sh
+
     # python environment
     cd ~/soccer/build
     uv venv --python 3.12
@@ -106,6 +109,7 @@ Finally, data is denormalized (time and location-specific names) and (optionally
 
 * metadata
 * soccerdata
+* openfootball/{world,champions-league,england,espana,deutschland,italy,europe}
 
 
 #### load
@@ -186,4 +190,3 @@ Check data (standing validity, game fields)
 ### Outstanding tasks
 
 See [ROADMAP.md](ROADMAP.md).
-

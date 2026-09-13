@@ -1,8 +1,16 @@
-mkdir openfootball
-cd openfootball/
-git clone https://github.com/sportkit/sport.db.starter.ruby.git
-sudo apt-get install bundler sqlite3 libsqlite3-dev emacs git-core
-cd sport.db.starter.ruby/
-sudo gem install sqlite3 -v '1.3.9'
-bundle install
-ruby server.rb
+#!/bin/sh
+set -eu
+
+soccer_dir=$(CDPATH= cd -- "$(dirname "$0")/../.." && pwd)
+data_dir="$soccer_dir/openfootball"
+
+mkdir -p "$data_dir"
+
+for repo in world champions-league england espana deutschland italy europe; do
+    target="$data_dir/$repo"
+    if [ -d "$target/.git" ]; then
+        git -C "$target" pull --ff-only
+    else
+        git clone "https://github.com/openfootball/$repo.git" "$target"
+    fi
+done
