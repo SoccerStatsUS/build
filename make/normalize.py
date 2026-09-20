@@ -298,6 +298,7 @@ def normalize_game(e, location_normalizer):
     else:
         if e['shootout_winner']:
             e['shootout_winner'] = get_team(e['shootout_winner'])
+            e['shootout_winner'] = separate_team(e['shootout_winner'], e)
 
 
     if e.get('referee'):

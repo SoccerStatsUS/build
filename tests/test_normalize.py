@@ -7,6 +7,7 @@ from fakedb import FakeDB
 from normalize import (
     calculate_game_results,
     calculate_lineup_result,
+    normalize_game,
     normalize_goal,
 )
 
@@ -186,3 +187,20 @@ def test_importing_normalize_does_not_read_stadiums(monkeypatch):
     monkeypatch.setattr(mongo, 'soccer_db', UnavailableDatabase())
     spec = importlib.util.spec_from_file_location('normalize_import_test', Path(normalize.__file__))
     spec.loader.exec_module(importlib.util.module_from_spec(spec))
+
+
+# normalize_game
+
+def test_normalize_game_separates_shootout_winner():
+    e = normalize_game({
+        'competition': 'CONCACAF Champions League',
+        'season': '2020',
+        'date': None,
+        'team1': 'Seattle Sounders',
+        'team2': 'Olimpia',
+        'team1_score': 2,
+        'team2_score': 2,
+        'shootout_winner': 'Olimpia',
+    }, lambda location: (None, location))
+    assert e['team1'] == 'CD Olimpia'
+    assert e['shootout_winner'] == 'CD Olimpia'
