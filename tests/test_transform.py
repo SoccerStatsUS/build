@@ -103,3 +103,15 @@ def test_separate_team_cd_chivas_is_chivas_usa():
     for competition in ('Major League Soccer', 'MLS Cup Playoffs'):
         game = {'competition': competition, 'season': '2010'}
         assert separate_team('CD Chivas', game) == 'Chivas USA'
+
+
+def test_separate_team_reserve_league_goes_to_reserve_side():
+    # Scott Leach's 2011 files list MLS Reserve League games under the first team.
+    from separate import separate_team
+    reserve = {'competition': 'MLS Reserve League', 'season': '2011'}
+    assert separate_team('Seattle Sounders', reserve) == 'Seattle Sounders Reserves'
+    assert separate_team('LA Galaxy', reserve) == 'LA Galaxy Reserves'
+    assert separate_team('Chicago Fire', reserve) == 'Chicago Fire Reserves'
+    mls = {'competition': 'Major League Soccer', 'season': '2011'}
+    assert separate_team('Seattle Sounders', mls) == 'Seattle Sounders'
+    assert separate_team('Chicago Fire', mls) == 'Chicago Fire'

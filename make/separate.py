@@ -1797,6 +1797,19 @@ sep_teams = {
 
 
 
+# Scott Leach's 2011 data files MLS Reserve League games under the first
+# team's name, so a Sounders team page would show reserve games as Sounders games.
+for _team in [
+        'Chicago Fire', 'Chivas USA', 'Colorado Rapids', 'Columbus Crew',
+        'D.C. United', 'FC Dallas', 'Houston Dynamo', 'LA Galaxy',
+        'New England Revolution', 'New York Red Bulls', 'Philadelphia Union',
+        'Portland Timbers', 'Real Salt Lake', 'San Jose Earthquakes',
+        'Seattle Sounders', 'Sporting Kansas City', 'Toronto FC', 'Vancouver Whitecaps',
+        ]:
+    sep_teams.setdefault(_team, []).append(
+        (from_competition('MLS Reserve League'), '%s Reserves' % _team))
+
+
 def separate_team(team, data):
 
     if team not in sep_teams:
