@@ -1,3 +1,6 @@
+import importlib.util
+from pathlib import Path
+
 import pytest
 
 from fakedb import FakeDB
@@ -141,3 +144,45 @@ def test_a_place_that_is_not_a_stadium_stays_a_place(monkeypatch):
     getter = location_normalizer(monkeypatch, STUBHUB)
 
     assert getter('Richardson, Texas')[0] is None
+
+
+def test_normalization_uses_current_normalized_stadiums_each_run(monkeypatch):
+    import normalize
+
+    db = FakeDB()
+    monkeypatch.setattr(normalize, 'soccer_db', db)
+    monkeypatch.setattr(normalize, 'SOURCES', ['test'])
+    monkeypatch.setattr(normalize, 'get_stadium',
+                        lambda name: 'Build Stadium' if name == 'Raw Stadium' else name)
+
+    for city in ('Carson, CA', 'Dallas, TX'):
+        db.stadiums.drop()
+        db.stadiums.insert_one({
+            'name': 'Raw Stadium', 'location': city, 'opened': None, 'closed': None,
+        })
+        db.test_games.drop()
+        db.test_games.insert_one({
+            'team1': 'FC Dallas', 'team2': 'LA Galaxy',
+            'team1_score': 1, 'team2_score': 0,
+            'competition': 'Major League Soccer', 'season': '2010',
+            'location': 'Build Stadium',
+        })
+
+        normalize.normalize()
+
+        game = db.test_games.rows[0]
+        assert game['stadium'] == 'Build Stadium'
+        assert game['location'] == city
+
+
+def test_importing_normalize_does_not_read_stadiums(monkeypatch):
+    import normalize
+    from build import mongo
+
+    class UnavailableDatabase:
+        def __getattr__(self, name):
+            raise AssertionError(f'Import read the {name} collection')
+
+    monkeypatch.setattr(mongo, 'soccer_db', UnavailableDatabase())
+    spec = importlib.util.spec_from_file_location('normalize_import_test', Path(normalize.__file__))
+    spec.loader.exec_module(importlib.util.module_from_spec(spec))

@@ -1,4 +1,5 @@
 import datetime
+from functools import partial
 from settings import SOURCES
 
 from metadata.alias import get_team, get_name, get_season, get_competition, get_place, get_stadium, get_city, get_round
@@ -38,7 +39,8 @@ def normalize():
     normalize_single_coll(soccer_db.stadium_maps, normalize_stadiummap)
 
     # Game data
-    normalize_multiple_colls('games', normalize_game)
+    normalize_multiple_colls('games', partial(
+        normalize_game, location_normalizer=make_location_normalizer()))
     normalize_multiple_colls('lineups', normalize_lineup)
     normalize_multiple_colls('gstats', normalize_game_stat)
     normalize_multiple_colls('rosters', normalize_roster)
@@ -136,7 +138,6 @@ def make_location_normalizer():
         
     return getter
 
-location_normalizer = make_location_normalizer()
 
 
 
@@ -232,7 +233,7 @@ def normalize_game_stat(e):
 
 # Change all of these to use only a single game.
 
-def normalize_game(e):
+def normalize_game(e, location_normalizer):
 
     e['competition'] = get_competition(e['competition'])
     e['season'] = get_season(e['season'])
