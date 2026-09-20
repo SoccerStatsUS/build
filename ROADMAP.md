@@ -101,6 +101,14 @@ Missing or thin source data. Roughly ordered by how much is missing.
   derive the root from the repo location) would make the suite portable and open the
   door to CI. Not urgent while the build is one-machine and local.
 
+## Pipeline Refactors
+
+- [ ] Consolidate the repeated team-name transformation loops in
+  `make/transform.py:transform_team_names_for_competition`. Use a small
+  collection-to-fields mapping: games transform `team1` and `team2`; goals,
+  lineups and stats transform `team`. Preserve the existing competition rules
+  and cover all four collections with tests.
+
 ## Error Detection
 
 - [ ] Duplicate keys in dict literals silently discard the first value. An AST scan of
