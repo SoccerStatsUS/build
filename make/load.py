@@ -820,11 +820,16 @@ def load_women_usd1():
     load_games_standard('women', 'games/usa/wusa/wusa', root=NWSL_DIR)
     load_games_standard('women', 'games/usa/wps/wps', root=NWSL_DIR)
 
-    for e in range(2013, 2020):
+    # Hand-kept seasons only where the scraper has none; from 2015 the
+    # nwslsoccer files are the record (93-189 games a season against 4-120).
+    for e in range(2013, 2015):
         load_games_standard('women', 'games/usa/nwsl/%s' % e, root=NWSL_DIR)
 
-    # Scraped
-    # load_games_dir('women', 'nwsl', NWSLSOCCER_DIR)
+    # Scraped: 2015-2019 and 2021-, converted by scrapers/nwslsoccer/convert.py.
+    # 2016 and 2019 carry scores but no scorers until the converter reads the
+    # event feeds (scrapers/nwslsoccer/feeds.py has them).
+    load_games_dir('women', 'nwsl', NWSLSOCCER_DIR)
+    load_standings_standard('women', 'standings/nwsl', root=NWSLSOCCER_DIR)
     # load_espn_games('nwsl')
 
     nwsl_stats = stats.process_stats("nwsl/2013", root=os.path.join(NWSL_DIR, 'stats'), delimiter=';')
