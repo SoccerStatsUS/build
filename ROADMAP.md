@@ -7,6 +7,20 @@ denormalize (see `README.md`). Items below are grouped by the stage they affect.
 
 ---
 
+## Game Identity
+
+- [ ] **Games without a gid.** `ltrack_games` (all 10,121) and the MLS Lineup Database
+  games in `mls_games` (5,496) reach the merged `games` collection with no `gid`; every
+  other loader gets one from `parse.games.get_id()`. Give these loaders a gid too, then
+  make `gid` required on the merged game.
+- [ ] **Game sources land on the wrong duplicate.** The s2 loader attaches sources by
+  `(team1, date)` (`s2/build/load.py`, `make_game_getter`). When two loads of the same
+  game do not merge (e.g. an unmapped OpenFootball name such as "Newcastle United FC"),
+  both share that key, so both sources go to whichever copy was inserted last and the
+  other shows as unsourced. Fix is to key by `gid`, which needs the item above; a first
+  attempt crashed on the gid-less games. Goals, stats and appearances use the same getter
+  and have the same collision.
+
 ## Name Mapping
 
 - [ ] Review the player identity audit (`python -m build.identity`).
