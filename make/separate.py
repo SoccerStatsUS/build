@@ -507,6 +507,7 @@ sep_teams = {
         (from_competition('Brasileirão'), 'América Futebol Clube'),
         (from_competition('Campeonato Mineiro'), 'América Futebol Clube'),
         #(from_competition('Campeonato Carioca'), 'América (RJ)'),
+        (from_competition('Nicaraguan Primera División'), 'América Managua'),
         ],
 
     'Anaheim': [
@@ -540,6 +541,7 @@ sep_teams = {
     'Atlanta': [
         (from_seasons('USL First Division', set(['1997'])), 'Atlanta Ruckus'),
         (from_seasons('American Professional Soccer League', set(['1995'])), 'Atlanta Ruckus'),
+        (from_competition('MLS Cup Playoffs'), 'Atlanta United'),
         ],
 
 
@@ -549,6 +551,11 @@ sep_teams = {
 
     'Athletic': [
         (from_competition('La Liga'), 'Athletic Bilbao'),
+        ],
+
+    'Athletic Club': [
+        (from_competition('La Liga'), 'Athletic Bilbao'),
+        (from_competition('UEFA Champions League'), 'Athletic Bilbao'),        
         ],
 
 
@@ -1739,11 +1746,7 @@ sep_teams = {
 
     'Victoria': [
         (from_competition('Liga Nacional de Honduras'), 'CD Victoria'),
-        ],
-
-
-    'Victoria': [
-        (from_competition('Liga Nacional de Honduras'), 'CDS Vida'),
+        (from_seasons('CONCACAF Champions League', set(['2013-2014', ])), 'CD Victoria')
         ],
 
 
