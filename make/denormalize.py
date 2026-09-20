@@ -25,6 +25,7 @@ def denormalize():
     denormalize_goals()
     denormalize_lineups()
     denormalize_game_stats()
+    denormalize_bios()
     denormalize_stats()
 
     
@@ -89,15 +90,16 @@ def denormalize_game_stats():
 
 
     game_stats = []
-    for gs in soccer_db.game_stats.find():
+    for gs in soccer_db.gstats.find():
 
         gs['team_original_name'] = team_name_ungetter(gs['team'], gs['date'])
         game_stats.append(gs)
 
-    soccer_db.game_stats.drop()
-    insert_rows(soccer_db.game_stats, game_stats)
+    soccer_db.gstats.drop()
+    insert_rows(soccer_db.gstats, game_stats)
 
 
+def denormalize_bios():
     hall_of_famers = set([e['recipient'] for e in soccer_db.awards.find({'award': 'US Soccer Hall of Fame'})])
     l = []
     for e in soccer_db.bios.find():
