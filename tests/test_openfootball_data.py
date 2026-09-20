@@ -105,6 +105,38 @@ Sat May 30 2026
     assert game['home_team'] is None
 
 
+def test_parses_shootout_straight_after_ninety_minutes():
+    games = parse("""= Major League Soccer 2024
+# Matches 2
+▪ Playoffs, Round One
+Sat Nov 2
+  20:00  Charlotte FC             v Orlando City             3-1 pen. (0-0)
+  Sun Nov 3
+  18:00  Atlanta United FC        v Inter Miami CF           4-5 pen. (2-2, 0-2)
+""", 'Major League Soccer')
+
+    charlotte, atlanta = games
+    assert charlotte['team2'] == 'Orlando City'
+    assert (charlotte['team1_score'], charlotte['team2_score']) == (0, 0)
+    assert charlotte['shootout_winner'] == 'Charlotte FC'
+    assert atlanta['team2'] == 'Inter Miami CF'
+    assert (atlanta['team1_score'], atlanta['team2_score']) == (2, 2)
+    assert atlanta['shootout_winner'] == 'Inter Miami CF'
+    assert atlanta['minutes'] == 90
+
+
+def test_strips_country_suffix_from_padded_home_team():
+    game = parse("""= CONCACAF Champions League 2014/15
+# Matches 1
+▪ Group 1
+Tue Aug 5 2014
+  19:00  CF América (MEX)        v Bayamón FC (PUR)         6-1 (5-0)
+""", 'CONCACAF Champions League')[0]
+
+    assert game['team1'] == 'CF América'
+    assert game['team2'] == 'Bayamón FC'
+
+
 @pytest.mark.parametrize('heading,competition,season,round_', [
     ('Playoffs, Conference Finals', 'MLS Cup Playoffs', '2024', 'Conference Finals'),
     ('Apertura, Matchday 1', 'Liga MX', '2024-2025 Apertura', 'Matchday 1'),

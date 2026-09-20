@@ -37,6 +37,10 @@ NO_V_RE = re.compile(
     + r'\s{2,}(?P<team2>.+?)(?:\s{2,}\[(?P<note>[^]]+)\])?$'
 )
 COUNTRY_SUFFIX_RE = re.compile(r'\s+\([A-Z]{3}\)$')
+# A shootout straight after 90 minutes gives the full-time score only inside
+# the parentheses: "4-5 pen. (2-2, 0-2)". Rewrite it to "4-5 pen. 2-2 (0-2)"
+# so it reads like the a.e.t. form.
+PEN_ONLY_RE = re.compile(r'(\d+-\d+ pen\.) \((\d+-\d+)(?:, )?([^)]*)\)')
 
 
 def files(root):
@@ -195,6 +199,7 @@ def _date(match, season):
 
 def _match(line):
     line = TIME_RE.sub('', line, count=1).strip()
+    line = PEN_ONLY_RE.sub(r'\1 \2 (\3)', line)
     note = ''
 
     if ' v ' in line:
@@ -228,8 +233,8 @@ def _match_parts(team1, team2, score, note):
         score1 = score2 = penalty1 = penalty2 = None
         aet = False
 
-    team1 = COUNTRY_SUFFIX_RE.sub('', team1).strip()
-    team2 = COUNTRY_SUFFIX_RE.sub('', team2).strip()
+    team1 = COUNTRY_SUFFIX_RE.sub('', team1.strip())
+    team2 = COUNTRY_SUFFIX_RE.sub('', team2.strip())
     if not team1 or not team2:
         return None
     return team1, team2, score1, score2, penalty1, penalty2, note, aet
