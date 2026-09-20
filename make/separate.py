@@ -115,10 +115,6 @@ sep_names = {
 
         ],
 
-    'Jenison': [
-        ('Jenison Brito', {'team': 'Fort Lauderdale Striekrs', }),
-        ],
-
     #'Geovanni': [
     #    ('Geovanni Deiberson Maurício', {'team': 'San Jose Earthquakes'}),
     #    ('Geovanni Deiberson Maurício', {'team': 'Hull City'}),
@@ -381,7 +377,7 @@ sep_names = {
 
 sep_teams = {
     'Saint Louis': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'Saint Louis University')],
-    'Maryland': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Maryland')],
+
     'West Chester': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'West Chester University')],
 
     'CCNY': [(from_competition('NCAA Division I Men\'s Soccer Championship'), 'City College of New York')],
@@ -1078,10 +1074,6 @@ sep_teams = {
         ],
 
     'Ludlow': [
-        (from_seasons('American Soccer League (1921-1933)', set(['1956-1957'])), 'Ludlow Lusitano'),
-        ],
-
-    'Ludlow': [
         (from_seasons('American Soccer League (1921-1933)', set(['1956-1957', '1957-1958'])), 'Ludlow Lusitano'),
         ],
 
@@ -1091,6 +1083,7 @@ sep_teams = {
         ],
 
     'Maryland': [
+        (from_competition('NCAA Division I Men\'s Soccer Championship'), 'University of Maryland'),
         (from_seasons('American Professional Soccer League', set(['1989', '1990'])), 'Maryland Bays'),
         (from_seasons('USL First Division', set(['1999'])), 'Maryland Mania'),
         ],
@@ -1359,10 +1352,6 @@ sep_teams = {
         ],
 
 
-    'Rapid': [
-        (from_competition('Liga I'), 'Rapid Bucureşti'),
-
-        ],
 
     'Real Espana': [
         (from_competition('Liga Nacional de Honduras'), 'Real C.D. España'),
@@ -1398,6 +1387,7 @@ sep_teams = {
         ],
 
     'Rapid': [
+        (from_competition('Liga I'), 'Rapid Bucureşti'),
         (from_competition('Austrian Bundesliga'), 'Rapid Vienna'),
         ],
 
@@ -1557,9 +1547,6 @@ sep_teams = {
         ],
 
 
-    'Springfield': [
-        (from_competition('American Soccer League (1921-1933)'), 'Shawsheen Indians'),
-        ],
 
 
     'Slavia': [
@@ -1596,6 +1583,7 @@ sep_teams = {
         ],
 
     'Springfield': [
+        # (from_competition('American Soccer League (1921-1933)'), 'Shawsheen Indians'),        
         (from_competition('American Soccer League (1921-1933)'), 'Springfield Babes'),
         ],
 
