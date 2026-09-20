@@ -95,3 +95,11 @@ def test_athletic_in_la_liga_is_bilbao_not_atletico():
     game = {'competition': 'La Liga', 'season': '1997-1998'}
     assert separate_team('Athletic', game) == 'Athletic Bilbao'
     assert separate_team('Atletico', game) == 'Atlético Madrid'
+
+
+def test_separate_team_cd_chivas_is_chivas_usa():
+    # OpenFootball's MLS files call Chivas USA "CD Chivas" from 2005 to 2014.
+    from separate import separate_team
+    for competition in ('Major League Soccer', 'MLS Cup Playoffs'):
+        game = {'competition': competition, 'season': '2010'}
+        assert separate_team('CD Chivas', game) == 'Chivas USA'

@@ -767,6 +767,11 @@ sep_teams = {
         ],
 
 
+    'CD Chivas': [
+        (from_competition('Major League Soccer'), 'Chivas USA'),
+        (from_competition('MLS Cup Playoffs'), 'Chivas USA'),
+        ],
+
     'Columbus': [
         (from_competition('Major League Soccer'), 'Columbus Crew'),
         (from_competition('MLS Cup Playoffs'), 'Columbus Crew'),
