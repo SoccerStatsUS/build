@@ -1,7 +1,7 @@
 from build.mongo import generic_load, soccer_db, insert_rows
 from build.settings import SOURCES
 
-from collections import defaultdict
+from collections import Counter, defaultdict
 import datetime
 import random
 
@@ -30,6 +30,9 @@ def merge():
 
     # Merge extra data
     merge_awards()
+
+    # Needs the merged stats and lineups.
+    fill_bios()
 
 
 
@@ -309,6 +312,114 @@ def merge_bio_rows(bios_lists):
             update_bio(bio)
 
     return bio_dict.values()
+
+
+# The youngest and oldest a player can plausibly be in a season on record.
+MIN_AGE, MAX_AGE = 13, 45
+
+
+def fill_bios():
+    """
+    Give a birth date from the scraped player file to people who have none.
+    """
+
+    years = defaultdict(set)
+    names = defaultdict(Counter)
+
+    def seen(name, year):
+        key = person_identity_key(name)
+        years[key].add(year)
+        names[key][name] += 1
+
+    for e in soccer_db.stats.find({}, {'name': 1, 'season': 1}):
+        year = str(e.get('season') or '')[:4]
+        if e.get('name') and year.isdigit():
+            seen(e['name'], int(year))
+
+    for e in soccer_db.lineups.find({}, {'name': 1, 'date': 1}):
+        if e.get('name') and e.get('date'):
+            seen(e['name'], e['date'].year)
+
+    names = {key: counts.most_common(1)[0][0] for key, counts in names.items()}
+
+    bios, tally, conflicts = fill_bio_birthdates(
+        soccer_db.bios.find(), soccer_db.scraped_bios.find(), years, names,
+        datetime.date.today())
+
+    soccer_db.bios.drop()
+    insert_rows(soccer_db.bios, bios)
+
+    print('scraped birth dates: %s' % ', '.join(
+        '%d %s' % (n, what) for what, n in tally.most_common()))
+    for name, held, scraped in conflicts:
+        print('DATA WARNING: birth date conflict: %s is held as %s, mlssoccer.com has %s'
+              % (name, held, scraped))
+
+
+def fill_bio_birthdates(bios, scraped, years_by_key, names_by_key, today):
+    """
+    Bios merge on name alone, so a scraped birth date is taken only on evidence
+    that it belongs to the person on record: one scraped player of that name, a
+    season in common with the seasons held under it, and an age between MIN_AGE
+    and MAX_AGE in every one of those seasons. A date already held is never
+    replaced; where the two differ the pair is returned as a conflict.
+
+    A person on record through stats or lineups alone has no bio row yet and
+    gets one, under the name already in use. Nobody is added who does not
+    already appear.
+    """
+
+    bios = [dict(b) for b in bios]
+    for b in bios:
+        b.pop('_id', None)
+    by_key = {person_identity_key(b['name']): b for b in bios}
+
+    players = defaultdict(list)
+    for p in scraped:
+        players[person_identity_key(p['name'])].append(p)
+
+    tally = Counter()
+    conflicts = []
+
+    for key, rows in players.items():
+        if len(rows) > 1:
+            tally['skipped, name shared by scraped players'] += len(rows)
+            continue
+
+        p = rows[0]
+        try:
+            born = datetime.datetime.fromisoformat((p.get('dob') or '')[:10])
+        except ValueError:
+            born = None
+        if born is None or today.year - born.year < MIN_AGE:
+            tally['skipped, no usable date'] += 1
+            continue
+
+        bio = by_key.get(key)
+        if bio is not None and bio.get('birthdate'):
+            if bio['birthdate'].date() == born.date():
+                tally['already held'] += 1
+            else:
+                tally['conflicting'] += 1
+                conflicts.append((bio['name'], bio['birthdate'].date().isoformat(),
+                                  born.date().isoformat()))
+            continue
+
+        years = years_by_key.get(key)
+        if not years:
+            tally['skipped, not on record'] += 1
+        elif not years & set(p.get('seasons') or []):
+            tally['skipped, no season in common'] += 1
+        elif min(years) - born.year < MIN_AGE or max(years) - born.year > MAX_AGE:
+            tally['skipped, implausible age'] += 1
+        else:
+            if bio is None:
+                bio = by_key[key] = {'name': names_by_key[key], 'source': 'MLSSoccer.com'}
+                bios.append(bio)
+            bio['birthdate'] = born
+            tally['filled'] += 1
+
+    return bios, tally, conflicts
 
 
 def merge_games(games_lists):

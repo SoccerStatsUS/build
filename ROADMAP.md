@@ -51,8 +51,18 @@ denormalize (see `README.md`). Items below are grouped by the stage they affect.
 
 - [ ] Parser and data formats are not properly specified — the text formats consumed by
   `make/load.py` are defined only by what the parser happens to accept.
-- [ ] Load the scraped bios — `mlssoccer_data/parsed/bios.jsonl` and
-  `nwslsoccer_data/parsed/bios.jsonl` (3,861 rows) are read by nothing in `make/load.py`.
+- [ ] Load the rest of the scraped bios. Birth dates from
+  `mlssoccer_data/parsed/players.jsonl` now fill blanks at merge (`fill_bio_birthdates`,
+  `make/merge.py`), guarded by seasons in common because bios merge on name. Still read
+  by nothing: `nwslsoccer_data/parsed/bios.jsonl` (same step, different row shape);
+  birthplace (scraped as `Philadelphia, PA, USA`, which no place alias resolves);
+  nationality (scraped as adjectives, `American`, where the site keys on country names);
+  height and weight; and `mlssoccer_data/parsed/bios.jsonl` (footedness, roster category,
+  career summary).
+- [ ] Resolve the birth dates the scraped file disputes. The build prints each as a
+  `DATA WARNING: birth date conflict`. Some are namesakes; some look like wrong hand-kept
+  dates in `metadata/data/people` (Sean Nealis 1976 against 1997, Alex Bono April 1
+  against April 25).
 - [ ] Merge bios on stable ids — `merge_bios` (`make/merge.py:265`) keys on name only and
   over-merges by its own admission; the scraped bios carry `player_id`/`provider_id`,
   so key on those where present and fall back to name.

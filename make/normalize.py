@@ -36,6 +36,7 @@ def normalize():
     normalize_single_coll(soccer_db.stadiums, normalize_stadium)
     normalize_single_coll(soccer_db.teams, normalize_team)
     normalize_multiple_colls('bios', normalize_bio) # Bios only as a group.
+    normalize_single_coll(soccer_db.scraped_bios, normalize_bio)
     normalize_single_coll(soccer_db.stadium_maps, normalize_stadiummap)
 
     # Game data

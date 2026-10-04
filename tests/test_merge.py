@@ -1,6 +1,7 @@
 import datetime
 
-from merge import merge_bio_rows, merge_games, merge_rosters, merge_stats
+from merge import fill_bio_birthdates, merge_bio_rows, merge_games, merge_rosters, merge_stats
+from metadata.utils import person_identity_key
 
 JAN1 = datetime.datetime(2012, 1, 1)
 JAN2 = datetime.datetime(2012, 1, 2)
@@ -35,6 +36,101 @@ def test_bios_with_different_normalized_names_stay_separate():
     ]])
 
     assert len(list(rows)) == 2
+
+
+TODAY = datetime.date(2026, 10, 4)
+SULLIVAN = {'name': 'Cavan Sullivan', 'dob': '2009-09-28', 'seasons': [2024, 2025, 2026]}
+BORN = datetime.datetime(2009, 9, 28)
+
+
+def fill(bios, scraped, years):
+    """Appearances are keyed the way merge keys a name, spelled as the site spells it."""
+    keys = {person_identity_key(name): seasons for name, seasons in years.items()}
+    names = {person_identity_key(name): name for name in years}
+    bios, tally, conflicts = fill_bio_birthdates(bios, scraped, keys, names, TODAY)
+    return bios, dict(tally), conflicts
+
+
+def test_a_scraped_birth_date_fills_a_bio_that_has_none():
+    bios, tally, _ = fill([{'name': 'Cavan Sullivan', 'birthplace': 'Philadelphia'}],
+                          [SULLIVAN], {'Cavan Sullivan': {2024, 2025, 2026}})
+
+    assert bios == [{'name': 'Cavan Sullivan', 'birthplace': 'Philadelphia', 'birthdate': BORN}]
+    assert tally == {'filled': 1}
+
+
+def test_a_player_on_record_through_appearances_alone_gets_a_bio_row():
+    bios, tally, _ = fill([], [SULLIVAN], {'Cavan Sullivan': {2024, 2025}})
+
+    assert bios == [{'name': 'Cavan Sullivan', 'source': 'MLSSoccer.com', 'birthdate': BORN}]
+
+
+def test_a_scraped_player_who_appears_nowhere_is_not_added():
+    bios, tally, _ = fill([], [SULLIVAN], {})
+
+    assert bios == []
+    assert tally == {'skipped, not on record': 1}
+
+
+def test_a_birth_date_already_held_is_kept_and_the_disagreement_reported():
+    held = datetime.datetime(1976, 4, 29)
+    bios, tally, conflicts = fill(
+        [{'name': 'Sean Nealis', 'birthdate': held}],
+        [{'name': 'Sean Nealis', 'dob': '1997-01-13', 'seasons': [2019]}],
+        {'Sean Nealis': {2019}})
+
+    assert bios == [{'name': 'Sean Nealis', 'birthdate': held}]
+    assert conflicts == [('Sean Nealis', '1976-04-29', '1997-01-13')]
+    assert tally == {'conflicting': 1}
+
+
+def test_a_namesake_with_no_season_in_common_is_left_alone():
+    # The Benjamín Galindo on record played 1993-1998; the scraped one was born in 1999.
+    bios, tally, _ = fill(
+        [], [{'name': 'Benjamín Galindo', 'dob': '1999-03-10', 'seasons': [2025]}],
+        {'Benjamín Galindo': {1993, 1998}})
+
+    assert bios == []
+    assert tally == {'skipped, no season in common': 1}
+
+
+def test_an_age_no_player_could_be_in_a_season_on_record_is_left_alone():
+    # Two people already merged under one name: a season in common, and one from 2009.
+    bios, tally, _ = fill(
+        [], [{'name': 'André Luiz', 'dob': '2002-02-23', 'seasons': [2026]}],
+        {'André Luiz': {2009, 2026}})
+
+    assert bios == []
+    assert tally == {'skipped, implausible age': 1}
+
+
+def test_a_name_two_scraped_players_share_is_left_alone():
+    bios, tally, _ = fill(
+        [],
+        [{'name': 'Luis Suárez', 'dob': '1987-01-24', 'seasons': [2025]},
+         {'name': 'Luis Suárez', 'dob': '2006-03-12', 'seasons': [2025]}],
+        {'Luis Suárez': {2025}})
+
+    assert bios == []
+    assert tally == {'skipped, name shared by scraped players': 2}
+
+
+def test_a_date_that_is_missing_or_makes_the_player_a_child_today_is_dropped():
+    bios, tally, _ = fill(
+        [],
+        [{'name': 'Taylor Booth', 'dob': '2026-05-31', 'seasons': [2026]},
+         {'name': 'No Date', 'dob': None, 'seasons': [2026]}],
+        {'Taylor Booth': {2026}, 'No Date': {2026}})
+
+    assert bios == []
+    assert tally == {'skipped, no usable date': 2}
+
+
+def test_a_timestamped_scraped_date_is_read_as_its_day():
+    bios, _, _ = fill([], [{'name': 'Alexander López', 'dob': '1992-06-05T00:00:00Z',
+                            'seasons': [2025]}], {'Alexander López': {2025}})
+
+    assert bios[0]['birthdate'] == datetime.datetime(1992, 6, 5)
 
 
 def game(**kw):

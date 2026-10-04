@@ -148,6 +148,7 @@ SINGLE_SOURCES = [
     'name_maps', # team, date -> string
     'stadium_maps', # team, date -> stadium
     'competition_maps', # competition, date -> string
+    'scraped_bios', # player -> birth date, filled into bios at merge
 
     # 'prerosters', # huh?#
     ]

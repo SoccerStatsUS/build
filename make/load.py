@@ -4,6 +4,7 @@
 # Data quality is too low.
 
 import functools
+import json
 import os
 
 import openfootball_data
@@ -350,8 +351,32 @@ def load_bios():
     generic_load(soccer_db.us_minor_bios, bios.process_usl2_bios)
 
     generic_load(soccer_db.us_minor_bios, bios.process_pdl_bios)
-    generic_load(soccer_db.us_minor_bios, bios.load_other_bios) 
-    
+    generic_load(soccer_db.us_minor_bios, bios.load_other_bios)
+
+    load_scraped_bios()
+
+
+def load_scraped_bios():
+    """
+    The mlssoccer.com player file, kept out of the *_bios sources. Bios merge
+    on name alone and this file is full of namesakes of older players, so merge
+    takes a birth date from it only where the seasons agree
+    (fill_bio_birthdates). Nothing is interpreted here.
+    """
+    rows = []
+    for line in open(os.path.join(MLSSOCCER_DIR, 'parsed', 'players.jsonl')):
+        p = json.loads(line)
+        seasons = {e.get('season') for e in (p.get('career') or []) + (p.get('match_log') or [])}
+        rows.append({
+            'name': p['name'],
+            'dob': p.get('dob'),
+            'seasons': sorted(s for s in seasons if s),
+            'player_id': p['id'],
+            'url': p.get('url'),
+        })
+
+    generic_load(soccer_db.scraped_bios, lambda: rows)
+
 
 def load_place_data():
     """
