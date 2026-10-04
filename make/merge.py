@@ -382,8 +382,10 @@ def fill_bio_birthdates(bios, scraped, years_by_key, names_by_key, today):
     conflicts = []
 
     for key, rows in players.items():
-        if len(rows) > 1:
-            tally['skipped, name shared by scraped players'] += len(rows)
+        # One player can be listed under several spellings of a name.
+        ids = {p.get('player_id') for p in rows}
+        if len(ids) > 1:
+            tally['skipped, name shared by scraped players'] += len(ids)
             continue
 
         p = rows[0]

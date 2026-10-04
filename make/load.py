@@ -358,22 +358,45 @@ def load_bios():
 
 def load_scraped_bios():
     """
-    The mlssoccer.com player file, kept out of the *_bios sources. Bios merge
-    on name alone and this file is full of namesakes of older players, so merge
-    takes a birth date from it only where the seasons agree
+    The mlssoccer.com player files, kept out of the *_bios sources. Bios merge
+    on name alone and these files are full of namesakes of older players, so
+    merge takes a birth date from them only where the seasons agree
     (fill_bio_birthdates). Nothing is interpreted here.
+
+    The birth date comes from the players file, or the rosters file for a
+    player it has not reached. A player's seasons are the ones the stats file
+    holds for the id, the ones in the profile, and the year a roster listed
+    them. The three files do not always agree on a name (the profile has Julian
+    Zakrzewski where the roster and the stats have Julian Hall), so a player
+    gets a row under each name any of them uses.
     """
-    rows = []
-    for line in open(os.path.join(MLSSOCCER_DIR, 'parsed', 'players.jsonl')):
-        p = json.loads(line)
-        seasons = {e.get('season') for e in (p.get('career') or []) + (p.get('match_log') or [])}
-        rows.append({
-            'name': p['name'],
-            'dob': p.get('dob'),
-            'seasons': sorted(s for s in seasons if s),
-            'player_id': p['id'],
-            'url': p.get('url'),
-        })
+    def read(name):
+        return [json.loads(line) for line in open(os.path.join(MLSSOCCER_DIR, 'parsed', name))]
+
+    seasons, names, profiles = {}, {}, {}
+
+    for s in read('player_stats.jsonl'):
+        seasons.setdefault(s['player_id'], set()).add(s['season'])
+        names.setdefault(s['player_id'], set()).add(s['name'])
+
+    for p in read('rosters.jsonl'):
+        seasons.setdefault(p['player_id'], set()).add(int(p['accessed'][:4]))
+        names.setdefault(p['player_id'], set()).add(p['name'])
+        profiles[p['player_id']] = p
+
+    for p in read('players.jsonl'):
+        seasons.setdefault(p['id'], set()).update(
+            e.get('season') for e in (p.get('career') or []) + (p.get('match_log') or []))
+        names.setdefault(p['id'], set()).add(p['name'])
+        profiles[p['id']] = p
+
+    rows = [{
+        'name': name,
+        'dob': p.get('dob'),
+        'seasons': sorted(s for s in seasons[player_id] if s),
+        'player_id': player_id,
+        'url': p.get('url'),
+    } for player_id, p in profiles.items() for name in sorted(names[player_id]) if name]
 
     generic_load(soccer_db.scraped_bios, lambda: rows)
 

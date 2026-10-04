@@ -107,12 +107,32 @@ def test_an_age_no_player_could_be_in_a_season_on_record_is_left_alone():
 def test_a_name_two_scraped_players_share_is_left_alone():
     bios, tally, _ = fill(
         [],
-        [{'name': 'Luis Suárez', 'dob': '1987-01-24', 'seasons': [2025]},
-         {'name': 'Luis Suárez', 'dob': '2006-03-12', 'seasons': [2025]}],
+        [{'name': 'Luis Suárez', 'dob': '1987-01-24', 'seasons': [2025], 'player_id': 'A'},
+         {'name': 'Luis Suárez', 'dob': '2006-03-12', 'seasons': [2025], 'player_id': 'B'}],
         {'Luis Suárez': {2025}})
 
     assert bios == []
     assert tally == {'skipped, name shared by scraped players': 2}
+
+
+def test_one_player_listed_under_two_spellings_is_not_a_shared_name():
+    rows = [{'name': name, 'dob': '2000-05-02', 'seasons': [2025], 'player_id': 'A'}
+            for name in ('Dagur Thorhallsson', 'Dagur Thórhallsson')]
+    bios, tally, _ = fill([], rows, {'Dagur Thórhallsson': {2025}})
+
+    assert [b['name'] for b in bios] == ['Dagur Thórhallsson']
+    assert tally == {'filled': 1}
+
+
+def test_a_player_is_found_under_whichever_of_his_names_the_site_uses():
+    # The profile says Zakrzewski; the roster, the stats and the site say Hall.
+    rows = [{'name': name, 'dob': '2008-03-24', 'seasons': [2023, 2026], 'player_id': 'A'}
+            for name in ('Julian Hall', 'Julian Zakrzewski')]
+    bios, tally, _ = fill([], rows, {'Julian Hall': {2023, 2026}})
+
+    assert bios == [{'name': 'Julian Hall', 'source': 'MLSSoccer.com',
+                     'birthdate': datetime.datetime(2008, 3, 24)}]
+    assert tally == {'filled': 1, 'skipped, not on record': 1}
 
 
 def test_a_date_that_is_missing_or_makes_the_player_a_child_today_is_dropped():
