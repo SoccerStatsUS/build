@@ -346,11 +346,61 @@ def normalize_pick(e):
     return e
 
 
+# Salary guides give positions two ways: letter codes through 2023 (M, D-M, GK),
+# a named role from 2024 (Center-back, Left Wing). A code is the group itself;
+# a role belongs to one.
+POSITION_CODES = {'GK': 'Goalkeeper', 'D': 'Defender', 'M': 'Midfielder', 'F': 'Forward'}
+
+POSITION_ROLES = {
+    'Goalkeeper': 'Goalkeeper',
+    'Center-back': 'Defender',
+    'Right-back': 'Defender',
+    'Left-back': 'Defender',
+    'Defensive Midfield': 'Midfielder',
+    'Central Midfield': 'Midfielder',
+    'Attacking Midfield': 'Midfielder',
+    'Right Midfield': 'Midfielder',
+    'Left Midfield': 'Midfielder',
+    'Midfielder': 'Midfielder',
+    # Wingers play in the front three the union lists them beside.
+    'Right Wing': 'Forward',
+    'Left Wing': 'Forward',
+    'Center Forward': 'Forward',
+    'Center Forward/Attacking Midfielder': 'Forward-Midfielder',
+    # Listed, but with no position to group.
+    'Substitute': '',
+}
+
+
+def salary_position(position):
+    """
+    A position as printed -> (position, group). Codes are spelled out and are
+    their own group, the first listed first: M-F is Midfielder-Forward. A named
+    role is kept as printed and given its group.
+    """
+    position = position.strip()
+    if not position:
+        return '', ''
+    if position in POSITION_ROLES:
+        return position, POSITION_ROLES[position]
+
+    codes = position.split('-') if '-' in position else position.split('/')
+    if codes == ['MF']:
+        codes = ['M', 'F']
+    if all(c in POSITION_CODES for c in codes):
+        group = '-'.join(POSITION_CODES[c] for c in codes)
+        return group, group
+
+    print("DATA WARNING: unknown salary position %r" % position)
+    return position, ''
+
+
 def normalize_salary(e):
     e['name'] = get_name(e['name'])
     if e['team']:
         e['team'] = get_team(e['team'])
     e['competition'] = get_competition(e['competition'])
+    e['position'], e['position_group'] = salary_position(e['position'])
     return e
 
 

@@ -10,6 +10,7 @@ from normalize import (
     normalize_game,
     normalize_goal,
     normalize_salary,
+    salary_position,
 )
 
 
@@ -115,7 +116,8 @@ def test_normalize_goal_normalizes_team_alias():
 
 def salary(**kw):
     e = {'name': 'Damarcus Beasley', 'team': 'Kansas City Wizards',
-         'competition': 'Major League Soccer', 'season': '2004', 'base': '100000'}
+         'competition': 'Major League Soccer', 'season': '2004', 'base': '100000',
+         'position': ''}
     e.update(kw)
     return e
 
@@ -128,6 +130,33 @@ def test_normalize_salary_normalizes_name_and_team():
 
 def test_normalize_salary_leaves_a_missing_team_missing():
     assert normalize_salary(salary(team=None))['team'] is None
+
+
+def test_normalize_salary_groups_the_position():
+    e = normalize_salary(salary(position='D-M'))
+    assert e['position'] == 'Defender-Midfielder'
+    assert e['position_group'] == 'Defender-Midfielder'
+
+
+@pytest.mark.parametrize('printed, expected', [
+    ('GK', ('Goalkeeper', 'Goalkeeper')),
+    ('M', ('Midfielder', 'Midfielder')),
+    ('M-F', ('Midfielder-Forward', 'Midfielder-Forward')),
+    ('F/M', ('Forward-Midfielder', 'Forward-Midfielder')),
+    ('MF', ('Midfielder-Forward', 'Midfielder-Forward')),
+    ('Center-back', ('Center-back', 'Defender')),
+    ('Left Wing', ('Left Wing', 'Forward')),
+    ('Defensive Midfield', ('Defensive Midfield', 'Midfielder')),
+    ('Substitute', ('Substitute', '')),
+    ('', ('', '')),
+])
+def test_salary_position(printed, expected):
+    assert salary_position(printed) == expected
+
+
+def test_an_unknown_salary_position_is_kept_ungrouped(capsys):
+    assert salary_position('Libero') == ('Libero', '')
+    assert 'unknown salary position' in capsys.readouterr().out
 
 
 # make_location_normalizer
