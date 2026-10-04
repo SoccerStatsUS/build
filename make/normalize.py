@@ -347,8 +347,7 @@ def normalize_pick(e):
 
 
 # Salary guides give positions two ways: letter codes through 2023 (M, D-M, GK),
-# a named role from 2024 (Center-back, Left Wing). A code is the group itself;
-# a role belongs to one.
+# a named role from 2024 (Center-back, Left Wing). Codes run back to front.
 POSITION_CODES = {'GK': 'Goalkeeper', 'D': 'Defender', 'M': 'Midfielder', 'F': 'Forward'}
 
 POSITION_ROLES = {
@@ -366,7 +365,7 @@ POSITION_ROLES = {
     'Right Wing': 'Forward',
     'Left Wing': 'Forward',
     'Center Forward': 'Forward',
-    'Center Forward/Attacking Midfielder': 'Forward-Midfielder',
+    'Center Forward/Attacking Midfielder': 'Midfielder',
     # Listed, but with no position to group.
     'Substitute': '',
 }
@@ -374,9 +373,11 @@ POSITION_ROLES = {
 
 def salary_position(position):
     """
-    A position as printed -> (position, group). Codes are spelled out and are
-    their own group, the first listed first: M-F is Midfielder-Forward. A named
-    role is kept as printed and given its group.
+    A position as printed -> (position, group). Codes are spelled out back to
+    front, however the guide ordered them: M-F, F-M, F/M and MF are all
+    Midfielder-Forward. A player listed in two places is grouped with the one
+    further back, so D/M is a Defender. A named role is kept as printed and
+    given its group.
     """
     position = position.strip()
     if not position:
@@ -388,8 +389,9 @@ def salary_position(position):
     if codes == ['MF']:
         codes = ['M', 'F']
     if all(c in POSITION_CODES for c in codes):
-        group = '-'.join(POSITION_CODES[c] for c in codes)
-        return group, group
+        order = list(POSITION_CODES)
+        names = [POSITION_CODES[c] for c in sorted(set(codes), key=order.index)]
+        return '-'.join(names), names[0]
 
     print("DATA WARNING: unknown salary position %r" % position)
     return position, ''

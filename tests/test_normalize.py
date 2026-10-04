@@ -133,17 +133,21 @@ def test_normalize_salary_leaves_a_missing_team_missing():
 
 
 def test_normalize_salary_groups_the_position():
-    e = normalize_salary(salary(position='D-M'))
+    e = normalize_salary(salary(position='M-D'))
     assert e['position'] == 'Defender-Midfielder'
-    assert e['position_group'] == 'Defender-Midfielder'
+    assert e['position_group'] == 'Defender'
 
 
 @pytest.mark.parametrize('printed, expected', [
     ('GK', ('Goalkeeper', 'Goalkeeper')),
     ('M', ('Midfielder', 'Midfielder')),
-    ('M-F', ('Midfielder-Forward', 'Midfielder-Forward')),
-    ('F/M', ('Forward-Midfielder', 'Forward-Midfielder')),
-    ('MF', ('Midfielder-Forward', 'Midfielder-Forward')),
+    ('M-F', ('Midfielder-Forward', 'Midfielder')),
+    ('F-M', ('Midfielder-Forward', 'Midfielder')),
+    ('F/M', ('Midfielder-Forward', 'Midfielder')),
+    ('MF', ('Midfielder-Forward', 'Midfielder')),
+    ('D/M', ('Defender-Midfielder', 'Defender')),
+    ('F-D', ('Defender-Forward', 'Defender')),
+    ('Center Forward/Attacking Midfielder', ('Center Forward/Attacking Midfielder', 'Midfielder')),
     ('Center-back', ('Center-back', 'Defender')),
     ('Left Wing', ('Left Wing', 'Forward')),
     ('Defensive Midfield', ('Defensive Midfield', 'Midfielder')),
