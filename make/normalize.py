@@ -59,6 +59,7 @@ def normalize():
 
     # Advanced
     normalize_single_coll(soccer_db.salaries, normalize_salary)
+    normalize_single_coll(soccer_db.sponsorships, normalize_sponsorship)
     normalize_single_coll(soccer_db.picks, normalize_pick)
     normalize_single_coll(soccer_db.positions, normalize_position)
     normalize_multiple_colls('awards', normalize_award)
@@ -403,6 +404,13 @@ def normalize_salary(e):
         e['team'] = get_team(e['team'])
     e['competition'] = get_competition(e['competition'])
     e['position'], e['position_group'] = salary_position(e['position'])
+    return e
+
+
+def normalize_sponsorship(e):
+    if e['club']:
+        e['club'] = get_team(e['club'])
+    e['competition'] = get_competition(e['competition'])
     return e
 
 

@@ -10,6 +10,7 @@ from normalize import (
     normalize_game,
     normalize_goal,
     normalize_salary,
+    normalize_sponsorship,
     salary_position,
 )
 
@@ -156,6 +157,15 @@ def test_normalize_salary_groups_the_position():
 ])
 def test_salary_position(printed, expected):
     assert salary_position(printed) == expected
+
+
+def test_normalize_sponsorship_normalizes_the_club():
+    e = normalize_sponsorship({'club': 'Kansas City Wizards', 'competition': 'Major League Soccer'})
+    assert e['club'] == 'Sporting Kansas City'
+
+
+def test_normalize_sponsorship_leaves_a_league_deal_without_a_club():
+    assert normalize_sponsorship({'club': None, 'competition': 'Major League Soccer'})['club'] is None
 
 
 def test_an_unknown_salary_position_is_kept_ungrouped(capsys):
