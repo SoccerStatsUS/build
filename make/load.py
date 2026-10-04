@@ -37,6 +37,7 @@ MLSSOCCER_DIR = os.path.join(ROOT_DIR, 'mlssoccer_data')
 THECUP_DIR = os.path.join(ROOT_DIR, 'thecup_data')
 NWSLSOCCER_DIR = os.path.join(ROOT_DIR, 'nwslsoccer_data')
 ESPN_DIR = os.path.join(ROOT_DIR, 'espn_data')
+USSOCCER_DIR = os.path.join(ROOT_DIR, 'ussoccer_data')
 OPENFOOTBALL_DIR = os.path.join(ROOT_DIR, 'openfootball')
 CUPS_DIR = os.path.join(ROOT_DIR, 'us_cup_data')
 ISL_DIR = os.path.join(ROOT_DIR, 'isl_data')
@@ -1870,6 +1871,10 @@ def load_usmnt():
         load_games_standard('usa', 'games/%s' % e, root)
 
     load_games_standard('usa', 'games/world_cup', root)
+
+    # usmnt_data ends July 1, 2017; ussoccer.com's own record starts in 2019.
+    load_games_dir('usa', 'usmnt', USSOCCER_DIR)
+
     # load_games_standard('usa', 'games/unofficial/us_cup', root)
     # load_games_standard('usa', 'games/unofficial/friendly', root)
 
