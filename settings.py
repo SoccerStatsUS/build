@@ -144,6 +144,7 @@ SINGLE_SOURCES = [
 
     'salaries', # player, date -> integer
     'sponsorships', # sponsor, club, years -> integer
+    'valuations', # team, publisher, season -> integer
     'positions', # player, date -> team
     'state_populations', # state -> integer
     'name_maps', # team, date -> string
