@@ -9,6 +9,7 @@ from normalize import (
     calculate_lineup_result,
     normalize_game,
     normalize_goal,
+    normalize_salary,
 )
 
 
@@ -108,6 +109,25 @@ def test_normalize_goal_normalizes_team_alias():
     # Dallas Burn -> FC Dallas, per README.
     e = normalize_goal(goal(team='Dallas Burn'))
     assert e['team'] == 'FC Dallas'
+
+
+# normalize_salary
+
+def salary(**kw):
+    e = {'name': 'Damarcus Beasley', 'team': 'Kansas City Wizards',
+         'competition': 'Major League Soccer', 'season': '2004', 'base': '100000'}
+    e.update(kw)
+    return e
+
+
+def test_normalize_salary_normalizes_name_and_team():
+    e = normalize_salary(salary())
+    assert e['name'] == 'DaMarcus Beasley'
+    assert e['team'] == 'Sporting Kansas City'
+
+
+def test_normalize_salary_leaves_a_missing_team_missing():
+    assert normalize_salary(salary(team=None))['team'] is None
 
 
 # make_location_normalizer

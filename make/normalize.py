@@ -347,6 +347,9 @@ def normalize_pick(e):
 
 def normalize_salary(e):
     e['name'] = get_name(e['name'])
+    if e['team']:
+        e['team'] = get_team(e['team'])
+    e['competition'] = get_competition(e['competition'])
     return e
 
 

@@ -43,6 +43,7 @@ CUPS_DIR = os.path.join(ROOT_DIR, 'us_cup_data')
 ISL_DIR = os.path.join(ROOT_DIR, 'isl_data')
 
 TEAM_DIR = os.path.join(ROOT_DIR, 'team_data')
+MONEY_DIR = os.path.join(ROOT_DIR, 'money_data')
 
 INTERNATIONAL_DIR = os.path.join(ROOT_DIR, 'international_data')
 
@@ -198,7 +199,7 @@ def load():
 
         load_news,        
         # load_drafts,
-        # load_salaries,
+        load_salaries,
         # load_jobs,
         # load_transactions,
         load_name_maps,
@@ -2153,9 +2154,12 @@ def load_teams():
 
 
 def load_salaries():
-    from soccerdata.text import salaries
+    from parse.parse import salaries
 
-    generic_load(soccer_db.salaries, salaries.load_salaries)
+    for competition in sorted(os.listdir(os.path.join(MONEY_DIR, 'salaries'))):
+        for season in sorted(os.listdir(os.path.join(MONEY_DIR, 'salaries', competition))):
+            fn = os.path.join('salaries', competition, season)
+            generic_load(soccer_db.salaries, lambda: salaries.process_salaries(fn, MONEY_DIR))
 
 
 def load_drafts():

@@ -90,7 +90,7 @@ Missing or thin source data. Roughly ordered by how much is missing.
   ASL2, NASL, Canada, CONCACAF, USMNT and indoor in `enabled_loaders`
   (`make/load.py`). Canada and CONCACAF currently load only selected
   competitions and seasons. Every other source — ISL, US minor leagues, other
-  international data, drafts, jobs and salaries — is loaded by nothing, and
+  international data, drafts and jobs — is loaded by nothing, and
   production has the same shape. Decide, dataset by dataset, what else comes
   back.
 - [ ] The tests only run on a machine listed in `settings.py`. `ROOT_DIR = roots[host]`
