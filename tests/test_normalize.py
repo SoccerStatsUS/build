@@ -12,6 +12,7 @@ from normalize import (
     normalize_salary,
     normalize_sponsorship,
     normalize_valuation,
+    normalize_ownership,
     salary_position,
 )
 
@@ -172,6 +173,11 @@ def test_normalize_sponsorship_leaves_a_league_deal_without_a_club():
 def test_normalize_valuation_normalizes_the_team():
     e = normalize_valuation({'team': 'Montreal Impact', 'competition': 'Major League Soccer'})
     assert e['team'] == 'CF Montréal'
+
+
+def test_normalize_ownership_normalizes_the_club():
+    e = normalize_ownership({'club': 'Kansas City Wizards', 'competition': 'Major League Soccer'})
+    assert e['club'] == 'Sporting Kansas City'
 
 
 def test_an_unknown_salary_position_is_kept_ungrouped(capsys):
