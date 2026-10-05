@@ -148,6 +148,7 @@ SINGLE_SOURCES = [
     'operators', # club, years -> owner
     'sales', # club, year -> price
     'expansion_fees', # club -> integer
+    'transfers', # player, clubs, season -> fee
     'positions', # player, date -> team
     'state_populations', # state -> integer
     'name_maps', # team, date -> string

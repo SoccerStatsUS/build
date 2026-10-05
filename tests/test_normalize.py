@@ -11,6 +11,7 @@ from normalize import (
     normalize_goal,
     normalize_salary,
     normalize_sponsorship,
+    normalize_transfer,
     normalize_valuation,
     normalize_ownership,
     salary_position,
@@ -279,3 +280,10 @@ def test_normalize_game_separates_shootout_winner():
     }, lambda location: (None, location))
     assert e['team1'] == 'CD Olimpia'
     assert e['shootout_winner'] == 'CD Olimpia'
+
+
+def test_normalize_transfer_normalizes_clubs_and_leaves_an_empty_one():
+    e = normalize_transfer({'name': 'Cade Cowell', 'from': 'Montreal Impact', 'to': '',
+                            'competition': 'Major League Soccer'})
+    assert e['from'] == 'CF Montréal'
+    assert e['to'] == ''

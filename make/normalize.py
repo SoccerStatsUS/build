@@ -63,6 +63,7 @@ def normalize():
     normalize_single_coll(soccer_db.valuations, normalize_valuation)
     for coll in (soccer_db.operators, soccer_db.sales, soccer_db.expansion_fees):
         normalize_single_coll(coll, normalize_ownership)
+    normalize_single_coll(soccer_db.transfers, normalize_transfer)
     normalize_single_coll(soccer_db.picks, normalize_pick)
     normalize_single_coll(soccer_db.positions, normalize_position)
     normalize_multiple_colls('awards', normalize_award)
@@ -425,6 +426,15 @@ def normalize_valuation(e):
 
 def normalize_ownership(e):
     e['club'] = get_team(e['club'])
+    e['competition'] = get_competition(e['competition'])
+    return e
+
+
+def normalize_transfer(e):
+    e['name'] = get_name(e['name'])
+    for k in ('from', 'to'):
+        if e[k]:
+            e[k] = get_team(e[k])
     e['competition'] = get_competition(e['competition'])
     return e
 
