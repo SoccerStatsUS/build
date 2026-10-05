@@ -61,7 +61,7 @@ def normalize():
     normalize_single_coll(soccer_db.salaries, normalize_salary)
     normalize_single_coll(soccer_db.sponsorships, normalize_sponsorship)
     normalize_single_coll(soccer_db.valuations, normalize_valuation)
-    for coll in (soccer_db.operators, soccer_db.sales, soccer_db.expansion_fees):
+    for coll in (soccer_db.operators, soccer_db.sales, soccer_db.expansion_fees, soccer_db.net_worths):
         normalize_single_coll(coll, normalize_ownership)
     normalize_single_coll(soccer_db.transfers, normalize_transfer)
     normalize_single_coll(soccer_db.rules, normalize_rules)

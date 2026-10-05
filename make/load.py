@@ -2340,11 +2340,12 @@ def load_ownership():
     from parse.parse import ownership
 
     collections = {'operators': soccer_db.operators, 'sales': soccer_db.sales,
-                   'expansion-fees': soccer_db.expansion_fees}
+                   'expansion-fees': soccer_db.expansion_fees, 'net-worth': soccer_db.net_worths}
     for competition in sorted(os.listdir(os.path.join(MONEY_DIR, 'ownership'))):
         for name, coll in collections.items():
             fn = os.path.join('ownership', competition, name)
-            generic_load(coll, lambda: ownership.process_ownership(fn, MONEY_DIR))
+            if os.path.exists(os.path.join(MONEY_DIR, fn)):
+                generic_load(coll, lambda: ownership.process_ownership(fn, MONEY_DIR))
 
 
 def load_drafts():
