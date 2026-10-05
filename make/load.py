@@ -270,6 +270,7 @@ def load():
         # load_drafts,
         load_salaries,
         load_sponsorships,
+        load_media,
         load_valuations,
         load_ownership,
         # load_jobs,
@@ -2289,6 +2290,21 @@ def load_sponsorships():
         for kind in sorted(os.listdir(os.path.join(MONEY_DIR, 'sponsorships', competition))):
             fn = os.path.join('sponsorships', competition, kind)
             generic_load(soccer_db.sponsorships, lambda: sponsorships.process_sponsorships(fn, MONEY_DIR))
+
+
+def load_media():
+    """TV and streaming deals, in the sponsorship format with partner and rights columns."""
+    from parse.parse import sponsorships
+
+    def rows(fn):
+        for e in sponsorships.process_sponsorships(fn, MONEY_DIR):
+            e['sponsor'], e['property'] = e.pop('partner'), e.pop('rights')
+            yield e
+
+    for competition in sorted(os.listdir(os.path.join(MONEY_DIR, 'media'))):
+        for kind in sorted(os.listdir(os.path.join(MONEY_DIR, 'media', competition))):
+            fn = os.path.join('media', competition, kind)
+            generic_load(soccer_db.sponsorships, lambda: list(rows(fn)))
 
 
 def load_valuations():
