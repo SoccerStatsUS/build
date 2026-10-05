@@ -11,6 +11,7 @@ from normalize import (
     normalize_goal,
     normalize_salary,
     normalize_sponsorship,
+    normalize_rules,
     normalize_transfer,
     normalize_valuation,
     normalize_ownership,
@@ -287,3 +288,7 @@ def test_normalize_transfer_normalizes_clubs_and_leaves_an_empty_one():
                             'competition': 'Major League Soccer'})
     assert e['from'] == 'CF Montréal'
     assert e['to'] == ''
+
+
+def test_normalize_rules_normalizes_the_competition():
+    assert normalize_rules({'competition': 'MLS'})['competition'] == 'Major League Soccer'

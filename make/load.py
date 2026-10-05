@@ -274,6 +274,7 @@ def load():
         load_valuations,
         load_ownership,
         load_transfers,
+        load_rules,
         # load_jobs,
         # load_transactions,
         load_name_maps,
@@ -2325,6 +2326,14 @@ def load_transfers():
         for season in sorted(os.listdir(os.path.join(MONEY_DIR, 'transfers', competition))):
             fn = os.path.join('transfers', competition, season)
             generic_load(soccer_db.transfers, lambda: transfers.process_transfers(fn, MONEY_DIR))
+
+
+def load_rules():
+    from parse.parse import rules
+
+    for competition in sorted(os.listdir(os.path.join(MONEY_DIR, 'rules'))):
+        fn = os.path.join('rules', competition)
+        generic_load(soccer_db.rules, lambda: rules.process_rules(fn, MONEY_DIR))
 
 
 def load_ownership():
