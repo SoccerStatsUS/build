@@ -66,6 +66,7 @@ def normalize():
     normalize_single_coll(soccer_db.transfers, normalize_transfer)
     normalize_single_coll(soccer_db.rules, normalize_rules)
     normalize_single_coll(soccer_db.stadium_costs, normalize_ownership)
+    normalize_single_coll(soccer_db.staff_pay, normalize_staff)
     normalize_single_coll(soccer_db.picks, normalize_pick)
     normalize_single_coll(soccer_db.positions, normalize_position)
     normalize_multiple_colls('awards', normalize_award)
@@ -443,6 +444,11 @@ def normalize_transfer(e):
 
 def normalize_rules(e):
     e['competition'] = get_competition(e['competition'])
+    return e
+
+
+def normalize_staff(e):
+    e['name'] = get_name(e['name'])
     return e
 
 
