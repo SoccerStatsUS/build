@@ -151,6 +151,7 @@ SINGLE_SOURCES = [
     'net_worths', # owner, year -> integer
     'transfers', # player, clubs, season -> fee
     'rules', # competition, season -> salary budget and limits
+    'stadium_costs', # club, stadium, year -> cost
     'positions', # player, date -> team
     'state_populations', # state -> integer
     'name_maps', # team, date -> string
