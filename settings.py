@@ -152,6 +152,7 @@ SINGLE_SOURCES = [
     'transfers', # player, clubs, season -> fee
     'rules', # competition, season -> salary budget and limits
     'stadium_costs', # club, stadium, year -> cost
+    'staff_pay', # organization, person, year -> pay
     'positions', # player, date -> team
     'state_populations', # state -> integer
     'name_maps', # team, date -> string

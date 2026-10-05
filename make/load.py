@@ -276,6 +276,7 @@ def load():
         load_transfers,
         load_rules,
         load_stadiums,
+        load_staff,
         # load_jobs,
         # load_transactions,
         load_name_maps,
@@ -2343,6 +2344,14 @@ def load_stadiums():
     for competition in sorted(os.listdir(os.path.join(MONEY_DIR, 'stadiums'))):
         fn = os.path.join('stadiums', competition)
         generic_load(soccer_db.stadium_costs, lambda: stadiums.process_stadiums(fn, MONEY_DIR))
+
+
+def load_staff():
+    from parse.parse import staff
+
+    for organization in sorted(os.listdir(os.path.join(MONEY_DIR, 'staff'))):
+        fn = os.path.join('staff', organization)
+        generic_load(soccer_db.staff_pay, lambda: staff.process_staff(fn, MONEY_DIR))
 
 
 def load_ownership():
