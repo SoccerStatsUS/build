@@ -277,7 +277,7 @@ def load():
         load_rules,
         load_stadiums,
         load_staff,
-        # load_jobs,
+        load_jobs,
         # load_transactions,
         load_name_maps,
         load_stadium_maps,
@@ -2375,32 +2375,11 @@ def load_drafts():
 
 
 def load_jobs():
-    from soccerdata.text import positions, p2
-    #print("Loading jobs.")
+    from parse.parse import jobs
 
-    jobs = os.path.join(ROOT_DIR, 'soccerdata/data/jobs/')
-
-    # This is messed up. 
-    # Terribly.
-    # Need to address badly.
-
-    # Or merge into transactions?
-    
-
-    #f1 = lambda: p2.process_file(os.path.join(jobs, 'world/england'), 'Head Coach')
-    #f1 = lambda: p2.process_file(os.path.join(jobs, 'world/argentina'), 'Head Coach')
-
-    #f2 = lambda: p2.process_file(os.path.join(jobs, 'usa/d1/mls/head'), 'Head Coach', delimiter=';')
-    #f2 = lambda: p2.process_file(os.path.join(jobs, 'usa/d1/nasl/head'), 'Head Coach', delimiter=';')
-    #f2 = lambda: p2.process_file(os.path.join(jobs, 'usa/d1/asl/head'), 'Head Coach', delimiter=';')
-
-    #f2 = lambda: p2.process_file(os.path.join(jobs, 'usa/d2/nasl/head'), 'Head Coach', delimiter=';')
-    #f2 = lambda: p2.process_file(os.path.join(jobs, 'usa/d2/ussfd2'), 'Head Coach', delimiter=';')
-    #f2 = lambda: p2.process_file(os.path.join(jobs, 'usa/d3/uslpro'), 'Head Coach', delimiter=';')
-
-    #generic_load(soccer_db.positions, positions.process_positions)
-    #generic_load(soccer_db.positions, f1)
-    #generic_load(soccer_db.positions, f2)
+    for competition in sorted(os.listdir(os.path.join(MONEY_DIR, 'jobs'))):
+        fn = os.path.join('jobs', competition)
+        generic_load(soccer_db.jobs, lambda: jobs.process_jobs(fn, MONEY_DIR))
 
 
 def load_copa_america():
