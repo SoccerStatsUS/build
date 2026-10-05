@@ -3,6 +3,7 @@
 # Consider trimming down dramatically.
 # Data quality is too low.
 
+import datetime
 import functools
 import json
 import os
@@ -132,6 +133,73 @@ def load_espn_games(subdir):
         generic_load(soccer_db.espn_games, lambda: gms, delete=False)
 
 
+# espn's league directories, loaded by load_espn_games; every other directory
+# under espn_data is a national-team competition, one file per season.
+ESPN_LEAGUES = {'mls', 'nwsl', 'usl', 'parsed', 'raw'}
+
+# The stretch of US men's games nothing but espn holds: usmnt_data ends
+# 2017-07-01 and ussoccer_data starts in 2019.
+USMNT_GAP = (datetime.datetime(2017, 7, 2), datetime.datetime(2018, 12, 31))
+
+
+def load_espn_national():
+    """
+    Every country's national-team games from espn, 2017 on, men's and women's.
+
+    espn names a women's side the same as the men's, so every team in a women's
+    competition (code `women` in the definitions) is given the "<Country>
+    Women" name the rest of the data uses.
+
+    A venue is kept only where it names a stadium on record. espn gives the
+    stadium alone, with no city, and an unknown one would become a city of that
+    name.
+
+    US men's games before July 2017 and from 2019 are already held, from
+    usmnt_data and ussoccer_data, which spell opponents differently ("G.
+    Ochoa"); their goals, cards and lineups would duplicate rather than merge.
+    For those games espn supplies only the game, which merge uses to fill
+    blanks.
+    """
+    from metadata.alias import get_stadium
+    from metadata.alias.competitions import get_competition
+    from metadata.parse.competitions import load_competitions
+
+    women = {c['name'] for c in load_competitions() if c['code'] == 'women'}
+    stadiums = {get_stadium(s['name']).strip().lower() for s in soccer_db.stadiums.find()}
+
+    def women_side(e, keys):
+        for k in keys:
+            if e.get(k):
+                e[k] = '%s Women' % get_team(e[k])
+
+    for slug in sorted(os.listdir(ESPN_DIR)):
+        if slug in ESPN_LEAGUES or not os.path.isdir(os.path.join(ESPN_DIR, slug)) or slug.startswith('.'):
+            continue
+        for name in sorted(os.listdir(os.path.join(ESPN_DIR, slug))):
+            print('%s/%s' % (slug, name))
+            gms, goals, fouls, lineups, rosters = games.process_file(os.path.join(ESPN_DIR, slug, name))
+
+            held = set()
+            for g in gms:
+                if g.get('location') and get_stadium(g['location']).strip().lower() not in stadiums:
+                    g['location'] = ''
+                if get_competition(g['competition']) in women:
+                    women_side(g, ('team1', 'team2', 'home_team', 'shootout_winner'))
+                elif 'United States' in (g['team1'], g['team2']) and not USMNT_GAP[0] <= g['date'] <= USMNT_GAP[1]:
+                    held.add(g['gid'])
+
+            for rows, keys in ((goals, ('team', 'opponent')), (fouls, ('team',)), (lineups, ('team',))):
+                rows[:] = [e for e in rows if e['gid'] not in held]
+                for e in rows:
+                    if get_competition(e['competition']) in women:
+                        women_side(e, keys)
+
+            generic_load(soccer_db.espn_games, lambda: gms, delete=False)
+            generic_load(soccer_db.espn_goals, lambda: goals, delete=False)
+            generic_load(soccer_db.espn_fouls, lambda: fouls, delete=False)
+            generic_load(soccer_db.espn_lineups, lambda: lineups, delete=False)
+
+
 def load_stats_dir(coll, subdir, root, since=None):
     """
     Load every season stats file the scrapers converted into a directory,
@@ -258,6 +326,7 @@ def load():
         load_world_cup,
         load_concacaf_international,
         load_usmnt,
+        load_espn_national,
         # Indoor
         load_indoor,
 
